@@ -18,6 +18,7 @@
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ico_return"] style:UIBarButtonItemStylePlain target:self action:@selector(retBtnClick)];
     self.title=@"店铺详情";
+    //
     _shopDic=[[NSMutableDictionary alloc] init];
     self.view.backgroundColor=RGBACOLOR(234, 234, 234, 1);
     [self getOrderData];
