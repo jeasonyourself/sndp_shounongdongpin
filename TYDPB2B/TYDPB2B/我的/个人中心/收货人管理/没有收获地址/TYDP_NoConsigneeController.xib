@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TYDP_NoConsigneeController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您还没有添加收货地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKl-Ke-yrm">
+                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="address_icon_blank" translatesAutoresizingMaskIntoConstraints="NO" id="kde-PM-mty">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="Ers-rc-g0w"/>
+                        <constraint firstAttribute="width" constant="100" id="t2S-wY-eec"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Ers-rc-g0w"/>
+                            <exclude reference="t2S-wY-eec"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="Ers-rc-g0w"/>
+                            <include reference="t2S-wY-eec"/>
+                        </mask>
+                    </variation>
+                </imageView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="aKl-Ke-yrm" firstAttribute="top" secondItem="kde-PM-mty" secondAttribute="bottom" constant="20" id="4fM-9H-VV8"/>
+                <constraint firstItem="aKl-Ke-yrm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Asg-Gl-LWm"/>
+                <constraint firstItem="kde-PM-mty" firstAttribute="centerX" secondItem="aKl-Ke-yrm" secondAttribute="centerX" id="tBn-mB-3zb"/>
+                <constraint firstItem="aKl-Ke-yrm" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="uPg-kz-qlB"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="aKl-Ke-yrm"/>
+                    <exclude reference="kde-PM-mty"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="tBn-mB-3zb"/>
+                    <exclude reference="4fM-9H-VV8"/>
+                    <exclude reference="Asg-Gl-LWm"/>
+                    <exclude reference="uPg-kz-qlB"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="aKl-Ke-yrm"/>
+                    <include reference="kde-PM-mty"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="tBn-mB-3zb"/>
+                    <include reference="4fM-9H-VV8"/>
+                    <include reference="Asg-Gl-LWm"/>
+                    <include reference="uPg-kz-qlB"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+    <resources>
+        <image name="address_icon_blank" width="52" height="56"/>
+    </resources>
+</document>

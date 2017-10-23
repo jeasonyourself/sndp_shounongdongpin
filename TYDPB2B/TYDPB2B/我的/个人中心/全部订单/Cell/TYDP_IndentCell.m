@@ -1,0 +1,24 @@
+//
+//  TYDP_IndentCell.m
+//  TYDPB2B
+//
+//  Created by 范井泉 on 16/7/20.
+//  Copyright © 2016年 泰洋冻品. All rights reserved.
+//
+
+#import "TYDP_IndentCell.h"
+
+@implementation TYDP_IndentCell
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+@end
