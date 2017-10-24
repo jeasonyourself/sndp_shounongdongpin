@@ -125,10 +125,19 @@
         make.top.equalTo(leftImageView.mas_top);
         make.height.mas_equalTo(45);
     }];
+    
+    debugLog(@"sureeee_orderDic:%@",_orderDic);
     UILabel *rightBottomLabel = [UILabel new];
     [topView addSubview:rightBottomLabel];
     //    [rightBottomLabel setBackgroundColor:[UIColor greenColor]];
-    [rightBottomLabel setText:[NSString stringWithFormat:@"¥%@",_orderDic[@"goodsPrice"]]];
+    if ([[NSString stringWithFormat:@"%@",_orderDic[@"sell_type"]] isEqualToString:@"4"]) {
+        rightBottomLabel.text=[NSString stringWithFormat:@"%@/%@  %@件/吨",[NSString stringWithFormat:@"%@",_orderDic[@"formated_shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"spec_2"]]];
+        
+    }
+    else  {
+        rightBottomLabel.text=[NSString stringWithFormat:@"%@/%@  %@件/吨",[NSString stringWithFormat:@"%@",_orderDic[@"shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"goods_weight"]]];
+    }
+   
     [rightBottomLabel setTextColor:RGBACOLOR(252, 91, 49, 1)];
     [rightBottomLabel setFont:ThemeFont(OrderFontSize)];
     [rightBottomLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -136,57 +145,6 @@
         make.top.equalTo(rightTopLabel.mas_bottom);
 //        make.width.mas_equalTo(ScreenWidth/2);
         make.height.mas_equalTo(45);
-    }];
-    UILabel *rightBottomMeasureLabel = [UILabel new];
-    [topView addSubview:rightBottomMeasureLabel];
-    //    [rightBottomMeasureLabel setBackgroundColor:[UIColor redColor]];
-    [rightBottomMeasureLabel setText:@"/吨"];
-    [rightBottomMeasureLabel setTextColor:RGBACOLOR(136, 136, 136, 1)];
-    [rightBottomMeasureLabel setFont:ThemeFont(OrderFontSize)];
-    [rightBottomMeasureLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(rightBottomLabel.mas_right);
-        make.top.equalTo(rightTopLabel.mas_bottom);
-        make.height.mas_equalTo(45);
-    }];
-    UILabel *middleAmountLabel = [UILabel new];
-//    [middleAmountLabel setBackgroundColor:[UIColor greenColor]];
-    UILabel *middleAmountLastLabel = [UILabel new];
-//    [middleAmountLastLabel setBackgroundColor:[UIColor redColor]];
-    UIView *middleDecoratorView = [UIView new];
-    middleDecoratorView.layer.cornerRadius = 5;
-    middleDecoratorView.layer.borderColor = [RGBACOLOR(255, 92, 9, 1) CGColor];
-    middleDecoratorView.layer.borderWidth = 1;
-    [topView addSubview:middleDecoratorView];
-    [middleAmountLabel setTextColor:RGBACOLOR(255, 92, 9, 1)];
-    [middleAmountLabel setFont:ThemeFont(CommonFontSize)];
-    [middleAmountLabel setClipsToBounds:YES];
-    [topView addSubview:middleAmountLabel];
-    [middleAmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(rightBottomMeasureLabel.mas_right).with.offset(MiddleGap);
-        make.centerY.equalTo(rightBottomMeasureLabel);
-        make.height.mas_equalTo(25);
-    }];
-    [middleAmountLastLabel setTextColor:[UIColor grayColor]];
-            [middleAmountLabel setText:_orderDic[@"frontNumber"]];
-            [middleAmountLastLabel setText:_orderDic[@"behindUnit"]];
-//    if ([_offerDetailModel.sell_type isEqualToString:@"4"]) {
-//        [middleAmountLabel setText:[NSString stringWithFormat:@"%@",_offerDetailModel.spec_2]];
-//        [middleAmountLastLabel setText:[NSString stringWithFormat:@"%@",_offerDetailModel.spec_2_unit]];
-//    } else {
-//        [middleAmountLabel setText:[NSString stringWithFormat:@"%@吨",_offerDetailModel.goods_weight]];
-//        [middleAmountLastLabel setText:[NSString stringWithFormat:@"/柜"]];                }
-    [middleAmountLastLabel setFont:ThemeFont(CommonFontSize)];
-    [topView addSubview:middleAmountLastLabel];
-    [middleAmountLastLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(middleAmountLabel.mas_right);
-        make.centerY.equalTo(rightBottomMeasureLabel);
-        make.height.mas_equalTo(25);
-    }];
-    [middleDecoratorView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(middleAmountLabel).with.offset(-5);
-        make.top.equalTo(middleAmountLabel);
-        make.right.equalTo(middleAmountLastLabel).with.offset(5);
-        make.bottom.equalTo(middleAmountLabel);
     }];
     [self createMiddleUIWithFrontView:topView];
 }

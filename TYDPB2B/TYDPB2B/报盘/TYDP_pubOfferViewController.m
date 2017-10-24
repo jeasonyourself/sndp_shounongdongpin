@@ -1501,7 +1501,8 @@
 //            if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
 //                cell.unitLable.text=@"件/吨";
 //            }
-           if ([_dic2 objectForKey:@"spec_1"]) {
+           
+           if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""]) {
                cell.unitLable.text=[NSString stringWithFormat:@"KG/件  %ld件/吨",1000/[[_dic2 objectForKey:@"spec_1"] integerValue]];
            }
            else
@@ -1821,7 +1822,8 @@
                 cell.name_inputField.text=@"";
             }
             
-            if ([_pubOfferMD.user_info[@"alias"] isEqualToString:@""]) {
+            if ([_pubOfferMD.user_info[@"mobile_phone"] isEqualToString:@""]) {
+                
                 cell.name_inputField.userInteractionEnabled=YES;
             }
             else
@@ -1946,7 +1948,7 @@
                        cell.inputField.tag=cell.tag;
                        cell.inputField.delegate=self;
                        
-                       if ([_dic2 objectForKey:@"spec_1"]) {
+                       if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
                            cell.unitLable.text=[NSString stringWithFormat:@"KG/件  %ld件/吨",1000/[[_dic2 objectForKey:@"spec_1"] integerValue]];
                        }
                        else
@@ -2295,7 +2297,7 @@
                             cell.name_inputField.text=@"";
                         }
                         
-                        if ([_pubOfferMD.user_info[@"alias"] isEqualToString:@""]) {
+                        if ([_pubOfferMD.user_info[@"mobile_phone"] isEqualToString:@""]) {
                             cell.name_inputField.userInteractionEnabled=YES;
                         }
                         else
@@ -2417,7 +2419,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        if ([_dic2 objectForKey:@"spec_1"]) {
+                        if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
                             cell.unitLable.text=[NSString stringWithFormat:@"KG/件  %ld件/吨",1000/[[_dic2 objectForKey:@"spec_1"] integerValue]];
                         }
                         else
@@ -2595,7 +2597,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                        
-                        if ([_dic4 objectForKey:@"spec_1"]) {
+                        if ([_dic4 objectForKey:@"spec_1"]&&![[_dic4 objectForKey:@"spec_1"] isEqualToString:@""])  {
                             cell.unitLable.text=[NSString stringWithFormat:@"KG/件  %ld件/吨",1000/[[_dic4 objectForKey:@"spec_1"] integerValue]];
                         }
                         else
@@ -2938,7 +2940,7 @@
                             cell.name_inputField.text=@"";
                         }
                         
-                        if ([_pubOfferMD.user_info[@"alias"] isEqualToString:@""]) {
+                        if ([_pubOfferMD.user_info[@"mobile_phone"] isEqualToString:@""]) {
                             cell.name_inputField.userInteractionEnabled=YES;
                         }
                         else
@@ -3063,7 +3065,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        if ([_dic2 objectForKey:@"spec_1"]) {
+                        if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
                             cell.unitLable.text=[NSString stringWithFormat:@"KG/件  %ld件/吨",1000/[[_dic2 objectForKey:@"spec_1"] integerValue]];
                         }
                         else
@@ -3239,7 +3241,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                        
-                        if ([_dic4 objectForKey:@"spec_1"]) {
+                        if ([_dic4 objectForKey:@"spec_1"]&&![[_dic4 objectForKey:@"spec_1"] isEqualToString:@""])  {
                             cell.unitLable.text=[NSString stringWithFormat:@"KG/件  %ld件/吨",1000/[[_dic4 objectForKey:@"spec_1"] integerValue]];
                         }
                         else
@@ -3415,7 +3417,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                        
-                        if ([_dic6 objectForKey:@"spec_1"]) {
+                        if ([_dic6 objectForKey:@"spec_1"]&&![[_dic6 objectForKey:@"spec_1"] isEqualToString:@""])  {
                             cell.unitLable.text=[NSString stringWithFormat:@"KG/件  %ld件/吨",1000/[[_dic6 objectForKey:@"spec_1"] integerValue]];
                         }
                         else
@@ -3763,7 +3765,7 @@
                             cell.name_inputField.text=@"";
                         }
                         
-                        if ([_pubOfferMD.user_info[@"alias"] isEqualToString:@""]) {
+                        if ([_pubOfferMD.user_info[@"mobile_phone"] isEqualToString:@""]) {
                             cell.name_inputField.userInteractionEnabled=YES;
                         }
                         else
@@ -4012,7 +4014,7 @@
                     cell.tag=indexPath.section*100+indexPath.row;
                     cell.inputField.delegate=self;
                     cell.inputField.tag=cell.tag;
-                    if ([_dic2 objectForKey:@"spec_1"]) {
+                    if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
                         cell.unitLable.text=[NSString stringWithFormat:@"KG/件  %ld件/吨",1000/[[_dic2 objectForKey:@"spec_1"] integerValue]];
                     }
                     else
@@ -4308,7 +4310,7 @@
                         cell.name_inputField.text=@"";
                     }
                     
-                    if ([_pubOfferMD.user_info[@"alias"] isEqualToString:@""]) {
+                    if ([_pubOfferMD.user_info[@"mobile_phone"] isEqualToString:@""]) {
                         cell.name_inputField.userInteractionEnabled=YES;
                     }
                     else
@@ -4531,7 +4533,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        if ([_dic2 objectForKey:@"spec_1"]) {
+                        if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
                             cell.unitLable.text=[NSString stringWithFormat:@"KG/件  %ld件/吨",1000/[[_dic2 objectForKey:@"spec_1"] integerValue]];
                         }
                         else
@@ -4853,7 +4855,7 @@
                             cell.name_inputField.text=@"";
                         }
                         
-                        if ([_pubOfferMD.user_info[@"alias"] isEqualToString:@""]) {
+                        if ([_pubOfferMD.user_info[@"mobile_phone"] isEqualToString:@""]) {
                             cell.name_inputField.userInteractionEnabled=YES;
                         }
                         else
@@ -5072,7 +5074,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        if ([_dic2 objectForKey:@"spec_1"]) {
+                        if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
                             cell.unitLable.text=[NSString stringWithFormat:@"KG/件  %ld件/吨",1000/[[_dic2 objectForKey:@"spec_1"] integerValue]];
                         }
                         else
@@ -5236,7 +5238,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        if ([_dic4 objectForKey:@"spec_1"]) {
+                        if ([_dic4 objectForKey:@"spec_1"]&&![[_dic4 objectForKey:@"spec_1"] isEqualToString:@""])  {
                             cell.unitLable.text=[NSString stringWithFormat:@"KG/件  %ld件/吨",1000/[[_dic4 objectForKey:@"spec_1"] integerValue]];
                         }
                         else
@@ -5558,7 +5560,7 @@
                             cell.name_inputField.text=@"";
                         }
                         
-                        if ([_pubOfferMD.user_info[@"alias"] isEqualToString:@""]) {
+                        if ([_pubOfferMD.user_info[@"mobile_phone"] isEqualToString:@""]) {
                             cell.name_inputField.userInteractionEnabled=YES;
                         }
                         else
@@ -5779,7 +5781,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        if ([_dic2 objectForKey:@"spec_1"]) {
+                        if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
                             cell.unitLable.text=[NSString stringWithFormat:@"KG/件  %ld件/吨",1000/[[_dic2 objectForKey:@"spec_1"] integerValue]];
                         }
                         else
@@ -5943,7 +5945,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        if ([_dic4 objectForKey:@"spec_1"]) {
+                        if ([_dic4 objectForKey:@"spec_1"]&&![[_dic4 objectForKey:@"spec_1"] isEqualToString:@""])  {
                             cell.unitLable.text=[NSString stringWithFormat:@"KG/件  %ld件/吨",1000/[[_dic4 objectForKey:@"spec_1"] integerValue]];
                         }
                         else
@@ -6117,7 +6119,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        if ([_dic6 objectForKey:@"spec_1"]) {
+                        if ([_dic6 objectForKey:@"spec_1"]&&![[_dic6 objectForKey:@"spec_1"] isEqualToString:@""])  {
                             cell.unitLable.text=[NSString stringWithFormat:@"KG/件  %ld件/吨",1000/[[_dic6 objectForKey:@"spec_1"] integerValue]];
                         }
                         else
@@ -6441,7 +6443,7 @@
                             cell.name_inputField.text=@"";
                         }
                         
-                        if ([_pubOfferMD.user_info[@"alias"] isEqualToString:@""]) {
+                        if ([_pubOfferMD.user_info[@"mobile_phone"] isEqualToString:@""]) {
                             cell.name_inputField.userInteractionEnabled=YES;
                         }
                         else
@@ -10174,11 +10176,18 @@
 
 -(void)pubAllDate
 {
+    
+    if ([_otherDic[@"alias"] isEqualToString:@""]) {
+        [self.view Message:@"请输入联系人姓名" HiddenAfterDelay:1.0];
+        return;
+    }
+    if ([_otherDic[@"mobile_phone"] isEqualToString:@""]) {
+         [self.view Message:@"请输入联系人电话" HiddenAfterDelay:1.0];
+        return;
+    }
       [_MBHUD setLabelText:@"请稍后..."];
     if ([self.if_addOrEditOrCopy isEqualToString:@"1"]||[self.if_addOrEditOrCopy isEqualToString:@"3"])//新增和复制
     {
-        
-    
     if ([[_goodsCharacterArr objectAtIndex:1] isEqualToString:@"4"])//零售
     {
     NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];

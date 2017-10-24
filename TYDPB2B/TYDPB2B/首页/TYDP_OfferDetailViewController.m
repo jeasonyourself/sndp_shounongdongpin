@@ -1227,8 +1227,8 @@ typedef enum {
                 break;
             }
             case 3:{
-                if (![goodsDetailMD.specs_1 isEqualToString:@""]&&goodsDetailMD.specs_1) {
-                    infoString = [NSString stringWithFormat:@"%@%@",goodsDetailMD.specs_1,goodsDetailMD.specs_1_unit];
+                if (![goodsDetailMD.specs_3 isEqualToString:@""]&&goodsDetailMD.specs_3) {
+                    infoString = [NSString stringWithFormat:@"%@%@",goodsDetailMD.specs_3,goodsDetailMD.specs_3_unit];
                 }
                 break;
             }
@@ -2142,7 +2142,7 @@ typedef enum {
                     [bottomCellView addSubview:middleTopLabel];
                     UILabel *middlePriceLabel = [UILabel new];
                     if ([_offerDetailModel.sell_type isEqualToString:@"4"]) {
-                        [middlePriceLabel setText:[NSString stringWithFormat:@"¥%@/%@  %@件/吨",_offerDetailModel.shop_price,_offerDetailModel.shop_price_unit,_offerDetailModel.spec_2]];
+                        [middlePriceLabel setText:[NSString stringWithFormat:@"%@/%@  %@件/吨",_offerDetailModel.formated_shop_price,_offerDetailModel.shop_price_unit,_offerDetailModel.spec_2]];
                     }
                     else  {
                         [middlePriceLabel setText:[NSString stringWithFormat:@"¥%@/%@  %@吨/柜",_offerDetailModel.shop_price,_offerDetailModel.shop_price_unit,_offerDetailModel.goods_weight]];
@@ -2294,6 +2294,14 @@ typedef enum {
                         tmpMeasureString = [NSString stringWithFormat:@"件"];
                     }
                     [tmpDic setObject:tmpMeasureString forKey:@"sellMeasureUnit"];
+                    [tmpDic setObject:_offerDetailModel.formated_shop_price forKey:@"formated_shop_price"];
+                     [tmpDic setObject:_offerDetailModel.shop_price_unit forKey:@"shop_price_unit"];
+                     [tmpDic setObject:_offerDetailModel.spec_2 forKey:@"spec_2"];
+                     [tmpDic setObject:_offerDetailModel.shop_price forKey:@"shop_price"];
+                     [tmpDic setObject:_offerDetailModel.goods_weight forKey:@"goods_weight"];
+                     [tmpDic setObject:_offerDetailModel.sell_type forKey:@"sell_type"];
+                    
+                    
                     TYDP_ConfirmOrderViewController *confirmOrderViewCon = [[TYDP_ConfirmOrderViewController alloc] init];
                     confirmOrderViewCon.orderDic = tmpDic;
                     [self.navigationController pushViewController:confirmOrderViewCon animated:NO];

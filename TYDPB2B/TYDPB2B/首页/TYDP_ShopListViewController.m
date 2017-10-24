@@ -627,7 +627,8 @@ typedef enum {
                 break;
         }
         if (i == tmpInteger) {
-            if (_filterDic) {
+            if (_filterDic)//筛选页面过来的不显示顶部当前类别
+            {
                 
             }
             else
@@ -915,26 +916,22 @@ make.edges.equalTo(bottomCellView).with.insets(UIEdgeInsetsMake(0, 0, Gap, 0)); 
     NSMutableDictionary *tmpDic = [NSMutableDictionary dictionary];
     switch (_typeFlag) {
         case 1:{
-            //                    tmpDic = nil;
-            break;
-        }
-        case 2:{
             [tmpDic setObject:@"7" forKey:@"goods_type"];
             break;
         }
-        case 3:{
+        case 2:{
             [tmpDic setObject:@"6" forKey:@"goods_type"];
             break;
         }
-        case 4:{
+        case 3:{
             [tmpDic setObject:@"8" forKey:@"goods_type"];
             break;
         }
-        case 5:{
+        case 4:{
             [tmpDic setObject:@"5" forKey:@"sell_type"];
             break;
         }
-        case 6:{
+        case 5:{
             [tmpDic setObject:@"4" forKey:@"sell_type"];
             break;
         }
