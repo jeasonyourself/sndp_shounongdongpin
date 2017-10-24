@@ -93,14 +93,21 @@
     if (!_modelArr) {
         _modelArr = [NSArray copy];
     }
+    
     if (!self.model) {
-        _modelArr = @[@"",@"",@"",@"",@"",@"",@""];
+        _modelArr = @[@"",@"",@"",@"",@"",@"",@"",@"",@""];
     }else{
-        _modelArr = @[self.model.user_name,self.model.alias,[self.model.sex isEqualToString:@"1"]?@"男":@"女",self.model.mobile_phone,self.model.email,self.model.address,self.model.shop_name,self.model.shop_info];
+        if (![[PSDefaults objectForKey:@"user_rank"] isEqualToString:@"1"]) {
+        _modelArr = @[self.model.user_name,self.model.alias,[[NSString stringWithFormat:@"%@",self.model.sex] isEqualToString:@"1"]?@"男":@"女",self.model.mobile_phone,self.model.email,self.model.address,self.model.shop_name,self.model.shop_info];
+        }
+        else
+        {
+        _modelArr = @[self.model.user_name,self.model.alias,[[NSString stringWithFormat:@"%@",self.model.sex] isEqualToString:@"1"]?@"男":@"女",self.model.mobile_phone,self.model.email,self.model.address];
+        }
     }
-    debugLog(@"uuuusertype:%@",[PSDefaults objectForKey:@"userType"]);
+    debugLog(@"user_rankkkk:%@",[PSDefaults objectForKey:@"user_rank"]);
     int count;
-    if ([[PSDefaults objectForKey:@"userType"] isEqualToString:@"1"]) {
+    if (![[PSDefaults objectForKey:@"user_rank"] isEqualToString:@"1"]) {
         count=8;
     }
     else
@@ -108,7 +115,7 @@
         count=6;
     }
     for (int i = 0; i<count; i++) {
-        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, (100+45*i)*Height+NavHeight, ScreenWidth, 45*Height)];
+        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, (100+45*i)*Height+NavHeight+i, ScreenWidth, 45*Height)];
         [self.view addSubview:view];
         view.backgroundColor = [UIColor whiteColor];
         
@@ -124,20 +131,21 @@
             UILabel *labRight = [[UILabel alloc]initWithFrame:CGRectMake(ScreenWidth-200*Width, 5*Height, 180*Width, 35*Height)];
             [view addSubview:labRight];
             if (i == 2) {
-                if ([self.model.sex isEqual: @"1"]) {
+                if ([[NSString stringWithFormat:@"%@",self.model.sex] isEqual: @"1"]) {
                     labRight.text = @"男";
-                }else if([self.model.sex isEqual: @"2"]){
+                }else if([[NSString stringWithFormat:@"%@",self.model.sex] isEqual: @"2"]){
                     labRight.text = @"女";
                 }else{
                     labRight.text = @"请选择";
                 }
-            }else{
-                self.cityId = self.model.city;
-                self.provinceId = self.model.province;
+            }
+            else{
+                self.cityId = [NSString stringWithFormat:@"%@",self.model.city];
+                self.provinceId = [NSString stringWithFormat:@"%@",self.model.province];
                 if (!self.provinceId||!self.cityId) {
                     labRight.text = @"请选择";
                 }else{
-                    labRight.text = [self findAddressWithProvince:self.provinceId City:self.cityId];
+                    labRight.text = [self findAddressWithProvince:[NSString stringWithFormat:@"%@",self.provinceId] City:[NSString stringWithFormat:@"%@",self.cityId]];
                 }
             }
             labRight.textAlignment = NSTextAlignmentRight;
@@ -152,18 +160,21 @@
                 UITextField *tf = [[UITextField alloc]initWithFrame:CGRectMake(40*Width+15*Height, 5*Height, 280*Width, 35*Height)];
                 [view addSubview:tf];
                 tf.tag = 100+i;
+                tf.userInteractionEnabled=NO;
                 if ([_modelArr[0]isEqualToString:_modelArr[3]]) {
                     tf.text = _modelArr[0];
                 }else{
                     tf.placeholder = titleArr[i];
                 }
-            }else{
+            }
+            else{
                 UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(40*Width+15*Height, 5*Height, 280*Width, 35*Height)];
                 [view addSubview:lab];
                 lab.tag = 100+i;
                 lab.text = _modelArr[i];
             }
-        }else if(i == 3){//手机号码
+        }
+        else if(i == 3){//手机号码
             UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(40*Width+15*Height, 5*Height, 280*Width, 35*Height)];
             [view addSubview:lab];
             lab.text = _modelArr[i];
@@ -182,7 +193,9 @@
                 make.width.mas_equalTo(10*Width);
                 make.height.mas_equalTo(20*Height);
             }];
-        }else{
+        }
+        else
+        {
             UITextField *tf = [[UITextField alloc]initWithFrame:CGRectMake(40*Width+15*Height, 5*Height, 280*Width, 35*Height)];
             [view addSubview:tf];
 //            if (i == 3) {//手机号输入框定制数字键盘
@@ -196,23 +209,6 @@
                 tf.text = _modelArr[i];
             }
             tf.delegate = self;
-//            if (i == 3) {
-//                tf.keyboardType = UIKeyboardTypeNumberPad;
-//                tf.frame = CGRectMake(40*Width+15*Height, 10*Height, 200*Width, 35*Height);
-//                
-//                UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//                [view addSubview:btn];
-//                btn.frame = CGRectMake(ScreenWidth-120*Width, 10*Height, 100*Width, 35*Height);
-//                [btn setBackgroundColor:RGBACOLOR(84, 133, 222, 1)];
-//                [btn setTitle:@"获取验证码" forState:UIControlStateNormal];
-//                btn.titleLabel.font = [UIFont systemFontOfSize:15];
-//                [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//                btn.layer.cornerRadius = 5;
-//                btn.layer.masksToBounds = YES;
-//                [btn addTarget:self action:@selector(getNumber) forControlEvents:UIControlEventTouchUpInside];
-//            }else{
-//                tf.frame = CGRectMake(40*Width+15*Height, 10*Height, 280*Width, 35*Height);
-//            }
         }
     }
     
@@ -378,13 +374,19 @@
         [_MBHUD setLabelText:@"请稍后..."];
         NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];
         NSDictionary *params;
-         if ([[PSDefaults objectForKey:@"userType"] isEqualToString:@"0"]) {
+         if ([[PSDefaults objectForKey:@"user_rank"] isEqualToString:@"1"]) {
              params = @{@"model":@"user",@"action":@"edit_info",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"useredit_info%@",ConfigNetAppKey]],@"user_id":[userdefaul objectForKey:@"user_id"],@"token":[userdefaul objectForKey:@"token"],@"alias":tf1.text,@"sex":self.model.sex,@"mobile_phone":tf3.text,@"email":tf4.text,@"city":self.cityId,@"province":self.provinceId,@"user_name":user_name};
          }
         else
         {
             params = @{@"model":@"user",@"action":@"edit_info",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"useredit_info%@",ConfigNetAppKey]],@"user_id":[userdefaul objectForKey:@"user_id"],@"token":[userdefaul objectForKey:@"token"],@"alias":tf1.text,@"sex":self.model.sex,@"mobile_phone":tf3.text,@"email":tf4.text,@"city":self.cityId,@"province":self.provinceId,@"user_name":user_name,@"shop_name":tf7.text,@"shop_info":tf8.text};
         }
+        
+        if ([params[@"alias"] isEqualToString:@""]) {
+            [self.view Message:@"请填写真实姓名" HiddenAfterDelay:1.5];
+            return;
+        }
+        
         [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
 //            NSLog(@"%@",data);
 //            NSLog(@"%@",data[@"message"]);

@@ -77,6 +77,8 @@
     [userdefaul removeObjectForKey:@"user_face"];
     [userdefaul removeObjectForKey:@"alias"];
     [userdefaul removeObjectForKey:@"mobile_phone"];
+    [userdefaul removeObjectForKey:@"user_rank"];
+
 }
 - (void)requestData{
     [self creatHUD];
@@ -100,6 +102,8 @@
                 data[@"content"][@"address"]=@"";
             }
             [_model setValuesForKeysWithDictionary:data[@"content"]];
+            [PSDefaults setObject:[NSString stringWithFormat:@"%@",_model.user_rank] forKey:@"user_rank"];
+            debugLog(@"_model_model:%@",_model);
             [_MBHUD hide:YES];
             [self configUIwithData];
         }else{
@@ -248,7 +252,7 @@
     //用户昵称
     _nameLab = [UILabel new];
     [headImg addSubview:_nameLab];
-    _nameLab.text = @"用户昵称";
+//    _nameLab.text = @"用户昵称";
     _nameLab.font=[UIFont systemFontOfSize:15.0];
 //    CGSize nameSize = [_nameLab sizeThatFits:CGSizeMake(260*Width, 20*Height)];
     _nameLab.frame = CGRectMake(110*Width, 70*Height+30*Width, 260*Width, 20*Height);

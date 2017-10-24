@@ -82,15 +82,6 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30件/吨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtY-Lz-3r8">
-                        <rect key="frame" x="198.5" y="65" width="54" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="width" priority="1" constant="53.5" id="R7n-7g-JT9"/>
-                            <constraint firstAttribute="height" constant="20" id="sQT-la-Qqy"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="原价:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="839-kR-wTX">
                         <rect key="frame" x="120" y="90" width="28.5" height="20"/>
                         <constraints>
@@ -192,7 +183,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gv6-kO-Du6">
-                        <rect key="frame" x="0.0" y="162.5" width="187.5" height="30"/>
+                        <rect key="frame" x="0.0" y="152.5" width="187.5" height="40"/>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.55686274509803924" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="fwY-Da-7hk"/>
@@ -202,7 +193,7 @@
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRW-EZ-y5z">
-                        <rect key="frame" x="187.5" y="162.5" width="187.5" height="30"/>
+                        <rect key="frame" x="187.5" y="152.5" width="187.5" height="40"/>
                         <color key="backgroundColor" red="0.90090399980000002" green="0.26851952080000002" blue="0.25050273540000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="fyL-zt-lZE"/>
@@ -249,7 +240,6 @@
                     <constraint firstItem="kjV-Ly-HKo" firstAttribute="top" secondItem="gv6-kO-Du6" secondAttribute="bottom" id="NGm-Mh-n0t"/>
                     <constraint firstItem="bDE-iJ-gIm" firstAttribute="leading" secondItem="OOp-Uy-deO" secondAttribute="trailing" constant="4" id="O4P-gV-xxW"/>
                     <constraint firstItem="839-kR-wTX" firstAttribute="bottom" secondItem="wKT-1e-fCg" secondAttribute="bottom" id="P8O-XT-ZfQ"/>
-                    <constraint firstItem="jtY-Lz-3r8" firstAttribute="leading" secondItem="E7M-yk-yfl" secondAttribute="trailing" constant="10" id="QEn-Dd-BUB"/>
                     <constraint firstItem="nb0-QO-T1i" firstAttribute="centerY" secondItem="fHa-Kr-Aac" secondAttribute="centerY" id="QME-7j-0xQ"/>
                     <constraint firstItem="MB5-as-gmW" firstAttribute="top" secondItem="KWn-0Z-fd8" secondAttribute="bottom" constant="2" id="RRt-mE-dvM"/>
                     <constraint firstAttribute="trailing" secondItem="tgT-So-FTu" secondAttribute="trailing" constant="10" id="TJL-9U-ERY"/>
@@ -265,7 +255,6 @@
                     <constraint firstItem="KWn-0Z-fd8" firstAttribute="leading" secondItem="nb0-QO-T1i" secondAttribute="trailing" constant="10" id="fXZ-aa-Mo9"/>
                     <constraint firstItem="WlM-ef-teg" firstAttribute="leading" secondItem="VBm-nx-wjZ" secondAttribute="trailing" id="hAT-4W-rHa"/>
                     <constraint firstItem="fHa-Kr-Aac" firstAttribute="top" secondItem="UYY-Tp-cXf" secondAttribute="bottom" constant="5" id="hta-hd-RJw"/>
-                    <constraint firstItem="jtY-Lz-3r8" firstAttribute="centerY" secondItem="E7M-yk-yfl" secondAttribute="centerY" id="jJP-lJ-lLk"/>
                     <constraint firstItem="NRW-EZ-y5z" firstAttribute="leading" secondItem="gv6-kO-Du6" secondAttribute="trailing" id="jav-Ce-yNS"/>
                     <constraint firstItem="7BC-k0-mUc" firstAttribute="leading" secondItem="8wr-lR-f0o" secondAttribute="trailing" id="kVh-go-W3h"/>
                     <constraint firstItem="ABt-fq-br0" firstAttribute="leading" secondItem="wKT-1e-fCg" secondAttribute="trailing" constant="10" id="kdc-z3-c2L"/>
@@ -312,7 +301,6 @@
                 <outlet property="subImg2" destination="bDE-iJ-gIm" id="mFm-wL-6VV"/>
                 <outlet property="subImg3" destination="OOp-Uy-deO" id="Fkb-UG-Ihx"/>
                 <outlet property="subImg4" destination="0K0-yA-6vn" id="24g-CN-EhZ"/>
-                <outlet property="suitLab" destination="jtY-Lz-3r8" id="cbK-VR-Cmn"/>
                 <outlet property="timeLable" destination="MB5-as-gmW" id="jRY-b7-7L1"/>
                 <outlet property="titleLab" destination="ABt-fq-br0" id="7ux-1g-yEe"/>
                 <outlet property="typeImg" destination="hqd-Kz-LDi" id="YWj-qk-WdS"/>

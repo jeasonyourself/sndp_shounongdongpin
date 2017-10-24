@@ -163,7 +163,7 @@ typedef enum {
     NSString *Sign = [NSString stringWithFormat:@"%@%@%@",@"goods",@"get_list",ConfigNetAppKey];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"action":@"get_list",@"sign":[TYDPManager md5:Sign],@"model":@"goods"}];
     [params addEntriesFromDictionary:dic];
-    NSLog(@"params:%@",params);
+    NSLog(@"getgoodsListparams:%@",params);
     
     [TYDPManager tydp_basePostReqWithUrlStr:@"" params:params success:^(id data) {
         NSLog(@"shoplistttdata:%@",data);

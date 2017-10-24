@@ -79,14 +79,13 @@ page=1;
             [_goodsModelArray addObjectsFromArray:[goodsBaseModel arrayOfModelsFromDictionaries:data[@"content"][@"list"] error:nil]];
             [_myTableView reloadData];
         }else{
-            [_MBHUD setLabelText:data[@"message"]];
-            [_MBHUD hide:YES afterDelay:1];
-            NSLog(@"%@",data[@"message"]);
+           [_MBHUD hide:YES];
+            debugLog(@"%@",data[@"message"]);
         }
     } failure:^(TYDPError *error) {
-        [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",error]];
-        [_MBHUD hide:YES afterDelay:1];
-        NSLog(@"error:%@",error);
+
+        [_MBHUD hide:YES];
+        debugLog(@"error:%@",error);
     }];
     
 }

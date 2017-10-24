@@ -529,6 +529,7 @@
         make.top.equalTo(DownLeftLabel.mas_bottom);
         make.height.mas_equalTo(55);
     }];
+    
     UILabel *rightNameLable = [UILabel new];
     [bottomView addSubview:rightNameLable];
     [rightNameLable setTextAlignment:NSTextAlignmentRight];

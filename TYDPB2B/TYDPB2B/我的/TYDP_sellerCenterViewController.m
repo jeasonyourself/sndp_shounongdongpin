@@ -79,6 +79,7 @@
     [userdefaul removeObjectForKey:@"user_face"];
     [userdefaul removeObjectForKey:@"alias"];
     [userdefaul removeObjectForKey:@"mobile_phone"];
+    [userdefaul removeObjectForKey:@"user_rank"];
 }
 - (void)requestData{
     [self creatHUD];
@@ -116,11 +117,12 @@
 
 - (void)configUIwithData{
     //用户昵称
-    if ([_model.alias isEqualToString:@""]) {
-        _nameLab.text = @"未设置";
-    }else{
-        _nameLab.text = _model.alias;
-    }
+//    if ([_model.user_name isEqualToString:@""]) {
+//        _nameLab.text = @"";
+//    }else{
+    debugLog(@"_model.user_name:%@",_model.user_name);
+        _nameLab.text = _model.user_name;
+//    }
     
 //    //会员类型
 //    UIImage *tmpImage = [UIImage imageNamed:@"person_icon_member"];
@@ -245,10 +247,9 @@
     //用户昵称
     _nameLab = [UILabel new];
     [headImg addSubview:_nameLab];
-    _nameLab.text = @"用户昵称";
-    CGSize nameSize = [_nameLab sizeThatFits:CGSizeMake(100*Width, 20*Height)];
+//    _nameLab.text = @"用户昵称";
     _nameLab.textAlignment=NSTextAlignmentCenter;
-    _nameLab.frame = CGRectMake(_portraitImg.center.x-nameSize.width/2, _portraitImg.frame.size.height+_portraitImg.frame.origin.y+10, nameSize.width, nameSize.height);
+    _nameLab.frame = CGRectMake(_portraitImg.center.x-ScreenWidth/2, _portraitImg.frame.size.height+_portraitImg.frame.origin.y+10, ScreenWidth, 20);
     _nameLab.textColor = [UIColor whiteColor];
     
 //    //会员类型

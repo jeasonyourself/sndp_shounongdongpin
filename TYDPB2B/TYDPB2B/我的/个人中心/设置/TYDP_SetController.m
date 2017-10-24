@@ -112,6 +112,8 @@
     [userdefaul removeObjectForKey:@"user_face"];
     [userdefaul removeObjectForKey:@"alias"];
     [userdefaul removeObjectForKey:@"mobile_phone"];
+    [userdefaul removeObjectForKey:@"user_rank"];
+
     [self.navigationController popViewControllerAnimated:NO];
 }
 - (void)viewWillAppear:(BOOL)animated{

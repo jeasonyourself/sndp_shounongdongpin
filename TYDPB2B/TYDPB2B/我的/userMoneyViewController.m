@@ -74,6 +74,12 @@
     NSDictionary *params = @{@"model":@"seller",@"action":@"getShopBankList",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"sellergetShopBankList%@",ConfigNetAppKey]],@"user_id":[userdefaul objectForKey:@"user_id"]};
     [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
                 debugLog(@"bankData:%@",data);
+        if ([[NSString stringWithFormat:@"%@",data[@"content"][@"shop"][@"bank_switch"]] isEqualToString:@"0"]) {
+            UIWindow *window = [UIApplication sharedApplication].keyWindow;
+            [window Message:@"尚未开放资金权限" HiddenAfterDelay:1.5];
+            [self.navigationController popViewControllerAnimated:NO];
+        }
+        
         if ([data[@"error"] isEqualToString:@"0"]) {
             bank_count=[NSMutableString stringWithFormat:@"%@",data[@"content"][@"bank_count"]];
             goods_amount_count=[NSMutableString stringWithFormat:@"%@",data[@"content"][@"goods_amount_count"]];

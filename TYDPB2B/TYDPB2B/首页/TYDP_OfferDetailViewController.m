@@ -1524,7 +1524,7 @@ typedef enum {
     CGFloat SecondsKillImageWidth = SecondsKillWidth-30;
     CGFloat SecondsKillLabelWidth = SecondsKillWidth-20;
     CGFloat SecondsKillLabelHeight = 20;
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < _offerDetailModel.goods_base_list.count; i++) {
         goodsBaseModel *miaoShaGoodsMD = _offerDetailModel.goods_base_list[i];
         UIView *SecondsKillsmallFunctionView = [[UIView alloc] initWithFrame:CGRectMake((15+SecondsKillWidth)*(i%3)+15, 35, SecondsKillWidth, SecondsKillHeight)];
         SecondsKillsmallFunctionView.backgroundColor=RGBACOLOR(242, 242, 242, 0.7) ;
@@ -1701,11 +1701,19 @@ typedef enum {
 - (void)leftItemClicked:(UIBarButtonItem *)item{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (BOOL)inputShouldNumber:(NSString *)inputString {
+    if (inputString.length == 0) return NO;
+    NSString *regex =@"[0-9]*";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
+    return [pred evaluateWithObject:inputString];
+}
+
 - (void)updateOfferUI {
     [_smallScrollView removeFromSuperview];
     [_smallContainerView removeFromSuperview];
-    CGFloat smallScrollViewHeight = (ScreenHeight/1.8)*0.44;
-    CGFloat smallLabelHeight = smallScrollViewHeight/3;
+    CGFloat smallScrollViewHeight = (ScreenHeight/1.8)*0.44-36;
+    CGFloat smallLabelHeight = smallScrollViewHeight/3+12;
     _smallScrollView = [UIScrollView new];
     [_offerShowView addSubview:_smallScrollView];
     [_smallScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1764,7 +1772,15 @@ typedef enum {
                 make.top.equalTo(smallView);
                 make.bottom.equalTo(smallView).with.offset(-HomePageBordWidth);
             }];
-            [smallLabel setText:[NSString stringWithFormat:@"  %@",tmpOfferModel.user_name]];
+            
+            NSString *number =[NSString stringWithFormat:@"%@",tmpOfferModel.user_name];
+            debugLog(@"numbernumber:%@",number);
+            if ([self inputShouldNumber:number]) {
+                NSRegularExpression *regularExpression = [NSRegularExpression regularExpressionWithPattern:@"[0-9]" options:0 error:nil];
+                number = [regularExpression stringByReplacingMatchesInString:number options:0 range:NSMakeRange(3, 4) withTemplate:@"*"];
+            }
+            debugLog(@"smallLabelsmallLabel:%@",tmpOfferModel.user_name);
+            [smallLabel setText:[NSString stringWithFormat:@"  %@",number]];
             [middleSmallLabel setText:[NSString stringWithFormat:@"%@",tmpOfferModel.created_at]];
             [rightSmallLabel setText:[NSString stringWithFormat:@"%@／%@  ", tmpOfferModel.formated_price,tmpOfferModel.unit]];
             UILabel *smallBottomDecorateLabel = [UILabel new];
@@ -1976,7 +1992,11 @@ typedef enum {
                         make.height.mas_equalTo(HomePageBordWidth);
                         make.right.equalTo(_topView);
                     }];
+                    
+                    
                     [self updateOfferUI];
+                    
+                    
                     UIView *bottomOfferView = [UIView new];
                     [bottomOfferView setBackgroundColor:[UIColor whiteColor]];
                     [_offerShowView addSubview:bottomOfferView];

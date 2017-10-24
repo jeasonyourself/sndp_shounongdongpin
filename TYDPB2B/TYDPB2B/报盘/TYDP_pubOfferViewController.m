@@ -185,13 +185,13 @@
                     if (arr.count>0) {
                         NSDictionary * firstDic=[arr objectAtIndex:0];;
                         
-                        _dic1[@"region_id"]=[NSString stringWithFormat:@"%@",firstDic[@"region_id"]];
+                        _dic1[@"region_id"]=[NSString stringWithFormat:@"%@",firstDic[@"region"]];
                         _dic1[@"region_name"]=[NSString stringWithFormat:@"%@",firstDic[@"region_name"]];
                         
-                        _dic1[@"brand_id"]=[NSString stringWithFormat:@"%@",firstDic[@"brand_id"]];
+                        _dic1[@"brand_id"]=[NSString stringWithFormat:@"%@",firstDic[@"brand_ids"]];
                         _dic1[@"brand_name"]=[NSString stringWithFormat:@"%@",firstDic[@"brand_sn"]];
                         
-                        _dic1[@"cat_id"]=[NSString stringWithFormat:@"%@",firstDic[@"cat_id"]];
+                        _dic1[@"cat_id"]=[NSString stringWithFormat:@"%@",firstDic[@"cat_id_first"]];
                         
                         for (TopCategoryModel * TopCategoryMD in _pubOfferMD.cat_list) {
                             if ([TopCategoryMD.cat_id isEqualToString:[NSString stringWithFormat:@"%@",_dic1[@"cat_id"]]]) {
@@ -199,26 +199,34 @@
                                 break;
                             }
                         }
-                        _dic1[@"base_id"]=[NSString stringWithFormat:@"%@",firstDic[@"base_id"]];
-                        _dic1[@"base_name"]=[NSString stringWithFormat:@"%@",firstDic[@"base_name"]];
+                        _dic1[@"base_id"]=[NSString stringWithFormat:@"%@",firstDic[@"base_ids"]];
+                        _dic1[@"base_name"]=[NSString stringWithFormat:@"%@",firstDic[@"goods_names"]];
                         _dic1[@"make_date"]=[NSString stringWithFormat:@"%@",firstDic[@"make_date"]];
                         
-                        _dic2[@"shop_price_unit"]=[NSString stringWithFormat:@"%@",firstDic[@"shop_price_unit"]];
-                        _dic2[@"spec_1"]=[NSString stringWithFormat:@"%@",firstDic[@"spec_1"]];
-                        _dic2[@"pack"]=[NSString stringWithFormat:@"%@",firstDic[@"pack"]];
-                        _dic2[@"spec_txt"]=[NSString stringWithFormat:@"%@",firstDic[@"spec_txt"]];
-                    }
+//                        _dic2[@"shop_price_unit"]=[NSString stringWithFormat:@"%@",firstDic[@"shop_price_unit"]];
+                        _dic2[@"spec_1"]=[NSString stringWithFormat:@"%@",firstDic[@"specs_1"]];
+//                        _dic2[@"goods_weight"]=_dic2[@"specs_1"];
+                        
+                        _dic2[@"spec_3"]=[NSString stringWithFormat:@"%@",firstDic[@"specs_3"]];
+                        _dic2[@"goods_weight"]=_dic2[@"specs_3"];
+                        
+                        _dic2[@"pack"]=[NSString stringWithFormat:@"%@",firstDic[@"packs"]];
+                        _dic2[@"spec_txt"]=[NSString stringWithFormat:@""];
+                    
+                        [_pingGui_goodsArr removeAllObjects];
+                        [_pingGui_goodsArr addObject:_dic1];
+                        [_pingGui_goodsArr addObject:_dic2];}
                     
                     if (arr.count>1) {
                         NSDictionary * firstDic=[arr objectAtIndex:1];;
                         
-                        _dic3[@"region_id"]=[NSString stringWithFormat:@"%@",firstDic[@"region_id"]];
+                        _dic3[@"region_id"]=[NSString stringWithFormat:@"%@",firstDic[@"region"]];
                         _dic3[@"region_name"]=[NSString stringWithFormat:@"%@",firstDic[@"region_name"]];
                         
-                        _dic3[@"brand_id"]=[NSString stringWithFormat:@"%@",firstDic[@"brand_id"]];
+                        _dic3[@"brand_id"]=[NSString stringWithFormat:@"%@",firstDic[@"brand_ids"]];
                         _dic3[@"brand_name"]=[NSString stringWithFormat:@"%@",firstDic[@"brand_sn"]];
                         
-                        _dic3[@"cat_id"]=[NSString stringWithFormat:@"%@",firstDic[@"cat_id"]];
+                        _dic3[@"cat_id"]=[NSString stringWithFormat:@"%@",firstDic[@"cat_id_first"]];
                         
                         for (TopCategoryModel * TopCategoryMD in _pubOfferMD.cat_list) {
                             if ([TopCategoryMD.cat_id isEqualToString:[NSString stringWithFormat:@"%@",_dic3[@"cat_id"]]]) {
@@ -226,42 +234,58 @@
                                 break;
                             }
                         }
-                        _dic3[@"base_id"]=[NSString stringWithFormat:@"%@",firstDic[@"base_id"]];
-                        _dic3[@"base_name"]=[NSString stringWithFormat:@"%@",firstDic[@"base_name"]];
+                        _dic3[@"base_id"]=[NSString stringWithFormat:@"%@",firstDic[@"base_ids"]];
+                        _dic3[@"base_name"]=[NSString stringWithFormat:@"%@",firstDic[@"goods_names"]];
                         _dic3[@"make_date"]=[NSString stringWithFormat:@"%@",firstDic[@"make_date"]];
                         
-                        _dic4[@"shop_price_unit"]=[NSString stringWithFormat:@"%@",firstDic[@"shop_price_unit"]];
-                        _dic4[@"spec_1"]=[NSString stringWithFormat:@"%@",firstDic[@"spec_1"]];
-                        _dic4[@"pack"]=[NSString stringWithFormat:@"%@",firstDic[@"pack"]];
-                        _dic4[@"spec_txt"]=[NSString stringWithFormat:@"%@",firstDic[@"spec_txt"]];
+                        //                        _dic2[@"shop_price_unit"]=[NSString stringWithFormat:@"%@",firstDic[@"shop_price_unit"]];
+                        _dic4[@"spec_1"]=[NSString stringWithFormat:@"%@",firstDic[@"specs_1"]];
+                        //                        _dic2[@"goods_weight"]=_dic2[@"specs_1"];
+                        
+                        _dic4[@"spec_3"]=[NSString stringWithFormat:@"%@",firstDic[@"specs_3"]];
+                        _dic4[@"goods_weight"]=_dic4[@"specs_3"];
+                        
+                        _dic4[@"pack"]=[NSString stringWithFormat:@"%@",firstDic[@"packs"]];
+                        _dic4[@"spec_txt"]=[NSString stringWithFormat:@""];
+                    
+                        [_pingGui_goodsArr addObject:_dic3];
+                        [_pingGui_goodsArr addObject:_dic4];
                     }
                     
-                    if (arr.count>2) {
-                        NSDictionary * firstDic=[arr objectAtIndex:2];;
-                        
-                        _dic5[@"region_id"]=[NSString stringWithFormat:@"%@",firstDic[@"region_id"]];
-                        _dic5[@"region_name"]=[NSString stringWithFormat:@"%@",firstDic[@"region_name"]];
-                        
-                        _dic5[@"brand_id"]=[NSString stringWithFormat:@"%@",firstDic[@"brand_id"]];
-                        _dic5[@"brand_name"]=[NSString stringWithFormat:@"%@",firstDic[@"brand_sn"]];
-                        
-                        _dic5[@"cat_id"]=[NSString stringWithFormat:@"%@",firstDic[@"cat_id"]];
-                        
-                        for (TopCategoryModel * TopCategoryMD in _pubOfferMD.cat_list) {
-                            if ([TopCategoryMD.cat_id isEqualToString:[NSString stringWithFormat:@"%@",_dic5[@"cat_id"]]]) {
-                                _dic5[@"cat_name"]=[NSString stringWithFormat:@"%@",TopCategoryMD.cat_name];
-                                break;
-                            }
+                if (arr.count>2) {
+                    NSDictionary * firstDic=[arr objectAtIndex:2];;
+                    
+                    _dic5[@"region_id"]=[NSString stringWithFormat:@"%@",firstDic[@"region"]];
+                    _dic5[@"region_name"]=[NSString stringWithFormat:@"%@",firstDic[@"region_name"]];
+                    
+                    _dic5[@"brand_id"]=[NSString stringWithFormat:@"%@",firstDic[@"brand_ids"]];
+                    _dic5[@"brand_name"]=[NSString stringWithFormat:@"%@",firstDic[@"brand_sn"]];
+                    
+                    _dic5[@"cat_id"]=[NSString stringWithFormat:@"%@",firstDic[@"cat_id_first"]];
+                    
+                    for (TopCategoryModel * TopCategoryMD in _pubOfferMD.cat_list) {
+                        if ([TopCategoryMD.cat_id isEqualToString:[NSString stringWithFormat:@"%@",_dic5[@"cat_id"]]]) {
+                            _dic5[@"cat_name"]=[NSString stringWithFormat:@"%@",TopCategoryMD.cat_name];
+                            break;
                         }
-                        _dic5[@"base_id"]=[NSString stringWithFormat:@"%@",firstDic[@"base_id"]];
-                        _dic5[@"base_name"]=[NSString stringWithFormat:@"%@",firstDic[@"base_name"]];
-                        _dic5[@"make_date"]=[NSString stringWithFormat:@"%@",firstDic[@"make_date"]];
-                        
-                        _dic6[@"shop_price_unit"]=[NSString stringWithFormat:@"%@",firstDic[@"shop_price_unit"]];
-                        _dic6[@"spec_1"]=[NSString stringWithFormat:@"%@",firstDic[@"spec_1"]];
-                        _dic6[@"pack"]=[NSString stringWithFormat:@"%@",firstDic[@"pack"]];
-                        _dic6[@"spec_txt"]=[NSString stringWithFormat:@"%@",firstDic[@"spec_txt"]];
                     }
+                    _dic5[@"base_id"]=[NSString stringWithFormat:@"%@",firstDic[@"base_ids"]];
+                    _dic5[@"base_name"]=[NSString stringWithFormat:@"%@",firstDic[@"goods_names"]];
+                    _dic5[@"make_date"]=[NSString stringWithFormat:@"%@",firstDic[@"make_date"]];
+                    
+                    //                        _dic2[@"shop_price_unit"]=[NSString stringWithFormat:@"%@",firstDic[@"shop_price_unit"]];
+                    _dic6[@"spec_1"]=[NSString stringWithFormat:@"%@",firstDic[@"specs_1"]];
+                    //                        _dic2[@"goods_weight"]=_dic2[@"specs_1"];
+                    
+                    _dic6[@"spec_3"]=[NSString stringWithFormat:@"%@",firstDic[@"specs_3"]];
+                    _dic6[@"goods_weight"]=_dic6[@"specs_3"];
+                    
+                    _dic6[@"pack"]=[NSString stringWithFormat:@"%@",firstDic[@"packs"]];
+                    _dic6[@"spec_txt"]=[NSString stringWithFormat:@""];
+                
+                    [_pingGui_goodsArr addObject:_dic5];
+                    [_pingGui_goodsArr addObject:_dic6];
+                }
                 
                 
             }
@@ -274,7 +298,7 @@
             _dic1[@"brand_id"]=[NSString stringWithFormat:@"%@",data[@"brand_id"]];
             _dic1[@"brand_name"]=[NSString stringWithFormat:@"%@",data[@"brand_sn"]];
             
-            _dic1[@"cat_id"]=[NSString stringWithFormat:@"%@",data[@"cat_id"]];
+            _dic1[@"cat_id"]=[NSString stringWithFormat:@"%@",data[@"cat_id_first"]];
             
                 for (TopCategoryModel * TopCategoryMD in _pubOfferMD.cat_list) {
                     if ([TopCategoryMD.cat_id isEqualToString:[NSString stringWithFormat:@"%@",_dic1[@"cat_id"]]]) {
@@ -282,21 +306,28 @@
                         break;
                     }
                 }
+                
             _dic1[@"base_id"]=[NSString stringWithFormat:@"%@",data[@"base_id"]];
             _dic1[@"base_name"]=[NSString stringWithFormat:@"%@",data[@"base_name"]];
              _dic1[@"make_date"]=[NSString stringWithFormat:@"%@",data[@"make_date"]];
                 
                 _dic2[@"shop_price_unit"]=[NSString stringWithFormat:@"%@",data[@"shop_price_unit"]];
                  _dic2[@"spec_1"]=[NSString stringWithFormat:@"%@",data[@"spec_1"]];
+                _dic2[@"goods_weight"]=_dic2[@"spec_1"];
+
                  _dic2[@"pack"]=[NSString stringWithFormat:@"%@",data[@"pack"]];
                  _dic2[@"spec_txt"]=[NSString stringWithFormat:@"%@",data[@"spec_txt"]];
+            
+                [_pingGui_goodsArr removeAllObjects];
+                [_pingGui_goodsArr addObject:_dic1];
+                [_pingGui_goodsArr addObject:_dic2];
             }
             
             //其他信息
             _otherDic[@"goods_number"]=[NSString stringWithFormat:@"%@",data[@"goods_number"]];
             _otherDic[@"goods_local"]=[NSString stringWithFormat:@"%@",data[@"goods_local"]];
             _otherDic[@"currency"]=[NSString stringWithFormat:@"%@",data[@"currency"]];
-            _otherDic[@"currency_money"]=[NSString stringWithFormat:@"%@",data[@"currency_money"]];
+            _otherDic[@"currency_money"]=[NSString stringWithFormat:@"%@",data[@"currency_money_input"]];
             _otherDic[@"prepay"]=[NSString stringWithFormat:@"%@",data[@"prepay"]];
             
             for (offerTypeModel * TopCategoryMD in _pubOfferMD.prepay) {
@@ -334,7 +365,7 @@
             }
             
             
-            _otherDic[@"spec_txts"]=[NSString stringWithFormat:@"%@",data[@"spec_txts"]];
+            _otherDic[@"goods_txt"]=[NSString stringWithFormat:@"%@",data[@"goods_txt"]];
             _otherDic[@"is_on_sale"]=[NSString stringWithFormat:@"%@",data[@"is_on_sale"]];
             
             if (![data[@"good_face"] isEqualToString:@""])//封面是否为空
@@ -345,8 +376,9 @@
             [_fengmianimageViewArray removeAllObjects];
             debugLog(@"data1data1:%@",[UIImage imageWithData:data1]);
             [_fengmianimageViewArray addObject:[UIImage imageWithData:data1]];
-            
-            [_data_fengmianimageViewArray addObject:[UIImage imageWithData:data1]];
+            [_data_fengmianimageViewArray addObject:
+                 [TYDPManager resetSizeOfImageData:[UIImage imageWithData:data1] maxSize:300]];
+                
             }
             
             if ([data[@"picture_list"] isKindOfClass:[NSArray class]]){
@@ -357,16 +389,16 @@
                         {
                             NSData * data1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",dic[@"img_url"]]]];
                             [_imageViewArray addObject:[UIImage imageWithData:data1]];
-                            [_data_imageViewArray addObject:[UIImage imageWithData:data1]];
+                            
+                            [_data_fengmianimageViewArray addObject:
+                             [TYDPManager resetSizeOfImageData:[UIImage imageWithData:data1] maxSize:300]];
                         }
                         
                     }
                 }
             }
 
-            [_pingGui_goodsArr removeAllObjects];
-            [_pingGui_goodsArr addObject:_dic1];
-            [_pingGui_goodsArr addObject:_dic2];
+            
 
             [_myTableView reloadData];
             
@@ -10217,6 +10249,14 @@
             [_MBHUD hide:YES];
             [self leftItemClicked:nil];
             UIWindow *window = [UIApplication sharedApplication].keyWindow;
+            
+            if (![PSDefaults objectForKey:@"alias"]||[[PSDefaults objectForKey:@"alias"] isEqualToString:@""]) {
+                [PSDefaults setObject:_otherDic[@"alias"] forKey:@"alias"];
+            }
+            if (![PSDefaults objectForKey:@"mobile_phone"]||[[PSDefaults objectForKey:@"mobile_phone"] isEqualToString:@""]) {
+                [PSDefaults setObject:_otherDic[@"mobile_phone"] forKey:@"mobile_phone"];
+            }
+            
             [window Message:@"报盘成功" HiddenAfterDelay:1.5];
         } else {
             [_MBHUD setLabelText:data[@"message"]];
@@ -10273,6 +10313,13 @@
                                 [self leftItemClicked:nil];
                     UIWindow *window = [UIApplication sharedApplication].keyWindow;
                     [window Message:@"报盘成功" HiddenAfterDelay:1.5];
+                    if (![PSDefaults objectForKey:@"alias"]||[[PSDefaults objectForKey:@"alias"] isEqualToString:@""]) {
+                        [PSDefaults setObject:_otherDic[@"alias"] forKey:@"alias"];
+                    }
+                    if (![PSDefaults objectForKey:@"mobile_phone"]||[[PSDefaults objectForKey:@"mobile_phone"] isEqualToString:@""]) {
+                        [PSDefaults setObject:_otherDic[@"mobile_phone"] forKey:@"mobile_phone"];
+                    }
+                    
                 } else {
                     [_MBHUD setLabelText:data[@"message"]];
                     [self.view addSubview:_MBHUD];
@@ -10326,6 +10373,12 @@
                                 [self leftItemClicked:nil];
                     UIWindow *window = [UIApplication sharedApplication].keyWindow;
                     [window Message:@"报盘成功" HiddenAfterDelay:1.5];
+                    if (![PSDefaults objectForKey:@"alias"]||[[PSDefaults objectForKey:@"alias"] isEqualToString:@""]) {
+                        [PSDefaults setObject:_otherDic[@"alias"] forKey:@"alias"];
+                    }
+                    if (![PSDefaults objectForKey:@"mobile_phone"]||[[PSDefaults objectForKey:@"mobile_phone"] isEqualToString:@""]) {
+                        [PSDefaults setObject:_otherDic[@"mobile_phone"] forKey:@"mobile_phone"];
+                    }
                 } else {
                     [_MBHUD setLabelText:data[@"message"]];
                     [self.view addSubview:_MBHUD];
@@ -10380,6 +10433,12 @@
                                 [self leftItemClicked:nil];
                     UIWindow *window = [UIApplication sharedApplication].keyWindow;
                     [window Message:@"报盘成功" HiddenAfterDelay:1.5];
+                    if (![PSDefaults objectForKey:@"alias"]||[[PSDefaults objectForKey:@"alias"] isEqualToString:@""]) {
+                        [PSDefaults setObject:_otherDic[@"alias"] forKey:@"alias"];
+                    }
+                    if (![PSDefaults objectForKey:@"mobile_phone"]||[[PSDefaults objectForKey:@"mobile_phone"] isEqualToString:@""]) {
+                        [PSDefaults setObject:_otherDic[@"mobile_phone"] forKey:@"mobile_phone"];
+                    }
                 } else {
                     [_MBHUD setLabelText:data[@"message"]];
                     [self.view addSubview:_MBHUD];
@@ -10429,6 +10488,12 @@
                     [self leftItemClicked:nil];
                     UIWindow *window = [UIApplication sharedApplication].keyWindow;
                     [window Message:@"报盘成功" HiddenAfterDelay:1.5];
+                    if (![PSDefaults objectForKey:@"alias"]||[[PSDefaults objectForKey:@"alias"] isEqualToString:@""]) {
+                        [PSDefaults setObject:_otherDic[@"alias"] forKey:@"alias"];
+                    }
+                    if (![PSDefaults objectForKey:@"mobile_phone"]||[[PSDefaults objectForKey:@"mobile_phone"] isEqualToString:@""]) {
+                        [PSDefaults setObject:_otherDic[@"mobile_phone"] forKey:@"mobile_phone"];
+                    }
                 } else {
                     [_MBHUD setLabelText:data[@"message"]];
                     [self.view addSubview:_MBHUD];
@@ -10485,6 +10550,12 @@
                         [self leftItemClicked:nil];
                         UIWindow *window = [UIApplication sharedApplication].keyWindow;
                         [window Message:@"报盘成功" HiddenAfterDelay:1.5];
+                        if (![PSDefaults objectForKey:@"alias"]||[[PSDefaults objectForKey:@"alias"] isEqualToString:@""]) {
+                            [PSDefaults setObject:_otherDic[@"alias"] forKey:@"alias"];
+                        }
+                        if (![PSDefaults objectForKey:@"mobile_phone"]||[[PSDefaults objectForKey:@"mobile_phone"] isEqualToString:@""]) {
+                            [PSDefaults setObject:_otherDic[@"mobile_phone"] forKey:@"mobile_phone"];
+                        }
                     } else {
                         [_MBHUD setLabelText:data[@"message"]];
                         [self.view addSubview:_MBHUD];
@@ -10539,6 +10610,12 @@
                         [self leftItemClicked:nil];
                         UIWindow *window = [UIApplication sharedApplication].keyWindow;
                         [window Message:@"报盘成功" HiddenAfterDelay:1.5];
+                        if (![PSDefaults objectForKey:@"alias"]||[[PSDefaults objectForKey:@"alias"] isEqualToString:@""]) {
+                            [PSDefaults setObject:_otherDic[@"alias"] forKey:@"alias"];
+                        }
+                        if (![PSDefaults objectForKey:@"mobile_phone"]||[[PSDefaults objectForKey:@"mobile_phone"] isEqualToString:@""]) {
+                            [PSDefaults setObject:_otherDic[@"mobile_phone"] forKey:@"mobile_phone"];
+                        }
                     } else {
                         [_MBHUD setLabelText:data[@"message"]];
                         [self.view addSubview:_MBHUD];
@@ -10594,6 +10671,12 @@
                         [self leftItemClicked:nil];
                         UIWindow *window = [UIApplication sharedApplication].keyWindow;
                         [window Message:@"报盘成功" HiddenAfterDelay:1.5];
+                        if (![PSDefaults objectForKey:@"alias"]||[[PSDefaults objectForKey:@"alias"] isEqualToString:@""]) {
+                            [PSDefaults setObject:_otherDic[@"alias"] forKey:@"alias"];
+                        }
+                        if (![PSDefaults objectForKey:@"mobile_phone"]||[[PSDefaults objectForKey:@"mobile_phone"] isEqualToString:@""]) {
+                            [PSDefaults setObject:_otherDic[@"mobile_phone"] forKey:@"mobile_phone"];
+                        }
                     } else {
                         [_MBHUD setLabelText:data[@"message"]];
                         [self.view addSubview:_MBHUD];
@@ -10644,6 +10727,5 @@
     [_MBHUD setMode:MBProgressHUDModeText];
     [_MBHUD show:YES];
 }
-
 
 @end
