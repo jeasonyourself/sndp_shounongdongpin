@@ -90,9 +90,11 @@ typedef enum {
 }
 -(NSArray *)bottomOrderDetailArray {
     if (!_bottomOrderDetailArray) {
+        _bottomOrderDetailArray = [NSArray arrayWithObjects:@"产 品 合 计：",@"应付款金额：",@"已付款金额：", nil];
     }
     return _bottomOrderDetailArray;
 }
+
 -(NSArray *)bankArray {
     if (!_bankArray) {
         _bankArray = [NSMutableArray arrayWithObjects:@"收  款  人：",@"卡      号：",@"开  户  行：", nil];
@@ -698,6 +700,7 @@ typedef enum {
         {
             [rightLabel setText:[NSString stringWithFormat:@"%@",_checkOrderModel[@"money_paid"]]];
         }
+        //
         [rightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(smallView).with.offset(-MiddleGap);
             make.top.equalTo(smallView);
