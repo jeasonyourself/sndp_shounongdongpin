@@ -32,12 +32,16 @@ typedef enum {
 @property(nonatomic, strong)NSArray *sendArray;
 
 @property(nonatomic, strong)NSArray *bottomOrderDetailArray;
+@property(nonatomic, strong)NSArray *bankArray;
+
 @property(nonatomic, strong)TYDPPhotoPickerManager *photoPickerManager;
 @property(nonatomic, strong)MBProgressHUD *testHUD;
 @property(nonatomic, strong)UIView *topView;
 @property(nonatomic, strong)UIView *middleView;
 @property(nonatomic, strong)UILabel *confirmLabel;
 @property(nonatomic, strong)UIView *bottomView;
+@property(nonatomic, strong)UIView *bankView;
+
 @property(nonatomic, strong)UIView *contanctView;
 @property(nonatomic, strong)NSArray *addContanctArray;
 @property(nonatomic, assign)BOOL contanctViewIsHidden;
@@ -86,9 +90,14 @@ typedef enum {
 }
 -(NSArray *)bottomOrderDetailArray {
     if (!_bottomOrderDetailArray) {
-        _bottomOrderDetailArray = [NSArray arrayWithObjects:@"产 品 合 计：",@"应付款金额：",@"", nil];
     }
     return _bottomOrderDetailArray;
+}
+-(NSArray *)bankArray {
+    if (!_bankArray) {
+        _bankArray = [NSMutableArray arrayWithObjects:@"收  款  人：",@"卡      号：",@"开  户  行：", nil];
+    }
+    return _bankArray;
 }
 - (void)manageOrderData{
     _orderDetailArray = [NSMutableArray arrayWithObjects:@"订  单  号：",@"订单状态：",@"支付方式：",@"库存状态", nil];
@@ -230,8 +239,8 @@ typedef enum {
         make.right.equalTo(_baseScrollView).with.offset(HomePageBordWidth);
         make.height.mas_equalTo(NavHeight*2);
     }];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(topViewTapMethod:)];
-    [_topView addGestureRecognizer:tap];
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(topViewTapMethod:)];
+//    [_topView addGestureRecognizer:tap];
     UILabel *topLabel = [UILabel new];
     [_topView addSubview:topLabel];
     [topLabel setText:@"产品信息"];
@@ -263,7 +272,7 @@ typedef enum {
     }];
     UILabel *rightTopLabel = [UILabel new];
     [_topView addSubview:rightTopLabel];
-    [rightTopLabel setText:[NSString stringWithFormat:@"%@",_orderGoodsModel[@"goods_name"]]];
+    [rightTopLabel setText:[NSString stringWithFormat:@"%@  %@",_orderGoodsModel[@"goods_name"],_orderGoodsModel[@"brand_sn"]]];
     [rightTopLabel setTextColor:RGBACOLOR(85, 85, 85, 1)];
     [rightTopLabel setFont:ThemeFont(18)];
     [rightTopLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -369,62 +378,6 @@ typedef enum {
 //        _addEvidenceString = 0;
 //    }];
 }
-- (void)createMiddleOrderUIWithArray:(NSArray *)tmpArray WithJudgeString:(NSString *)judgeString{
-    CGFloat smallViewHeight = 40;
-    [_middleView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_baseScrollView).with.offset(-HomePageBordWidth);
-        make.top.equalTo(_topView.mas_bottom).with.offset(MiddleGap);
-        make.right.equalTo(_baseScrollView).with.offset(HomePageBordWidth);
-        make.height.mas_equalTo(40*(_orderDetailArray.count+1));
-    }];
-    for (int i = 0; i < _orderDetailArray.count; i++) {
-        UIView *smallView = [[UIView alloc] initWithFrame:CGRectMake(0, 40+smallViewHeight*i, ScreenWidth, smallViewHeight)];
-        [_middleView addSubview:smallView];
-        UIImageView *dotSmallImageView = [UIImageView new];
-        [dotSmallImageView setImage:[UIImage imageNamed:@"ico_filledcircle"]];
-        [smallView addSubview:dotSmallImageView];
-        [dotSmallImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(smallView).with.offset(MiddleGap);
-            make.centerY.equalTo(smallView);
-            make.width.equalTo(dotSmallImageView.mas_height);
-            make.height.mas_equalTo(7);
-        }];
-        UILabel *leftLabel = [UILabel new];
-        [smallView addSubview:leftLabel];
-        [leftLabel setTextColor:RGBACOLOR(102, 102, 102, 1)];
-        [leftLabel setFont: ThemeFont(16)];
-        [leftLabel setText:tmpArray[i]];
-        [leftLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(dotSmallImageView.mas_right).with.offset(Gap);
-            make.top.equalTo(smallView);
-            make.width.mas_equalTo(90);
-            make.bottom.equalTo(smallView);
-        }];
-        UILabel *rightLabel = [UILabel new];
-        [smallView addSubview:rightLabel];
-        [rightLabel setTextColor:RGBACOLOR(102, 102, 102, 1)];
-        [rightLabel setFont: ThemeFont(16)];
-        [rightLabel setText:_orderDetailValueArray[i]];
-        [rightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(leftLabel.mas_right);
-            make.top.equalTo(smallView);
-            make.width.mas_equalTo(ScreenWidth);
-            make.bottom.equalTo(smallView);
-        }];
-        if (i == 5) {
-            UILabel *decorateBottomLabel = [UILabel new];
-            [decorateBottomLabel setText:@"------------------------------------------------------"];
-            [decorateBottomLabel setTextColor:RGBACOLOR(102, 102, 102, 1)];
-            [smallView addSubview:decorateBottomLabel];
-            [decorateBottomLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(_baseScrollView).with.offset(MiddleGap);
-                make.right.equalTo(_baseScrollView);
-                make.bottom.equalTo(smallView);
-                make.height.mas_equalTo(3);
-            }];
-        }
-    }
-}
 - (void)createMiddleUIWithFrontViewWithJudgeString:(NSString *)judgeString {
     _middleView = [UIView new];
     _middleView.layer.borderColor = [RGBACOLOR(213, 213, 213, 1) CGColor];
@@ -454,7 +407,7 @@ typedef enum {
         make.right.equalTo(_baseScrollView);
         make.height.mas_equalTo(HomePageBordWidth);
     }];
-        if (![[NSString stringWithFormat:@"%@",_checkOrderModel[@"user_info"][@"name"]] isEqualToString:@""]) {//与卖家协商UI
+        if (![[NSString stringWithFormat:@"%@",_checkOrderModel[@"user_info"][@"name"]] isEqualToString:@""]&&![[NSString stringWithFormat:@"%@",_checkOrderModel[@"stock_status"]] isEqualToString:@"0"]) {//与卖家协商UI
             [_orderDetailArray addObject:@"卖家姓名："];
             [_orderDetailArray addObject:@"卖家电话："];
                 [_orderDetailValueArray addObject:_paymentBigModel[@"name"]];
@@ -758,6 +711,110 @@ typedef enum {
         }
     }
     
+    if (_checkOrderModel[@"bank"][@"account"]&&![[NSString stringWithFormat:@"%@",_checkOrderModel[@"bank"][@"account"]] isEqualToString:@""]&&[[NSString stringWithFormat:@"%@",_checkOrderModel[@"stock_status"]] isEqualToString:@"1"]) {
+        [self BBankViewWithFrontView:_bottomView];
+    }
+    else
+    {
+    [self creatBottomBtnUI];
+        [_containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(_bottomView);
+        }];
+    }
+   
+}
+
+
+- (void)BBankViewWithFrontView:(UIView *)frontView {
+    CGFloat tmpGap = 0;
+    if (_contanctViewIsHidden) {
+        tmpGap = MiddleGap;
+    } else {
+        tmpGap = MiddleGap;
+    }
+    _bankView = [UIView new];
+    [_baseScrollView addSubview:_bankView];
+    [_bankView setBackgroundColor:[UIColor whiteColor]];
+    _bankView.layer.borderColor = [RGBACOLOR(213, 213, 213, 1) CGColor];
+    _bankView.layer.borderWidth = HomePageBordWidth;
+    int count =3;
+       [_bankView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_baseScrollView).with.offset(-HomePageBordWidth);
+        make.top.equalTo(frontView.mas_bottom).with.offset(tmpGap);
+        make.right.equalTo(_baseScrollView.mas_right).with.offset(HomePageBordWidth);
+        make.height.mas_equalTo(40*(count+1));
+    }];
+    UILabel *topLabel = [UILabel new];
+    [_bankView addSubview:topLabel];
+    [topLabel setText:@"银行账户"];
+    [topLabel setTextColor:[UIColor lightGrayColor]];
+    [topLabel setFont:ThemeFont(16)];
+    [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_baseScrollView).with.offset(MiddleGap);;
+        make.top.equalTo(frontView.mas_bottom).with.offset(tmpGap);
+        make.width.mas_equalTo(90);
+        make.height.mas_equalTo(40);
+    }];
+    UILabel *topDecorateLabel = [UILabel new];
+    [topLabel addSubview:topDecorateLabel];
+    [topDecorateLabel setBackgroundColor:RGBACOLOR(213, 213, 213, 1)];
+    [topDecorateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_baseScrollView).with.offset(MiddleGap);;
+        make.top.equalTo(topLabel.mas_bottom).with.offset(-HomePageBordWidth);
+        make.right.equalTo(_baseScrollView);
+        make.height.mas_equalTo(HomePageBordWidth);
+    }];
+    CGFloat smallViewHeight = 40;
+    
+    for (int i = 0; i < count; i++) {
+        UIView *smallView = [[UIView alloc] initWithFrame:CGRectMake(0, 40+smallViewHeight*i, ScreenWidth, smallViewHeight)];
+        [_bankView addSubview:smallView];
+        UILabel *leftLabel = [UILabel new];
+        [smallView addSubview:leftLabel];
+        [leftLabel setTextColor:RGBACOLOR(102, 102, 102, 1)];
+        [leftLabel setFont: ThemeFont(16)];
+        [leftLabel setText:self.bankArray[i]];
+        [leftLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(smallView).with.offset(MiddleGap);
+            make.top.equalTo(smallView);
+            make.bottom.equalTo(smallView);
+        }];
+        UILabel *rightLabel = [UILabel new];
+        [smallView addSubview:rightLabel];
+        [rightLabel setTextColor:RGBACOLOR(102, 102, 102, 1)];
+        [rightLabel setFont: ThemeFont(16)];
+        if (i == 0) {
+            [rightLabel setText:[NSString stringWithFormat:@"%@",_checkOrderModel[@"bank"][@"username"]]];
+        } else if (i == 1) {
+            [rightLabel setText:[NSString stringWithFormat:@"%@",_checkOrderModel[@"bank"][@"account"]]];
+        }else
+        {
+            [rightLabel setText:[NSString stringWithFormat:@"%@",_checkOrderModel[@"bank"][@"deposit_bank"]]];
+        }
+        [rightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(smallView).with.offset(-MiddleGap);
+            make.top.equalTo(smallView);
+            make.bottom.equalTo(smallView);
+        }];
+        if (i == 1) {
+            [rightLabel setTextColor:RGBACOLOR(252, 91, 49, 1)];
+        }
+        if (i == 2) {
+            [rightLabel setTextColor:RGBACOLOR(252, 91, 49, 1)];
+        }
+    }
+    
+    
+    [self creatBottomBtnUI];
+    [_containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(_bankView);
+    }];
+}
+
+
+
+-(void)creatBottomBtnUI
+{
 #pragma mark 底部按钮
     if ([[NSString stringWithFormat:@"%@",_checkOrderModel[@"stock_status"]] isEqualToString:@"1"]&&[[NSString stringWithFormat:@"%@",_checkOrderModel[@"apply_pay"]] isEqualToString:@"1"])//对方已确认有货，可以上传凭证了
     {
@@ -770,23 +827,32 @@ typedef enum {
             make.right.equalTo(self.view);
             make.height.mas_equalTo(TabbarHeight);
         }];
-
+        
         _confirmOrderButton.tag=100;
         [_confirmOrderButton addTarget:self action:@selector(changeorder:) forControlEvents:UIControlEventTouchUpInside];
         _confirmOrderButton.hidden = NO;
         
-        [_qieButton addTarget:self action:@selector(qieButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        _qieButton.tag=200;
-        [_qieButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(_confirmOrderButton.mas_top).with.offset(-1);
-            make.left.equalTo(self.view);
-            make.right.equalTo(self.view);
-            make.height.mas_equalTo(TabbarHeight);
-        }];
-        [_qieButton setTitle:@"切换支付方式" forState:UIControlStateNormal];
-        _qieButton.hidden = NO;
-
-        _baseScrollView.frame= CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight-TabbarHeight*2-1);
+        if ([[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_status"]] isEqualToString:@"0"]) {
+            [_qieButton addTarget:self action:@selector(qieButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            _qieButton.tag=200;
+            [_qieButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(_confirmOrderButton.mas_top).with.offset(-1);
+                make.left.equalTo(self.view);
+                make.right.equalTo(self.view);
+                make.height.mas_equalTo(TabbarHeight);
+            }];
+            [_qieButton setTitle:@"切换支付方式" forState:UIControlStateNormal];
+            _qieButton.hidden = NO;
+             _baseScrollView.frame= CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight-TabbarHeight*2-1);
+        }
+        else
+        {
+            _qieButton.hidden = YES;
+            _baseScrollView.frame= CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight-TabbarHeight);
+        }
+        
+        
+       
     }
     
     if ([[NSString stringWithFormat:@"%@",_checkOrderModel[@"buyer_seller_edit"]] isEqualToString:@"1"]&&[[NSString stringWithFormat:@"%@",_checkOrderModel[@"stock_status"]] isEqualToString:@"1"]&&[[NSString stringWithFormat:@"%@",_checkOrderModel[@"get_address"][@"name"]] isEqualToString:@""])//可以填写收货地址了
@@ -801,179 +867,48 @@ typedef enum {
             make.right.equalTo(self.view);
             make.height.mas_equalTo(TabbarHeight);
         }];
-
+        
         [_confirmOrderButton addTarget:self action:@selector(changeorder:) forControlEvents:UIControlEventTouchUpInside];
         _confirmOrderButton.hidden = NO;
         
-        _baseScrollView.frame= CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight);
+        _baseScrollView.frame= CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight-TabbarHeight);
         
         if ([[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_status"]] isEqualToString:@"99"])//可以理赔
         {
-        [_qieButton addTarget:self action:@selector(qieButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        [_qieButton setTitle:@"理赔" forState:UIControlStateNormal];
-        _qieButton.hidden = NO;
-        _qieButton.tag=201;
+            [_qieButton addTarget:self action:@selector(qieButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            [_qieButton setTitle:@"理赔" forState:UIControlStateNormal];
+            _qieButton.hidden = NO;
+            _qieButton.tag=201;
             [_qieButton mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.bottom.equalTo(_confirmOrderButton.mas_top).with.offset(-1);
                 make.left.equalTo(self.view);
                 make.right.equalTo(self.view);
                 make.height.mas_equalTo(TabbarHeight);
             }];
-        _baseScrollView.frame= CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight-TabbarHeight*2-1);
-        
+            _baseScrollView.frame= CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight-TabbarHeight*2-1);
+            
         }
     }
-else
-{
-    if ([[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_status"]] isEqualToString:@"99"])//可以理赔
+    else
     {
-        [_qieButton addTarget:self action:@selector(qieButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        [_qieButton setTitle:@"理赔" forState:UIControlStateNormal];
-        _qieButton.hidden = NO;
-        _qieButton.tag=201;
-        [_qieButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(self.view);
-            make.left.equalTo(self.view);
-            make.right.equalTo(self.view);
-            make.height.mas_equalTo(TabbarHeight);
-        }];
-        _baseScrollView.frame= CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight-TabbarHeight);
+        if (![[NSString stringWithFormat:@"%@",_checkOrderModel[@"stock_status"]] isEqualToString:@"2"]&&[[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_status"]] isEqualToString:@"99"])//不是无货订单，可以理赔
+        {
+            [_qieButton addTarget:self action:@selector(qieButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            [_qieButton setTitle:@"理赔" forState:UIControlStateNormal];
+            _qieButton.hidden = NO;
+            _qieButton.tag=201;
+            [_qieButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(self.view);
+                make.left.equalTo(self.view);
+                make.right.equalTo(self.view);
+                make.height.mas_equalTo(TabbarHeight);
+            }];
+            _baseScrollView.frame= CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight-TabbarHeight);
+            
+        }
         
     }
-    
-}
-    
-//    //创建底部按钮
-//        if (!_confirmOrderButton) {
-//        if (![[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_status"]] isEqualToString:@"0"])//已支付
-//        {//卖家协商
-//            _sellerConsultAddContanctButton = [UIButton buttonWithType:UIButtonTypeSystem];
-//            [_sellerConsultAddContanctButton addTarget:self action:@selector(bottomControlButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-//            _sellerConsultAddContanctButton.tag = sellerConsultAddContanctButtonMessage;
-//            [_sellerConsultAddContanctButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//            [_sellerConsultAddContanctButton setTitle:@"填写收货人信息" forState:UIControlStateNormal];
-//            [_sellerConsultAddContanctButton.titleLabel setFont:ThemeFont(18)];
-//            [_sellerConsultAddContanctButton setBackgroundColor:RGBACOLOR(10, 126, 201, 1)];
-//            [self.view addSubview:_sellerConsultAddContanctButton];
-//            
-//            if ([[NSString stringWithFormat:@"%@",_checkOrderModel[@"get_address"][@"id_number"] ] isEqualToString:@""]) {
-//                [_confirmOrderButton setTitle:@"＋添加取货人信息" forState:UIControlStateNormal];
-//                _confirmOrderButton.hidden = NO;
-//                _baseScrollView.frame= CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight-TabbarHeight);
-//                
-//            }
-//            else {
-//                _confirmOrderButton.hidden = YES;
-//                _baseScrollView.frame= CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight);
-//                
-//            }
-////            _sellerConsultClaimAdjustButton = [UIButton buttonWithType:UIButtonTypeSystem];
-////            [_sellerConsultClaimAdjustButton addTarget:self action:@selector(bottomControlButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-////            _sellerConsultClaimAdjustButton.tag = sellerConsultClaimAdjustButtonMessage;
-////            [_sellerConsultClaimAdjustButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-////            [_sellerConsultClaimAdjustButton setTitle:@"理赔" forState:UIControlStateNormal];
-////            [_sellerConsultClaimAdjustButton.titleLabel setFont:ThemeFont(18)];
-////            [_sellerConsultClaimAdjustButton setBackgroundColor:RGBACOLOR(249, 160, 45, 1)];
-////            [self.view addSubview:_sellerConsultClaimAdjustButton];
-////            [_sellerConsultAddContanctButton mas_makeConstraints:^(MASConstraintMaker *make) {
-////                make.bottom.equalTo(self.view);
-////                make.left.equalTo(self.view);
-////                make.width.mas_equalTo(ScreenWidth/2.0);
-////                make.height.mas_equalTo(TabbarHeight);
-////            }];
-//            if (_checkOrderModel[@"get_address"]) {//已经添加收货人 隐藏添加收货人按钮
-//                [_sellerConsultClaimAdjustButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//                    make.bottom.equalTo(self.view);
-//                    make.right.equalTo(self.view);
-//                    make.width.mas_equalTo(ScreenWidth);
-//                    make.height.mas_equalTo(TabbarHeight);
-//                }];
-//            } else {
-//                [_sellerConsultClaimAdjustButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//                    make.bottom.equalTo(self.view);
-//                    make.right.equalTo(self.view);
-//                    make.width.mas_equalTo(ScreenWidth/2.0);
-//                    make.height.mas_equalTo(TabbarHeight);
-//                }];
-//            }
-//        }
-//        else
-//        {//支付到平台
-//            _addEvidenceFlag = 0;
-//            _confirmOrderButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//            _confirmOrderButton.tag = confirmOrderButtonMessage;
-//            [self.view addSubview:_confirmOrderButton];
-//            [_confirmOrderButton addTarget:self action:@selector(bottomControlButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-//            [_confirmOrderButton setBackgroundColor:mainColor];
-//            [_confirmOrderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//            if ([[NSString stringWithFormat:@"%@",_checkOrderModel[@"stock_status"]] isEqualToString:@"0"])
-//            {
-//                
-//                _confirmOrderButton.hidden=YES;
-//                _baseScrollView.frame= CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight);
-//            }
-//            else
-//            {
-//                _confirmOrderButton.hidden=NO;
-//
-//            [_confirmOrderButton setTitle:@"＋上传付款凭证" forState:UIControlStateNormal];
-//                _baseScrollView.frame= CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight-TabbarHeight);
-//            }
-//            
-//            [_confirmOrderButton.titleLabel setFont:ThemeFont(18)];
-//            [_confirmOrderButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//                make.bottom.equalTo(self.view);
-//                make.left.equalTo(self.view);
-//                make.right.equalTo(self.view);
-//                make.height.mas_equalTo(TabbarHeight);
-//            }];
-//            
-//            
-//            _qieButton = [UIButton buttonWithType:UIButtonTypeCustom];
-////            _qieButton.tag = confirmOrderButtonMessage;
-//            [self.view addSubview:_qieButton];
-//            [_qieButton addTarget:self action:@selector(qieButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-//            [_qieButton setBackgroundColor:mainColor];
-//            [_qieButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//            if ([[NSString stringWithFormat:@"%@",_checkOrderModel[@"stock_status"]] isEqualToString:@"0"])
-//            {
-//                _qieButton.hidden=YES;
-//                 _baseScrollView.frame= CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight);
-//            }
-//            else
-//            {
-//                [_qieButton setTitle:@"切换支付方式" forState:UIControlStateNormal];
-//                 _baseScrollView.frame= CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight-TabbarHeight*2-1);
-//            }
-//            
-//            [_qieButton.titleLabel setFont:ThemeFont(18)];
-//            [_qieButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//                make.bottom.equalTo(_confirmOrderButton.mas_top).with.offset(-1);
-//                make.left.equalTo(self.view);
-//                make.right.equalTo(self.view);
-//                make.height.mas_equalTo(TabbarHeight);
-//            }];
-//            
-////            if ([_checkOrderModel.buyer_seller_edit isEqualToString:@"1"]) {
-////                [_confirmOrderButton setTitle:@"＋添加取货人信息" forState:UIControlStateNormal];
-////                _confirmOrderButton.hidden = NO;
-////            } else if(_addEvidenceFlag == 0) {
-////                _confirmOrderButton.hidden = NO;
-////            }
-////            else {
-////                _confirmOrderButton.hidden = YES;
-////            }
-////            //如果值为非空 则添加过联系人 下面的button改变状态
-////            if (_checkOrderModel.get_address||[_addContanctString isEqualToString:@"added"]) {
-////                _confirmOrderButton.hidden = NO;
-////                [_confirmOrderButton setTitle:@"理赔" forState:UIControlStateNormal];
-////            }
-//        }
-//    
-//    }
-    [_containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(_bottomView);
-    }];
+
 }
 
 -(void)changeorder:(UIButton *)button {
@@ -986,8 +921,15 @@ else
             NSDictionary *params = @{@"action":@"upPayImg",@"sign":[TYDPManager md5:Sign],@"model":@"order",@"user_id":[userdefaul objectForKey:@"user_id"],@"token":[userdefaul objectForKey:@"token"],@"order_id":_orderId};
             NSLog(@"params:%@",params);
 
-            _confirmOrderButton.hidden = YES;
             [TYDPManager upLoadPic:params withImage:image withName:@"pay_img" withView:self.view];
+            //跳转去新的页面
+            TYDP_CommitEvidenceViewController *CommitEvidenceVC = [TYDP_CommitEvidenceViewController new];
+            CommitEvidenceVC.orderId = self.orderId;
+            CommitEvidenceVC.order_status =self.order_status;
+            CommitEvidenceVC.popMore =YES;
+            
+            CommitEvidenceVC.orderSourceString = [NSString stringWithFormat:@"personalCenter"];
+            [self.navigationController pushViewController:CommitEvidenceVC animated:YES];
 
         } cancelBlock:^{
             
@@ -1045,6 +987,13 @@ else
                     [self.view Message:@"修改支付方式成功" HiddenAfterDelay:1.0];
                     
                     //跳转去新的订单详情页面
+                    TYDP_CommitEvidenceViewController *CommitEvidenceVC = [TYDP_CommitEvidenceViewController new];
+                    CommitEvidenceVC.orderId = self.orderId;
+                    CommitEvidenceVC.order_status =self.order_status;
+                    CommitEvidenceVC.popMore =YES;
+                    
+                    CommitEvidenceVC.orderSourceString = [NSString stringWithFormat:@"personalCenter"];
+                    [self.navigationController pushViewController:CommitEvidenceVC animated:YES];
                 }else {
                     [self.view Message:@"修改支付方式失败" HiddenAfterDelay:1.0];
                 }
@@ -1088,7 +1037,7 @@ else
             
             break;
         default:
-
+            return;
             break;
     }
 
@@ -1112,11 +1061,17 @@ else
                     NSDictionary *params = @{@"action":@"upPayImg",@"sign":[TYDPManager md5:Sign],@"model":@"order",@"user_id":[userdefaul objectForKey:@"user_id"],@"token":[userdefaul objectForKey:@"token"],@"order_id":_orderId};
                     NSLog(@"params:%@",params);
 //                    [self getOrderData];
-                    _confirmOrderButton.hidden = YES;
                     [TYDPManager upLoadPic:params withImage:image withName:@"pay_img" withView:self.view];
-                    _addEvidenceString = [NSString stringWithFormat:@"addEvidenceString"];
-                    _addEvidenceFlag = 1;
-                    [self addReFresh];
+//                    跳转去新的页面
+                    TYDP_CommitEvidenceViewController *CommitEvidenceVC = [TYDP_CommitEvidenceViewController new];
+                    CommitEvidenceVC.orderId = self.orderId;
+                    CommitEvidenceVC.order_status =self.order_status;
+                    CommitEvidenceVC.popMore =YES;
+
+                    CommitEvidenceVC.orderSourceString = [NSString stringWithFormat:@"personalCenter"];
+                    [self.navigationController pushViewController:CommitEvidenceVC animated:YES];
+
+                    
                 } cancelBlock:^{
                     
                 }];
@@ -1124,11 +1079,12 @@ else
                 TYDP_AddCommentController *addVC = [[TYDP_AddCommentController alloc]init];
                 addVC.pushType = 1;
                 addVC.titleStr = [NSString stringWithFormat:@"订单号：%@",[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_sn"]]];
-                [self.navigationController pushViewController:addVC animated:YES];            }
+                [self.navigationController pushViewController:addVC animated:YES];
+            }
             else {
                 //添加联系人
                 [self addContanctMethod];
-                _confirmOrderButton.hidden = YES;
+//                _confirmOrderButton.hidden = YES;
             }
                 break;
         }
@@ -1168,7 +1124,14 @@ else
     [TYDPManager tydp_basePostReqWithUrlStr:@"" params:params success:^(id data) {
         NSLog(@"data:%@",data[@"message"]);
         if (![data[@"error"] intValue]) {
-           
+            //跳转
+            TYDP_CommitEvidenceViewController *CommitEvidenceVC = [TYDP_CommitEvidenceViewController new];
+            CommitEvidenceVC.orderId = self.orderId;
+            CommitEvidenceVC.order_status =self.order_status;
+            CommitEvidenceVC.popMore =YES;
+            
+            CommitEvidenceVC.orderSourceString = [NSString stringWithFormat:@"personalCenter"];
+            [self.navigationController pushViewController:CommitEvidenceVC animated:YES];
         
         } else {
             _MBHUD.labelText = [NSString stringWithFormat:@"%@",data[@"message"]];
@@ -1181,7 +1144,16 @@ else
 }
 - (void)leftItemClicked:(UIBarButtonItem *)item{
     if ([_orderSourceString isEqualToString:@"personalCenter"]) {
+        
+        if (_popMore) {
+            NSInteger index=[[self.navigationController viewControllers]indexOfObject:self];
+            [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:index-2]animated:YES];
+            [self.navigationController.viewControllers objectAtIndex:index-2];
+            return;
+            
+        }
         [self.navigationController popViewControllerAnimated:YES];
+      
     } else {
         [self.navigationController popToRootViewControllerAnimated:YES];
     }

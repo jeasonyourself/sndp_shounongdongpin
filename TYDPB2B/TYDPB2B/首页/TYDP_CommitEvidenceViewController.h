@@ -12,5 +12,6 @@
 @property(nonatomic, copy)NSString *orderSourceString;//订单列表过来还是购买完跳转过来
 @property(nonatomic, copy)NSString *orderId;
 @property(nonatomic, copy)NSString *order_status;
+@property(nonatomic, assign)BOOL popMore;
 
 @end

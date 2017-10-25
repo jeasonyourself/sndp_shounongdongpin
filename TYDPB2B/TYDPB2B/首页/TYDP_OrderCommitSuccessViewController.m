@@ -76,7 +76,9 @@
     }];
 }
 - (void)leftItemClicked:(UIBarButtonItem *)item{
-    [self.navigationController popViewControllerAnimated:YES];
+    NSInteger index=[[self.navigationController viewControllers]indexOfObject:self];
+    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:index-2]animated:YES];
+    [self.navigationController.viewControllers objectAtIndex:index-2];
 }
 - (void)viewWillAppear:(BOOL)animated {
     self.tabBarController.tabBar.hidden = YES;
@@ -113,11 +115,11 @@
 }
 - (void)manageOrderData{
     OrderDetailPaymentBigModel *orderDetailPaymentBigModel = _orderDetailModel.payment_desc;
-     _orderDetailArray = [NSMutableArray arrayWithObjects:@"订  单  号：",@"订单状态：",@"支付方式：", nil];
+     _orderDetailArray = [NSMutableArray arrayWithObjects:@"订  单  号：",@"订单状态：",@"库存状态：", nil];
     _orderDetailValueArray = [NSMutableArray array];
     [_orderDetailValueArray addObject:_orderDetailModel.order_sn];
     [_orderDetailValueArray addObject:_orderDetailModel.order_status];
-    [_orderDetailValueArray addObject:_orderDetailModel.payment];
+    [_orderDetailValueArray addObject:@"待确认"];
     //只有list里有数据的时候才处理
 //    if (orderDetailPaymentBigModel.payment_list.count) {
 //        NSMutableArray *orderDetailListModelArray = [NSMutableArray array];

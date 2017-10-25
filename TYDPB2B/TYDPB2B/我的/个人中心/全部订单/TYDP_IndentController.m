@@ -162,14 +162,15 @@
     TYDP_CommitEvidenceViewController *CommitEvidenceVC = [TYDP_CommitEvidenceViewController new];
     CommitEvidenceVC.orderId = cellData[@"order_id"];
     CommitEvidenceVC.order_status = [NSString stringWithFormat:@"%@",cellData[@"show_pay"]];
-    
+    CommitEvidenceVC.popMore=NO;
+
     CommitEvidenceVC.orderSourceString = [NSString stringWithFormat:@"personalCenter"];
     [self.navigationController pushViewController:CommitEvidenceVC animated:YES];
 }
 
 - (void)configCell:(TYDP_IndentCell *)cell WithindexPath:(NSIndexPath *)indexPath{
     NSDictionary *cellData = _dataSource[indexPath.row];
-    cell.titleLab.text = cellData[@"goods"][@"goods_name"];
+    cell.titleLab.text =[NSString stringWithFormat:@"%@  %@",cellData[@"goods"][@"goods_name"],cellData[@"goods"][@"brand_sn"]]; ;
     cell.numberLab.text = cellData[@"order_sn"];
     cell.timeLab.text = cellData[@"add_time"];
     [cell.headImg sd_setImageWithURL:[NSURL URLWithString:cellData[@"goods"][@"goods_thumb"]]];
@@ -202,6 +203,7 @@
     TYDP_CommitEvidenceViewController *CommitEvidenceVC = [TYDP_CommitEvidenceViewController new];
     CommitEvidenceVC.orderId = cellData[@"order_id"];
     CommitEvidenceVC.order_status = [NSString stringWithFormat:@"%@",cellData[@"show_pay"]];
+    CommitEvidenceVC.popMore=NO;
 
     CommitEvidenceVC.orderSourceString = [NSString stringWithFormat:@"personalCenter"];
     [self.navigationController pushViewController:CommitEvidenceVC animated:YES];

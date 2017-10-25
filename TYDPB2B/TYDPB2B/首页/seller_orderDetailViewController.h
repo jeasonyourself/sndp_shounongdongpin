@@ -11,5 +11,6 @@
 @interface seller_orderDetailViewController : UIViewController
 @property(nonatomic, copy)NSString *orderId;
 @property(nonatomic, copy)NSString *order_status;
+@property(nonatomic, assign)BOOL popMore;
 
 @end

@@ -235,8 +235,8 @@ typedef enum {
         make.right.equalTo(_baseScrollView).with.offset(HomePageBordWidth);
         make.height.mas_equalTo(NavHeight*2);
     }];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(topViewTapMethod:)];
-    [_topView addGestureRecognizer:tap];
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(topViewTapMethod:)];
+//    [_topView addGestureRecognizer:tap];
     UILabel *topLabel = [UILabel new];
     [_topView addSubview:topLabel];
     [topLabel setText:@"产品信息"];
@@ -268,7 +268,7 @@ typedef enum {
     }];
     UILabel *rightTopLabel = [UILabel new];
     [_topView addSubview:rightTopLabel];
-    [rightTopLabel setText:[NSString stringWithFormat:@"%@",_orderGoodsModel[@"goods_name"]]];
+    [rightTopLabel setText:[NSString stringWithFormat:@"%@ %@",_orderGoodsModel[@"goods_name"],_orderGoodsModel[@"brand_sn"]]];
     [rightTopLabel setTextColor:RGBACOLOR(85, 85, 85, 1)];
     [rightTopLabel setFont:ThemeFont(18)];
     [rightTopLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -794,7 +794,7 @@ typedef enum {
             make.height.mas_equalTo(TabbarHeight);
         }];
 
-        _baseScrollView.frame = CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight-TabbarHeight);
+        _baseScrollView.frame = CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight-TabbarHeight*2-1);
 
     }
     }
@@ -858,8 +858,13 @@ typedef enum {
             _MBHUD.labelText = [NSString stringWithFormat:@"%@",data[@"message"]];
             [_MBHUD show:YES];
             [_MBHUD hide:YES afterDelay:1.5f];
-            [ self.navigationController popViewControllerAnimated:YES];
+//            [ self.navigationController popViewControllerAnimated:YES];
             
+            //跳转新的页面
+            seller_orderDetailViewController *CommitEvidenceVC = [seller_orderDetailViewController new];
+            CommitEvidenceVC.orderId = self.orderId;
+            CommitEvidenceVC.popMore=YES;
+            [self.navigationController pushViewController:CommitEvidenceVC animated:YES];
         } else {
             _MBHUD.labelText = [NSString stringWithFormat:@"%@",data[@"message"]];
             [_MBHUD show:YES];
@@ -880,7 +885,7 @@ typedef enum {
             else {
                 //添加联系人
                 [self addContanctMethod];
-                _confirmOrderButton.hidden = YES;
+//                _confirmOrderButton.hidden = YES;
             }
             break;
         }
@@ -895,20 +900,11 @@ typedef enum {
     consigneeCon.type=[[PSDefaults objectForKey:@"userType"] isEqualToString:@"0"]?0:1;
     consigneeCon.addAddressInfoBlock = ^(NSDictionary *dic) {
         NSLog(@"dic:%@", dic);
-        [_addContanctValueArray removeAllObjects];
-        [_addContanctValueArray addObject:dic[@"addressName"]]
-        ;
-        [_addContanctValueArray addObject:dic[@"address_userId"]];
-        [_addContanctValueArray addObject:dic[@"addressMobile"]];
-        [_contanctView removeFromSuperview];
-        [_middleView removeFromSuperview];
-        [_bottomView removeFromSuperview];
-        _contanctViewIsHidden = NO;
         [self uploadContanctInfoWithAddressId:dic[@"address_id"] andTransferState:dic[@"yunfei"]];
-        [self createMiddleUIWithFrontViewWithJudgeString:nil];
-        _addContanctString = [NSString stringWithFormat:@"added"];
-        _confirmOrderButton.hidden = YES;
+       
+//        _confirmOrderButton.hidden = YES;
     };
+   
     [self.navigationController pushViewController:consigneeCon animated:YES];
 }
 - (void)uploadContanctInfoWithAddressId:(NSString *)addressId andTransferState:(NSString *)transferWay{
@@ -918,13 +914,11 @@ typedef enum {
     [TYDPManager tydp_basePostReqWithUrlStr:@"" params:params success:^(id data) {
         NSLog(@"data:%@",data[@"message"]);
         if (![data[@"error"] intValue]) {
-            [_sellerConsultAddContanctButton removeFromSuperview];
-            [_sellerConsultClaimAdjustButton mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.bottom.equalTo(self.view);
-                make.right.equalTo(self.view);
-                make.width.mas_equalTo(ScreenWidth);
-                make.height.mas_equalTo(TabbarHeight);
-            }];
+            //跳转新的页面
+            seller_orderDetailViewController *CommitEvidenceVC = [seller_orderDetailViewController new];
+            CommitEvidenceVC.orderId = self.orderId;
+            CommitEvidenceVC.popMore=YES;
+            [self.navigationController pushViewController:CommitEvidenceVC animated:YES];
         } else {
             _MBHUD.labelText = [NSString stringWithFormat:@"%@",data[@"message"]];
             [_MBHUD show:YES];
@@ -935,7 +929,14 @@ typedef enum {
     }];
 }
 - (void)leftItemClicked:(UIBarButtonItem *)item{
-        [self.navigationController popViewControllerAnimated:YES];
+    if (_popMore) {
+        NSInteger index=[[self.navigationController viewControllers]indexOfObject:self];
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:index-2]animated:YES];
+        [self.navigationController.viewControllers objectAtIndex:index-2];
+        return;
+
+    }
+            [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)viewDidAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = YES;

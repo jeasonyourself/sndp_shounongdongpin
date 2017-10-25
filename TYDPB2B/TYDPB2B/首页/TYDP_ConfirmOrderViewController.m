@@ -13,6 +13,9 @@
 #import "OrderDetailPaymentBigModel.h"
 
 @interface TYDP_ConfirmOrderViewController ()<UITextViewDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
+{
+    UITextField *rightNameLable;
+}
 @property(nonatomic, strong)UIView *navigationBarView;
 @property(nonatomic, strong)UIScrollView *baseScrollView;
 @property(nonatomic, strong)UIView *containerView;
@@ -530,11 +533,22 @@
         make.height.mas_equalTo(55);
     }];
     
-    UILabel *rightNameLable = [UILabel new];
+    rightNameLable = [UITextField new];
     [bottomView addSubview:rightNameLable];
+    rightNameLable.placeholder=@"请输入真实姓名";
     [rightNameLable setTextAlignment:NSTextAlignmentRight];
     [rightNameLable setText:[NSString stringWithFormat:@"%@",[PSDefaults objectForKey:@"alias"]]];
-    [rightNameLable setTextColor:RGBACOLOR(85, 85, 85, 1)];
+    if (![PSDefaults objectForKey:@"alias"]||[[PSDefaults objectForKey:@"alias"] isEqualToString:@""])
+    {
+        rightNameLable.userInteractionEnabled=YES;
+    }
+    else
+    {
+        rightNameLable.userInteractionEnabled=NO;
+
+    }
+
+       [rightNameLable setTextColor:RGBACOLOR(85, 85, 85, 1)];
     [rightNameLable setFont:ThemeFont(OrderFontSize)];
     [rightNameLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(_baseScrollView).with.offset(-MiddleGap);
@@ -680,6 +694,12 @@
     }];
 }
 - (void)getOrderData {
+    if ([rightNameLable.text isEqualToString:@""]) {
+        [self.view Message:@"请输入真实姓名" HiddenAfterDelay:1.0];
+        return;
+
+    }
+    
     _MBHUD = [[MBProgressHUD alloc] init];
     [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
     [_MBHUD setMode:MBProgressHUDModeText];
@@ -696,6 +716,12 @@
             _orderDetailModel = [[OrderDetailModel alloc] initWithDictionary:data[@"content"] error:nil];
             TYDP_OrderCommitSuccessViewController *orderCommitSuccessViewCon = [[TYDP_OrderCommitSuccessViewController alloc] init];
             orderCommitSuccessViewCon.orderDetailModel = _orderDetailModel;
+            
+            if (![PSDefaults objectForKey:@"alias"]||[[PSDefaults objectForKey:@"alias"] isEqualToString:@""])
+            {
+                [PSDefaults setObject:rightNameLable.text forKey:@"alias"];
+            }
+            
             [self.navigationController pushViewController:orderCommitSuccessViewCon animated:YES];
         } else {
             [_MBHUD setLabelText:data[@"message"]];
