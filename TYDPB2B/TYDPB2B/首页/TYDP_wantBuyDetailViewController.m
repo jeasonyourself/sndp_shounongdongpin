@@ -1110,9 +1110,9 @@ typedef enum {
         }
         if (item.tag==1)
         {
-            purchaseListModel *tmpGoodsModel = _goodsListModelArray[item.tag];
+//            purchaseListModel *tmpGoodsModel = _goodsListModelArray[item.tag];
             UIWebView*callWebview =[[UIWebView alloc] init];
-            NSURL *telURL =[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",tmpGoodsModel.user_phone]];// 貌似tel:// 或者 tel: 都行
+            NSURL *telURL =[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",_purchaseListMD.user_phone]];// 貌似tel:// 或者 tel: 都行
             [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
             
             //记得添加到view上

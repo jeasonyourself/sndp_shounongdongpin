@@ -162,7 +162,7 @@
 
 - (void)configCell:(sellerOrderListTableViewCell *)cell WithindexPath:(NSIndexPath *)indexPath{
     NSDictionary *cellData = _dataSource[indexPath.row];
-    cell.titleLab.text = [NSString stringWithFormat:@"%@ %@",cellData[@"goods"][@"goods_name"],cellData[@"goods"][@"brand_sn"]];;
+    cell.titleLab.text = [NSString stringWithFormat:@"%@",cellData[@"goods"][@"goods_name"]];;
     cell.numberLab.text = cellData[@"order_sn"];
     cell.timeLab.text = cellData[@"add_time"];
     [cell.headImg sd_setImageWithURL:[NSURL URLWithString:cellData[@"goods"][@"goods_thumb"]]];
@@ -182,12 +182,13 @@
     cell.typeLab.text = cellData[@"order_status_format"];
 //    cell.howMuchLable.text = cellData[@"order_status_format"];
 
-    if (_listType==2||_listType==3||_listType==4) {
-        [cell.typeBtn setTitle:@"详细信息" forState:UIControlStateNormal];
+   if (![[NSString stringWithFormat:@"%@",cellData[@"stock_status"]] isEqualToString:@"0"]){
+        cell.typeBtn.hidden=YES;
     }else{
         [cell.typeBtn setTitle:@"确认库存" forState:UIControlStateNormal];
+        cell.typeBtn.hidden=NO;
     }
-    cell.typeBtn.hidden=YES;
+    
     [cell.typeBtn addTarget:self action:@selector(typeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

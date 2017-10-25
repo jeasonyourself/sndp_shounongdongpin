@@ -15,6 +15,8 @@
 #import "GetAddressModel.h"
 #import "sellerOrderDetailModel.h"
 #import "TYDP_OfferDetailViewController.h"
+#import "sellerCenterOrderListViewController.h"
+
 typedef enum {
     confirmOrderButtonMessage = 1,
     sellerConsultAddContanctButtonMessage,
@@ -930,9 +932,13 @@ typedef enum {
 }
 - (void)leftItemClicked:(UIBarButtonItem *)item{
     if (_popMore) {
-        NSInteger index=[[self.navigationController viewControllers]indexOfObject:self];
-        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:index-2]animated:YES];
-        [self.navigationController.viewControllers objectAtIndex:index-2];
+        for (UIViewController * vc in self.navigationController.viewControllers) {
+            
+            if ([vc isKindOfClass:[sellerCenterOrderListViewController class]]) {
+                [self.navigationController popToViewController:vc animated:YES];
+            }
+        }
+
         return;
 
     }

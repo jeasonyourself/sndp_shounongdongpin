@@ -40,7 +40,7 @@
     if (self.pushType == 1) {//添加联系人
         self.deleteBtn.hidden = YES;
     }
-    self.IDnumberTf.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    self.IDnumberTf.keyboardType = UIKeyboardTypeNumberPad;
     self.phoneNumberTf.keyboardType = UIKeyboardTypeNumberPad;
 }
 

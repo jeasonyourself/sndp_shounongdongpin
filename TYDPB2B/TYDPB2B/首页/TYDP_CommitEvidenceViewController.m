@@ -14,6 +14,7 @@
 #import "GetAddressModel.h"
 #import "CheckOrderModel.h"
 #import "TYDP_OfferDetailViewController.h"
+#import "TYDP_IndentController.h"
 typedef enum {
     confirmOrderButtonMessage = 1,
     sellerConsultAddContanctButtonMessage,
@@ -510,7 +511,7 @@ typedef enum {
     }];
     UILabel *topLabel = [UILabel new];
     [_contanctView addSubview:topLabel];
-    [topLabel setText:@"发货人信息"];
+    [topLabel setText:@"取货人信息"];
     [topLabel setTextColor:[UIColor lightGrayColor]];
     [topLabel setFont:ThemeFont(16)];
     [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1149,9 +1150,15 @@ typedef enum {
     if ([_orderSourceString isEqualToString:@"personalCenter"]) {
         
         if (_popMore) {
-            NSInteger index=[[self.navigationController viewControllers]indexOfObject:self];
-            [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:index-2]animated:YES];
-            [self.navigationController.viewControllers objectAtIndex:index-2];
+//            NSInteger index=[[self.navigationController viewControllers]indexOfObject:self];
+            
+            for (UIViewController * vc in self.navigationController.viewControllers) {
+                
+                if ([vc isKindOfClass:[TYDP_IndentController class]]) {
+                    [self.navigationController popToViewController:vc animated:YES];
+                }
+            }
+            
             return;
             
         }

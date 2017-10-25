@@ -138,7 +138,7 @@
         
     }
     else  {
-        rightBottomLabel.text=[NSString stringWithFormat:@"%@/%@  %@件/吨",[NSString stringWithFormat:@"%@",_orderDic[@"shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"goods_weight"]]];
+        rightBottomLabel.text=[NSString stringWithFormat:@"%@/%@  %@吨/柜",[NSString stringWithFormat:@"%@",_orderDic[@"shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"goods_weight"]]];
     }
    
     [rightBottomLabel setTextColor:RGBACOLOR(252, 91, 49, 1)];
