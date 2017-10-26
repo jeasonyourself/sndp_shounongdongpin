@@ -183,7 +183,8 @@
 //    cell.howMuchLable.text = cellData[@"order_status_format"];
 
    if (![[NSString stringWithFormat:@"%@",cellData[@"stock_status"]] isEqualToString:@"0"]){
-        cell.typeBtn.hidden=YES;
+       [cell.typeBtn setTitle:@"详细信息" forState:UIControlStateNormal];
+       cell.typeBtn.hidden=NO;
     }else{
         [cell.typeBtn setTitle:@"确认库存" forState:UIControlStateNormal];
         cell.typeBtn.hidden=NO;

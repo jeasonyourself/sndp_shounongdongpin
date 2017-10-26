@@ -36,7 +36,7 @@
     NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];
     NSDictionary *params = @{@"model":@"user",@"action":@"get_myhuck",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"userget_myhuck%@",ConfigNetAppKey]],@"user_id":[userdefaul objectForKey:@"user_id"],@"token":[userdefaul objectForKey:@"token"]};
     [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
-//        NSLog(@"%@",data);
+        debugLog(@"haijiadataaa:%@",data);
         if ([data[@"error"]isEqualToString:@"0"]) {
             [_MBHUD hide:YES];
             _page_count = [data[@"content"][@"total"][@"page_count"] intValue];
@@ -200,9 +200,12 @@
     TYDP_BargainModel *model = [TYDP_BargainModel new];
     model = _dataSource[indexPath.row];
     cell.titleLab.text = model.goods_name;
+    
     cell.priceAgo.text = model.last_price;
+    cell.priceNow.text = model.last_price;
+
     cell.priceMine.text = model.price;
-    cell.priceNow.text = model.formated_shop_price;
+
     cell.numLab.text = model.brand_sn;
     [cell.buyBtn addTarget:self action:@selector(buyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [cell.mainImg sd_setImageWithURL:[NSURL URLWithString:model.goods_thumb] placeholderImage:[UIImage imageNamed:@"pic_loading"]];
@@ -231,7 +234,7 @@
     ((TYDP_BargainCellB *)cell).titleLab.text = model.goods_name;
     ((TYDP_BargainCellB *)cell).priceAgo.text = model.last_price;
     ((TYDP_BargainCellB *)cell).priceMine.text = model.price;
-    ((TYDP_BargainCellB *)cell).priceNow.text = model.formated_shop_price;
+    ((TYDP_BargainCellB *)cell).priceNow.text = model.last_price;
     ((TYDP_BargainCellB *)cell).numLab.text = model.brand_sn;
     ((TYDP_BargainCellB *)cell).timeLable.text=[NSString stringWithFormat:@"还价时间:%@",model.created_at];
     ((TYDP_BargainCellB *)cell).spec_textLable.text=[NSString stringWithFormat:@"还价内容:%@",model.message];
@@ -252,6 +255,8 @@
 
 - (void)buyBtnClick:(UIButton *)sender{
     TYDP_BargainModel *model = [TYDP_BargainModel new];
+    
+    
     NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)sender.superview.superview];
     model = _dataSource[indexPath.row];
     TYDP_OfferDetailViewController *detailVC = [TYDP_OfferDetailViewController new];

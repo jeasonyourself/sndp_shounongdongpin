@@ -10,14 +10,14 @@
 #import "NSDate+PGCategory.h"
 #import "UIColor+PGHex.h"
 #import "NSCalendar+PGCurrent.h"
-#import <PGPickerView/PGPickerView.h>
+#import "PGPickerView.h"
 
 typedef NS_ENUM(NSInteger, PGDatePickerMode) {
     PGDatePickerModeYear, //年
     PGDatePickerModeYearAndMonth, //年月
     PGDatePickerModeDate, //年月日
     PGDatePickerModeTime, //时分
-    PGDatePickerModeDateAndTime, //年月周 时分
+    PGDatePickerModeDateAndTime, //月日周 时分
 };
 
 @protocol PGDatePickerDelegate;

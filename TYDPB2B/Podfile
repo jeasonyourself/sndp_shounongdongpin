@@ -16,6 +16,6 @@ pod 'UMengUShare/UI'
 pod 'UMengUShare/Social/WeChat'
 pod 'TTTAttributedLabel'
 pod 'MagicWindowSDK-noWXSDK', :podspec => "https://raw.githubusercontent.com/ran354101066/mw-iossdk/master/MagicWindowSDK-noWXSDK.podspec"
-pod 'UMengMessage'
+pod 'UMessage_NOIDFA', '~> 1.5.3’
 end
 

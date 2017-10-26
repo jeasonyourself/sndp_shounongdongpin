@@ -12,10 +12,14 @@
 #import "TYDP_VendorController.h"
 #import "TYDP_OfferDetailViewController.h"
 #import "UMessage.h"
+#ifdef  NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#endif
+
 //#import "UserNotifications.h"
 //商品详情：交易历史。店铺详情：二级排序。
 //你从东到西，我从南到北，我们总会有一个交叉口，或是始不得遇，又或是终将分离
-@interface AppDelegate ()
+@interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @end
 
@@ -47,6 +51,58 @@
     
     //初始化SDK，必写
     [MWApi registerApp:@"Q0AZ6ILYN40Y098WQVGU8X351SNJC2SJ"];
+    
+ [UMessage startWithAppkey:@"59ec5ab9f43e483a7a000bb4" launchOptions:launchOptions];
+    
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= _IPHONE80_
+    if(IS_OS_10_OR_LATER)
+    {
+        UNUserNotificationCenter * center=[UNUserNotificationCenter currentNotificationCenter];
+        center.delegate=self;
+        [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert|UNAuthorizationOptionBadge|UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+            if (granted)
+            {
+                debugLog(@"注册成功");
+                [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+                    debugLog(@"setttttt:%@",settings);
+                }];
+            }
+            else
+            {
+                debugLog(@"注册失败");
+            }
+        }];
+         [UMessage registerForRemoteNotifications];
+        
+    } else{
+        //register remoteNotification types (iOS 8.0-10.0)
+        //register remoteNotification types （iOS 8.0及其以上版本）
+        UIMutableUserNotificationAction *action1 = [[UIMutableUserNotificationAction alloc] init];
+        action1.identifier = @"action1_identifier";
+        action1.title=@"Accept";
+        action1.activationMode = UIUserNotificationActivationModeForeground;//当点击的时候启动程序
+        
+        UIMutableUserNotificationAction *action2 = [[UIMutableUserNotificationAction alloc] init];  //第二按钮
+        action2.identifier = @"action2_identifier";
+        action2.title=@"Reject";
+        action2.activationMode = UIUserNotificationActivationModeBackground;//当点击的时候不启动程序，在后台处理
+        action2.authenticationRequired = YES;//需要解锁才能处理，如果action.activationMode = UIUserNotificationActivationModeForeground;则这个属性被忽略；
+        action2.destructive = YES;
+        
+        UIMutableUserNotificationCategory *categorys = [[UIMutableUserNotificationCategory alloc] init];
+        categorys.identifier = @"category1";//这组动作的唯一标示
+        [categorys setActions:@[action1,action2] forContext:(UIUserNotificationActionContextDefault)];
+        
+        [UMessage registerForRemoteNotifications];
+    }
+#else
+    
+    //register remoteNotification types (iOS 8.0以下)
+    [UMessage registerForRemoteNotifications];
+    
+#endif
+    //for log
+    [UMessage setLogEnabled:YES];
     
     
     //直接设置颜色
@@ -82,6 +138,28 @@
     
 
     return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    [UMessage registerDeviceToken:deviceToken];
+    NSString* token1 = [NSString stringWithFormat:@"%@",deviceToken];
+    debugLog(@"apns -> 生成的devToken:%@", token1);
+    debugLog(@"apns -> devToken:%@",[[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]stringByReplacingOccurrencesOfString: @">" withString: @""]stringByReplacingOccurrencesOfString: @" " withString: @""]);
+    [PSDefaults setObject:[[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]stringByReplacingOccurrencesOfString: @">" withString: @""]stringByReplacingOccurrencesOfString: @" " withString: @""] forKey:@"device_token"];
+    [PSDefaults setObject:@"1" forKey:@"device_type"];
+}
+
+//远程通知注册失败委托
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    debugLog(@"apns -> 注册推送功能时发生错误， 错误信息:\n %@", error);
+    
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    [UMessage didReceiveRemoteNotification:userInfo];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation

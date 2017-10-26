@@ -138,14 +138,14 @@ typedef enum {
     NSDictionary *params = @{@"action":@"get_info",@"sign":[TYDPManager md5:Sign],@"model":@"goods",@"goods_id":_goods_id};
     [TYDPManager tydp_basePostReqWithUrlStr:@"" params:params success:^(id data) {
         NSLog(@"detailData:%@",data);
+        if ([data[@"error"] intValue]==404) {
+            [_MBHUD show:YES];
+            UIWindow *window = [UIApplication sharedApplication].keyWindow;
+            [window Message:@"商品已下架" HiddenAfterDelay:1.5];
+            [self leftItemClicked:nil];
+        }
+        
         if (![data[@"error"] intValue]) {
-            
-            if ([data[@"error"] intValue]==404) {
-               [_MBHUD show:YES];
-                UIWindow *window = [UIApplication sharedApplication].keyWindow;
-                [window Message:@"商品已下架" HiddenAfterDelay:1.5];
-                [self leftItemClicked:nil];
-            }
             _offerDetailModel = [[OfferDetailModel alloc] initWithDictionary:data[@"content"] error:nil];
             [_picListArray removeAllObjects];
             [_picListArray addObject:_offerDetailModel.goods_thumb];
@@ -1797,7 +1797,7 @@ typedef enum {
                 [smallLabel setTextColor:RGBACOLOR(249, 160, 45, 1)];
                 [middleSmallLabel setTextColor:RGBACOLOR(249, 160, 45, 1)];
                 [rightSmallLabel setTextColor:RGBACOLOR(249, 160, 45, 1)];
-                [middleSmallLabel setText:[NSString stringWithFormat:@"最高%@",tmpOfferModel.created_at]];
+                [middleSmallLabel setText:[NSString stringWithFormat:@"%@",tmpOfferModel.created_at]];
                 //                        [smallLabel setText:[NSString stringWithFormat:@"%@            最高%@             %@%@",tmpOfferModel.user_name,tmpOfferModel.created_at, tmpOfferModel.formated_price,tmpOfferModel.unit]];
             }else if (i == _offerModelArray.count-1) {
                 [_smallContainerView mas_makeConstraints:^(MASConstraintMaker *make) {

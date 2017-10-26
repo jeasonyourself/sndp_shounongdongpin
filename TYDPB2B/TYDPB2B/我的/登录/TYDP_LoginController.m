@@ -49,7 +49,7 @@
 - (void)requestData{
     [self creatHUD];
     NSString *sign = [NSString stringWithFormat:@"userlogin%@",ConfigNetAppKey];
-    NSDictionary *params = @{@"model":@"user",@"action":@"login",@"user_name":self.numTf.text,@"password":self.passTf.text,@"sign":[TYDPManager md5:sign]};
+    NSDictionary *params = @{@"model":@"user",@"action":@"login",@"user_name":self.numTf.text,@"password":self.passTf.text,@"sign":[TYDPManager md5:sign],@"device_type":@"1",@"device_token":[PSDefaults objectForKey:@"device_token"]};
     [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
         debugLog(@"loginnnnData:%@",data);
         if ([data[@"error"]isEqualToString:@"0"]) {

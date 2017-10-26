@@ -165,8 +165,8 @@
                             </mask>
                         </variation>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/吨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8x-6a-EXq">
-                        <rect key="frame" x="169" y="52" width="20.5" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="元/吨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8x-6a-EXq">
+                        <rect key="frame" x="169" y="52" width="36" height="18"/>
                         <constraints>
                             <constraint firstAttribute="width" priority="1" constant="42" id="BiN-ft-VB0"/>
                             <constraint firstAttribute="height" priority="1" constant="21" id="kC2-0y-jjz"/>

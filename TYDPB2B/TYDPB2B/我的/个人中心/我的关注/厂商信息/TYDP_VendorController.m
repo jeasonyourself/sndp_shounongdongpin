@@ -445,7 +445,7 @@ typedef enum {
 }
 
 - (void)requestGoodsList{
-    NSMutableDictionary *params = [[NSMutableDictionary alloc]initWithDictionary:@{@"model":@"goods",@"action":@"get_list",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"goodsget_list%@",ConfigNetAppKey]],@"user_id":_user_id,@"page":[NSNumber numberWithInt:_page]}];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]initWithDictionary:@{@"model":@"goods",@"action":@"get_list",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"goodsget_list%@",ConfigNetAppKey]],@"user_id":_user_id,@"page":[NSNumber numberWithInt:_page],@"keywords":_searchBar.text}];
 //    if (_goods_type == 6||_goods_type == 7) {
 //        [params setObject:[NSString stringWithFormat:@"%d",_goods_type] forKey:@"goods_type"];
 //    }else{
@@ -797,6 +797,13 @@ typedef enum {
         }];
 
     }
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    debugLog(@"搜索");
+    _page=1;
+    [_dataSource removeAllObjects];
+    [self requestGoodsList];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{

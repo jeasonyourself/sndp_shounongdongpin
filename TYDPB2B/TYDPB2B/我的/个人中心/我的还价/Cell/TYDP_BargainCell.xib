@@ -72,8 +72,8 @@
                         <color key="textColor" red="0.97254901960784312" green="0.27843137254901962" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/吨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7M-yk-yfl">
-                        <rect key="frame" x="166.5" y="65" width="22" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="元/吨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7M-yk-yfl">
+                        <rect key="frame" x="166.5" y="65" width="38" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" priority="1" constant="37.5" id="NQt-8B-Xyd"/>
                             <constraint firstAttribute="height" constant="20" id="dbO-al-DFl"/>

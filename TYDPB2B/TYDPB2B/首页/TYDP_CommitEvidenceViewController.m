@@ -932,7 +932,7 @@ typedef enum {
             CommitEvidenceVC.order_status =self.order_status;
             CommitEvidenceVC.popMore =YES;
             
-            CommitEvidenceVC.orderSourceString = [NSString stringWithFormat:@"personalCenter"];
+            CommitEvidenceVC.orderSourceString = self.orderSourceString;
             [self.navigationController pushViewController:CommitEvidenceVC animated:YES];
 
         } cancelBlock:^{
@@ -996,7 +996,7 @@ typedef enum {
                     CommitEvidenceVC.order_status =self.order_status;
                     CommitEvidenceVC.popMore =YES;
                     
-                    CommitEvidenceVC.orderSourceString = [NSString stringWithFormat:@"personalCenter"];
+                    CommitEvidenceVC.orderSourceString = self.orderSourceString;
                     [self.navigationController pushViewController:CommitEvidenceVC animated:YES];
                 }else {
                     [self.view Message:@"修改支付方式失败" HiddenAfterDelay:1.0];
@@ -1072,7 +1072,7 @@ typedef enum {
                     CommitEvidenceVC.order_status =self.order_status;
                     CommitEvidenceVC.popMore =YES;
 
-                    CommitEvidenceVC.orderSourceString = [NSString stringWithFormat:@"personalCenter"];
+                    CommitEvidenceVC.orderSourceString = self.orderSourceString;
                     [self.navigationController pushViewController:CommitEvidenceVC animated:YES];
 
                     
@@ -1134,7 +1134,7 @@ typedef enum {
             CommitEvidenceVC.order_status =self.order_status;
             CommitEvidenceVC.popMore =YES;
             
-            CommitEvidenceVC.orderSourceString = [NSString stringWithFormat:@"personalCenter"];
+            CommitEvidenceVC.orderSourceString = self.orderSourceString;
             [self.navigationController pushViewController:CommitEvidenceVC animated:YES];
         
         } else {
@@ -1164,7 +1164,8 @@ typedef enum {
         }
         [self.navigationController popViewControllerAnimated:YES];
       
-    } else {
+    }
+    else {
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
