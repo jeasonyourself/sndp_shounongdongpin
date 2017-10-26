@@ -33,11 +33,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="121.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="产品性质" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccX-Qx-f20">
-                                                    <rect key="frame" x="15" y="12" width="56" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="产品性质" textAlignment="natural" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccX-Qx-f20">
+                                                    <rect key="frame" x="15" y="12" width="60" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="NHU-Jl-a1H"/>
-                                                        <constraint firstAttribute="width" constant="56" id="yW3-OY-uh4"/>
+                                                        <constraint firstAttribute="width" constant="60" id="yW3-OY-uh4"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -294,7 +293,7 @@
                                                 <constraint firstItem="i7g-uU-LNO" firstAttribute="top" secondItem="m0A-ZR-AKq" secondAttribute="top" constant="8" id="aze-RU-jj5"/>
                                                 <constraint firstItem="qnG-Ai-UeQ" firstAttribute="leading" secondItem="ceo-Jg-mlj" secondAttribute="trailing" constant="8" id="efb-Ym-KGk"/>
                                                 <constraint firstItem="ccX-Qx-f20" firstAttribute="leading" secondItem="m0A-ZR-AKq" secondAttribute="leading" constant="15" id="gB1-cq-1te"/>
-                                                <constraint firstItem="i7g-uU-LNO" firstAttribute="leading" secondItem="ccX-Qx-f20" secondAttribute="trailing" constant="8" id="iVX-Ri-1uU"/>
+                                                <constraint firstItem="i7g-uU-LNO" firstAttribute="leading" secondItem="ccX-Qx-f20" secondAttribute="trailing" constant="4" id="iVX-Ri-1uU"/>
                                                 <constraint firstItem="6Vn-p1-oyO" firstAttribute="top" secondItem="ceo-Jg-mlj" secondAttribute="bottom" constant="8" id="kkC-6O-qP8"/>
                                                 <constraint firstItem="tpg-ZR-QYV" firstAttribute="top" secondItem="m0A-ZR-AKq" secondAttribute="top" constant="8" id="lUN-ip-m5D"/>
                                                 <constraint firstItem="qnG-Ai-UeQ" firstAttribute="width" secondItem="ceo-Jg-mlj" secondAttribute="width" id="mGp-r9-3Js"/>

@@ -1,0 +1,33 @@
+
+/* Class = "UINavigationController"; title = "资讯"; ObjectID = "Aim-aQ-8ty"; */
+"Aim-aQ-8ty.title" = "资讯";
+
+/* Class = "UINavigationController"; title = "服务"; ObjectID = "FLd-a0-xLZ"; */
+"FLd-a0-xLZ.title" = "服务";
+
+/* Class = "UINavigationController"; title = "我的"; ObjectID = "I1U-XF-tlA"; */
+"I1U-XF-tlA.title" = "我的";
+
+/* Class = "UITabBarItem"; title = "资讯"; ObjectID = "LMT-H4-505"; */
+"LMT-H4-505.title" = "资讯";
+
+/* Class = "UITabBarItem"; title = "首页"; ObjectID = "Lfe-Sl-XVe"; */
+"Lfe-Sl-XVe.title" = "首页";
+
+/* Class = "UINavigationController"; title = "报盘"; ObjectID = "S0a-TD-hW1"; */
+"S0a-TD-hW1.title" = "报盘";
+
+/* Class = "UIViewController"; title = "首页"; ObjectID = "Wm0-qN-1dP"; */
+"Wm0-qN-1dP.title" = "首页";
+
+/* Class = "UITabBarItem"; title = "我的"; ObjectID = "jxk-ge-RoO"; */
+"jxk-ge-RoO.title" = "我的";
+
+/* Class = "UINavigationController"; title = "首页"; ObjectID = "kJ3-0Y-tC6"; */
+"kJ3-0Y-tC6.title" = "首页";
+
+/* Class = "UITabBarItem"; title = "筛选"; ObjectID = "pDw-62-zmN"; */
+"pDw-62-zmN.title" = "筛选";
+
+/* Class = "UITabBarItem"; title = "服务"; ObjectID = "qhV-Gq-22N"; */
+"qhV-Gq-22N.title" = "服务";

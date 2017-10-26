@@ -48,11 +48,11 @@
 - (void)configureZYPathButton {
     tabBar = [ZYTabBar new];
     tabBar.delegate = self;
-    ZYPathItemButton *itemButton_1 = [[ZYPathItemButton alloc]initWithImage:[UIImage imageNamed:@"pop_buy"]highlightedImage:[UIImage imageNamed:@"pop_buy"]backgroundImage:[UIImage imageNamed:@"pop_buy"]backgroundHighlightedImage:[UIImage imageNamed:@"pop_buy"] title:@"我要买"];
+    ZYPathItemButton *itemButton_1 = [[ZYPathItemButton alloc]initWithImage:[UIImage imageNamed:@"pop_buy"]highlightedImage:[UIImage imageNamed:@"pop_buy"]backgroundImage:[UIImage imageNamed:@"pop_buy"]backgroundHighlightedImage:[UIImage imageNamed:@"pop_buy"] title:NSLocalizedString(@"Want to buy",nil)];
     
-    ZYPathItemButton *itemButton_2 = [[ZYPathItemButton alloc]initWithImage:[UIImage imageNamed:@"pop_news"]highlightedImage:[UIImage imageNamed:@"pop_news"]backgroundImage:[UIImage imageNamed:@"pop_news"]backgroundHighlightedImage:[UIImage imageNamed:@"pop_news"] title:@"看资讯"];
+    ZYPathItemButton *itemButton_2 = [[ZYPathItemButton alloc]initWithImage:[UIImage imageNamed:@"pop_news"]highlightedImage:[UIImage imageNamed:@"pop_news"]backgroundImage:[UIImage imageNamed:@"pop_news"]backgroundHighlightedImage:[UIImage imageNamed:@"pop_news"] title:NSLocalizedString(@"News",nil)];
     
-    ZYPathItemButton *itemButton_3 = [[ZYPathItemButton alloc]initWithImage:[UIImage imageNamed:@"pop_sell"]highlightedImage:[UIImage imageNamed:@"pop_sell"]backgroundImage:[UIImage imageNamed:@"pop_sell"]backgroundHighlightedImage:[UIImage imageNamed:@"pop_sell"] title:@"我要卖"];
+    ZYPathItemButton *itemButton_3 = [[ZYPathItemButton alloc]initWithImage:[UIImage imageNamed:@"pop_sell"]highlightedImage:[UIImage imageNamed:@"pop_sell"]backgroundImage:[UIImage imageNamed:@"pop_sell"]backgroundHighlightedImage:[UIImage imageNamed:@"pop_sell"] title:NSLocalizedString(@"Want to sell",nil)];
    
     
 //    ZYPathItemButton *itemButton_4 = [[ZYPathItemButton alloc]initWithImage:[UIImage imageNamed:@"chooser-moment-icon-thought"]highlightedImage:[UIImage imageNamed:@"chooser-moment-icon-thought-highlighted"]backgroundImage:[UIImage imageNamed:@"chooser-moment-button"]backgroundHighlightedImage:[UIImage imageNamed:@"chooser-moment-button-highlighted"]];

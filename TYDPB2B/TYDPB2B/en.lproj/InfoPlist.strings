@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  TYDPB2B
+
+  Created by 张俊松 on 2017/10/26.
+  Copyright © 2017年 泰洋冻品. All rights reserved.
+*/
+// Localizable App Name是App在英语环境环境下显示的名称
+CFBundleDisplayName = "SUNLON";

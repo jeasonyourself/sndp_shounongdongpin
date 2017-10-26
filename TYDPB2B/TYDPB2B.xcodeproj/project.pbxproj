@@ -11,7 +11,6 @@
 		84042FC01F3C577F00213C23 /* ZYPathItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 84042FBC1F3C577F00213C23 /* ZYPathItemButton.m */; };
 		84042FC11F3C577F00213C23 /* ZYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84042FBE1F3C577F00213C23 /* ZYTabBar.m */; };
 		84042FC41F3C57AC00213C23 /* UIView+LBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 84042FC31F3C57AC00213C23 /* UIView+LBExtension.m */; };
-		84136A251F4A7185005BEA89 /* seller_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84136A241F4A7185005BEA89 /* seller_Storyboard.storyboard */; };
 		84136A291F4A7F5C005BEA89 /* PlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84136A281F4A7F5C005BEA89 /* PlaceholderTextView.m */; };
 		84136A2C1F4A8E24005BEA89 /* TYDP_pubOfferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84136A2B1F4A8E24005BEA89 /* TYDP_pubOfferViewController.m */; };
 		8417E2221F68DB460056E7F1 /* TYDP_wantBuyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8417E2211F68DB460056E7F1 /* TYDP_wantBuyDetailViewController.m */; };
@@ -30,6 +29,9 @@
 		841C57401F568F9B00406AFD /* GWLPhotoGroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841C573A1F568F9B00406AFD /* GWLPhotoGroupTableViewController.m */; };
 		841C57411F568F9B00406AFD /* GWLPhotoLibrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841C573C1F568F9B00406AFD /* GWLPhotoLibrayController.m */; };
 		841C57421F568F9B00406AFD /* GWLPhotoSelector.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 841C573D1F568F9B00406AFD /* GWLPhotoSelector.bundle */; };
+		841C9FC41FA1D347009A701E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 841C9FC61FA1D347009A701E /* InfoPlist.strings */; };
+		841C9FCA1FA1D444009A701E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 841C9FCC1FA1D444009A701E /* Localizable.strings */; };
+		841C9FD01FA1E9DB009A701E /* seller_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841C9FD21FA1E9DB009A701E /* seller_Storyboard.storyboard */; };
 		841E9F421F5C5D9000A0C1F9 /* goodsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 841E9F411F5C5D9000A0C1F9 /* goodsDetailModel.m */; };
 		841E9F481F5C5EAB00A0C1F9 /* goodsBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 841E9F471F5C5EAB00A0C1F9 /* goodsBaseModel.m */; };
 		8420C9BA1F9632F100A65A7C /* TYDP_MineCellC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8420C9B81F9632F100A65A7C /* TYDP_MineCellC.m */; };
@@ -251,7 +253,6 @@
 		84042FBE1F3C577F00213C23 /* ZYTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYTabBar.m; sourceTree = "<group>"; };
 		84042FC21F3C57AC00213C23 /* UIView+LBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LBExtension.h"; sourceTree = "<group>"; };
 		84042FC31F3C57AC00213C23 /* UIView+LBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LBExtension.m"; sourceTree = "<group>"; };
-		84136A241F4A7185005BEA89 /* seller_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = seller_Storyboard.storyboard; sourceTree = "<group>"; };
 		84136A271F4A7F5C005BEA89 /* PlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderTextView.h; sourceTree = "<group>"; };
 		84136A281F4A7F5C005BEA89 /* PlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderTextView.m; sourceTree = "<group>"; };
 		84136A2A1F4A8E24005BEA89 /* TYDP_pubOfferViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_pubOfferViewController.h; sourceTree = "<group>"; };
@@ -288,6 +289,16 @@
 		841C573C1F568F9B00406AFD /* GWLPhotoLibrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWLPhotoLibrayController.m; sourceTree = "<group>"; };
 		841C573D1F568F9B00406AFD /* GWLPhotoSelector.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GWLPhotoSelector.bundle; sourceTree = "<group>"; };
 		841C573E1F568F9B00406AFD /* GWLPhotoSelectorHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWLPhotoSelectorHeader.h; sourceTree = "<group>"; };
+		841C9FC01FA1D257009A701E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		841C9FC11FA1D257009A701E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		841C9FC51FA1D347009A701E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		841C9FC71FA1D368009A701E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		841C9FCB1FA1D444009A701E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		841C9FCD1FA1D445009A701E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		841C9FCF1FA1E275009A701E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		841C9FD81FA1EA4C009A701E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/seller_Storyboard.storyboard; sourceTree = "<group>"; };
+		841C9FD91FA1EA51009A701E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/seller_Storyboard.strings"; sourceTree = "<group>"; };
+		841C9FDB1FA1EAAA009A701E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/seller_Storyboard.strings; sourceTree = "<group>"; };
 		841E9F401F5C5D9000A0C1F9 /* goodsDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = goodsDetailModel.h; sourceTree = "<group>"; };
 		841E9F411F5C5D9000A0C1F9 /* goodsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = goodsDetailModel.m; sourceTree = "<group>"; };
 		841E9F461F5C5EAB00A0C1F9 /* goodsBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = goodsBaseModel.h; sourceTree = "<group>"; };
@@ -827,7 +838,7 @@
 				E27FA8931D7FF76E00898B9A /* 服务 */,
 				E27FA8A31D7FF76E00898B9A /* 我的 */,
 				A82163BE1D35F42700EFCFD0 /* Main.storyboard */,
-				84136A241F4A7185005BEA89 /* seller_Storyboard.storyboard */,
+				841C9FD21FA1E9DB009A701E /* seller_Storyboard.storyboard */,
 				A82163B51D35F42700EFCFD0 /* AppDelegate.h */,
 				A82163B61D35F42700EFCFD0 /* AppDelegate.m */,
 				A82163C11D35F42700EFCFD0 /* Assets.xcassets */,
@@ -883,6 +894,8 @@
 				A82163E91D3608B900EFCFD0 /* CustomerBarItem.h */,
 				A82163EA1D3608B900EFCFD0 /* CustomerBarItem.m */,
 				A82163EC1D360F7F00EFCFD0 /* TYDP_PrefixHeader.pch */,
+				841C9FC61FA1D347009A701E /* InfoPlist.strings */,
+				841C9FCC1FA1D444009A701E /* Localizable.strings */,
 				A897573D1D5D76BA002EF56E /* TYDPUtility.h */,
 				A897573E1D5D76BA002EF56E /* TYDPUtility.m */,
 				8421FF941F569A840077FAB7 /* UIView+Five.h */,
@@ -1735,7 +1748,7 @@
 				TargetAttributes = {
 					A82163AE1D35F42700EFCFD0 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = FLDQQTQ4C9;
+						DevelopmentTeam = BRG8DKYLY2;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -1765,6 +1778,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = A82163A61D35F42700EFCFD0;
 			productRefGroup = A82163B01D35F42700EFCFD0 /* Products */;
@@ -1792,6 +1806,7 @@
 				E27FA95C1D7FF76F00898B9A /* TYDP_AfterServiceCell.xib in Resources */,
 				E27FA97E1D7FF76F00898B9A /* TYDP_NoConsigneeController.xib in Resources */,
 				E27FA96B1D7FF76F00898B9A /* TYDP_MyMessageCell.xib in Resources */,
+				841C9FC41FA1D347009A701E /* InfoPlist.strings in Resources */,
 				E27FA9571D7FF76F00898B9A /* TYDP_IndentCell.xib in Resources */,
 				E27FA98F1D7FF76F00898B9A /* TYDP_ForgetPasswordController.xib in Resources */,
 				84F324821F8B6D780033C9ED /* addUserMoneyViewController.xib in Resources */,
@@ -1812,8 +1827,9 @@
 				E27FA9511D7FF76F00898B9A /* TYDP_MineCellB.xib in Resources */,
 				E27FA9831D7FF76F00898B9A /* TYDP_ChangeMobileController.xib in Resources */,
 				E27FA9911D7FF76F00898B9A /* TYDP_NewsCell.xib in Resources */,
-				84136A251F4A7185005BEA89 /* seller_Storyboard.storyboard in Resources */,
+				841C9FD01FA1E9DB009A701E /* seller_Storyboard.storyboard in Resources */,
 				E27FA9741D7FF76F00898B9A /* TYDP_BargainCellB.xib in Resources */,
+				841C9FCA1FA1D444009A701E /* Localizable.strings in Resources */,
 				E27FA95A1D7FF76F00898B9A /* TYDP_NoIndentController.xib in Resources */,
 				845BC65E1F70FF69002902BA /* TYDP_sellerCenterTableViewCell.xib in Resources */,
 				E27FA9841D7FF76F00898B9A /* address.json in Resources */,
@@ -2111,10 +2127,40 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		841C9FC61FA1D347009A701E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				841C9FC51FA1D347009A701E /* en */,
+				841C9FC71FA1D368009A701E /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		841C9FCC1FA1D444009A701E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				841C9FCB1FA1D444009A701E /* en */,
+				841C9FCD1FA1D445009A701E /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		841C9FD21FA1E9DB009A701E /* seller_Storyboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				841C9FD81FA1EA4C009A701E /* Base */,
+				841C9FD91FA1EA51009A701E /* zh-Hans */,
+				841C9FDB1FA1EAAA009A701E /* en */,
+			);
+			name = seller_Storyboard.storyboard;
+			sourceTree = "<group>";
+		};
 		A82163BE1D35F42700EFCFD0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A82163BF1D35F42700EFCFD0 /* Base */,
+				841C9FC01FA1D257009A701E /* zh-Hans */,
+				841C9FCF1FA1E275009A701E /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -2123,6 +2169,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A82163C41D35F42700EFCFD0 /* Base */,
+				841C9FC11FA1D257009A701E /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -2228,7 +2275,7 @@
 				CODE_SIGN_ENTITLEMENTS = TYDPB2B/TYDPB2B.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Xiaowei Wang (6AEU84JYEH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = FLDQQTQ4C9;
+				DEVELOPMENT_TEAM = BRG8DKYLY2;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)//TYDPB2B/TYDP_PrefixHeader.pch";
 				INFOPLIST_FILE = TYDPB2B/Info.plist;
@@ -2260,7 +2307,7 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/pop\"",
 					"$(PROJECT_DIR)/UMessage_Sdk_1.5.0a",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cn.corshop.tydp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yishangshuma.sndpNineOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2276,7 +2323,7 @@
 				CODE_SIGN_ENTITLEMENTS = TYDPB2B/TYDPB2B.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Xiaowei Wang (6AEU84JYEH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = FLDQQTQ4C9;
+				DEVELOPMENT_TEAM = BRG8DKYLY2;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)//TYDPB2B/TYDP_PrefixHeader.pch";
 				INFOPLIST_FILE = TYDPB2B/Info.plist;
@@ -2308,7 +2355,7 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/pop\"",
 					"$(PROJECT_DIR)/UMessage_Sdk_1.5.0a",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cn.corshop.tydp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yishangshuma.sndpNineOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

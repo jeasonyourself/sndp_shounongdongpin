@@ -1,0 +1,105 @@
+
+/* Class = "UITextField"; placeholder = "请输入"; ObjectID = "27J-mo-9H0"; */
+"27J-mo-9H0.placeholder" = "Enter";
+
+/* Class = "UILabel"; text = "报盘封面"; ObjectID = "4u1-uX-P3z"; */
+"4u1-uX-P3z.text" = "Cover photo";
+
+/* Class = "UILabel"; text = "产品性质"; ObjectID = "51D-AS-qpr"; */
+"51D-AS-qpr.text" = "Product Character";
+
+/* Class = "UILabel"; text = "期货"; ObjectID = "6td-BW-x4A"; */
+"6td-BW-x4A.text" = "Future";
+
+/* Class = "UILabel"; text = "整柜"; ObjectID = "DgV-u4-hXW"; */
+"DgV-u4-hXW.text" = "Retail";
+
+/* Class = "UILabel"; text = "否"; ObjectID = "EVd-Fj-nHb"; */
+"EVd-Fj-nHb.text" = "NO";
+
+/* Class = "UILabel"; text = "产品性质"; ObjectID = "FYa-bP-Itc"; */
+"FYa-bP-Itc.text" = "Product Character";
+
+/* Class = "UILabel"; text = "国家"; ObjectID = "GTb-67-nCA"; */
+"GTb-67-nCA.text" = "Country";
+
+/* Class = "UIButton"; normalTitle = "申请入驻"; ObjectID = "IKu-CQ-YPe"; */
+"IKu-CQ-YPe.normalTitle" = "Apply for enter";
+
+/* Class = "UILabel"; text = "元/件"; ObjectID = "JJs-BX-U9z"; */
+"JJs-BX-U9z.text" = "yuan/unit";
+
+/* Class = "UILabel"; text = "是"; ObjectID = "M7t-z1-YnP"; */
+"M7t-z1-YnP.text" = "YES";
+
+/* Class = "UILabel"; text = "羊"; ObjectID = "MDI-Qs-oPb"; */
+"MDI-Qs-oPb.text" = "Lamb";
+
+/* Class = "UILabel"; text = "人民币"; ObjectID = "Od8-Xv-Lrm"; */
+"Od8-Xv-Lrm.text" = "RMB";
+
+/* Class = "UIButton"; normalTitle = "删除该拼柜产品"; ObjectID = "SfD-Oa-Glj"; */
+"SfD-Oa-Glj.normalTitle" = "Delate the consolidation product";
+
+/* Class = "UILabel"; text = "美元"; ObjectID = "Szs-ta-8V3"; */
+"Szs-ta-8V3.text" = "USD";
+
+/* Class = "UILabel"; text = "请选择"; ObjectID = "U82-zT-sqO"; */
+"U82-zT-sqO.text" = "Please choose";
+
+/* Class = "UILabel"; text = "请选择"; ObjectID = "WkQ-bN-SAf"; */
+"WkQ-bN-SAf.text" = "Please choose";
+
+/* Class = "UILabel"; text = "零售"; ObjectID = "Zrp-rP-Qr4"; */
+"Zrp-rP-Qr4.text" = "FCL";
+
+/* Class = "UILabel"; text = "产品性质"; ObjectID = "ccX-Qx-f20"; */
+"ccX-Qx-f20.text" = "Product Character";
+
+/* Class = "UILabel"; text = "欧元"; ObjectID = "lek-xP-JGU"; */
+"lek-xP-JGU.text" = "EUR";
+
+/* Class = "UIButton"; normalTitle = "提交报盘"; ObjectID = "lwG-0v-QCr"; */
+"lwG-0v-QCr.normalTitle" = "Submit";
+
+/* Class = "UILabel"; text = "现货"; ObjectID = "m3u-qD-qml"; */
+"m3u-qD-qml.text" = "Spot";
+
+/* Class = "UIButton"; normalTitle = "添加拼柜产品"; ObjectID = "mAu-iS-TZK"; */
+"mAu-iS-TZK.normalTitle" = "Add consolidation product";
+
+/* Class = "UILabel"; text = "还价报盘"; ObjectID = "nHz-gd-ggy"; */
+"nHz-gd-ggy.text" = "Negotiable";
+
+/* Class = "UILabel"; text = "猪"; ObjectID = "niw-Kl-NQ0"; */
+"niw-Kl-NQ0.text" = "Pork";
+
+/* Class = "UILabel"; text = "禽类"; ObjectID = "ol9-Lg-vKr"; */
+"ol9-Lg-vKr.text" = "Poultry";
+
+/* Class = "UILabel"; text = "牛"; ObjectID = "oxg-z7-LYs"; */
+"oxg-z7-LYs.text" = "Beef";
+
+/* Class = "UILabel"; text = "报盘封面"; ObjectID = "pG6-0I-nNk"; */
+"pG6-0I-nNk.text" = "Cover photo";
+
+/* Class = "UILabel"; text = "主营产品"; ObjectID = "piJ-qW-teo"; */
+"piJ-qW-teo.text" = "Main products";
+
+/* Class = "UILabel"; text = "国家"; ObjectID = "qEp-Ic-Mrr"; */
+"qEp-Ic-Mrr.text" = "Country";
+
+/* Class = "UILabel"; text = "正价报盘"; ObjectID = "sVt-lm-sSX"; */
+"sVt-lm-sSX.text" = "Fixed-Price";
+
+/* Class = "UITextField"; placeholder = "请输入"; ObjectID = "xBR-Kx-vd0"; */
+"xBR-Kx-vd0.placeholder" = "Please enter";
+
+/* Class = "UIButton"; normalTitle = "添加拼柜产品"; ObjectID = "xUJ-d5-8Ff"; */
+"xUJ-d5-8Ff.normalTitle" = "Add consolidation product";
+
+/* Class = "UILabel"; text = "水产"; ObjectID = "ygg-2J-ZgN"; */
+"ygg-2J-ZgN.text" = "Seafoods";
+
+/* Class = "UILabel"; text = "所在地"; ObjectID = "yij-J8-RF8"; */
+"yij-J8-RF8.text" = "Location";
