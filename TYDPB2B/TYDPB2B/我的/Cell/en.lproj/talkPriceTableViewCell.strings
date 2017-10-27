@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "/吨"; ObjectID = "2ix-Ke-hsL"; */
+"2ix-Ke-hsL.text" = "/ton";
+
+/* Class = "UILabel"; text = "2017-09-23 10:30"; ObjectID = "4oP-mK-YBs"; */
+"4oP-mK-YBs.text" = "2017-09-23 10:30";
+
+/* Class = "UIButton"; normalTitle = "采用"; ObjectID = "Axp-hE-bNa"; */
+"Axp-hE-bNa.normalTitle" = "Accept";
+
+/* Class = "UILabel"; text = "¥122"; ObjectID = "RDK-Vs-Rw6"; */
+"RDK-Vs-Rw6.text" = "¥122";
+
+/* Class = "UILabel"; text = "留言：1111111111111"; ObjectID = "YxH-G2-slo"; */
+"YxH-G2-slo.text" = "Comment：1111111111111";
+
+/* Class = "UILabel"; text = "出价"; ObjectID = "hS2-SE-LKe"; */
+"hS2-SE-LKe.text" = "Bargain";

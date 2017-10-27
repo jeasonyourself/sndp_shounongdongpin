@@ -51,7 +51,7 @@
         _MBHUD = [[MBProgressHUD alloc] init];
         [self.view addSubview:_MBHUD];
     }
-    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
     [_MBHUD setMode:MBProgressHUDModeText];
     [_MBHUD show:YES];
@@ -61,7 +61,7 @@
 - (void)getHomepageData {
     [self creatHUD];
 
-    //    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    //    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     NSString *Sign = [NSString stringWithFormat:@"%@%@%@",@"seller",@"getHucksterList",ConfigNetAppKey];
     NSDictionary *params = @{@"action":@"getHucksterList",@"sign":[TYDPManager md5:Sign],@"model":@"seller",@"page":@"1",@"size":[NSString stringWithFormat:@"%ld",page*10],@"user_id":[PSDefaults objectForKey:@"user_id"]};
     [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
@@ -186,7 +186,7 @@ return 90.0/375.0*ScreenWidth;
     }];
     
     UILabel *titleLable = [UILabel new];
-    [titleLable setText:@"请输入自定价(¥/吨)"];
+    [titleLable setText:[NSString stringWithFormat:@"请输入自定价(¥/%@)",NSLocalizedString(@"Ton", nil)]];
     [titleLable setFont:ThemeFont(CommonFontSize)];
     [titleLable setTextColor:[UIColor blackColor]];
     [TFView addSubview:titleLable];
@@ -209,7 +209,7 @@ return 90.0/375.0*ScreenWidth;
     [priceTf becomeFirstResponder];
     
     UILabel *sureLable = [UILabel new];
-    [sureLable setText:@"确定"];
+    [sureLable setText:NSLocalizedString(@"Sure",nil)];
     [sureLable setFont:ThemeFont(CommonFontSize-2)];
     [sureLable setTextColor:mainColor];
     sureLable.textAlignment=NSTextAlignmentCenter;
@@ -332,7 +332,7 @@ return 90.0/375.0*ScreenWidth;
         }];
         
         UILabel *bottomPriceLabel = [UILabel new];
-        [bottomPriceLabel setText:[NSString stringWithFormat:@"原价:%@/吨",tmpGoodsModel.shop_price]];
+        [bottomPriceLabel setText:[NSString stringWithFormat:@"原价:%@/%@",tmpGoodsModel.shop_price,NSLocalizedString(@"Ton", nil)]];
         [bottomPriceLabel setFont:ThemeFont(14)];
         [bottomPriceLabel setTextColor:RGBACOLOR(252, 91, 49, 1)];
         [bottomCellView addSubview:bottomPriceLabel];

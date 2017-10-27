@@ -37,7 +37,7 @@
     _MBHUD = [[MBProgressHUD alloc] init];
     [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
     [_MBHUD setMode:MBProgressHUDModeText];
-    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [self.view addSubview:_MBHUD];
     [_MBHUD show:YES];
     NSString *Sign = [NSString stringWithFormat:@"%@%@%@",@"user",@"get_shop_list",ConfigNetAppKey];

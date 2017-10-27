@@ -61,7 +61,7 @@
     bottomBtn.backgroundColor=mainColor;
     [bottomBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     bottomBtn.titleLabel.font=[UIFont systemFontOfSize:13.0];
-    [bottomBtn setTitle:@"发布" forState:UIControlStateNormal];
+    [bottomBtn setTitle:NSLocalizedString(@"Submit", nil) forState:UIControlStateNormal];
     [bottomBtn addTarget:self action:@selector(pubCommentText) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:bottomBtn];
     [bottomBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -77,10 +77,10 @@
     if (pubTextView.text&&![pubTextView.text isEqualToString:@""]) {
         //pages are bigger than 1
     } else {
-        [self.view Message:@"留言不能为空" HiddenAfterDelay:1.0];
+        [self.view Message:NSLocalizedString(@"Enter something", nil) HiddenAfterDelay:1.0];
         return;
     }
-    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [self.view addSubview:_MBHUD];
     [_MBHUD show:YES];
     NSString *Sign = [NSString stringWithFormat:@"%@%@%@",@"purchase",@"addComment",ConfigNetAppKey];
@@ -126,11 +126,11 @@
     [titleLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(_navigationBarView);
         make.centerY.equalTo(_navigationBarView).with.offset(Gap);
-        make.width.mas_equalTo(80);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(20);
     }];
     
-    [titleLable setText:@"求购留言"];
+    [titleLable setText:NSLocalizedString(@"Enter Comment", nil)];
     
     titleLable.textColor=[UIColor whiteColor];
     [titleLable setFont:ThemeFont(16)];

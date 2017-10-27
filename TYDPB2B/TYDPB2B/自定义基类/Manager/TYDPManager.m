@@ -36,7 +36,24 @@ static TYDPManager *_instance;
 }
 + (void)tydp_baseGetReqWithUrlStr:(NSString *)urlStr params:(NSDictionary *)params success:(TYDPRequetSuccess)success failure:(TYDPRequetFailure)failure
 {
-    NSDictionary *newParams = [self addCommomParam:params];
+    //此处
+    NSMutableDictionary *np=[NSMutableDictionary dictionaryWithDictionary:params];
+    //获取当前设备语言
+    NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
+    NSString *languageName = [appLanguages objectAtIndex:0];
+    debugLog(@"languageNameeeee:%@",languageName);
+    if ([languageName rangeOfString:@"en"].location!= NSNotFound ) {
+        np[@"lang"]=@"en";
+    }
+    else if ([languageName isEqualToString:@"zh-Hans"]) {
+        np[@"lang"]=@"zh";
+    }
+    else
+    {
+        np[@"lang"]=@"zh";
+    }
+    NSMutableDictionary *newParams = [NSMutableDictionary dictionaryWithDictionary:[self addCommomParam:np]];
+    
     [TYDPHttpManager reqWithBaseUrlStr:ServerIP urlStr:urlStr method:@"GET" params:newParams success:^(id json){
         if (success) {
             success(json);
@@ -51,7 +68,24 @@ static TYDPManager *_instance;
 + (void)tydp_basePostReqWithUrlStr:(NSString *)urlStr params:(NSDictionary *)params success:(TYDPRequetSuccess)success failure:(TYDPRequetFailure)failure
 {
 //    here
-    NSDictionary *newParams = [self addCommomParam:params];
+    //此处
+    
+    NSMutableDictionary *np=[NSMutableDictionary dictionaryWithDictionary:params];
+    //获取当前设备语言
+    NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
+    NSString *languageName = [appLanguages objectAtIndex:0];
+    debugLog(@"languageNameeeee:%@",languageName);
+    if ([languageName rangeOfString:@"en"].location!= NSNotFound ) {
+        np[@"lang"]=@"en";
+    }
+    else if ([languageName isEqualToString:@"zh-Hans"]) {
+        np[@"lang"]=@"zh";
+    }
+    else
+    {
+        np[@"lang"]=@"zh";
+    }
+   NSMutableDictionary *newParams = [NSMutableDictionary dictionaryWithDictionary:[self addCommomParam:np]];
     [TYDPHttpManager reqWithBaseUrlStr:ServerIP urlStr:urlStr method:@"POST" params:newParams success:^(id json){
         if (success) {
             success(json);
@@ -63,7 +97,7 @@ static TYDPManager *_instance;
         }
     }];
 }
-+(NSDictionary *)addCommomParam:(NSDictionary *)params
++(NSMutableDictionary *)addCommomParam:(NSDictionary *)params
 {
     NSMutableDictionary *resultDic = [params mutableCopy];
     [resultDic setValue:[self tydp_dictionaryToJson:params] forKey:@"post_data"];
@@ -90,7 +124,23 @@ static TYDPManager *_instance;
             ];
 }
 +(void)upLoadPic:(NSDictionary *)params withImage:(UIImage *)image withName:(NSString*)nameString withView:(UIView *)superView {
-    NSDictionary *newParams = [self addCommomParam:params];
+    //此处
+    NSMutableDictionary *np=[NSMutableDictionary dictionaryWithDictionary:params];
+    //获取当前设备语言
+    NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
+    NSString *languageName = [appLanguages objectAtIndex:0];
+    debugLog(@"languageNameeeee:%@",languageName);
+    if ([languageName rangeOfString:@"en"].location!= NSNotFound ) {
+        np[@"lang"]=@"en";
+    }
+    else if ([languageName isEqualToString:@"zh-Hans"]) {
+        np[@"lang"]=@"zh";
+    }
+    else
+    {
+        np[@"lang"]=@"zh";
+    }
+    NSMutableDictionary *newParams = [NSMutableDictionary dictionaryWithDictionary:[self addCommomParam:np]];
     [[TYDPHttpManager sharedAFManager:ServerIP] POST:@"" parameters:newParams constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [formData appendPartWithFileData: [self resetSizeOfImageData:image maxSize:300] name:nameString fileName:[NSString stringWithFormat:@"%@.jpg",nameString] mimeType:@"image/jpg"];
     } progress:^(NSProgress * _Nonnull uploadProgress) {

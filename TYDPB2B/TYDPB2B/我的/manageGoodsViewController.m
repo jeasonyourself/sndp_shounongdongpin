@@ -41,9 +41,9 @@
     [super viewDidLoad];
     _goodsModelArray=[[NSMutableArray alloc] init];
     
-    province=[[NSArray alloc] initWithObjects:@"期货↓",@"现货↓", nil];
-    city=[[NSArray alloc] initWithObjects:@"零售↓",@"整柜↓", nil];
-    district=[[NSArray alloc] initWithObjects:@"上架↓",@"下架↓", nil];
+    province=[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Future", nil)],[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Spot", nil)], nil];
+    city=[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"FCL", nil)],[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Retail", nil)], nil];
+    district=[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"On Shelf", nil)],[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Off Shelf", nil)],nil];
     
     selectedProvince=[NSString stringWithFormat:@"6"];
     selectedCity=[NSString stringWithFormat:@"4"];
@@ -58,7 +58,7 @@ page=1;
         _MBHUD = [[MBProgressHUD alloc] init];
         [self.view addSubview:_MBHUD];
     }
-    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
     [_MBHUD setMode:MBProgressHUDModeText];
     [_MBHUD show:YES];
@@ -68,7 +68,7 @@ page=1;
 - (void)getHomepageData {
     [self creatHUD];
     
-    //    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    //    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     NSString *Sign = [NSString stringWithFormat:@"%@%@%@",@"seller_offer",@"offer_list",ConfigNetAppKey];
     NSDictionary *params = @{@"action":@"offer_list",@"sign":[TYDPManager md5:Sign],@"model":@"seller_offer",@"page":@"1",@"size":[NSString stringWithFormat:@"%ld",page*10],@"user_id":[PSDefaults objectForKey:@"user_id"],@"goods_type":selectedProvince,@"sell_type":selectedCity,@"is_on_sale":selectedArea};
     [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {

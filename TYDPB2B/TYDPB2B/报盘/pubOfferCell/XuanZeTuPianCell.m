@@ -86,7 +86,7 @@
     
             UIActionSheet *choiceSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                                  delegate:self
-                                                        cancelButtonTitle:@"取消"
+                                                        cancelButtonTitle:NSLocalizedString(@"Cancle",nil)
                                                    destructiveButtonTitle:nil
                                                         otherButtonTitles:@"从相册选取", @"拍照上传", nil];
             choiceSheet.tag=101+indexPath.row;

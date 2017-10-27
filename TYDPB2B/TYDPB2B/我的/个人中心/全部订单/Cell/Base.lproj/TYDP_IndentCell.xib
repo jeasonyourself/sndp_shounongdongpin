@@ -87,7 +87,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ev-Sx-4J7">
-                                <rect key="frame" x="359" y="59" width="55" height="26.5"/>
+                                <rect key="frame" x="359" y="59" width="55" height="22.5"/>
                                 <color key="backgroundColor" red="0.84313725490000002" green="0.3411764706" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="s4I-24-yVD"/>

@@ -134,11 +134,11 @@
     [topView addSubview:rightBottomLabel];
     //    [rightBottomLabel setBackgroundColor:[UIColor greenColor]];
     if ([[NSString stringWithFormat:@"%@",_orderDic[@"sell_type"]] isEqualToString:@"4"]) {
-        rightBottomLabel.text=[NSString stringWithFormat:@"¥%@/%@  ¥%@件/吨",[NSString stringWithFormat:@"%@",_orderDic[@"formated_shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"spec_2"]]];
+        rightBottomLabel.text=[NSString stringWithFormat:@"¥%@/%@  ¥%@%@",[NSString stringWithFormat:@"%@",_orderDic[@"formated_shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"spec_2"]],NSLocalizedString(@"unit/Ctn", nil)];
         
     }
     else  {
-        rightBottomLabel.text=[NSString stringWithFormat:@"¥%@/%@  ¥%@吨/柜",[NSString stringWithFormat:@"%@",_orderDic[@"shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"goods_weight"]]];
+        rightBottomLabel.text=[NSString stringWithFormat:@"¥%@/%@  ¥%@%@",[NSString stringWithFormat:@"%@",_orderDic[@"shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"goods_weight"]],NSLocalizedString(@"ton/Ctn",nil)];
     }
    
     [rightBottomLabel setTextColor:RGBACOLOR(252, 91, 49, 1)];
@@ -704,7 +704,7 @@
     [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
     [_MBHUD setMode:MBProgressHUDModeText];
     [self.view addSubview:_MBHUD];
-    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [_MBHUD show:YES];
     NSString *Sign = [NSString stringWithFormat:@"%@%@%@",@"order",@"save_order",ConfigNetAppKey];
     NSDictionary *params = @{@"action":@"save_order",@"sign":[TYDPManager md5:Sign],@"model":@"order"};

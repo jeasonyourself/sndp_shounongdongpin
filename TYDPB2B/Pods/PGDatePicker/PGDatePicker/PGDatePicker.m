@@ -107,14 +107,14 @@ static NSString *const reuseIdentifier = @"PGDatePickerView";
     [self.titleLabel addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
     
     UIButton *cancel = [[UIButton alloc]initWithFrame:CGRectMake(10, 0, 50, height1)];
-    [cancel setTitle:@"取消" forState:UIControlStateNormal];
+    [cancel setTitle:NSLocalizedString(@"Cancle",nil) forState:UIControlStateNormal];
     [cancel setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [cancel addTarget:self action:@selector(cancelButtonHandler) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:cancel];
     self.cancelButton = cancel;
     
     UIButton *confirm = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth - 60, 0, 50, height1)];
-    [confirm setTitle:@"确定" forState:UIControlStateNormal];
+    [confirm setTitle:NSLocalizedString(@"Sure",nil) forState:UIControlStateNormal];
     [confirm setTitleColor:[UIColor colorWithHexString:@"#69BDFF"] forState:UIControlStateNormal];
     [confirm addTarget:self action:@selector(confirmButtonHandler) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:confirm];

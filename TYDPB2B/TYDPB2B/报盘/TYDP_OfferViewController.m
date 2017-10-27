@@ -86,7 +86,7 @@ typedef enum {
 
 -(NSArray *)leftTitleArray {
     if (!_leftTitleArray) {
-        _leftTitleArray = [NSArray arrayWithObjects:@"猪",@"牛",@"羊",@"禽类",@"水产",@"其他", nil];
+        _leftTitleArray = [NSArray arrayWithObjects:NSLocalizedString(@"Pork",nil),NSLocalizedString(@"Beef",nil),NSLocalizedString(@"Lamb",nil),NSLocalizedString(@"Poultry",nil),NSLocalizedString(@"Seafoods",nil),NSLocalizedString(@"Other",nil), nil];
     }
     return _leftTitleArray;
 }
@@ -107,7 +107,8 @@ typedef enum {
 
 - (NSArray *)rightFirstListArray {
     if (!_rightFirstListArray) {
-        _rightFirstListArray = [NSArray arrayWithObjects:@"产地",@"厂号",@"产品",@"港口",@"报盘类型",@"准/期／现货",@"所在地",@"预计到港时间",@"整柜/零售", nil];
+        _rightFirstListArray = [NSArray arrayWithObjects:NSLocalizedString(@"Origin", nil),NSLocalizedString(@"Plat No.", nil),NSLocalizedString(@"Product", nil),NSLocalizedString(@"Port", nil),NSLocalizedString(@"Offer type", nil),[NSString stringWithFormat:@"%@/%@/%@",NSLocalizedString(@"SpotToBe", nil),NSLocalizedString(@"Future", nil),NSLocalizedString(@"Spot", nil)],NSLocalizedString(@"Location", nil),NSLocalizedString(@"Estimated time of arrival", nil),[NSString stringWithFormat:@"%@/%@",NSLocalizedString(@"Retail", nil),NSLocalizedString(@"FCL", nil)], nil];
+//        _rightFirstListArray = [NSArray arrayWithObjects:@"产地",@"厂号",@"产品",@"港口",@"报盘类型",@"准/期／现货",@"所在地",@"预计到港时间",@"整柜/零售", nil];
     }
     return _rightFirstListArray;
 }
@@ -151,7 +152,7 @@ typedef enum {
         //所在地
         _goodsLocalListArray=[NSMutableArray arrayWithArray:totalFilterInfo.goods_local];
         
-        _rightSecondListArray = [NSMutableArray arrayWithObjects:_siteListArray,_siteBrandArray,_catDataBigArray,_sellListArray,@[@{/*报盘类型*/@"id":@"1",@"name":@"CIF"},@{@"id":@"2",@"name":@"FOB"},@{@"id":@"3",@"name":@"DDP"},@{@"id":@"34",@"name":@"CFR"}],/*准、期、现货*/@[@{@"id":@"6",@"name":@"期货"},@{@"id":@"7",@"name":@"现货"},@{@"id":@"8",@"name":@"准现货"}],/*所在地*/_goodsLocalListArray,/*到港时间*/@[@{@"id":@"1",@"name":@"15天"},@{@"id":@"2",@"name":@"30天"},@{@"id":@"3",@"name":@"60天"},@{@"id":@"4",@"name":@"90天"}],/*整柜、零售*/@[@{@"sell_type":@"5",@"name":@"整柜"},@{@"sell_type":@"4",@"name":@"零售"}], nil];
+        _rightSecondListArray = [NSMutableArray arrayWithObjects:_siteListArray,_siteBrandArray,_catDataBigArray,_sellListArray,@[@{/*报盘类型*/@"id":@"1",@"name":@"CIF"},@{@"id":@"2",@"name":@"FOB"},@{@"id":@"3",@"name":@"DDP"},@{@"id":@"34",@"name":@"CFR"}],/*准、期、现货*/@[@{@"id":@"6",@"name":NSLocalizedString(@"Future",nil)},@{@"id":@"7",@"name":NSLocalizedString(@"Spot",nil)},@{@"id":@"8",@"name":NSLocalizedString(@"SpotToBe",nil)}],/*所在地*/_goodsLocalListArray,/*到港时间*/@[@{@"id":@"1",@"name":@"15天"},@{@"id":@"2",@"name":@"30天"},@{@"id":@"3",@"name":@"60天"},@{@"id":@"4",@"name":@"90天"}],/*整柜、零售*/@[@{@"sell_type":@"5",@"name":NSLocalizedString(@"Retail",nil)},@{@"sell_type":@"4",@"name":NSLocalizedString(@"FCL",nil)}], nil];
         [self resetRightUIDataWithFlag:@"clickRightButton"];
         [self refreshOtherCellState];
         //        NSLog(@"WY:%@",[_otherCellSaveFlagArray firstObject]);
@@ -196,7 +197,7 @@ typedef enum {
 //    gradientLayer.endPoint = CGPointMake(1.0, 0.5);
 //    [_navigationBarView.layer insertSublayer:gradientLayer atIndex:0];
     UILabel *navigationLabel = [UILabel new];
-    [navigationLabel setText:@"筛选"];
+    [navigationLabel setText:NSLocalizedString(@"Filter",nil)];
     [navigationLabel setTextAlignment:NSTextAlignmentCenter];
     [navigationLabel setTextColor:[UIColor whiteColor]];
     [_navigationBarView addSubview:navigationLabel];
@@ -283,7 +284,7 @@ typedef enum {
 }
 - (void)setLeftIndicatorButtonVisible:(UIView *)superView {
     _MBHUD = [[MBProgressHUD alloc] init];
-    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
     [_MBHUD setMode:MBProgressHUDModeText];
     [self.view addSubview:_MBHUD];
@@ -350,7 +351,7 @@ typedef enum {
     for (int i = 0; i < _rightSmallTableView.visibleCells.count; i++) {
         UITableViewCell *cell = _rightSmallTableView.visibleCells[i];
         for (UILabel *tmpLabel in cell.contentView.subviews) {
-            if ([tmpLabel.text isEqualToString:@"已选"]) {
+            if ([tmpLabel.text isEqualToString:NSLocalizedString(@"Selected",nil)]) {
                 if (i == 2&&_saveFlagArray.count) {
                     //筛选产品
                     int flag = 0;
@@ -397,13 +398,13 @@ typedef enum {
     if (button.tag/100==1)
     {
         if (button.tag%100==0) {
-            [_MBHUD setLabelText:@"稍等片刻。。。"];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
             [self resetRightUIDataWithFlag:@"clickRightButton"];
             [self refreshSiteListData];
         }
         else
         {
-            [_MBHUD setLabelText:@"稍等片刻。。。"];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
             [self resetRightUIDataWithFlag:@"clickRightButton"];
 
         }
@@ -717,7 +718,7 @@ typedef enum {
         _searchBar = [[UISearchBar alloc] init];
         [topView addSubview:_searchBar];
         [_searchBar setBackgroundColor:[UIColor whiteColor]];
-        _searchBar.placeholder = [NSString stringWithFormat:@"产品／厂号／国家"];
+        _searchBar.placeholder = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Factory number / Product name / Origin",nil)];
         _searchBar.delegate = self;
         _searchBar.showsCancelButton = NO;
         [_searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -728,7 +729,7 @@ typedef enum {
         UIButton *rightBottomButton = [UIButton buttonWithType:UIButtonTypeSystem];
         [rightBottomButton setBackgroundColor:mainColor];
         [rightBottomButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [rightBottomButton setTitle:[NSString stringWithFormat:@"确定"] forState:UIControlStateNormal];
+        [rightBottomButton setTitle:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Sure",nil)] forState:UIControlStateNormal];
         rightBottomButton.tag = BottomConfirmButtonMessage;
         [rightBottomButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
         rightBottomButton.clipsToBounds = YES;
@@ -891,21 +892,21 @@ typedef enum {
             //消除text重复显示
             NSInteger flag = 0;
             for (UILabel *tmpLabel in cell.contentView.subviews) {
-                if ([tmpLabel.text isEqualToString:@"已选"]) {
+                if ([tmpLabel.text isEqualToString:NSLocalizedString(@"Selected",nil)]) {
                     flag = 1;
                 }
             }
             if (!flag) {
                 UILabel *indicatorLabel = [UILabel new];
                 [indicatorLabel setTextColor:[UIColor redColor]];
-                [indicatorLabel setText:@"已选"];
+                [indicatorLabel setText:NSLocalizedString(@"Selected",nil)];
                 [indicatorLabel setFont:ThemeFont(16)];
                 [indicatorLabel setTextAlignment:NSTextAlignmentRight];
                 [cell.contentView addSubview:indicatorLabel];
                 [indicatorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.centerY.equalTo(cell.contentView);
                     make.right.equalTo(cell.contentView);
-                    make.width.mas_equalTo(50);
+                    make.width.mas_equalTo(70);
                     make.height.mas_equalTo(25);
                 }];
                 indicatorLabel.hidden = YES;
@@ -1095,7 +1096,7 @@ typedef enum {
             _rightTableView.delegate = self;
             _rightTopButton = [UIButton buttonWithType:UIButtonTypeSystem];
             [topView addSubview:_rightTopButton];
-            [_rightTopButton setTitle:[NSString stringWithFormat:@"确定"] forState:UIControlStateNormal];
+            [_rightTopButton setTitle:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Sure",nil)] forState:UIControlStateNormal];
             [_rightTopButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             _rightTopButton.tag = TopConfirmButtonMessage*100+indexPath.row;
             [_rightTopButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];

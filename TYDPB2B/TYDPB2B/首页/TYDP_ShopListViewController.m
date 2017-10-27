@@ -94,13 +94,13 @@ typedef enum {
 
 -(NSArray *)topLabelArray {
     if (!_topLabelArray) {
-        _topLabelArray = [NSArray arrayWithObjects:@"现货",@"期货",@"准现货",@"整柜",@"零售", nil];
+        _topLabelArray = [NSArray arrayWithObjects:NSLocalizedString(@"Spot", nil),NSLocalizedString(@"Future", nil),NSLocalizedString(@"SpotToBe", nil),NSLocalizedString(@"Retail", nil),NSLocalizedString(@"FCL", nil), nil];
     }
     return _topLabelArray;
 }
 -(NSArray *)middleLabelArray {
     if (!_middleLabelArray) {
-        _middleLabelArray = [NSArray arrayWithObjects:@"热门11",@"时间",@"价格",@"筛选", nil];
+        _middleLabelArray = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Popular↓",nil)],[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Time",nil)],[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Price",nil)],@"筛选", nil];
     }
     return _middleLabelArray;
 }
@@ -130,7 +130,7 @@ typedef enum {
                 MBProgressHUD *tmpHud = [[MBProgressHUD alloc] init];
                 [tmpHud setAnimationType:MBProgressHUDAnimationFade];
                 [tmpHud setMode:MBProgressHUDModeText];
-                [tmpHud setLabelText:@"暂时没有筛选结果。。。"];
+                [tmpHud setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"No screening results for a while",nil)]];
                 [self.view addSubview:tmpHud];
                 [tmpHud show:YES];
                 [tmpHud hide:YES afterDelay:1.5f];
@@ -138,7 +138,7 @@ typedef enum {
             _LocalListModelArray = [NSMutableArray arrayWithArray:[LocalListModel arrayOfModelsFromDictionaries:data[@"content"][@"local"] error:nil]];
             [self createBottomCell];
         } else {
-            [_MBHUD setLabelText:@"网络故障。。。"];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Check Internet connection",nil)]];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             [_MBHUD hide:YES afterDelay:1.5f];
@@ -181,7 +181,7 @@ typedef enum {
                 MBProgressHUD *tmpHud = [[MBProgressHUD alloc] init];
                 [tmpHud setAnimationType:MBProgressHUDAnimationFade];
                 [tmpHud setMode:MBProgressHUDModeText];
-                [tmpHud setLabelText:@"暂时没有筛选结果。。。"];
+                [tmpHud setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"No screening results for a while",nil)]];
                 [self.view addSubview:tmpHud];
                 [tmpHud show:YES];
                 [tmpHud hide:YES afterDelay:1.5f];
@@ -189,7 +189,7 @@ typedef enum {
             _LocalListModelArray = [NSMutableArray arrayWithArray:[LocalListModel arrayOfModelsFromDictionaries:data[@"content"][@"local"] error:nil]];
             [self createBottomCell];
         } else {
-            [_MBHUD setLabelText:@"网络故障。。。"];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Check Internet connection",nil)]];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             [_MBHUD hide:YES afterDelay:1.5f];
@@ -208,8 +208,8 @@ typedef enum {
     [_middleFilterView removeFromSuperview];
     CGFloat smallMiddleWidth = ScreenWidth/3;
     _middleFilterView = [UIView new];
-    UIImage *tmpImage = [UIImage imageNamed:@"productlist_hot_down"];
-    CGFloat tmpHeight = smallMiddleWidth*(tmpImage.size.height/tmpImage.size.width);
+//    UIImage *tmpImage = [UIImage imageNamed:@"productlist_hot_down"];
+    CGFloat tmpHeight = 50.0;
     [_baseScrollView addSubview:_middleFilterView];
     [_middleFilterView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_baseScrollView).with.offset(-HomePageBordWidth);
@@ -239,7 +239,31 @@ typedef enum {
             make.width.mas_equalTo(HomePageBordWidth);
             make.height.mas_equalTo(tmpHeight);
         }];
-        [primaryImageView setImage:[UIImage imageNamed:self.defaultCategoryPicArray[i]]];
+        
+        
+        
+        UILabel *nameLable = [UILabel new];
+        [primaryImageView addSubview:nameLable];
+        [nameLable setBackgroundColor:RGBACOLOR(222, 222, 222, 0.7)];
+        nameLable.font=[UIFont systemFontOfSize:14.0];
+        nameLable.textAlignment=NSTextAlignmentCenter;
+        [nameLable mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(primaryImageView.mas_left).with.offset(0);
+            make.centerY.equalTo(primaryImageView);
+            make.width.mas_equalTo(primaryImageView);
+            make.height.mas_equalTo(primaryImageView);
+        }];
+
+        if (i==0) {
+            nameLable.text=[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Popular",nil)];
+        }
+        if (i==1) {
+            nameLable.text=[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Time",nil)];
+        }
+        if (i==2) {
+            nameLable.text=[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Price",nil)];
+        }
+//        [primaryImageView setImage:[UIImage imageNamed:self.defaultCategoryPicArray[i]]];
         primaryImageView.userInteractionEnabled = YES;
         [primaryImageView setBackgroundColor:[UIColor whiteColor]];
         [_middleFilterView addSubview:primaryImageView];
@@ -253,21 +277,29 @@ typedef enum {
     [_popFilterButton setBackgroundColor:[UIColor whiteColor]];
     _popFilterButton.tag = PopFilterButtonMessage;
     _popFilterButton.frame = CGRectMake(0, 0, smallMiddleWidth-HomePageBordWidth, tmpHeight);
-    [_popFilterButton setBackgroundImage:[UIImage imageNamed:@"productlist_hot_down"] forState:UIControlStateNormal];
+    [_popFilterButton setTitle:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Popular",nil)] forState:UIControlStateNormal];
+//    [_popFilterButton setBackgroundImage:[UIImage imageNamed:@"productlist_hot_down"] forState:UIControlStateNormal];
+    [_popFilterButton setTitleColor:mainColor forState:UIControlStateNormal];
     [_popFilterButton addTarget:self action:@selector(filterButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_middleFilterView addSubview:_popFilterButton];
     _timeFilterButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_timeFilterButton setBackgroundColor:[UIColor whiteColor]];
     _timeFilterButton.tag = TimeFilterButtonMessage;
     _timeFilterButton.frame = CGRectMake(smallMiddleWidth, 0, smallMiddleWidth-HomePageBordWidth, tmpHeight);
-    [_timeFilterButton setBackgroundImage:[UIImage imageNamed:@"productlist_time_down"] forState:UIControlStateNormal];
+//    [_timeFilterButton setBackgroundImage:[UIImage imageNamed:@"productlist_time_down"] forState:UIControlStateNormal];
+    [_timeFilterButton setTitle:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Time",nil)] forState:UIControlStateNormal];
+    [_timeFilterButton setTitleColor:RGBACOLOR(222, 222, 222, 0.7) forState:UIControlStateNormal];
+
     [_timeFilterButton addTarget:self action:@selector(filterButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_middleFilterView addSubview:_timeFilterButton];
     _priceFilterButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_priceFilterButton setBackgroundColor:[UIColor whiteColor]];
     _priceFilterButton.tag = PriceFilterButtonMessage;
     _priceFilterButton.frame = CGRectMake(smallMiddleWidth*2, 0, smallMiddleWidth-HomePageBordWidth, tmpHeight);
-    [_priceFilterButton setBackgroundImage:[UIImage imageNamed:@"productlist_price_down"] forState:UIControlStateNormal];
+//    [_priceFilterButton setBackgroundImage:[UIImage imageNamed:@"productlist_price_down"] forState:UIControlStateNormal];
+
+    [_priceFilterButton setTitle:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Price",nil)] forState:UIControlStateNormal];
+    [_priceFilterButton setTitleColor:RGBACOLOR(222, 222, 222, 0.7) forState:UIControlStateNormal];
     [_priceFilterButton addTarget:self action:@selector(filterButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_middleFilterView addSubview:_priceFilterButton];
     _locationFilterButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -326,7 +358,7 @@ typedef enum {
     _tmpPage = 1;
     if (button.tag != LocationFilterButtonMessage) {
         [_smallFilterView removeFromSuperview];
-        [_MBHUD setLabelText:@"稍等片刻。。。"];
+        [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
         [self.view addSubview:_MBHUD];
         [_MBHUD show:YES];
         [self getShopListDataWithNewDic:tmpDic];
@@ -406,7 +438,7 @@ typedef enum {
     }
 }
 - (void)smallButtonClicked:(UIButton *)button{
-    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [self.view addSubview:_MBHUD];
     [_MBHUD show:YES];
     LocalListModel *localListModel = _LocalListModelArray[button.tag-1];
@@ -462,7 +494,10 @@ typedef enum {
             _timeFilterButton.hidden = YES;
             _priceFilterButton.hidden = YES;
             _locationFilterButton.hidden = YES;
-            [_popFilterButton setBackgroundImage:[UIImage imageNamed:self.defaultCategoryButtonPicArray[flag-1]]forState:UIControlStateNormal];
+//            [_popFilterButton setBackgroundImage:[UIImage imageNamed:self.defaultCategoryButtonPicArray[flag-1]]forState:UIControlStateNormal];
+            [_popFilterButton setTitleColor:mainColor forState:UIControlStateNormal];
+            [_timeFilterButton setTitleColor:RGBACOLOR(222, 222, 222, 0.7) forState:UIControlStateNormal];
+            [_priceFilterButton setTitleColor:RGBACOLOR(222, 222, 222, 0.7) forState:UIControlStateNormal];
             break;
         }
         case TimeFilterButtonMessage:{
@@ -470,8 +505,11 @@ typedef enum {
             _timeFilterButton.hidden = NO;
             _priceFilterButton.hidden = YES;
             _locationFilterButton.hidden = YES;
-            [_timeFilterButton setBackgroundImage:[UIImage imageNamed:self.defaultCategoryButtonPicArray[flag-1]]forState:UIControlStateNormal];
+//            [_timeFilterButton setBackgroundImage:[UIImage imageNamed:self.defaultCategoryButtonPicArray[flag-1]]forState:UIControlStateNormal];
             [tmpDic setObject:@"last_update" forKey:@"sort"];
+            [_popFilterButton setTitleColor:RGBACOLOR(222, 222, 222, 0.7) forState:UIControlStateNormal];
+            [_timeFilterButton setTitleColor:mainColor forState:UIControlStateNormal];
+            [_priceFilterButton setTitleColor:RGBACOLOR(222, 222, 222, 0.7) forState:UIControlStateNormal];
             break;
         }
         case PriceFilterButtonMessage:{
@@ -479,7 +517,10 @@ typedef enum {
             _timeFilterButton.hidden = YES;
             _priceFilterButton.hidden = NO;
             _locationFilterButton.hidden = YES;
-            [_priceFilterButton setBackgroundImage:[UIImage imageNamed:self.defaultCategoryButtonPicArray[flag-1]]forState:UIControlStateNormal];
+//            [_priceFilterButton setBackgroundImage:[UIImage imageNamed:self.defaultCategoryButtonPicArray[flag-1]]forState:UIControlStateNormal];
+            [_popFilterButton setTitleColor:RGBACOLOR(222, 222, 222, 0.7) forState:UIControlStateNormal];
+            [_timeFilterButton setTitleColor:RGBACOLOR(222, 222, 222, 0.7) forState:UIControlStateNormal];
+            [_priceFilterButton setTitleColor:mainColor forState:UIControlStateNormal];
             [tmpDic setObject:@"shop_price" forKey:@"sort"];
             break;
         }
@@ -502,7 +543,7 @@ typedef enum {
     }
     if (flag != 4) {
         [_smallFilterView removeFromSuperview];
-        [_MBHUD setLabelText:@"稍等片刻。。。"];
+        [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
         [self.view addSubview:_MBHUD];
         [_MBHUD show:YES];
         [self getShopListDataWithNewDic:tmpDic];
@@ -746,7 +787,7 @@ typedef enum {
             make.height.mas_equalTo(CommonHeight);
         }];
         UILabel *middleMiddleLabel = [UILabel new];
-        [middleMiddleLabel setText:[NSString stringWithFormat:@"厂号：%@",tmpGoodsModel.brand_sn]];
+        [middleMiddleLabel setText:[NSString stringWithFormat:@"%@：%@",NSLocalizedString(@"Plat No.",nil),tmpGoodsModel.brand_sn]];
         //        [middleMiddleLabel setTextColor:[UIColor grayColor]];
         [middleMiddleLabel setFont:ThemeFont(16)];
         [bottomCellView addSubview:middleMiddleLabel];
@@ -981,7 +1022,7 @@ make.edges.equalTo(bottomCellView).with.insets(UIEdgeInsetsMake(0, 0, Gap, 0)); 
     _baseScrollView.mj_footer = [MJRefreshAutoNormalFooter  footerWithRefreshingBlock:^{
         //根据后台返回来的page总数限制刷新次数
         if (_tmpPage < _totalCount) {
-            [_MBHUD setLabelText:@"稍等片刻。。。"];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             _tmpPage++;
@@ -1068,7 +1109,7 @@ make.edges.equalTo(bottomCellView).with.insets(UIEdgeInsetsMake(0, 0, Gap, 0)); 
 }
 - (void)setTopIndicatorButtonVisible:(UIView *)superView {
     _topFutureFilterFlag = NO;
-    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [self.view addSubview:_MBHUD];
     [_MBHUD show:YES];
     _tmpPage = 1;
@@ -1171,7 +1212,7 @@ make.edges.equalTo(bottomCellView).with.insets(UIEdgeInsetsMake(0, 0, Gap, 0)); 
     _searchBar.delegate = self;
     _searchBar.searchBarStyle = UISearchBarStyleMinimal;
     [_searchView addSubview:_searchBar];
-    _searchBar.placeholder = [NSString stringWithFormat:@"猪耳朵"];
+    _searchBar.placeholder = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Search the Product", nil)];
     [_searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(_searchView).with.insets(UIEdgeInsetsMake(0,-Gap,0, -Gap));
     }];
@@ -1193,7 +1234,7 @@ make.edges.equalTo(bottomCellView).with.insets(UIEdgeInsetsMake(0, 0, Gap, 0)); 
                      
                      //设置默认文字颜色
                      UIColor *color = [UIColor grayColor];
-                     [textField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"猪耳朵"
+                     [textField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:NSLocalizedString(@"Search the Product", nil)
                                                                                          attributes:@{NSForegroundColorAttributeName:color}]];
                      //                //修改默认的放大镜图片
                      //                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 13, 13)];
@@ -1206,11 +1247,11 @@ make.edges.equalTo(bottomCellView).with.insets(UIEdgeInsetsMake(0, 0, Gap, 0)); 
 
          
     UIButton *offerButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [offerButton setTitle:@"筛选" forState:UIControlStateNormal];
+    [offerButton setTitle:NSLocalizedString(@"Filter", nil) forState:UIControlStateNormal];
     offerButton.tag = OfferButtonMessage;
     [offerButton addTarget:self action:@selector(offerButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [offerButton.titleLabel setFont:ThemeFont(16)];
-    [offerButton setTitleColor:RGBACOLOR(136, 136, 136, 1) forState:UIControlStateNormal];
+    [offerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_navigationBarView addSubview:offerButton];
     [offerButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_searchView.mas_right);

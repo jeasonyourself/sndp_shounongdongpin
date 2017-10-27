@@ -136,7 +136,7 @@ typedef enum {
             
             [self getShopListDataWithNewDic:params];
         } else {
-            [_MBHUD setLabelText:@"网络故障。。。"];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Check Internet connection",nil)]];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             [_MBHUD hide:YES afterDelay:1.5f];
@@ -200,7 +200,7 @@ typedef enum {
             }
             
         } else {
-            [_MBHUD setLabelText:@"网络故障。。。"];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Check Internet connection",nil)]];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             [_MBHUD hide:YES afterDelay:1.5f];
@@ -337,7 +337,7 @@ typedef enum {
     _tmpPage = 1;
     if (button.tag != LocationFilterButtonMessage) {
         [_smallFilterView removeFromSuperview];
-        [_MBHUD setLabelText:@"稍等片刻。。。"];
+        [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
         [self.view addSubview:_MBHUD];
         [_MBHUD show:YES];
         [self getShopListDataWithNewDic:tmpDic];
@@ -417,7 +417,7 @@ typedef enum {
     }
 }
 - (void)smallButtonClicked:(UIButton *)button{
-    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [self.view addSubview:_MBHUD];
     [_MBHUD show:YES];
     LocalListModel *localListModel = _LocalListModelArray[button.tag-1];
@@ -513,7 +513,7 @@ typedef enum {
     }
     if (flag != 4) {
         [_smallFilterView removeFromSuperview];
-        [_MBHUD setLabelText:@"稍等片刻。。。"];
+        [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
         [self.view addSubview:_MBHUD];
         [_MBHUD show:YES];
         [self getShopListDataWithNewDic:tmpDic];
@@ -602,7 +602,7 @@ typedef enum {
     [bottomBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
      [bottomBtn addTarget:self action:@selector(bottomBtnItemClicked:) forControlEvents:UIControlEventTouchUpInside];
     bottomBtn.titleLabel.font=[UIFont systemFontOfSize:13.0];
-    [bottomBtn setTitle:@"留言" forState:UIControlStateNormal];
+    [bottomBtn setTitle:NSLocalizedString(@"Comment", nil) forState:UIControlStateNormal];
     [self.view addSubview:bottomBtn];
     [bottomBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left);
@@ -618,7 +618,7 @@ typedef enum {
     bottomBtn1.tag=1;
     [bottomBtn1 addTarget:self action:@selector(bottomBtnItemClicked:) forControlEvents:UIControlEventTouchUpInside];
     bottomBtn1.titleLabel.font=[UIFont systemFontOfSize:13.0];
-    [bottomBtn1 setTitle:@"联系对方" forState:UIControlStateNormal];
+    [bottomBtn1 setTitle:NSLocalizedString(@"Contact", nil) forState:UIControlStateNormal];
     [self.view addSubview:bottomBtn1];
     [bottomBtn1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.view.mas_right);
@@ -710,7 +710,7 @@ typedef enum {
     
     
     UILabel *needLabel = [UILabel new];
-    [needLabel setText:[NSString stringWithFormat:@"求购"]];
+    [needLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Need", nil)]];
     [needLabel setFont:ThemeFont(12)];
     [needLabel setTextAlignment:NSTextAlignmentCenter];
     [needLabel setBackgroundColor:RGBACOLOR(153, 153, 153, 1)];
@@ -724,7 +724,7 @@ typedef enum {
     }];
     
     UILabel *detailDemandLabel = [UILabel new];
-    [detailDemandLabel setText:[NSString stringWithFormat:@"%@  %@吨  %@-%@元/吨",_purchaseListMD.goods_name,_purchaseListMD.goods_num,_purchaseListMD.price_low,_purchaseListMD.price_up]];
+    [detailDemandLabel setText:[NSString stringWithFormat:@"%@  %@%@  %@-%@%@",_purchaseListMD.goods_name,_purchaseListMD.goods_num,NSLocalizedString(@"Ton",nil),_purchaseListMD.price_low,_purchaseListMD.price_up,NSLocalizedString(@"yuan/ton",nil)]];
     [detailDemandLabel setFont:ThemeFont(13)];
     [detailDemandLabel setTextColor:RGBACOLOR(51, 51, 51, 1)];
     
@@ -781,7 +781,7 @@ typedef enum {
     
     UILabel *SecondsKillLabel = [UILabel new];
     
-    [SecondsKillLabel setText:[NSString stringWithFormat:@"    留言"]];
+    [SecondsKillLabel setText:[NSString stringWithFormat:@"    %@",NSLocalizedString(@"Comment", nil)]];
     SecondsKillLabel.backgroundColor=RGBACOLOR(246, 246, 246, 1);
     [SecondsKillLabel setFont:ThemeFont(14)];
     SecondsKillLabel.textColor=RGBACOLOR(85, 85, 85, 1);
@@ -934,7 +934,7 @@ typedef enum {
     _baseScrollView.mj_footer = [MJRefreshAutoNormalFooter  footerWithRefreshingBlock:^{
         //根据后台返回来的page总数限制刷新次数
         if (_tmpPage < _totalCount) {
-            [_MBHUD setLabelText:@"稍等片刻。。。"];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             _tmpPage++;
@@ -1015,7 +1015,7 @@ typedef enum {
 }
 - (void)setTopIndicatorButtonVisible:(UIView *)superView {
     _topFutureFilterFlag = NO;
-    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [self.view addSubview:_MBHUD];
     [_MBHUD show:YES];
     _tmpPage = 1;
@@ -1081,11 +1081,11 @@ typedef enum {
     [titleLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(_navigationBarView);
         make.centerY.equalTo(_navigationBarView).with.offset(Gap);
-        make.width.mas_equalTo(80);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(20);
     }];
     
-    [titleLable setText:@"求购详情"];
+    [titleLable setText:NSLocalizedString(@"To buy detail", nil)];
     
     titleLable.textColor=[UIColor whiteColor];
     [titleLable setFont:ThemeFont(16)];

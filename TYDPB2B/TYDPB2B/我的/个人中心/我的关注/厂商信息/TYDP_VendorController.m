@@ -95,7 +95,9 @@ typedef enum {
 
 -(NSArray *)topLabelArray {
     if (!_topLabelArray) {
-        _topLabelArray = [NSArray arrayWithObjects:@"现货",@"期货",@"准现货",@"整柜",@"零售", nil];
+//        _topLabelArray = [NSArray arrayWithObjects:@"现货",@"期货",@"准现货",@"整柜",@"零售", nil];
+        _topLabelArray = [NSArray arrayWithObjects:NSLocalizedString(@"Spot",nil),NSLocalizedString(@"Future",nil),NSLocalizedString(@"SpotToBe",nil),NSLocalizedString(@"Retail",nil),NSLocalizedString(@"FCL",nil), nil];
+
     }
     return _topLabelArray;
 }
@@ -105,7 +107,7 @@ typedef enum {
     [self setTopIndicatorButtonVisible:tmpView];
 }
 - (void)setTopIndicatorButtonVisible:(UIView *)superView {
-//    [_MBHUD setLabelText:@"稍等片刻。。。"];
+//    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
 //    [self.view addSubview:_MBHUD];
 //    [_MBHUD show:YES];
 //    _tmpPage = 1;
@@ -294,7 +296,7 @@ typedef enum {
     _searchBar.returnKeyType=UIReturnKeySearch;
     _searchBar.delegate = self;
     [_searchBar setSearchBarStyle:UISearchBarStyleDefault];
-    _searchBar.placeholder = [NSString stringWithFormat:@"请输入你要搜索的关键字"];
+    _searchBar.placeholder = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Search the Product",nil)];
     [_searchBar setBackgroundColor:[UIColor whiteColor]];
     _searchBar.showsCancelButton = NO;
     [_searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -324,7 +326,7 @@ typedef enum {
                 
                 //设置默认文字颜色
                 UIColor *color = [UIColor grayColor];
-                [textField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"请输入你要搜索的关键字"
+                [textField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:NSLocalizedString(@"Search the Product",nil)
                                                                                     attributes:@{NSForegroundColorAttributeName:color}]];
                 //                //修改默认的放大镜图片
                 //                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 13, 13)];
@@ -395,7 +397,7 @@ typedef enum {
         _MBHUD = [[MBProgressHUD alloc] init];
         [self.view addSubview:_MBHUD];
     }
-    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
     [_MBHUD setMode:MBProgressHUDModeText];
     [_MBHUD show:YES];
@@ -428,18 +430,18 @@ typedef enum {
         [_headImg sd_setImageWithURL:[NSURL URLWithString:ShopData[@"user_face"]] placeholderImage:[UIImage imageNamed:@"person_head_default"]];
         _nameLab.text =[NSString stringWithFormat:@"%@",ShopData[@"shop_name"]];
     if ([[NSString stringWithFormat:@"%@",ShopData[@"is_follow"]] isEqualToString:@"1"]) {
-        nintyLab.text=@"已关注";
+        nintyLab.text=NSLocalizedString(@"Followed",nil);
         nintyLab.backgroundColor=[UIColor grayColor];
     }
     else
     {
-    nintyLab.text=@"关注";
+    nintyLab.text=NSLocalizedString(@"Follow",nil);
         nintyLab.backgroundColor=mainColor;
     }
     _followNum=ShopData[@"follow_count"];
     fo= [_followNum integerValue];
 
-    _NumLab.text = [NSString stringWithFormat:@"已有%@人关注",ShopData[@"follow_count"]];
+    _NumLab.text = [NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Number of reads",nil),ShopData[@"follow_count"]];
 //        _NumLab.text = [NSString stringWithFormat:@"%@",ShopData[@"order_num"]];
 //        _addressLab.text = [NSString stringWithFormat:@"所在地:%@ %@",ShopData[@"province"],ShopData[@"city"]];
 }
@@ -572,7 +574,7 @@ typedef enum {
     }];
     nintyLab = [UILabel new];
     [blackView addSubview:nintyLab];
-    nintyLab.text =@"关注";
+    nintyLab.text =NSLocalizedString(@"Follow",nil);
     nintyLab.userInteractionEnabled=YES;
     UITapGestureRecognizer *addednintyLabViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addednintyLabViewTap:)];
     [nintyLab addGestureRecognizer:addednintyLabViewTap];
@@ -589,7 +591,7 @@ typedef enum {
     
     _NumLab = [UILabel new];
     [imgView addSubview:_NumLab];
-    _NumLab.text = [NSString stringWithFormat:@"已有N人关注"];
+    _NumLab.text = [NSString stringWithFormat:@"%@N",NSLocalizedString(@"Number of reads",nil)];
     _NumLab.font = [UIFont systemFontOfSize:13];
     _NumLab.textColor = [UIColor whiteColor];
     [_NumLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -732,7 +734,7 @@ typedef enum {
     [bottomView addSubview:btn];
     btn.backgroundColor = mainColor;
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [btn setTitle:@"店铺详情" forState:UIControlStateNormal];
+    [btn setTitle:NSLocalizedString(@"Shop detail",nil) forState:UIControlStateNormal];
 
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(bottomView.mas_top).with.offset(10);
@@ -746,7 +748,7 @@ typedef enum {
     [bottomView addSubview:btn1];
     btn1.backgroundColor = mainColor;
     [btn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [btn1 setTitle:@"联系客服" forState:UIControlStateNormal];
+    [btn1 setTitle:NSLocalizedString(@"Contact",nil) forState:UIControlStateNormal];
     [btn1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(bottomView.mas_top).with.offset(10);
         make.left.mas_equalTo((ScreenWidth-80)/2+60);
@@ -759,13 +761,13 @@ typedef enum {
 }
 - (void)addednintyLabViewTap:(UITapGestureRecognizer *)tap {
     UILabel * lableView=(UILabel *)tap.view;
-    if ([lableView.text isEqualToString:@"已关注"]) {
+    if ([lableView.text isEqualToString:NSLocalizedString(@"Followed",nil)]) {
         NSDictionary *params = @{@"model":@"user",@"action":@"unfollow_store",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"userunfollow_store%@",ConfigNetAppKey]],@"shop_id":self.shopId,@"user_id":[PSDefaults objectForKey:@"user_id"]};
         [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
             debugLog(@"ifFollowData:%@",data[@"content"]);
             if (![data[@"error"] intValue]) {
                 
-                nintyLab.text=@"关注";
+                nintyLab.text=NSLocalizedString(@"Follow",nil);
                 nintyLab.backgroundColor=mainColor;
                 fo--;
                 _NumLab.text = [NSString stringWithFormat:@"已有%ld人关注",fo];
@@ -784,10 +786,10 @@ typedef enum {
             debugLog(@"ifFollowData:%@",data[@"content"]);
             if (![data[@"error"] intValue]) {
                 
-                nintyLab.text=@"已关注";
+                nintyLab.text=NSLocalizedString(@"Followed",nil);
                 nintyLab.backgroundColor=[UIColor grayColor];
                 fo++;
-                _NumLab.text = [NSString stringWithFormat:@"已有%ld人关注",fo];
+                _NumLab.text = [NSString stringWithFormat:@"%@:%ld",NSLocalizedString(@"Number of reads",nil),fo];
             } else {
                 [_MBHUD setLabelText:data[@"message"]];
                 [_MBHUD hide:YES afterDelay:1.5f];

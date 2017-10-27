@@ -144,7 +144,7 @@ typedef enum {
     [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
     [_MBHUD setMode:MBProgressHUDModeText];
     [self.view addSubview:_MBHUD];
-    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [_MBHUD show:YES];
     NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];
     NSString *Sign = [NSString stringWithFormat:@"%@%@%@",@"seller",@"order_info",ConfigNetAppKey];
@@ -282,7 +282,7 @@ typedef enum {
     UILabel *rightBottomLabel = [UILabel new];
     [_topView addSubview:rightBottomLabel];
     //    [rightBottomLabel setBackgroundColor:[UIColor greenColor]];
-    [rightBottomLabel setText:[NSString stringWithFormat:@"¥%@/吨",_orderGoodsModel[@"goods_price"]]];
+    [rightBottomLabel setText:[NSString stringWithFormat:@"¥%@/%@",_orderGoodsModel[@"goods_price"],NSLocalizedString(@"Ton", nil)]];
     [rightBottomLabel setTextColor:RGBACOLOR(252, 91, 49, 1)];
     [rightBottomLabel setFont:ThemeFont(14)];
     [rightBottomLabel mas_makeConstraints:^(MASConstraintMaker *make) {

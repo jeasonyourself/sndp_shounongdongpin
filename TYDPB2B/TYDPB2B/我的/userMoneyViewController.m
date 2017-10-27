@@ -62,7 +62,7 @@
         _MBHUD = [[MBProgressHUD alloc] init];
         [self.view addSubview:_MBHUD];
     }
-    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
     [_MBHUD setMode:MBProgressHUDModeText];
     [_MBHUD show:YES];
@@ -326,7 +326,7 @@
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn.titleLabel setFont:ThemeFont(18)];
     if (_currentIndex) {
-        [btn setTitle:@"确定" forState:UIControlStateNormal];
+        [btn setTitle:NSLocalizedString(@"Sure",nil) forState:UIControlStateNormal];
         [btn removeTarget:self action:@selector(addBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [btn addTarget:self action:@selector(postData) forControlEvents:UIControlEventTouchUpInside];
     }else{

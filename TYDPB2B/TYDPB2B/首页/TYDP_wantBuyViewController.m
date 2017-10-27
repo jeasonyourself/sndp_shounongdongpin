@@ -99,7 +99,7 @@ typedef enum {
 
 -(NSArray *)topLabelArray {
     if (!_topLabelArray) {
-        _topLabelArray = [NSArray arrayWithObjects:@"猪",@"牛",@"羊",@"禽类",@"水产",@"其他", nil];
+        _topLabelArray = [NSArray arrayWithObjects:NSLocalizedString(@"Pork", nil),NSLocalizedString(@"Beef", nil),NSLocalizedString(@"Lamb", nil),NSLocalizedString(@"Poultry", nil),NSLocalizedString(@"Seafoods", nil),NSLocalizedString(@"Other", nil), nil];
     }
     return _topLabelArray;
 }
@@ -141,7 +141,7 @@ typedef enum {
                 MBProgressHUD *tmpHud = [[MBProgressHUD alloc] init];
                 [tmpHud setAnimationType:MBProgressHUDAnimationFade];
                 [tmpHud setMode:MBProgressHUDModeText];
-                [tmpHud setLabelText:@"暂时没有筛选结果。。。"];
+                [tmpHud setLabelText:NSLocalizedString(@"No screening results for a while", nil)];
                 [_goodsListModelArray removeAllObjects];
                 [self.view addSubview:tmpHud];
                 [tmpHud show:YES];
@@ -150,7 +150,7 @@ typedef enum {
             
             [self createBottomCell];
         } else {
-            [_MBHUD setLabelText:@"网络故障。。。"];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Check Internet connection",nil)]];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             [_MBHUD hide:YES afterDelay:1.5f];
@@ -287,7 +287,7 @@ typedef enum {
     _tmpPage = 1;
     if (button.tag != LocationFilterButtonMessage) {
         [_smallFilterView removeFromSuperview];
-        [_MBHUD setLabelText:@"稍等片刻。。。"];
+        [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
         [self.view addSubview:_MBHUD];
         [_MBHUD show:YES];
         [self getShopListDataWithNewDic:tmpDic];
@@ -367,7 +367,7 @@ typedef enum {
     }
 }
 - (void)smallButtonClicked:(UIButton *)button{
-    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [self.view addSubview:_MBHUD];
     [_MBHUD show:YES];
     LocalListModel *localListModel = _LocalListModelArray[button.tag-1];
@@ -463,7 +463,7 @@ typedef enum {
     }
     if (flag != 4) {
         [_smallFilterView removeFromSuperview];
-        [_MBHUD setLabelText:@"稍等片刻。。。"];
+        [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
         [self.view addSubview:_MBHUD];
         [_MBHUD show:YES];
         [self getShopListDataWithNewDic:tmpDic];
@@ -720,7 +720,7 @@ typedef enum {
         
         
         UILabel *needLabel = [UILabel new];
-        [needLabel setText:[NSString stringWithFormat:@"求购"]];
+        [needLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Need", nil)]];
         [needLabel setFont:ThemeFont(12)];
         [needLabel setTextAlignment:NSTextAlignmentCenter];
         [needLabel setBackgroundColor:RGBACOLOR(153, 153, 153, 1)];
@@ -734,7 +734,7 @@ typedef enum {
         }];
         
         UILabel *detailDemandLabel = [UILabel new];
-        [detailDemandLabel setText:[NSString stringWithFormat:@"%@  %@吨  %@-%@元/吨",purchaseListMD.goods_name,purchaseListMD.goods_num,purchaseListMD.price_low,purchaseListMD.price_up]];
+        [detailDemandLabel setText:[NSString stringWithFormat:@"%@  %@%@  %@-%@%@",purchaseListMD.goods_name,purchaseListMD.goods_num,NSLocalizedString(@"Ton",nil),purchaseListMD.price_low,purchaseListMD.price_up,NSLocalizedString(@"yuan/ton",nil)]];
         [detailDemandLabel setFont:ThemeFont(13)];
         [detailDemandLabel setTextColor:RGBACOLOR(51, 51, 51, 1)];
         
@@ -771,7 +771,7 @@ typedef enum {
         }];
         
         UILabel *telephoneLabel = [UILabel new];
-        [telephoneLabel setText:[NSString stringWithFormat:@"联系对方"]];
+        [telephoneLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Contact", nil)]];
         telephoneLabel.layer.cornerRadius = 5;//设置那个圆角的有多圆
         telephoneLabel.layer.borderWidth =0;//设置边框的宽度，当然可以不要
         telephoneLabel.layer.borderColor =nil;//设置边框的颜色
@@ -797,7 +797,7 @@ typedef enum {
         
         
         UILabel *detailLable = [UILabel new];
-        [detailLable setText:[NSString stringWithFormat:@"查看详情"]];
+        [detailLable setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Detail", nil)]];
         [detailLable setFont:ThemeFont(12)];
         detailLable.layer.cornerRadius = 5;//设置那个圆角的有多圆
         detailLable.layer.borderWidth =0;//设置边框的宽度，当然可以不要
@@ -852,7 +852,7 @@ typedef enum {
     _baseScrollView.mj_footer = [MJRefreshAutoNormalFooter  footerWithRefreshingBlock:^{
         //根据后台返回来的page总数限制刷新次数
         if (_tmpPage < _totalCount) {
-            [_MBHUD setLabelText:@"稍等片刻。。。"];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             _tmpPage++;
@@ -955,7 +955,7 @@ typedef enum {
 }
 - (void)setTopIndicatorButtonVisible:(UIView *)superView {
     _topFutureFilterFlag = NO;
-    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [self.view addSubview:_MBHUD];
     [_MBHUD show:YES];
     _tmpPage = 1;
@@ -1025,8 +1025,7 @@ typedef enum {
             make.height.mas_equalTo(20);
         }];
     
-            [titleLable setText:@"求购列表"];
-    
+            [titleLable setText:NSLocalizedString(@"To buy list", nil)];
         titleLable.textColor=[UIColor whiteColor];
         [titleLable setFont:ThemeFont(16)];
         [titleLable setTextAlignment:NSTextAlignmentCenter];

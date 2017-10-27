@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ico_return"] style:UIBarButtonItemStylePlain target:self action:@selector(retBtnClick)];
-    self.title=@"店铺详情";
+    self.title=NSLocalizedString(@"Shop detail",nil);
     //
     _shopDic=[[NSMutableDictionary alloc] init];
     self.view.backgroundColor=RGBACOLOR(234, 234, 234, 1);
@@ -74,7 +74,7 @@
     UILabel *righttopLabel = [UILabel new];
     [bgView addSubview:righttopLabel];
     righttopLabel.textAlignment=NSTextAlignmentRight;
-    [righttopLabel setText:[NSString stringWithFormat:@"%@人关注",_shopDic[@"follow_count"]]];
+    [righttopLabel setText:[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Followed",nil),_shopDic[@"follow_count"]]];
     [righttopLabel setTextColor:[UIColor lightGrayColor]];
     [righttopLabel setFont:ThemeFont(16)];
     [righttopLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -102,13 +102,13 @@
         UILabel *topLabel1 = [UILabel new];
         [landView addSubview:topLabel1];
         if (i==0) {
-             [topLabel1 setText:@"店铺简介"];
+             [topLabel1 setText:NSLocalizedString(@"About the shop",nil)];
         }
         if (i==1) {
-            [topLabel1 setText:@"所在地区"];
+            [topLabel1 setText:NSLocalizedString(@"Shop location",nil)];
         }
         if (i==2) {
-            [topLabel1 setText:@"开店时间"];
+            [topLabel1 setText:NSLocalizedString(@"Time of opening",nil)];
         }
        
         [topLabel1 setTextColor:[UIColor lightGrayColor]];
@@ -116,7 +116,7 @@
         [topLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(landView.mas_left).with.offset(MiddleGap);;
             make.top.equalTo(landView).with.offset(0);
-            make.width.mas_equalTo(90);
+            make.width.mas_equalTo(120);
             make.height.mas_equalTo(40);
         }];
         

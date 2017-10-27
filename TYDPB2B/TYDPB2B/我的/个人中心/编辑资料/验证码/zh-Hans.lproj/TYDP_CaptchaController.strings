@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "输入手机尾号          接收到的短信验证码"; ObjectID = "Kof-vj-1zt"; */
+"Kof-vj-1zt.text" = "输入手机尾号          接收到的短信验证码";
+
+/* Class = "UILabel"; text = "验证手机号"; ObjectID = "L9z-La-8Cx"; */
+"L9z-La-8Cx.text" = "验证手机号";
+
+/* Class = "UILabel"; text = "6936"; ObjectID = "Z8l-J6-9Qy"; */
+"Z8l-J6-9Qy.text" = "6936";
+
+/* Class = "UIButton"; normalTitle = "60秒后重发"; ObjectID = "bgI-ka-Rxt"; */
+"bgI-ka-Rxt.normalTitle" = "60秒后重发";
+
+/* Class = "UIButton"; normalTitle = "确定"; ObjectID = "gxY-MM-6aN"; */
+"gxY-MM-6aN.normalTitle" = "确定";
+
+/* Class = "UIButton"; normalTitle = "取消"; ObjectID = "wdW-SA-4Kc"; */
+"wdW-SA-4Kc.normalTitle" = "取消";
+
+/* Class = "UITextField"; placeholder = "输入短信验证码"; ObjectID = "yHu-lQ-FZn"; */
+"yHu-lQ-FZn.placeholder" = "输入短信验证码";

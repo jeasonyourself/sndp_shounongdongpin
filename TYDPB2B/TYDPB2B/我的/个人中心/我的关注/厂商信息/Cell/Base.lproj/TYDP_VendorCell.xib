@@ -57,9 +57,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/吨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ci0-dm-yFJ">
-                        <rect key="frame" x="188.5" y="94.5" width="33" height="15"/>
+                        <rect key="frame" x="188.5" y="94.5" width="60" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="33" id="09p-1I-3vx"/>
+                            <constraint firstAttribute="width" constant="60" id="09p-1I-3vx"/>
                             <constraint firstAttribute="height" constant="15" id="1Zc-am-k1o"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>

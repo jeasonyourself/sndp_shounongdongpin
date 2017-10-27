@@ -144,7 +144,7 @@ typedef enum {
     [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
     [_MBHUD setMode:MBProgressHUDModeText];
     [self.view addSubview:_MBHUD];
-    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [_MBHUD show:YES];
     NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];
     NSString *Sign = [NSString stringWithFormat:@"%@%@%@",@"order",@"order_info",ConfigNetAppKey];
@@ -287,7 +287,7 @@ typedef enum {
     UILabel *rightBottomLabel = [UILabel new];
     [_topView addSubview:rightBottomLabel];
     //    [rightBottomLabel setBackgroundColor:[UIColor greenColor]];
-    [rightBottomLabel setText:[NSString stringWithFormat:@"%@/吨",_orderGoodsModel[@"goods_price"]]];
+    [rightBottomLabel setText:[NSString stringWithFormat:@"%@/%@",_orderGoodsModel[@"goods_price"],NSLocalizedString(@"Ton", nil)]];
     [rightBottomLabel setTextColor:RGBACOLOR(252, 91, 49, 1)];
     [rightBottomLabel setFont:ThemeFont(14)];
     [rightBottomLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -955,7 +955,7 @@ typedef enum {
     
     UIActionSheet *choiceSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
-                                                    cancelButtonTitle:@"取消"
+                                                    cancelButtonTitle:NSLocalizedString(@"Cancle",nil)
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:@"支付宝",@"线下自助付款",@"银行卡转账", nil];
     [choiceSheet showInView:self.view];
@@ -1048,7 +1048,7 @@ typedef enum {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确认信息"
                           
                                                     message:msg
-                                                   delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
+                                                   delegate:self cancelButtonTitle:NSLocalizedString(@"Cancle",nil) otherButtonTitles:NSLocalizedString(@"Sure",nil),nil];
     alert.tag=buttonIndex;
     [alert show];
 

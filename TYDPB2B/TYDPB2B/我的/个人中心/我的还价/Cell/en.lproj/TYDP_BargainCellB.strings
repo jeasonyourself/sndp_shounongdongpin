@@ -1,0 +1,39 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "0wL-fz-sUb"; */
+"0wL-fz-sUb.text" = "Label";
+
+/* Class = "UILabel"; text = "厂号:"; ObjectID = "4wA-6q-x1h"; */
+"4wA-6q-x1h.text" = "Plat No.:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "6PU-Vp-4km"; */
+"6PU-Vp-4km.text" = "Label";
+
+/* Class = "UILabel"; text = "原价:"; ObjectID = "AgL-FY-BYb"; */
+"AgL-FY-BYb.text" = "Original Price:";
+
+/* Class = "UILabel"; text = "我的:"; ObjectID = "Cbl-GF-dW2"; */
+"Cbl-GF-dW2.text" = "My bargain:";
+
+/* Class = "UILabel"; text = "元/吨"; ObjectID = "D8x-6a-EXq"; */
+"D8x-6a-EXq.text" = "yuan/ton";
+
+/* Class = "UILabel"; text = "元/吨"; ObjectID = "FWN-sP-yDP"; */
+"FWN-sP-yDP.text" = "yuan/ton";
+
+/* Class = "UIButton"; normalTitle = "再次还价"; ObjectID = "HCY-c5-328"; */
+"HCY-c5-328.normalTitle" = "Bargain again";
+
+/* Class = "UIButton"; normalTitle = "购买"; ObjectID = "QOt-lF-6Lr"; */
+"QOt-lF-6Lr.normalTitle" = "Buy";
+
+/* Class = "UILabel"; text = "32000"; ObjectID = "iO5-Wd-4M5"; */
+"iO5-Wd-4M5.text" = "32000";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qDr-XH-OiC"; */
+"qDr-XH-OiC.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "wgV-mB-UAK"; */
+"wgV-mB-UAK.text" = "Label";
+
+/* Class = "UILabel"; text = "元/吨"; ObjectID = "zAH-cx-ecG"; */
+"zAH-cx-ecG.text" = "yuan/tun";

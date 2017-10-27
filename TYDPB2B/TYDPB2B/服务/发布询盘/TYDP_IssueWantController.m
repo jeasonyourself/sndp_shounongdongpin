@@ -111,7 +111,7 @@
             
             UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(220*Width, 0, 20*Width, 50*Height)];
             [cellView addSubview:lab];
-            lab.text = @"吨";
+            lab.text = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Ton",nil)];
             lab.textColor = RGBACOLOR(203, 203, 203, 1);
         }else if (i == 4){//价格范围
             _tf1 = [[UITextField alloc]initWithFrame:CGRectMake(140*Width, 0, 70*Width, 50*Height)];
@@ -132,7 +132,7 @@
             _tf2.delegate = self;
             UILabel *lab2 = [[UILabel alloc]initWithFrame:CGRectMake(310*Width, 0, 50*Width, 50*Height)];
             [cellView addSubview:lab2];
-            lab2.text = @"元/吨";
+            lab2.text = NSLocalizedString(@"yuan/ton",nil);
             lab2.textColor = RGBACOLOR(203, 203, 203, 1);
         }else{//收货地
 //            UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(ScreenWidth-25*Width, 15*Height, 10*Width, 20*Height)];

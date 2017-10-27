@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="-735" y="1622"/>
         </scene>
-        <!--Offer View Controller-->
+        <!--筛选-->
         <scene sceneID="EId-8R-HM9">
             <objects>
-                <viewController id="ueH-9W-hwp" customClass="TYDP_OfferViewController" sceneMemberID="viewController">
+                <viewController title="筛选" id="ueH-9W-hwp" customClass="TYDP_OfferViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AoJ-8Q-bAZ"/>
                         <viewControllerLayoutGuide type="bottom" id="I47-YW-p3g"/>
@@ -85,29 +85,10 @@
             </objects>
             <point key="canvasLocation" x="-30" y="1623"/>
         </scene>
-        <!--News Controller-->
-        <scene sceneID="gDR-5u-Jwj">
-            <objects>
-                <viewController id="9AF-Ba-r5m" customClass="TYDP_NewsController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="o60-Ao-JDM"/>
-                        <viewControllerLayoutGuide type="bottom" id="IgK-mS-O4W"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="V0C-zJ-oED">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="bQe-zb-xXE"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5UP-ad-hVG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="618" y="1627"/>
-        </scene>
-        <!--Servr Controller-->
+        <!--服务-->
         <scene sceneID="r8u-R8-mAO">
             <objects>
-                <viewController id="WyW-z0-QRO" customClass="TYDP_ServrController" sceneMemberID="viewController">
+                <viewController title="服务" id="WyW-z0-QRO" customClass="TYDP_ServrController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9bO-Uz-kmS"/>
                         <viewControllerLayoutGuide type="bottom" id="eh7-wg-rNW"/>
@@ -123,10 +104,10 @@
             </objects>
             <point key="canvasLocation" x="1274" y="1619"/>
         </scene>
-        <!--Mine Controller-->
+        <!--我的-->
         <scene sceneID="Uwd-0K-IRc">
             <objects>
-                <viewController id="w5h-EV-WCS" customClass="TYDP_MineController" sceneMemberID="viewController">
+                <viewController title="我的" id="w5h-EV-WCS" customClass="TYDP_MineController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Cmb-Wl-IB3"/>
                         <viewControllerLayoutGuide type="bottom" id="gJO-TE-iMY"/>
@@ -142,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="1937" y="1623"/>
         </scene>
-        <!--报盘-->
+        <!--筛选-->
         <scene sceneID="P1U-c3-sO1">
             <objects>
-                <navigationController title="报盘" id="S0a-TD-hW1" sceneMemberID="viewController">
+                <navigationController title="筛选" id="S0a-TD-hW1" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="筛选" image="tab_cargo" selectedImage="tab_cargo_pre" id="pDw-62-zmN" customClass="CustomerBarItem"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fdd-Sw-ph3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -193,23 +174,6 @@
             </objects>
             <point key="canvasLocation" x="1254" y="871"/>
         </scene>
-        <!--资讯-->
-        <scene sceneID="eUn-7E-weU">
-            <objects>
-                <navigationController title="资讯" id="Aim-aQ-8ty" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="资讯" image="tabbar_consult_icon_n" selectedImage="tabbar_consult_icon_s" id="LMT-H4-505" customClass="CustomerBarItem"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TEE-32-lGV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="9AF-Ba-r5m" kind="relationship" relationship="rootViewController" id="YHE-ea-cSw"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H12-EK-3it" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="594" y="871"/>
-        </scene>
     </scenes>
     <resources>
         <image name="tab_cargo" width="22" height="22"/>
@@ -220,7 +184,5 @@
         <image name="tab_me_pre" width="22" height="22"/>
         <image name="tab_service" width="22" height="22"/>
         <image name="tab_service_pre" width="22" height="22"/>
-        <image name="tabbar_consult_icon_n" width="24" height="24"/>
-        <image name="tabbar_consult_icon_s" width="24" height="24"/>
     </resources>
 </document>

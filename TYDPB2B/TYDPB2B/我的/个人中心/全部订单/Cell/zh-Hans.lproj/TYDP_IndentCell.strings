@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; normalTitle = "去付款"; ObjectID = "8Ev-Sx-4J7"; */
+"8Ev-Sx-4J7.normalTitle" = "去付款";
+
+/* Class = "UILabel"; text = "$12000.00"; ObjectID = "D7v-Sf-QXZ"; */
+"D7v-Sf-QXZ.text" = "$12000.00";
+
+/* Class = "UILabel"; text = "2016-07-05 10:28"; ObjectID = "Hce-Cg-fY6"; */
+"Hce-Cg-fY6.text" = "2016-07-05 10:28";
+
+/* Class = "UILabel"; text = "2016070523564"; ObjectID = "WKS-Bl-uNn"; */
+"WKS-Bl-uNn.text" = "2016070523564";
+
+/* Class = "UILabel"; text = "猪脚"; ObjectID = "cYW-I7-7QS"; */
+"cYW-I7-7QS.text" = "猪脚";
+
+/* Class = "UILabel"; text = "待支付"; ObjectID = "pg4-9h-g19"; */
+"pg4-9h-g19.text" = "待支付";
+
+/* Class = "UILabel"; text = "*1柜"; ObjectID = "qAA-v7-QIw"; */
+"qAA-v7-QIw.text" = "*1柜";

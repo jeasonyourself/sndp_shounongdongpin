@@ -1057,7 +1057,7 @@ typedef enum {
             [self searchBrandListDataWithNewDic];
         }
         else {
-            [_MBHUD setLabelText:@"网络故障。。。"];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Check Internet connection",nil)]];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             [_MBHUD hide:YES afterDelay:1.5f];
@@ -1084,7 +1084,7 @@ typedef enum {
             [_myTableView reloadData];
             }
         else {
-            [_MBHUD setLabelText:@"网络故障。。。"];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Check Internet connection",nil)]];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             [_MBHUD hide:YES afterDelay:1.5f];
@@ -1111,7 +1111,7 @@ typedef enum {
             [_myTableView reloadData];
         }
         else {
-            [_MBHUD setLabelText:@"网络故障。。。"];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Check Internet connection",nil)]];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             [_MBHUD hide:YES afterDelay:1.5f];
@@ -1136,7 +1136,7 @@ typedef enum {
             [self searchgoodsNameListWithNewDic];
             
         } else {
-            [_MBHUD setLabelText:@"网络故障。。。"];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Check Internet connection",nil)]];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             [_MBHUD hide:YES afterDelay:1.5f];
@@ -1161,7 +1161,7 @@ typedef enum {
             [_myTableView reloadData];
             
         } else {
-            [_MBHUD setLabelText:@"网络故障。。。"];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Check Internet connection",nil)]];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             [_MBHUD hide:YES afterDelay:1.5f];
@@ -1187,7 +1187,7 @@ typedef enum {
             [_myTableView reloadData];
             
         } else {
-            [_MBHUD setLabelText:@"网络故障。。。"];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Check Internet connection",nil)]];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             [_MBHUD hide:YES afterDelay:1.5f];

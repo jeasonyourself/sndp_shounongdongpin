@@ -47,14 +47,14 @@
     UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [headV addSubview:cancelBtn];
     cancelBtn.frame = CGRectMake(0, 0, 80, 40);
-    [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
+    [cancelBtn setTitle:NSLocalizedString(@"Cancle",nil) forState:UIControlStateNormal];
     [cancelBtn addTarget:self action:@selector(cancelBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     //确定按钮
     UIButton *sureBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [headV addSubview:sureBtn];
     sureBtn.frame = CGRectMake(ScreenWidth-80, 0, 80, 40);
-    [sureBtn setTitle:@"确定" forState:UIControlStateNormal];
+    [sureBtn setTitle:NSLocalizedString(@"Sure",nil) forState:UIControlStateNormal];
     [sureBtn addTarget:self action:@selector(sureBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     UIPickerView *picker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 40, ScreenWidth, ScreenHeight/3-40)];

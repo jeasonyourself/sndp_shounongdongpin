@@ -88,7 +88,7 @@
     
     NSArray *imgArr = @[@"edit_icon_username",@"edit_icon_name",@"edit_icon_gender",@"edit_icon_phone",@"edit_icon_email",@"edit_icon_location",@"edit_icon_name",@"edit_icon_name"];
     
-    NSArray *titleArr = @[@"请输入用户名",@"请输入真实姓名",@"性别",@"请输入手机号",@"请输入邮箱",@"所在地",@"店铺名称",@"店铺详情"];
+    NSArray *titleArr = @[@"请输入用户名",@"请输入真实姓名",@"性别",@"请输入手机号",@"请输入邮箱",@"所在地",@"店铺名称",NSLocalizedString(@"Shop detail",nil)];
     
     if (!_modelArr) {
         _modelArr = [NSArray copy];
@@ -343,7 +343,7 @@
         _MBHUD = [[MBProgressHUD alloc] init];
         [self.view addSubview:_MBHUD];
     }
-    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
     [_MBHUD setMode:MBProgressHUDModeText];
     [_MBHUD show:YES];

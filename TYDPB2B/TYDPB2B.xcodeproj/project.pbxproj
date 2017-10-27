@@ -18,6 +18,13 @@
 		84194BEB1F90B3AF008876B2 /* seller_orderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84194BEA1F90B3AF008876B2 /* seller_orderDetailViewController.m */; };
 		8419EABB1F47E82800023F70 /* TYDP_BangDingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8419EABA1F47E82800023F70 /* TYDP_BangDingViewController.m */; };
 		841A2CA01F9E55490011CBBD /* dianpuDetailMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A2C9E1F9E55490011CBBD /* dianpuDetailMsgViewController.m */; };
+		841BB1211FA3C27500A1B75C /* TYDP_BargainCellB.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841BB1231FA3C27500A1B75C /* TYDP_BargainCellB.xib */; };
+		841BB1281FA3C33000A1B75C /* TYDP_BargainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841BB12A1FA3C33000A1B75C /* TYDP_BargainCell.xib */; };
+		841BB12F1FA3C3C100A1B75C /* talkPriceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841BB1311FA3C3C100A1B75C /* talkPriceTableViewCell.xib */; };
+		841BB1361FA3C53E00A1B75C /* TYDP_VendorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841BB1381FA3C53E00A1B75C /* TYDP_VendorCell.xib */; };
+		841BB13D1FA3C7FF00A1B75C /* TYDP_IndentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841BB13F1FA3C7FF00A1B75C /* TYDP_IndentCell.xib */; };
+		841BB1441FA3D34900A1B75C /* TYDP_CaptchaController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841BB1461FA3D34900A1B75C /* TYDP_CaptchaController.xib */; };
+		841BB1521FA3D87C00A1B75C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841BB1541FA3D87C00A1B75C /* Main.storyboard */; };
 		841BEA751F6666DD007A3C77 /* TYDP_offerIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BEA741F6666DD007A3C77 /* TYDP_offerIntroViewController.m */; };
 		841C1F3E1F4D1EB400429061 /* addNew_pinGuiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841C1F3D1F4D1EB400429061 /* addNew_pinGuiTableViewCell.m */; };
 		841C1F411F4D1ED100429061 /* addOrDeleteNew_pingGuiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841C1F401F4D1ED100429061 /* addOrDeleteNew_pingGuiTableViewCell.m */; };
@@ -39,7 +46,6 @@
 		8421FF961F569A840077FAB7 /* UIView+Five.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421FF951F569A840077FAB7 /* UIView+Five.m */; };
 		842268231F8A7698003B01EA /* talkPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842268221F8A7698003B01EA /* talkPriceViewController.m */; };
 		842268271F8A76CD003B01EA /* talkPriceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 842268251F8A76CD003B01EA /* talkPriceTableViewCell.m */; };
-		842268281F8A76CD003B01EA /* talkPriceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842268261F8A76CD003B01EA /* talkPriceTableViewCell.xib */; };
 		84266AE81F540A1400411F5B /* pubOfferModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84266AE71F540A1400411F5B /* pubOfferModel.m */; };
 		84266AEB1F540C1500411F5B /* offerTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84266AEA1F540C1500411F5B /* offerTypeModel.m */; };
 		84266AEE1F54138400411F5B /* goodsNameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84266AED1F54138400411F5B /* goodsNameModel.m */; };
@@ -90,7 +96,6 @@
 		A8044B5B1D86AFFB00A3123C /* TYDP_CustomerServiceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8044B591D86AFFB00A3123C /* TYDP_CustomerServiceController.xib */; };
 		A82163B41D35F42700EFCFD0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A82163B31D35F42700EFCFD0 /* main.m */; };
 		A82163B71D35F42700EFCFD0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A82163B61D35F42700EFCFD0 /* AppDelegate.m */; };
-		A82163C01D35F42700EFCFD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A82163BE1D35F42700EFCFD0 /* Main.storyboard */; };
 		A82163C21D35F42700EFCFD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A82163C11D35F42700EFCFD0 /* Assets.xcassets */; };
 		A82163C51D35F42700EFCFD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A82163C31D35F42700EFCFD0 /* LaunchScreen.storyboard */; };
 		A82163D01D35F42700EFCFD0 /* TYDPB2BTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A82163CF1D35F42700EFCFD0 /* TYDPB2BTests.m */; };
@@ -159,7 +164,6 @@
 		E27FA9521D7FF76F00898B9A /* TYDP_UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA8AD1D7FF76E00898B9A /* TYDP_UserInfoModel.m */; };
 		E27FA9531D7FF76F00898B9A /* TYDP_MineController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA8AF1D7FF76E00898B9A /* TYDP_MineController.m */; };
 		E27FA9561D7FF76F00898B9A /* TYDP_IndentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA8B81D7FF76E00898B9A /* TYDP_IndentCell.m */; };
-		E27FA9571D7FF76F00898B9A /* TYDP_IndentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E27FA8B91D7FF76E00898B9A /* TYDP_IndentCell.xib */; };
 		E27FA9581D7FF76F00898B9A /* TYDP_IndentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA8BB1D7FF76E00898B9A /* TYDP_IndentController.m */; };
 		E27FA9591D7FF76F00898B9A /* TYDP_NoIndentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA8BE1D7FF76E00898B9A /* TYDP_NoIndentController.m */; };
 		E27FA95A1D7FF76F00898B9A /* TYDP_NoIndentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E27FA8BF1D7FF76E00898B9A /* TYDP_NoIndentController.xib */; };
@@ -175,7 +179,6 @@
 		E27FA9641D7FF76F00898B9A /* TYDP_CareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E27FA8D61D7FF76E00898B9A /* TYDP_CareCell.xib */; };
 		E27FA9651D7FF76F00898B9A /* TYDP_CareController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA8D81D7FF76E00898B9A /* TYDP_CareController.m */; };
 		E27FA9661D7FF76F00898B9A /* TYDP_VendorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA8DC1D7FF76E00898B9A /* TYDP_VendorCell.m */; };
-		E27FA9671D7FF76F00898B9A /* TYDP_VendorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E27FA8DD1D7FF76E00898B9A /* TYDP_VendorCell.xib */; };
 		E27FA9681D7FF76F00898B9A /* TYDP_VendorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA8E01D7FF76E00898B9A /* TYDP_VendorModel.m */; };
 		E27FA9691D7FF76F00898B9A /* TYDP_VendorController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA8E21D7FF76E00898B9A /* TYDP_VendorController.m */; };
 		E27FA96A1D7FF76F00898B9A /* TYDP_MyMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA8E61D7FF76E00898B9A /* TYDP_MyMessageCell.m */; };
@@ -186,9 +189,7 @@
 		E27FA96F1D7FF76F00898B9A /* TYDP_MyWantModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA8F11D7FF76E00898B9A /* TYDP_MyWantModel.m */; };
 		E27FA9701D7FF76F00898B9A /* TYDP_MyWantController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA8F31D7FF76E00898B9A /* TYDP_MyWantController.m */; };
 		E27FA9711D7FF76F00898B9A /* TYDP_BargainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA8F71D7FF76E00898B9A /* TYDP_BargainCell.m */; };
-		E27FA9721D7FF76F00898B9A /* TYDP_BargainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E27FA8F81D7FF76E00898B9A /* TYDP_BargainCell.xib */; };
 		E27FA9731D7FF76F00898B9A /* TYDP_BargainCellB.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA8FA1D7FF76E00898B9A /* TYDP_BargainCellB.m */; };
-		E27FA9741D7FF76F00898B9A /* TYDP_BargainCellB.xib in Resources */ = {isa = PBXBuildFile; fileRef = E27FA8FB1D7FF76E00898B9A /* TYDP_BargainCellB.xib */; };
 		E27FA9751D7FF76F00898B9A /* TYDP_BargainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA8FE1D7FF76E00898B9A /* TYDP_BargainModel.m */; };
 		E27FA9761D7FF76F00898B9A /* TYDP_BargainController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA9001D7FF76E00898B9A /* TYDP_BargainController.m */; };
 		E27FA9771D7FF76F00898B9A /* TYDP_NoBargainController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA9031D7FF76E00898B9A /* TYDP_NoBargainController.m */; };
@@ -207,7 +208,6 @@
 		E27FA9841D7FF76F00898B9A /* address.json in Resources */ = {isa = PBXBuildFile; fileRef = E27FA91F1D7FF76F00898B9A /* address.json */; };
 		E27FA9851D7FF76F00898B9A /* TYDP_SelectAddressController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA9211D7FF76F00898B9A /* TYDP_SelectAddressController.m */; };
 		E27FA9861D7FF76F00898B9A /* TYDP_CaptchaController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA9241D7FF76F00898B9A /* TYDP_CaptchaController.m */; };
-		E27FA9871D7FF76F00898B9A /* TYDP_CaptchaController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E27FA9251D7FF76F00898B9A /* TYDP_CaptchaController.xib */; };
 		E27FA9881D7FF76F00898B9A /* TYDP_SetController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA9281D7FF76F00898B9A /* TYDP_SetController.m */; };
 		E27FA9891D7FF76F00898B9A /* TYDP_changePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA92B1D7FF76F00898B9A /* TYDP_changePasswordController.m */; };
 		E27FA98A1D7FF76F00898B9A /* TYDP_AboutUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FA92E1D7FF76F00898B9A /* TYDP_AboutUsController.m */; };
@@ -268,6 +268,27 @@
 		841A2C9D1F9E55490011CBBD /* dianpuDetailMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dianpuDetailMsgViewController.h; sourceTree = "<group>"; };
 		841A2C9E1F9E55490011CBBD /* dianpuDetailMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dianpuDetailMsgViewController.m; sourceTree = "<group>"; };
 		841BA32B1F409C37003F5E2F /* TYDPB2B.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TYDPB2B.entitlements; sourceTree = "<group>"; };
+		841BB1221FA3C27500A1B75C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TYDP_BargainCellB.xib; sourceTree = "<group>"; };
+		841BB1251FA3C27800A1B75C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TYDP_BargainCellB.strings"; sourceTree = "<group>"; };
+		841BB1271FA3C27C00A1B75C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TYDP_BargainCellB.strings; sourceTree = "<group>"; };
+		841BB1291FA3C33000A1B75C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TYDP_BargainCell.xib; sourceTree = "<group>"; };
+		841BB12C1FA3C33300A1B75C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TYDP_BargainCell.strings; sourceTree = "<group>"; };
+		841BB12E1FA3C33600A1B75C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TYDP_BargainCell.strings"; sourceTree = "<group>"; };
+		841BB1301FA3C3C100A1B75C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/talkPriceTableViewCell.xib; sourceTree = "<group>"; };
+		841BB1331FA3C3C300A1B75C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/talkPriceTableViewCell.strings; sourceTree = "<group>"; };
+		841BB1351FA3C3C400A1B75C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/talkPriceTableViewCell.strings"; sourceTree = "<group>"; };
+		841BB1371FA3C53E00A1B75C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TYDP_VendorCell.xib; sourceTree = "<group>"; };
+		841BB13A1FA3C54100A1B75C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TYDP_VendorCell.strings; sourceTree = "<group>"; };
+		841BB13C1FA3C54300A1B75C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TYDP_VendorCell.strings"; sourceTree = "<group>"; };
+		841BB13E1FA3C7FF00A1B75C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TYDP_IndentCell.xib; sourceTree = "<group>"; };
+		841BB1411FA3C80100A1B75C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TYDP_IndentCell.strings; sourceTree = "<group>"; };
+		841BB1431FA3C80200A1B75C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TYDP_IndentCell.strings"; sourceTree = "<group>"; };
+		841BB1451FA3D34900A1B75C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TYDP_CaptchaController.xib; sourceTree = "<group>"; };
+		841BB1481FA3D34B00A1B75C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TYDP_CaptchaController.strings; sourceTree = "<group>"; };
+		841BB14A1FA3D34E00A1B75C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TYDP_CaptchaController.strings"; sourceTree = "<group>"; };
+		841BB1531FA3D87C00A1B75C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		841BB15C1FA3DBD200A1B75C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		841BB15E1FA3DBD500A1B75C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		841BEA731F6666DD007A3C77 /* TYDP_offerIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_offerIntroViewController.h; sourceTree = "<group>"; };
 		841BEA741F6666DD007A3C77 /* TYDP_offerIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_offerIntroViewController.m; sourceTree = "<group>"; };
 		841C1F3C1F4D1EB400429061 /* addNew_pinGuiTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addNew_pinGuiTableViewCell.h; sourceTree = "<group>"; };
@@ -289,13 +310,11 @@
 		841C573C1F568F9B00406AFD /* GWLPhotoLibrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWLPhotoLibrayController.m; sourceTree = "<group>"; };
 		841C573D1F568F9B00406AFD /* GWLPhotoSelector.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GWLPhotoSelector.bundle; sourceTree = "<group>"; };
 		841C573E1F568F9B00406AFD /* GWLPhotoSelectorHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWLPhotoSelectorHeader.h; sourceTree = "<group>"; };
-		841C9FC01FA1D257009A701E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		841C9FC11FA1D257009A701E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		841C9FC51FA1D347009A701E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		841C9FC71FA1D368009A701E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		841C9FCB1FA1D444009A701E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		841C9FCD1FA1D445009A701E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		841C9FCF1FA1E275009A701E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		841C9FD81FA1EA4C009A701E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/seller_Storyboard.storyboard; sourceTree = "<group>"; };
 		841C9FD91FA1EA51009A701E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/seller_Storyboard.strings"; sourceTree = "<group>"; };
 		841C9FDB1FA1EAAA009A701E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/seller_Storyboard.strings; sourceTree = "<group>"; };
@@ -312,7 +331,6 @@
 		842268221F8A7698003B01EA /* talkPriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = talkPriceViewController.m; sourceTree = "<group>"; };
 		842268241F8A76CD003B01EA /* talkPriceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = talkPriceTableViewCell.h; sourceTree = "<group>"; };
 		842268251F8A76CD003B01EA /* talkPriceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = talkPriceTableViewCell.m; sourceTree = "<group>"; };
-		842268261F8A76CD003B01EA /* talkPriceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = talkPriceTableViewCell.xib; sourceTree = "<group>"; };
 		84266AE61F540A1400411F5B /* pubOfferModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pubOfferModel.h; sourceTree = "<group>"; };
 		84266AE71F540A1400411F5B /* pubOfferModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pubOfferModel.m; sourceTree = "<group>"; };
 		84266AE91F540C1500411F5B /* offerTypeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = offerTypeModel.h; sourceTree = "<group>"; };
@@ -407,7 +425,6 @@
 		A82163B31D35F42700EFCFD0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A82163B51D35F42700EFCFD0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A82163B61D35F42700EFCFD0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A82163BF1D35F42700EFCFD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A82163C11D35F42700EFCFD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A82163C41D35F42700EFCFD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A82163C61D35F42700EFCFD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -542,7 +559,6 @@
 		E27FA8AF1D7FF76E00898B9A /* TYDP_MineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_MineController.m; sourceTree = "<group>"; };
 		E27FA8B71D7FF76E00898B9A /* TYDP_IndentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_IndentCell.h; sourceTree = "<group>"; };
 		E27FA8B81D7FF76E00898B9A /* TYDP_IndentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_IndentCell.m; sourceTree = "<group>"; };
-		E27FA8B91D7FF76E00898B9A /* TYDP_IndentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TYDP_IndentCell.xib; sourceTree = "<group>"; };
 		E27FA8BA1D7FF76E00898B9A /* TYDP_IndentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_IndentController.h; sourceTree = "<group>"; };
 		E27FA8BB1D7FF76E00898B9A /* TYDP_IndentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_IndentController.m; sourceTree = "<group>"; };
 		E27FA8BD1D7FF76E00898B9A /* TYDP_NoIndentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_NoIndentController.h; sourceTree = "<group>"; };
@@ -568,7 +584,6 @@
 		E27FA8D81D7FF76E00898B9A /* TYDP_CareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_CareController.m; sourceTree = "<group>"; };
 		E27FA8DB1D7FF76E00898B9A /* TYDP_VendorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_VendorCell.h; sourceTree = "<group>"; };
 		E27FA8DC1D7FF76E00898B9A /* TYDP_VendorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_VendorCell.m; sourceTree = "<group>"; };
-		E27FA8DD1D7FF76E00898B9A /* TYDP_VendorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TYDP_VendorCell.xib; sourceTree = "<group>"; };
 		E27FA8DF1D7FF76E00898B9A /* TYDP_VendorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_VendorModel.h; sourceTree = "<group>"; };
 		E27FA8E01D7FF76E00898B9A /* TYDP_VendorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_VendorModel.m; sourceTree = "<group>"; };
 		E27FA8E11D7FF76E00898B9A /* TYDP_VendorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_VendorController.h; sourceTree = "<group>"; };
@@ -587,10 +602,8 @@
 		E27FA8F31D7FF76E00898B9A /* TYDP_MyWantController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_MyWantController.m; sourceTree = "<group>"; };
 		E27FA8F61D7FF76E00898B9A /* TYDP_BargainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_BargainCell.h; sourceTree = "<group>"; };
 		E27FA8F71D7FF76E00898B9A /* TYDP_BargainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_BargainCell.m; sourceTree = "<group>"; };
-		E27FA8F81D7FF76E00898B9A /* TYDP_BargainCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TYDP_BargainCell.xib; sourceTree = "<group>"; };
 		E27FA8F91D7FF76E00898B9A /* TYDP_BargainCellB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_BargainCellB.h; sourceTree = "<group>"; };
 		E27FA8FA1D7FF76E00898B9A /* TYDP_BargainCellB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_BargainCellB.m; sourceTree = "<group>"; };
-		E27FA8FB1D7FF76E00898B9A /* TYDP_BargainCellB.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TYDP_BargainCellB.xib; sourceTree = "<group>"; };
 		E27FA8FD1D7FF76E00898B9A /* TYDP_BargainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_BargainModel.h; sourceTree = "<group>"; };
 		E27FA8FE1D7FF76E00898B9A /* TYDP_BargainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_BargainModel.m; sourceTree = "<group>"; };
 		E27FA8FF1D7FF76E00898B9A /* TYDP_BargainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_BargainController.h; sourceTree = "<group>"; };
@@ -621,7 +634,6 @@
 		E27FA9211D7FF76F00898B9A /* TYDP_SelectAddressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_SelectAddressController.m; sourceTree = "<group>"; };
 		E27FA9231D7FF76F00898B9A /* TYDP_CaptchaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_CaptchaController.h; sourceTree = "<group>"; };
 		E27FA9241D7FF76F00898B9A /* TYDP_CaptchaController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_CaptchaController.m; sourceTree = "<group>"; };
-		E27FA9251D7FF76F00898B9A /* TYDP_CaptchaController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TYDP_CaptchaController.xib; sourceTree = "<group>"; };
 		E27FA9271D7FF76F00898B9A /* TYDP_SetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_SetController.h; sourceTree = "<group>"; };
 		E27FA9281D7FF76F00898B9A /* TYDP_SetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_SetController.m; sourceTree = "<group>"; };
 		E27FA92A1D7FF76F00898B9A /* TYDP_changePasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_changePasswordController.h; sourceTree = "<group>"; };
@@ -837,8 +849,8 @@
 				E27FA93A1D7FF76F00898B9A /* 资讯 */,
 				E27FA8931D7FF76E00898B9A /* 服务 */,
 				E27FA8A31D7FF76E00898B9A /* 我的 */,
-				A82163BE1D35F42700EFCFD0 /* Main.storyboard */,
 				841C9FD21FA1E9DB009A701E /* seller_Storyboard.storyboard */,
+				841BB1541FA3D87C00A1B75C /* Main.storyboard */,
 				A82163B51D35F42700EFCFD0 /* AppDelegate.h */,
 				A82163B61D35F42700EFCFD0 /* AppDelegate.m */,
 				A82163C11D35F42700EFCFD0 /* Assets.xcassets */,
@@ -1199,7 +1211,7 @@
 				8427B96B1F72083A00D9D23E /* tobeSeller_subBtnTableViewCell.m */,
 				842268241F8A76CD003B01EA /* talkPriceTableViewCell.h */,
 				842268251F8A76CD003B01EA /* talkPriceTableViewCell.m */,
-				842268261F8A76CD003B01EA /* talkPriceTableViewCell.xib */,
+				841BB1311FA3C3C100A1B75C /* talkPriceTableViewCell.xib */,
 				84F324711F8B56420033C9ED /* sellerOrderListTableViewCell.h */,
 				84F324721F8B56420033C9ED /* sellerOrderListTableViewCell.m */,
 				84F324731F8B56420033C9ED /* sellerOrderListTableViewCell.xib */,
@@ -1254,7 +1266,7 @@
 			children = (
 				E27FA8B71D7FF76E00898B9A /* TYDP_IndentCell.h */,
 				E27FA8B81D7FF76E00898B9A /* TYDP_IndentCell.m */,
-				E27FA8B91D7FF76E00898B9A /* TYDP_IndentCell.xib */,
+				841BB13F1FA3C7FF00A1B75C /* TYDP_IndentCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1360,7 +1372,7 @@
 			children = (
 				E27FA8DB1D7FF76E00898B9A /* TYDP_VendorCell.h */,
 				E27FA8DC1D7FF76E00898B9A /* TYDP_VendorCell.m */,
-				E27FA8DD1D7FF76E00898B9A /* TYDP_VendorCell.xib */,
+				841BB1381FA3C53E00A1B75C /* TYDP_VendorCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1445,10 +1457,10 @@
 			children = (
 				E27FA8F61D7FF76E00898B9A /* TYDP_BargainCell.h */,
 				E27FA8F71D7FF76E00898B9A /* TYDP_BargainCell.m */,
-				E27FA8F81D7FF76E00898B9A /* TYDP_BargainCell.xib */,
+				841BB12A1FA3C33000A1B75C /* TYDP_BargainCell.xib */,
 				E27FA8F91D7FF76E00898B9A /* TYDP_BargainCellB.h */,
 				E27FA8FA1D7FF76E00898B9A /* TYDP_BargainCellB.m */,
-				E27FA8FB1D7FF76E00898B9A /* TYDP_BargainCellB.xib */,
+				841BB1231FA3C27500A1B75C /* TYDP_BargainCellB.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1564,7 +1576,7 @@
 			children = (
 				E27FA9231D7FF76F00898B9A /* TYDP_CaptchaController.h */,
 				E27FA9241D7FF76F00898B9A /* TYDP_CaptchaController.m */,
-				E27FA9251D7FF76F00898B9A /* TYDP_CaptchaController.xib */,
+				841BB1461FA3D34900A1B75C /* TYDP_CaptchaController.xib */,
 			);
 			path = "验证码";
 			sourceTree = "<group>";
@@ -1799,6 +1811,7 @@
 			files = (
 				E27FA9621D7FF76F00898B9A /* TYDP_SelectCommentTypeController.xib in Resources */,
 				84F3247D1F8B66360033C9ED /* userMoneyTableViewCell.xib in Resources */,
+				841BB1521FA3D87C00A1B75C /* Main.storyboard in Resources */,
 				E27FA96E1D7FF76F00898B9A /* TYDP_MyWantCell.xib in Resources */,
 				E27FA97A1D7FF76F00898B9A /* TYDP_ConsigneeCell.xib in Resources */,
 				E27FA9781D7FF76F00898B9A /* TYDP_NoBargainController.xib in Resources */,
@@ -1807,7 +1820,7 @@
 				E27FA97E1D7FF76F00898B9A /* TYDP_NoConsigneeController.xib in Resources */,
 				E27FA96B1D7FF76F00898B9A /* TYDP_MyMessageCell.xib in Resources */,
 				841C9FC41FA1D347009A701E /* InfoPlist.strings in Resources */,
-				E27FA9571D7FF76F00898B9A /* TYDP_IndentCell.xib in Resources */,
+				841BB13D1FA3C7FF00A1B75C /* TYDP_IndentCell.xib in Resources */,
 				E27FA98F1D7FF76F00898B9A /* TYDP_ForgetPasswordController.xib in Resources */,
 				84F324821F8B6D780033C9ED /* addUserMoneyViewController.xib in Resources */,
 				A82163C51D35F42700EFCFD0 /* LaunchScreen.storyboard in Resources */,
@@ -1815,12 +1828,12 @@
 				E27FA94F1D7FF76F00898B9A /* TYDP_MineCellA.xib in Resources */,
 				E27FA94C1D7FF76F00898B9A /* TYDP_WantListCell.xib in Resources */,
 				E27FA98D1D7FF76F00898B9A /* TYDP_LoginController.xib in Resources */,
-				E27FA9721D7FF76F00898B9A /* TYDP_BargainCell.xib in Resources */,
+				841BB1281FA3C33000A1B75C /* TYDP_BargainCell.xib in Resources */,
 				84F324751F8B56420033C9ED /* sellerOrderListTableViewCell.xib in Resources */,
 				E27FA9601D7FF76F00898B9A /* TYDP_AddCommentController.xib in Resources */,
 				A82163C21D35F42700EFCFD0 /* Assets.xcassets in Resources */,
 				E27FA9801D7FF76F00898B9A /* TYDP_AddConsigneeController.xib in Resources */,
-				E27FA9671D7FF76F00898B9A /* TYDP_VendorCell.xib in Resources */,
+				841BB1361FA3C53E00A1B75C /* TYDP_VendorCell.xib in Resources */,
 				848C6C481F8DEB1A0001A8D1 /* addSenderAddressViewController.xib in Resources */,
 				841C57351F568F5C00406AFD /* XuanZeTuPianCollectionViewCell.xib in Resources */,
 				841C57421F568F9B00406AFD /* GWLPhotoSelector.bundle in Resources */,
@@ -1828,16 +1841,15 @@
 				E27FA9831D7FF76F00898B9A /* TYDP_ChangeMobileController.xib in Resources */,
 				E27FA9911D7FF76F00898B9A /* TYDP_NewsCell.xib in Resources */,
 				841C9FD01FA1E9DB009A701E /* seller_Storyboard.storyboard in Resources */,
-				E27FA9741D7FF76F00898B9A /* TYDP_BargainCellB.xib in Resources */,
+				841BB1211FA3C27500A1B75C /* TYDP_BargainCellB.xib in Resources */,
 				841C9FCA1FA1D444009A701E /* Localizable.strings in Resources */,
 				E27FA95A1D7FF76F00898B9A /* TYDP_NoIndentController.xib in Resources */,
 				845BC65E1F70FF69002902BA /* TYDP_sellerCenterTableViewCell.xib in Resources */,
 				E27FA9841D7FF76F00898B9A /* address.json in Resources */,
-				842268281F8A76CD003B01EA /* talkPriceTableViewCell.xib in Resources */,
-				A82163C01D35F42700EFCFD0 /* Main.storyboard in Resources */,
+				841BB12F1FA3C3C100A1B75C /* talkPriceTableViewCell.xib in Resources */,
 				E27FA9481D7FF76F00898B9A /* TYDP_ServePublicController.xib in Resources */,
 				E27FA9641D7FF76F00898B9A /* TYDP_CareCell.xib in Resources */,
-				E27FA9871D7FF76F00898B9A /* TYDP_CaptchaController.xib in Resources */,
+				841BB1441FA3D34900A1B75C /* TYDP_CaptchaController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2127,6 +2139,76 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		841BB1231FA3C27500A1B75C /* TYDP_BargainCellB.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				841BB1221FA3C27500A1B75C /* Base */,
+				841BB1251FA3C27800A1B75C /* zh-Hans */,
+				841BB1271FA3C27C00A1B75C /* en */,
+			);
+			name = TYDP_BargainCellB.xib;
+			sourceTree = "<group>";
+		};
+		841BB12A1FA3C33000A1B75C /* TYDP_BargainCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				841BB1291FA3C33000A1B75C /* Base */,
+				841BB12C1FA3C33300A1B75C /* en */,
+				841BB12E1FA3C33600A1B75C /* zh-Hans */,
+			);
+			name = TYDP_BargainCell.xib;
+			sourceTree = "<group>";
+		};
+		841BB1311FA3C3C100A1B75C /* talkPriceTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				841BB1301FA3C3C100A1B75C /* Base */,
+				841BB1331FA3C3C300A1B75C /* en */,
+				841BB1351FA3C3C400A1B75C /* zh-Hans */,
+			);
+			name = talkPriceTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		841BB1381FA3C53E00A1B75C /* TYDP_VendorCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				841BB1371FA3C53E00A1B75C /* Base */,
+				841BB13A1FA3C54100A1B75C /* en */,
+				841BB13C1FA3C54300A1B75C /* zh-Hans */,
+			);
+			name = TYDP_VendorCell.xib;
+			sourceTree = "<group>";
+		};
+		841BB13F1FA3C7FF00A1B75C /* TYDP_IndentCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				841BB13E1FA3C7FF00A1B75C /* Base */,
+				841BB1411FA3C80100A1B75C /* en */,
+				841BB1431FA3C80200A1B75C /* zh-Hans */,
+			);
+			name = TYDP_IndentCell.xib;
+			sourceTree = "<group>";
+		};
+		841BB1461FA3D34900A1B75C /* TYDP_CaptchaController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				841BB1451FA3D34900A1B75C /* Base */,
+				841BB1481FA3D34B00A1B75C /* en */,
+				841BB14A1FA3D34E00A1B75C /* zh-Hans */,
+			);
+			name = TYDP_CaptchaController.xib;
+			sourceTree = "<group>";
+		};
+		841BB1541FA3D87C00A1B75C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				841BB1531FA3D87C00A1B75C /* Base */,
+				841BB15C1FA3DBD200A1B75C /* en */,
+				841BB15E1FA3DBD500A1B75C /* zh-Hans */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		841C9FC61FA1D347009A701E /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2153,16 +2235,6 @@
 				841C9FDB1FA1EAAA009A701E /* en */,
 			);
 			name = seller_Storyboard.storyboard;
-			sourceTree = "<group>";
-		};
-		A82163BE1D35F42700EFCFD0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A82163BF1D35F42700EFCFD0 /* Base */,
-				841C9FC01FA1D257009A701E /* zh-Hans */,
-				841C9FCF1FA1E275009A701E /* en */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		A82163C31D35F42700EFCFD0 /* LaunchScreen.storyboard */ = {

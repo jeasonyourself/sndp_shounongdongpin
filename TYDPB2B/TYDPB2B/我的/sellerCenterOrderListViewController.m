@@ -166,7 +166,7 @@
     cell.numberLab.text = cellData[@"order_sn"];
     cell.timeLab.text = cellData[@"add_time"];
     [cell.headImg sd_setImageWithURL:[NSURL URLWithString:cellData[@"goods"][@"goods_thumb"]]];
-    cell.priceLab.text = [NSString stringWithFormat:@"¥%@/吨",cellData[@"goods"][@"goods_price"]];
+    cell.priceLab.text = [NSString stringWithFormat:@"¥%@/%@",cellData[@"goods"][@"goods_price"],NSLocalizedString(@"Ton", nil)];
     cell.changNumLable.text = [NSString stringWithFormat:@"厂号   %@",cellData[@"goods"][@"brand_sn"]];
     cell.regionNameLable.text = [NSString stringWithFormat:@"%@",cellData[@"goods"][@"region_name"]];
     if ([[NSString stringWithFormat:@"%@",cellData[@"goods"][@"is_retail"]] isEqualToString:@"1"]) {
@@ -227,7 +227,7 @@
         _MBHUD = [[MBProgressHUD alloc] init];
         [self.view addSubview:_MBHUD];
     }
-    [_MBHUD setLabelText:@"稍等片刻。。。"];
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
     [_MBHUD setMode:MBProgressHUDModeText];
     [_MBHUD show:YES];

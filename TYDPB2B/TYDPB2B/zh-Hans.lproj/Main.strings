@@ -1,24 +1,21 @@
 
-/* Class = "UINavigationController"; title = "资讯"; ObjectID = "Aim-aQ-8ty"; */
-"Aim-aQ-8ty.title" = "资讯";
-
 /* Class = "UINavigationController"; title = "服务"; ObjectID = "FLd-a0-xLZ"; */
 "FLd-a0-xLZ.title" = "服务";
 
 /* Class = "UINavigationController"; title = "我的"; ObjectID = "I1U-XF-tlA"; */
 "I1U-XF-tlA.title" = "我的";
 
-/* Class = "UITabBarItem"; title = "资讯"; ObjectID = "LMT-H4-505"; */
-"LMT-H4-505.title" = "资讯";
-
 /* Class = "UITabBarItem"; title = "首页"; ObjectID = "Lfe-Sl-XVe"; */
 "Lfe-Sl-XVe.title" = "首页";
 
-/* Class = "UINavigationController"; title = "报盘"; ObjectID = "S0a-TD-hW1"; */
-"S0a-TD-hW1.title" = "报盘";
+/* Class = "UINavigationController"; title = "筛选"; ObjectID = "S0a-TD-hW1"; */
+"S0a-TD-hW1.title" = "筛选";
 
 /* Class = "UIViewController"; title = "首页"; ObjectID = "Wm0-qN-1dP"; */
 "Wm0-qN-1dP.title" = "首页";
+
+/* Class = "UIViewController"; title = "服务"; ObjectID = "WyW-z0-QRO"; */
+"WyW-z0-QRO.title" = "服务";
 
 /* Class = "UITabBarItem"; title = "我的"; ObjectID = "jxk-ge-RoO"; */
 "jxk-ge-RoO.title" = "我的";
@@ -31,3 +28,9 @@
 
 /* Class = "UITabBarItem"; title = "服务"; ObjectID = "qhV-Gq-22N"; */
 "qhV-Gq-22N.title" = "服务";
+
+/* Class = "UIViewController"; title = "筛选"; ObjectID = "ueH-9W-hwp"; */
+"ueH-9W-hwp.title" = "筛选";
+
+/* Class = "UIViewController"; title = "我的"; ObjectID = "w5h-EV-WCS"; */
+"w5h-EV-WCS.title" = "我的";
