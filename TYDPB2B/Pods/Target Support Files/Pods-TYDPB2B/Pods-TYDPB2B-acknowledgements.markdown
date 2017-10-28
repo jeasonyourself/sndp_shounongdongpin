@@ -24,6 +24,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## AliPay
+
+支付宝(中国)网络技术有限公司  版权所有.
+
 ## IQKeyboardManager
 
 IQKeyboardManager license

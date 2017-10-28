@@ -17,5 +17,6 @@ pod 'UMengUShare/Social/WeChat'
 pod 'TTTAttributedLabel'
 pod 'MagicWindowSDK-noWXSDK', :podspec => "https://raw.githubusercontent.com/ran354101066/mw-iossdk/master/MagicWindowSDK-noWXSDK.podspec"
 pod 'UMessage_NOIDFA', '~> 1.5.3’
+pod 'AliPay', '~> 2.1.2'
 end
 

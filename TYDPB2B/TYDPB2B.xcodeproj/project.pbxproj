@@ -1949,6 +1949,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TYDPB2B/Pods-TYDPB2B-resources.sh",
+				"${PODS_ROOT}/AliPay/AlipaySDK.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/MagicWindowSDK-noWXSDK/MagicWindowSDK/MagicWindowSDK/MagicWindow.bundle",

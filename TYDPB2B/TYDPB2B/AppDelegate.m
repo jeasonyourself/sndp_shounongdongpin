@@ -15,6 +15,7 @@
 #import "UMessage.h"
 #ifdef  NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
+#import <AlipaySDK/AlipaySDK.h>
 #endif
 
 //#import "UserNotifications.h"
@@ -181,7 +182,12 @@
 //iOS9+
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(nonnull NSDictionary *)options
 {
-    
+    if ([url.host isEqualToString:@"safepay"]) {
+        //跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            NSLog(@"result = %@",resultDic);
+        }];
+    }
     //必写
     [MWApi routeMLink:url];
     return YES;

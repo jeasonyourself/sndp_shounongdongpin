@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出价" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hS2-SE-LKe">
-                        <rect key="frame" x="8" y="15" width="40" height="19"/>
+                        <rect key="frame" x="8" y="15" width="27" height="19"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="19" id="NQS-La-yhR"/>
                         </constraints>
@@ -28,7 +28,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/吨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ix-Ke-hsL">
-                        <rect key="frame" x="90" y="15" width="29" height="19"/>
+                        <rect key="frame" x="77" y="15" width="29" height="19"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="19" id="FXb-iE-gsq"/>
                             <constraint firstAttribute="width" constant="29" id="WyD-jM-zrR"/>
@@ -48,7 +48,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥122" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDK-Vs-Rw6">
-                        <rect key="frame" x="56" y="15" width="30" height="19"/>
+                        <rect key="frame" x="43" y="15" width="30" height="19"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="19" id="DI7-DT-4Ho"/>
                         </constraints>
@@ -57,7 +57,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axp-hE-bNa">
-                        <rect key="frame" x="326" y="40" width="48" height="23"/>
+                        <rect key="frame" x="304" y="40" width="70" height="23"/>
                         <color key="backgroundColor" red="0.84311336280000004" green="0.34105813499999998" blue="0.29861682649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="Bgm-NX-aQp"/>

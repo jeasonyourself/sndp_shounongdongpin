@@ -15,6 +15,7 @@
 #import "CheckOrderModel.h"
 #import "TYDP_OfferDetailViewController.h"
 #import "TYDP_IndentController.h"
+#import <AlipaySDK/AlipaySDK.h>
 typedef enum {
     confirmOrderButtonMessage = 1,
     sellerConsultAddContanctButtonMessage,
