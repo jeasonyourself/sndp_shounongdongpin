@@ -42,15 +42,12 @@ static TYDPManager *_instance;
     NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
     NSString *languageName = [appLanguages objectAtIndex:0];
     debugLog(@"languageNameeeee:%@",languageName);
-    if ([languageName rangeOfString:@"en"].location!= NSNotFound ) {
-        np[@"lang"]=@"en";
-    }
-    else if ([languageName isEqualToString:@"zh-Hans"]) {
+    if ([languageName isEqualToString:@"zh-Hans"]) {
         np[@"lang"]=@"zh";
     }
     else
     {
-        np[@"lang"]=@"zh";
+        np[@"lang"]=@"en";
     }
     NSMutableDictionary *newParams = [NSMutableDictionary dictionaryWithDictionary:[self addCommomParam:np]];
     
@@ -75,15 +72,12 @@ static TYDPManager *_instance;
     NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
     NSString *languageName = [appLanguages objectAtIndex:0];
     debugLog(@"languageNameeeee:%@",languageName);
-    if ([languageName rangeOfString:@"en"].location!= NSNotFound ) {
-        np[@"lang"]=@"en";
-    }
-    else if ([languageName isEqualToString:@"zh-Hans"]) {
+    if ([languageName isEqualToString:@"zh-Hans"]) {
         np[@"lang"]=@"zh";
     }
     else
     {
-        np[@"lang"]=@"zh";
+        np[@"lang"]=@"en";
     }
    NSMutableDictionary *newParams = [NSMutableDictionary dictionaryWithDictionary:[self addCommomParam:np]];
     [TYDPHttpManager reqWithBaseUrlStr:ServerIP urlStr:urlStr method:@"POST" params:newParams success:^(id json){
@@ -130,15 +124,12 @@ static TYDPManager *_instance;
     NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
     NSString *languageName = [appLanguages objectAtIndex:0];
     debugLog(@"languageNameeeee:%@",languageName);
-    if ([languageName rangeOfString:@"en"].location!= NSNotFound ) {
-        np[@"lang"]=@"en";
-    }
-    else if ([languageName isEqualToString:@"zh-Hans"]) {
+    if ([languageName isEqualToString:@"zh-Hans"]) {
         np[@"lang"]=@"zh";
     }
     else
     {
-        np[@"lang"]=@"zh";
+        np[@"lang"]=@"en";
     }
     NSMutableDictionary *newParams = [NSMutableDictionary dictionaryWithDictionary:[self addCommomParam:np]];
     [[TYDPHttpManager sharedAFManager:ServerIP] POST:@"" parameters:newParams constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {

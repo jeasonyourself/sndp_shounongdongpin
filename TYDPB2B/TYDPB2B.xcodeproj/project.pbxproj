@@ -30,6 +30,7 @@
 		8414D4551FA45E6D0039D081 /* TYDP_NoIndentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8414D4571FA45E6D0039D081 /* TYDP_NoIndentController.xib */; };
 		8414D45C1FA470330039D081 /* TYDP_ServePublicController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8414D45E1FA470330039D081 /* TYDP_ServePublicController.xib */; };
 		8414D4631FA496870039D081 /* TYDP_CareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8414D4651FA496870039D081 /* TYDP_CareCell.xib */; };
+		8414D4731FA4EACE0039D081 /* NSBundle+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 8414D4721FA4EACE0039D081 /* NSBundle+Language.m */; };
 		8417E2221F68DB460056E7F1 /* TYDP_wantBuyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8417E2211F68DB460056E7F1 /* TYDP_wantBuyDetailViewController.m */; };
 		8417E2251F6928840056E7F1 /* commentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8417E2241F6928840056E7F1 /* commentListModel.m */; };
 		84194BEB1F90B3AF008876B2 /* seller_orderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84194BEA1F90B3AF008876B2 /* seller_orderDetailViewController.m */; };
@@ -308,6 +309,8 @@
 		8414D4671FA496890039D081 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TYDP_CareCell.strings; sourceTree = "<group>"; };
 		8414D4691FA4968B0039D081 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TYDP_CareCell.strings"; sourceTree = "<group>"; };
 		8414D46A1FA4D0710039D081 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/addSenderAddressViewController.strings; sourceTree = "<group>"; };
+		8414D4711FA4EACE0039D081 /* NSBundle+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Language.h"; sourceTree = "<group>"; };
+		8414D4721FA4EACE0039D081 /* NSBundle+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Language.m"; sourceTree = "<group>"; };
 		8417E2201F68DB460056E7F1 /* TYDP_wantBuyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_wantBuyDetailViewController.h; sourceTree = "<group>"; };
 		8417E2211F68DB460056E7F1 /* TYDP_wantBuyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_wantBuyDetailViewController.m; sourceTree = "<group>"; };
 		8417E2231F6928840056E7F1 /* commentListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentListModel.h; sourceTree = "<group>"; };
@@ -933,6 +936,8 @@
 				E29D46951D6C5A300030F0D5 /* CALayer+TYDP_Category.m */,
 				A89757401D5DBEC4002EF56E /* TYDPTabBarController.h */,
 				A89757411D5DBEC4002EF56E /* TYDPTabBarController.m */,
+				8414D4711FA4EACE0039D081 /* NSBundle+Language.h */,
+				8414D4721FA4EACE0039D081 /* NSBundle+Language.m */,
 				84136A261F4A7F5C005BEA89 /* PlaceholderTextView */,
 				84042FB81F3C576800213C23 /* centerButton */,
 				A8FD30FB1D4C9AF2003229C4 /* Browser */,
@@ -2054,6 +2059,7 @@
 				E27FA9731D7FF76F00898B9A /* TYDP_BargainCellB.m in Sources */,
 				E27FA9811D7FF76F00898B9A /* TYDP_SetDataController.m in Sources */,
 				84136A291F4A7F5C005BEA89 /* PlaceholderTextView.m in Sources */,
+				8414D4731FA4EACE0039D081 /* NSBundle+Language.m in Sources */,
 				A8B06A7D1D5461590051FAE6 /* TYDPManager+Filter.m in Sources */,
 				849206E41F4C16C8006699EF /* inputTableViewCell.m in Sources */,
 				E27FA9771D7FF76F00898B9A /* TYDP_NoBargainController.m in Sources */,

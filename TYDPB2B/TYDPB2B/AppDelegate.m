@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "IQKeyboardManager.h"
+#import "NSBundle+Language.h"
 #import "MWApi.h"
 #import "TYDP_VendorController.h"
 #import "TYDP_OfferDetailViewController.h"
@@ -35,6 +36,10 @@
     
     [PSDefaults setObject:@"0" forKey:@"needCenterBtn"];
     [PSDefaults setObject:@"0" forKey:@"userType"];
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"myLanguage"] && ![[[NSUserDefaults standardUserDefaults] objectForKey:@"myLanguage"] isEqualToString:@""]) {
+        [NSBundle setLanguage:[[NSUserDefaults standardUserDefaults] objectForKey:@"myLanguage"]];
+    }
     
      [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxbcce9bddfe71700f" appSecret:@"d613b222d75ea05042498cad770dd5f1" redirectURL:nil];
     

@@ -9,7 +9,9 @@
 #import "TYDP_SetController.h"
 #import "TYDP_changePasswordController.h"
 #import "TYDP_AboutUsController.h"
-
+#import "AppDelegate.h"
+#import "TYDPTabBarController.h"
+#import "NSBundle+Language.h"
 @interface TYDP_SetController ()
 
 @end
@@ -18,6 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSArray *languages = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
+    NSString *currentLanguage = languages.firstObject;
+    debugLog(@"当前语言：%@",currentLanguage);
+    
     // Do any additional setup after loading the view.
     [self creatUI];
 }
@@ -38,8 +44,8 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    NSArray *arr = @[NSLocalizedString(@"Edit login password", nil),NSLocalizedString(@"Help Center", nil),NSLocalizedString(@"About Us", nil),NSLocalizedString(@"Wipe Cache", nil)];
-    for (int i = 0; i<4; i++) {
+    NSArray *arr = @[NSLocalizedString(@"Edit login password", nil),NSLocalizedString(@"Help Center", nil),NSLocalizedString(@"About Us", nil),NSLocalizedString(@"Wipe Cache", nil),NSLocalizedString(@"Switched system language", nil)];
+    for (int i = 0; i<5; i++) {
         UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(20, 55*i*Height+NavHeight, ScreenWidth-40, 55*Height)];
         [self.view addSubview:lab];
         lab.text = arr[i];
@@ -95,16 +101,55 @@
     }else if (sender.tag == 102){
         TYDP_AboutUsController *usVC = [[TYDP_AboutUsController alloc]init];
         [self.navigationController pushViewController:usVC animated:YES];
-    }else {
+    }else if (sender.tag == 103){
         [[[SDWebImageManager sharedManager] imageCache] clearDiskOnCompletion:nil];
         UILabel *cacheLab = [self.view viewWithTag:300];
         cacheLab.text = [NSString stringWithFormat:@"%.2fM",[[SDImageCache sharedImageCache] getSize] / 1024.0 / 1024.0];
         NSLog(@"清除缓存");
     }
+    else
+    {
+        // 切换语言前
+        NSArray *langArr1 = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
+        NSString *language1 = langArr1.firstObject;
+        debugLog(@"模拟器语言切换之前：%@",language1);
+        
+        NSArray *lans;
+        if ([language1 isEqualToString:@"zh-Hans"]) {
+            lans = @[@"en"];
+        }
+        else
+        {
+        lans = @[@"zh-Hans"];
+        }
+        // 切换语言
+        
+        [[NSUserDefaults standardUserDefaults] setObject:lans forKey:@"AppleLanguages"];
+        
+        // 切换语言后
+        NSArray *langArr2 = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
+        NSString *language2 = langArr2.firstObject;
+        debugLog(@"语言切换之后：%@",language2);
+        //改变完成之后发送通知，告诉其他页面修改完成，提示刷新界面
+        
+        [NSBundle setLanguage:language2];
+        
+        // 然后将设置好的语言存储好，下次进来直接加载
+        [[NSUserDefaults standardUserDefaults] setObject:language2 forKey:@"myLanguage"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
+        [PSDefaults setObject:@"0" forKey:@"needCenterBtn"];
+
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        TYDPTabBarController*  rootVC = story.instantiateInitialViewController;
+        AppDelegate* appDele=(AppDelegate* )[UIApplication sharedApplication].delegate;
+        appDele.window.rootViewController=rootVC;
+        
+    }
 }
 
 - (void)logoutBtnClick{
-    NSLog(@"退出登录");
+    debugLog(@"退出登录");
     NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];
     [userdefaul removeObjectForKey:@"token"];
     [userdefaul removeObjectForKey:@"user_name"];
