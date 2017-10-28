@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "投诉"; ObjectID = "DIn-jr-bLi"; */
+"DIn-jr-bLi.normalTitle" = "Complaint";
+
+/* Class = "UILabel"; text = "      选择反馈类型"; ObjectID = "FAJ-Fd-j0W"; */
+"FAJ-Fd-j0W.text" = "      Select feedback type";
+
+/* Class = "UIButton"; normalTitle = "售后"; ObjectID = "jvB-1q-Lig"; */
+"jvB-1q-Lig.normalTitle" = "Customer service";
+
+/* Class = "UIButton"; normalTitle = "留言"; ObjectID = "xeP-nR-UHF"; */
+"xeP-nR-UHF.normalTitle" = "Leaving a message.";

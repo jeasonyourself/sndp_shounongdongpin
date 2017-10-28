@@ -67,7 +67,7 @@
     [_navigationBarView addSubview:navigationLabel];
     [navigationLabel setTextAlignment:NSTextAlignmentCenter];
     [navigationLabel setTextColor:[UIColor whiteColor]];
-    [navigationLabel setText:[NSString stringWithFormat:@"订单提交成功"]];
+    [navigationLabel setText:NSLocalizedString(@"Order submission successful", nil)];
     [navigationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(_navigationBarView);
         make.centerY.equalTo(_navigationBarView).with.offset(Gap);
@@ -100,7 +100,7 @@
         make.height.mas_equalTo(30*(topImage.size.height/topImage.size.width));
     }];
     UILabel *topLabel = [UILabel new];
-    [topLabel setText:@"订单提交成功"];
+    [topLabel setText:NSLocalizedString(@"Order submission successful", nil)];
     [topLabel setTextColor:RGBACOLOR(252, 91, 49, 1)];
     [topLabel setTextAlignment:NSTextAlignmentCenter];
     [topLabel setFont:ThemeFont(20)];
@@ -115,11 +115,11 @@
 }
 - (void)manageOrderData{
     OrderDetailPaymentBigModel *orderDetailPaymentBigModel = _orderDetailModel.payment_desc;
-     _orderDetailArray = [NSMutableArray arrayWithObjects:@"订  单  号：",@"订单状态：",@"库存状态：", nil];
+     _orderDetailArray = [NSMutableArray arrayWithObjects:NSLocalizedString(@"Order NO.", nil),NSLocalizedString(@"Order status", nil),NSLocalizedString(@"Payment Method", nil), nil];
     _orderDetailValueArray = [NSMutableArray array];
     [_orderDetailValueArray addObject:_orderDetailModel.order_sn];
     [_orderDetailValueArray addObject:_orderDetailModel.order_status];
-    [_orderDetailValueArray addObject:@"待确认"];
+    [_orderDetailValueArray addObject:NSLocalizedString(@"To be confirmed", nil)];
     //只有list里有数据的时候才处理
 //    if (orderDetailPaymentBigModel.payment_list.count) {
 //        NSMutableArray *orderDetailListModelArray = [NSMutableArray array];
@@ -162,13 +162,13 @@
     }];
     UILabel *topLabel = [UILabel new];
     [middleView addSubview:topLabel];
-    [topLabel setText:@"付款金额："];
+    [topLabel setText:NSLocalizedString(@"Amount Paid", nil)];
     [topLabel setTextColor:RGBACOLOR(85, 85, 85, 1)];
     [topLabel setFont:ThemeFont(17)];
     [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_baseScrollView).with.offset(MiddleGap);;
         make.top.equalTo(frontView.mas_bottom).with.offset(MiddleGap);
-        make.width.mas_equalTo(90);
+        make.width.mas_equalTo(130);
         make.height.mas_equalTo(55);
     }];
     UILabel *topRightLabel = [UILabel new];
@@ -213,7 +213,7 @@
         [leftLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(dotSmallImageView.mas_right).with.offset(Gap);
             make.top.equalTo(smallView);
-            make.width.mas_equalTo(90);
+            make.width.mas_equalTo(130);
             make.bottom.equalTo(smallView);
         }];
         UILabel *rightLabel = [UILabel new];
@@ -248,7 +248,7 @@
         _checkOrderButton.layer.cornerRadius = 5;
         _checkOrderButton.layer.borderColor = [RGBACOLOR(252, 91, 49, 1) CGColor];
         _checkOrderButton.layer.borderWidth = 1;
-        [_checkOrderButton setTitle:@"查看订单" forState:UIControlStateNormal];
+        [_checkOrderButton setTitle:NSLocalizedString(@"View order", nil) forState:UIControlStateNormal];
         [_checkOrderButton setTitleColor:RGBACOLOR(252, 91, 49, 1) forState:UIControlStateNormal];
         [_baseScrollView addSubview:_checkOrderButton];
         [_checkOrderButton mas_makeConstraints:^(MASConstraintMaker *make) {

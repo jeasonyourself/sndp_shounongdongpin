@@ -34,11 +34,11 @@
 - (void)creatUI{
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ico_return"] style:UIBarButtonItemStylePlain target:self action:@selector(retBtnClick)];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
-    self.navigationItem.title = @"设置";
+    self.navigationItem.title = NSLocalizedString(@"Settings", nil);
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    NSArray *arr = @[@"修改登录密码",@"帮助中心",@"关于我们",@"清除缓存"];
+    NSArray *arr = @[NSLocalizedString(@"Edit login password", nil),NSLocalizedString(@"Help Center", nil),NSLocalizedString(@"About Us", nil),NSLocalizedString(@"Wipe Cache", nil)];
     for (int i = 0; i<4; i++) {
         UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(20, 55*i*Height+NavHeight, ScreenWidth-40, 55*Height)];
         [self.view addSubview:lab];
@@ -81,7 +81,7 @@
     logoutBtn.layer.borderWidth = 1;
     logoutBtn.layer.borderColor = [RGBACOLOR(234, 100, 62, 1) CGColor];
     [logoutBtn setTitleColor:RGBACOLOR(234, 100, 62, 1) forState:UIControlStateNormal];
-    [logoutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
+    [logoutBtn setTitle:NSLocalizedString(@"Logout", nil) forState:UIControlStateNormal];
     [logoutBtn addTarget:self action:@selector(logoutBtnClick) forControlEvents:UIControlEventTouchUpInside];
 }
 

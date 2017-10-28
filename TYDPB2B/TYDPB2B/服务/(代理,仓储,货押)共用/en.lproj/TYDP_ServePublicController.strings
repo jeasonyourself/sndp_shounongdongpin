@@ -1,0 +1,54 @@
+
+/* Class = "UITextField"; placeholder = "请输入产品"; ObjectID = "0Me-EV-4P0"; */
+"0Me-EV-4P0.placeholder" = "Enter product name";
+
+/* Class = "UILabel"; text = "提交成功，请等待工作人员联系!"; ObjectID = "3cj-zC-7bA"; */
+"3cj-zC-7bA.text" = "Success!";
+
+/* Class = "UIButton"; normalTitle = "我知道了"; ObjectID = "AaS-02-3CK"; */
+"AaS-02-3CK.normalTitle" = "I know";
+
+/* Class = "UILabel"; text = "联系人姓名"; ObjectID = "DHb-pk-WSO"; */
+"DHb-pk-WSO.text" = "Name";
+
+/* Class = "UILabel"; text = "重量："; ObjectID = "H5Z-D8-TlL"; */
+"H5Z-D8-TlL.text" = "Weight";
+
+/* Class = "UILabel"; text = "厂号："; ObjectID = "HRb-0b-sYV"; */
+"HRb-0b-sYV.text" = "Plat No.";
+
+/* Class = "UILabel"; text = "规格："; ObjectID = "KZp-vh-1cK"; */
+"KZp-vh-1cK.text" = "Specification";
+
+/* Class = "UILabel"; text = "联系人电话"; ObjectID = "Rqr-eZ-X24"; */
+"Rqr-eZ-X24.text" = "Phone NO.";
+
+/* Class = "UILabel"; text = "产地："; ObjectID = "XkM-zz-011"; */
+"XkM-zz-011.text" = "Delinery address";
+
+/* Class = "UITextField"; placeholder = "请输入规格"; ObjectID = "Z0t-bL-igf"; */
+"Z0t-bL-igf.placeholder" = "Enter Specification";
+
+/* Class = "UILabel"; text = "13487232100"; ObjectID = "Z1O-DD-KWi"; */
+"Z1O-DD-KWi.text" = "13487232100";
+
+/* Class = "UILabel"; text = "产品："; ObjectID = "cPu-d8-YJu"; */
+"cPu-d8-YJu.text" = "Product";
+
+/* Class = "UILabel"; text = "王甜甜"; ObjectID = "f2A-Vi-iCa"; */
+"f2A-Vi-iCa.text" = "";
+
+/* Class = "UILabel"; text = "备注"; ObjectID = "jNk-ud-Fqt"; */
+"jNk-ud-Fqt.text" = "Note";
+
+/* Class = "UITextField"; placeholder = "请输入厂号"; ObjectID = "ntM-1I-5KI"; */
+"ntM-1I-5KI.placeholder" = "Enter Plat No.";
+
+/* Class = "UIButton"; normalTitle = "提交"; ObjectID = "qbY-LF-qQv"; */
+"qbY-LF-qQv.normalTitle" = "Submit";
+
+/* Class = "UITextField"; placeholder = "请输入重量"; ObjectID = "uW8-JJ-ZfE"; */
+"uW8-JJ-ZfE.placeholder" = "Enter weight";
+
+/* Class = "UITextField"; placeholder = "请输入产地"; ObjectID = "z5i-pB-xN3"; */
+"z5i-pB-xN3.placeholder" = "Enter Delinery address";

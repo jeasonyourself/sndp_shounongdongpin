@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "留言内容"; ObjectID = "3MK-Ok-gLv"; */
+"3MK-Ok-gLv.text" = "Leaving message";
+
+/* Class = "UIButton"; normalTitle = "提交"; ObjectID = "IZS-uA-B9a"; */
+"IZS-uA-B9a.normalTitle" = "Submit";
+
+/* Class = "UILabel"; text = "留言主题"; ObjectID = "K7y-rq-hSe"; */
+"K7y-rq-hSe.text" = "Leaving theme";
+
+/* Class = "UILabel"; text = "留言类型"; ObjectID = "Lcs-HY-sKa"; */
+"Lcs-HY-sKa.text" = "Leaving type";
+
+/* Class = "UILabel"; text = "  留言"; ObjectID = "S3P-Ee-HzD"; */
+"S3P-Ee-HzD.text" = "  Leaving a message";

@@ -84,14 +84,14 @@
 //增修收货地址接口
 - (IBAction)saveBtnClickToPostData {
     if ([self.nameTf.text isEqualToString:@""]||[self.IDnumberTf.text isEqualToString:@""]) {
-        [self.view Message:@"请完善必要信息" HiddenAfterDelay:1.0];
+        [self.view Message:NSLocalizedString(@"Please improve necessary information", nil) HiddenAfterDelay:1.0];
         return;
     }
 
     [self creatHUD];
     
     if (self.phoneNumberTf.text.length!=11) {
-        [_MBHUD setLabelText:@"请输入正确手机号"];
+        [_MBHUD setLabelText:NSLocalizedString(@"Enter Real Phone number", nil)];
         [_MBHUD hide:YES afterDelay:1.5f];
         NSLog(@"请输入正确手机号");
     }else{
@@ -104,7 +104,7 @@
             //        NSLog(@"%@",data);
             if ([data[@"error"] isEqualToString:@"0"]) {
                 NSLog(@"添加成功");
-                [_MBHUD setLabelText:@"添加成功！"];
+                [_MBHUD setLabelText:NSLocalizedString(@"Success", nil)];
                 [self.navigationController popViewControllerAnimated:YES];
             }else{
                 [_MBHUD setLabelText:data[@"message"]];
@@ -135,7 +135,7 @@
 
 - (IBAction)codeBtnClick:(JKCountDownButton *)sender {
     if (self.phoneNumberTf.text.length!=11) {
-        [_MBHUD setLabelText:@"请输入正确手机号"];
+        [_MBHUD setLabelText:NSLocalizedString(@"Enter Real Phone number", nil)];
         [_MBHUD hide:YES afterDelay:1.5f];
         debugLog(@"请输入正确手机号");
         return;
@@ -144,7 +144,7 @@
     [_codeBtn startWithSecond:60];
 
     [_codeBtn didChange:^NSString *(JKCountDownButton *countDownButton,int second) {
-        NSString *title = [NSString stringWithFormat:@"剩余%d秒",second];
+        NSString *title = [NSString stringWithFormat:@"%d%@",second,NSLocalizedString(@"seconds", nil)];
         [_codeBtn setBackgroundColor:[UIColor lightGrayColor]];
        
         

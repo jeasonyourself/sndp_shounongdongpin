@@ -56,7 +56,7 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ico_return"] style:UIBarButtonItemStylePlain target:self action:@selector(retBtnClick)];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     self.view.backgroundColor = RGBACOLOR(239, 239, 239, 1);
-    self.navigationItem.title = @"编辑资料";
+    self.navigationItem.title = NSLocalizedString(@"Edit Profile", nil);
     
     //头像
     UIView *viewHead = [[UIView alloc]initWithFrame:CGRectMake(0, NavHeight, ScreenWidth, 99*Height)];
@@ -69,7 +69,7 @@
     
     UILabel *headLab = [[UILabel alloc]initWithFrame:CGRectMake(40*Width+15*Height, 30*Height, 60*Width, 40*Height)];
     [viewHead addSubview:headLab];
-    headLab.text = @"头像";
+    headLab.text = NSLocalizedString(@"Portrait", nil);
     
     UIImageView *rightImg = [[UIImageView alloc]initWithFrame:CGRectMake(ScreenWidth-100*Width, 17*Height, 66*Height, 66*Height)];
     [viewHead addSubview:rightImg];
@@ -88,7 +88,7 @@
     
     NSArray *imgArr = @[@"edit_icon_username",@"edit_icon_name",@"edit_icon_gender",@"edit_icon_phone",@"edit_icon_email",@"edit_icon_location",@"edit_icon_name",@"edit_icon_name"];
     
-    NSArray *titleArr = @[@"请输入用户名",@"请输入真实姓名",@"性别",@"请输入手机号",@"请输入邮箱",@"所在地",@"店铺名称",NSLocalizedString(@"Shop detail",nil)];
+    NSArray *titleArr = @[NSLocalizedString(@"Username", nil),NSLocalizedString(@"Legal name", nil),NSLocalizedString(@"Gender", nil),NSLocalizedString(@"Phone number", nil),NSLocalizedString(@"Email", nil),NSLocalizedString(@"Location", nil),NSLocalizedString(@"Shop name", nil),NSLocalizedString(@"Shop detail",nil)];
     
     if (!_modelArr) {
         _modelArr = [NSArray copy];
@@ -98,11 +98,11 @@
         _modelArr = @[@"",@"",@"",@"",@"",@"",@"",@"",@""];
     }else{
         if (![[PSDefaults objectForKey:@"user_rank"] isEqualToString:@"1"]) {
-        _modelArr = @[self.model.user_name,self.model.alias,[[NSString stringWithFormat:@"%@",self.model.sex] isEqualToString:@"1"]?@"男":@"女",self.model.mobile_phone,self.model.email,self.model.address,self.model.shop_name,self.model.shop_info];
+        _modelArr = @[self.model.user_name,self.model.alias,[[NSString stringWithFormat:@"%@",self.model.sex] isEqualToString:@"1"]?NSLocalizedString(@"Male", nil):NSLocalizedString(@"Female", nil),self.model.mobile_phone,self.model.email,self.model.address,self.model.shop_name,self.model.shop_info];
         }
         else
         {
-        _modelArr = @[self.model.user_name,self.model.alias,[[NSString stringWithFormat:@"%@",self.model.sex] isEqualToString:@"1"]?@"男":@"女",self.model.mobile_phone,self.model.email,self.model.address];
+        _modelArr = @[self.model.user_name,self.model.alias,[[NSString stringWithFormat:@"%@",self.model.sex] isEqualToString:@"1"]?NSLocalizedString(@"Male", nil):NSLocalizedString(@"Female", nil),self.model.mobile_phone,self.model.email,self.model.address];
         }
     }
     debugLog(@"user_rankkkk:%@",[PSDefaults objectForKey:@"user_rank"]);
@@ -132,18 +132,18 @@
             [view addSubview:labRight];
             if (i == 2) {
                 if ([[NSString stringWithFormat:@"%@",self.model.sex] isEqual: @"1"]) {
-                    labRight.text = @"男";
+                    labRight.text = NSLocalizedString(@"Male", nil);
                 }else if([[NSString stringWithFormat:@"%@",self.model.sex] isEqual: @"2"]){
-                    labRight.text = @"女";
+                    labRight.text = NSLocalizedString(@"Female", nil);
                 }else{
-                    labRight.text = @"请选择";
+                    labRight.text = NSLocalizedString(@"Choose", nil);
                 }
             }
             else{
                 self.cityId = [NSString stringWithFormat:@"%@",self.model.city];
                 self.provinceId = [NSString stringWithFormat:@"%@",self.model.province];
                 if (!self.provinceId||!self.cityId) {
-                    labRight.text = @"请选择";
+                    labRight.text = NSLocalizedString(@"Choose", nil);
                 }else{
                     labRight.text = [self findAddressWithProvince:[NSString stringWithFormat:@"%@",self.provinceId] City:[NSString stringWithFormat:@"%@",self.cityId]];
                 }
@@ -218,7 +218,7 @@
     [saveBtn setBackgroundColor:mainColor];
     saveBtn.layer.cornerRadius = 25*Height;
     saveBtn.layer.masksToBounds = YES;
-    [saveBtn setTitle:@"保存" forState:UIControlStateNormal];
+    [saveBtn setTitle:NSLocalizedString(@"Save", nil) forState:UIControlStateNormal];
     [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     saveBtn.titleLabel.font = [UIFont systemFontOfSize:20];
     [saveBtn addTarget:self action:@selector(saveBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -285,7 +285,7 @@
 - (void)chooseTouch:(UIGestureRecognizer *)sender{
     if ([sender view].tag == 102) {
         NSLog(@"性别选择");
-        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"男",@"女", nil];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Male", nil),NSLocalizedString(@"Female", nil), nil];
         actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
         [actionSheet showInView:self.view];
     }else{
@@ -310,13 +310,13 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSString *Str;
     if (buttonIndex == 0) {
-        Str = @"男";
+        Str = NSLocalizedString(@"Male", nil);
     }else{
-        Str = @"女";
+        Str = NSLocalizedString(@"Female", nil);
     }
     UILabel *lab = [self.view viewWithTag:102];
     lab.text = Str;
-    if ([Str isEqualToString:@"男"]) {
+    if ([Str isEqualToString:NSLocalizedString(@"Male", nil)]) {
         self.model.sex = @"0";
     }else{
         self.model.sex = @"1";
@@ -367,11 +367,11 @@
         user_name = @"";
     }
     if (!self.cityId ||!self.provinceId) {
-        [_MBHUD setLabelText:@"请选择您所在城市"];
+        [_MBHUD setLabelText:NSLocalizedString(@"Please choose your city", nil)];
         [_MBHUD hide:YES afterDelay:1];
         NSLog(@"请选择您所在城市");
     }else{
-        [_MBHUD setLabelText:@"请稍后..."];
+        [_MBHUD setLabelText:NSLocalizedString(@"Wait a minute", nil)];
         NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];
         NSDictionary *params;
          if ([[PSDefaults objectForKey:@"user_rank"] isEqualToString:@"1"]) {
@@ -383,7 +383,7 @@
         }
         
         if ([params[@"alias"] isEqualToString:@""]) {
-            [self.view Message:@"请填写真实姓名" HiddenAfterDelay:1.5];
+            [self.view Message:NSLocalizedString(@"Please fill in the real name", nil) HiddenAfterDelay:1.5];
             return;
         }
         

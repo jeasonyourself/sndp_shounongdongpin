@@ -39,7 +39,7 @@
 "Od8-Xv-Lrm.text" = "RMB";
 
 /* Class = "UIButton"; normalTitle = "删除该拼柜产品"; ObjectID = "SfD-Oa-Glj"; */
-"SfD-Oa-Glj.normalTitle" = "Delate the consolidation product";
+"SfD-Oa-Glj.normalTitle" = "Delete this product";
 
 /* Class = "UILabel"; text = "美元"; ObjectID = "Szs-ta-8V3"; */
 "Szs-ta-8V3.text" = "USD";

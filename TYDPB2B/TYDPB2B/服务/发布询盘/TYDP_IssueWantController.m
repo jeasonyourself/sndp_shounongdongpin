@@ -53,16 +53,16 @@
     _user_phone = [userdefaul objectForKey:@"mobile_phone"];
     _token = [userdefaul objectForKey:@"token"];
     
-    self.navigationItem.title = @"发布询盘";
+    self.navigationItem.title = NSLocalizedString(@"Post enquiries", nil);
     
     self.view.backgroundColor = RGBACOLOR(246, 246, 246, 1);
 
-    NSArray *titleArr = @[@"求购标题：",@"产品种类：",@"求购产品：",@"求购数量：",@"价格范围：",@"收货地："];
+    NSArray *titleArr = @[NSLocalizedString(@"Inqurity Subject", nil),NSLocalizedString(@"Product category", nil),NSLocalizedString(@"Inqurity Products", nil),NSLocalizedString(@"Number of inqurity", nil),NSLocalizedString(@"Range of price", nil),NSLocalizedString(@"Delivery address", nil)];
     CGFloat tmpFontSize;
     if (ScreenHeight == TYDPIphone5sHeight) {
-        tmpFontSize = 14.0f;
+        tmpFontSize = 13.0f;
     } else {
-        tmpFontSize = 17.0f;
+        tmpFontSize = 13.0f;
     }
     for (int i = 0; i<6; i++) {
         UIView  *cellView = [[UIView alloc]initWithFrame:CGRectMake(0, (50*i+15)*Height+NavHeight, ScreenWidth, 50*Height)];
@@ -74,39 +74,39 @@
         [cellView addSubview:grayLine];
         grayLine.backgroundColor = RGBACOLOR(203, 203, 203, 1);
         
-        UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(15*Width, 0, 85*Width, 50*Height)];
+        UILabel *titleLab = [[UILabel alloc]initWithFrame:CGRectMake(15*Width, 0, 130*Width, 50*Height)];
         [cellView addSubview:titleLab];
         titleLab.text = titleArr[i];
         [titleLab setFont:ThemeFont(tmpFontSize)];
         if (i == 0||i == 2) {//求购标题，求购产品
-            UITextField *tf = [[UITextField alloc]initWithFrame:CGRectMake(100*Width, 0, ScreenWidth-115*Width, 50*Height)];
+            UITextField *tf = [[UITextField alloc]initWithFrame:CGRectMake(145*Width, 0, ScreenWidth-115*Width, 50*Height)];
             [cellView addSubview:tf];
             tf.tag = 200+i;
             if (i == 0) {
-                tf.placeholder = @"输入求购标题";
+                tf.placeholder = NSLocalizedString(@"Enter inquiry subject", nil);
                 //灰色的线
                 UIView *grayLineTop = [[UIView alloc]initWithFrame:CGRectMake(0, -1, ScreenWidth, 0.5)];
                 [cellView addSubview:grayLineTop];
                 grayLineTop.backgroundColor = RGBACOLOR(203, 203, 203, 1);
             }else{
-                tf.placeholder = @"输入求购产品";
+                tf.placeholder = NSLocalizedString(@"Enter inquiry Products", nil);
             }
         }else if (i == 1){//产品种类
-            UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(100*Width, 0, ScreenWidth-115*Width, 50*Height)];
+            UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(145*Width, 0, ScreenWidth-115*Width, 50*Height)];
             [cellView addSubview:lab];
             lab.userInteractionEnabled = YES;
-            lab.text = @"请选择产品种类";
+            lab.text =NSLocalizedString(@"Please choose", nil);
             lab.textColor = RGBACOLOR(198, 198, 204, 1);
             lab.tag = 201;
             
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(chooseTap)];
             [lab addGestureRecognizer:tap];
         }else if (i == 3){//求购数量
-            UITextField *tf = [[UITextField alloc]initWithFrame:CGRectMake(100*Width, 0, 121*Width, 50*Height)];
+            UITextField *tf = [[UITextField alloc]initWithFrame:CGRectMake(145*Width, 0, 121*Width, 50*Height)];
             [cellView addSubview:tf];
             tf.delegate = self;
             tf.tag = 200+i;
-            tf.placeholder = @"输入求购数量";
+            tf.placeholder = NSLocalizedString(@"Enter number of inquiry", nil);
             tf.keyboardType = UIKeyboardTypeNumberPad;
             
             UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(220*Width, 0, 20*Width, 50*Height)];
@@ -116,17 +116,17 @@
         }else if (i == 4){//价格范围
             _tf1 = [[UITextField alloc]initWithFrame:CGRectMake(140*Width, 0, 70*Width, 50*Height)];
             [cellView addSubview:_tf1];
-            _tf1.placeholder = @"最小值";
+            _tf1.placeholder = NSLocalizedString(@"Min", nil);
             _tf1.keyboardType = UIKeyboardTypeNumberPad;
             _tf1.tag = 204;
             _tf1.delegate = self;
             UILabel *lab1 = [[UILabel alloc]initWithFrame:CGRectMake(215*Width, 0, 20*Width, 50*Height)];
             [cellView addSubview:lab1];
-            lab1.text = @"至";
+            lab1.text = NSLocalizedString(@"to", nil);
             [lab1 setFont:ThemeFont(tmpFontSize)];
             _tf2 = [[UITextField alloc]initWithFrame:CGRectMake(240*Width, 0, 70*Width, 50*Height)];
             [cellView addSubview:_tf2];
-            _tf2.placeholder = @"最大值";
+            _tf2.placeholder = NSLocalizedString(@"Max", nil);
             _tf2.keyboardType = UIKeyboardTypeNumberPad;
             _tf2.tag = 205;
             _tf2.delegate = self;
@@ -149,11 +149,11 @@
 //            [cellView addSubview:btn];
 //            btn.frame = CGRectMake(0, 0, ScreenWidth, 50*Height);
 //            [btn addTarget:self action:@selector(addAddressBtnClick) forControlEvents:UIControlEventTouchUpInside];
-            UITextField *tf = [[UITextField alloc]initWithFrame:CGRectMake(100*Width, 0, ScreenWidth - 115*Width, 50*Height)];
+            UITextField *tf = [[UITextField alloc]initWithFrame:CGRectMake(145*Width, 0, ScreenWidth - 115*Width, 50*Height)];
             [cellView addSubview:tf];
             tf.delegate = self;
             tf.tag = 206;
-            tf.placeholder = @"输入收货地址";
+            tf.placeholder = NSLocalizedString(@"Enter the receiving address", nil);
         }
     }
     //编辑备注信息
@@ -168,7 +168,7 @@
     
     UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(15*Width, 0, ScreenWidth-30*Width, 35*Height)];
     [textV addSubview:lab];
-    lab.text = @"编辑备注信息";
+    lab.text = NSLocalizedString(@"Please input memo information", nil);
     lab.textColor = RGBACOLOR(203, 203, 203, 1);
     lab.tag = 300;
     
@@ -189,10 +189,10 @@
         [cellView addSubview:grayLine];
         grayLine.backgroundColor = RGBACOLOR(203, 203, 203, 1);
         
-        UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(15*Width, 0, 101*Width, 50*Height)];
+        UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(15*Width, 0, 130*Width, 50*Height)];
         [cellView addSubview:lab];
         [lab setFont:ThemeFont(tmpFontSize)];
-        UILabel *tf = [[UILabel alloc]initWithFrame:CGRectMake(120*Width, 0, 200*Width, 50*Height)];
+        UILabel *tf = [[UILabel alloc]initWithFrame:CGRectMake(150*Width, 0, 200*Width, 50*Height)];
         [tf setFont:ThemeFont(tmpFontSize)];
         [cellView addSubview:tf];
         
@@ -201,10 +201,10 @@
             UIView *grayLineTop = [[UIView alloc]initWithFrame:CGRectMake(0, -1, ScreenWidth, 0.5)];
             [cellView addSubview:grayLineTop];
             grayLineTop.backgroundColor = RGBACOLOR(203, 203, 203, 1);
-            lab.text = @"求购人姓名：";
+            lab.text = NSLocalizedString(@"Name of inquirer", nil);
             tf.text = _user_name;
         }else{
-            lab.text = @"求购人电话：";
+            lab.text = NSLocalizedString(@"Inquirer's phone NO.", nil);
             tf.text = _user_phone;
         }
     }
@@ -214,7 +214,7 @@
     [self.view addSubview:submitBtn];
     submitBtn.frame = CGRectMake(0, ScreenHeight-50*Height, ScreenWidth, 50*Height);
     [submitBtn.titleLabel setFont:ThemeFont(18.0)];
-    [submitBtn setTitle:@"提交" forState:UIControlStateNormal];
+    [submitBtn setTitle:NSLocalizedString(@"Submit", nil) forState:UIControlStateNormal];
     [submitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     submitBtn.backgroundColor = mainColor;
     [submitBtn addTarget:self action:@selector(requestData) forControlEvents:UIControlEventTouchUpInside];
@@ -298,13 +298,13 @@
 }
 
 - (void)chooseTap{
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"猪",@"牛",@"羊",@"禽类",@"水产",@"其他", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Pork", nil),NSLocalizedString(@"Beef", nil),NSLocalizedString(@"Lamb", nil),NSLocalizedString(@"Poultry", nil),NSLocalizedString(@"Seafoods", nil),NSLocalizedString(@"Other", nil), nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     [actionSheet showInView:self.view];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    NSArray *typeArr = @[@"猪",@"牛",@"羊",@"禽类",@"水产",@"其他"];
+    NSArray *typeArr = @[NSLocalizedString(@"Pork", nil),NSLocalizedString(@"Beef", nil),NSLocalizedString(@"Lamb", nil),NSLocalizedString(@"Poultry", nil),NSLocalizedString(@"Seafoods", nil),NSLocalizedString(@"Other", nil)];
     UILabel *lab = [(UILabel*)self.view viewWithTag:201];
     lab.text = typeArr[buttonIndex];
     lab.textColor = [UIColor blackColor];
@@ -324,7 +324,7 @@
 - (void)requestData{
     [self creatHUD];
     if ([_tf1.text intValue] > [_tf2.text intValue]) {
-        [_MBHUD setLabelText:@"价格范围顺序反了哦。"];
+        [_MBHUD setLabelText:NSLocalizedString(@"The price range is reversed", nil)];
         [_MBHUD hide:YES afterDelay:1];
     } else {
         UITextField *titleTF = (UITextField*)[self.view viewWithTag:200];
@@ -338,7 +338,7 @@
         NSMutableDictionary *params = [[NSMutableDictionary alloc]initWithDictionary: @{@"model":@"other",@"action":@"save_purchase",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"othersave_purchase%@",ConfigNetAppKey]],@"user_id":_user_id,@"token":_token,@"goods_name":goods_nameTF.text,@"title":titleTF.text,@"goods_num":goods_numTF.text,@"price_low":price_lowTF.text,@"price_up":price_upTF.text,@"address":addressTF.text,@"user_phone":_user_phone,@"memo":memoTV.text,@"type":typeLab.text}];
         for (NSString * key in params.allKeys) {
             if ([[params objectForKey:key] isEqualToString:@""]) {
-                [self.view Message:@"缺少参数" HiddenAfterDelay:1.0];
+                [self.view Message:NSLocalizedString(@"Missing parameters", nil) HiddenAfterDelay:1.0];
                 return;
             }
         }

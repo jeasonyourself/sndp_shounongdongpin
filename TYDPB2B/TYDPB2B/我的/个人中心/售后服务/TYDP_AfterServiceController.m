@@ -102,7 +102,7 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.navigationItem.title = @"售后服务";
+    self.navigationItem.title = NSLocalizedString(@"After sale service", nil);
     
     _spreadArr = [NSMutableArray new];
     
@@ -113,7 +113,7 @@
     [self.view addSubview:scroll];
     scroll.delaysContentTouches = NO;
     scroll.backgroundColor = [UIColor whiteColor];
-    NSArray *titleArr = @[@"全部",@"留言",@"投诉",@"售后"];
+    NSArray *titleArr = @[NSLocalizedString(@"All", nil),NSLocalizedString(@"Comment", nil),NSLocalizedString(@"Complain", nil),NSLocalizedString(@"Customer service", nil)];
     scroll.contentSize = CGSizeMake(ScreenWidth, 0);
     for (int i = 0; i<4; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -162,7 +162,7 @@
             MBProgressHUD *tmpHud = [[MBProgressHUD alloc] init];
             [tmpHud setAnimationType:MBProgressHUDAnimationFade];
             [tmpHud setMode:MBProgressHUDModeText];
-            [tmpHud setLabelText:@"没有更多了"];
+            [tmpHud setLabelText:NSLocalizedString(@"No more", nil)];
             [self.view addSubview:tmpHud];
             [tmpHud show:YES];
             [tmpHud hide:YES afterDelay:1.5f];
@@ -175,7 +175,7 @@
     [self.view addSubview:btn];
     btn.frame = CGRectMake(0, ScreenHeight-44, ScreenWidth, 44);
     [btn setBackgroundColor:mainColor];
-    [btn setTitle:@"发表留言" forState:UIControlStateNormal];
+    [btn setTitle:NSLocalizedString(@"Submit", nil) forState:UIControlStateNormal];
 
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont systemFontOfSize:18];

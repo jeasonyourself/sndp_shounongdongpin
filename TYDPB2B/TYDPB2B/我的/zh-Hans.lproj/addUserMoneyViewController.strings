@@ -1,0 +1,15 @@
+
+/* Class = "UITextField"; placeholder = "请输入姓名"; ObjectID = "Ig3-At-djo"; */
+"Ig3-At-djo.placeholder" = "请输入姓名";
+
+/* Class = "UITextField"; placeholder = "请输入开户行"; ObjectID = "feC-Hc-OeC"; */
+"feC-Hc-OeC.placeholder" = "请输入开户行";
+
+/* Class = "UITextField"; placeholder = "请输入手机号"; ObjectID = "kmA-0V-Ry4"; */
+"kmA-0V-Ry4.placeholder" = "请输入手机号";
+
+/* Class = "UITextField"; placeholder = "请输入银行卡号"; ObjectID = "mfW-yv-d8N"; */
+"mfW-yv-d8N.placeholder" = "请输入银行卡号";
+
+/* Class = "UIButton"; normalTitle = "保存"; ObjectID = "t5I-wE-4Oh"; */
+"t5I-wE-4Oh.normalTitle" = "保存";

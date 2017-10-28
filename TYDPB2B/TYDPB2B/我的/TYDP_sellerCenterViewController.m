@@ -166,8 +166,8 @@
     
     //数据源赋值
     _imgArr = @[@"icon_seller_service"];
-    _titleArr = @[@"联系客服"];
-    _subTitleArr = @[@"客服"];
+    _titleArr = @[NSLocalizedString(@"Contact Customer Service", nil)];
+    _subTitleArr = @[@""];
     
     _tabView = [[UITableView alloc]initWithFrame:CGRectMake(0, 145*Height+40, ScreenWidth, ScreenHeight-145*Height-40-TabbarHeight)];
     [self.view addSubview:_tabView];
@@ -222,7 +222,7 @@
     
     UILabel * qieLable = [UILabel new];
     [headImg addSubview:qieLable];
-    qieLable.text = @"切换";
+    qieLable.text = NSLocalizedString(@"Shift", nil);
     qieLable.font=[UIFont systemFontOfSize:12.0];
     CGSize qieSize = [qieLable sizeThatFits:CGSizeMake(100*Width, 20*Height)];
     qieLable.frame = CGRectMake(40*Width, 12*Height+20, qieSize.width, qieSize.height);
@@ -374,7 +374,7 @@
 - (void)configCellA:(TYDP_sellerCenterTableViewCell *)cell{
     //四个button
     NSArray *imgArr = @[@"icon_seller_exchange",@"icon_seller_seller",@"icon_seller_order",@"icon_seller_buy",@"icon_seller_box",@"icon_seller_money",@"icon_seller_feedback",@"icon_seller_share",@"icon_seller_focus"];
-    NSArray *titleArr = @[@"议价",@"报盘管理",@"订单管理",@"求购列表",@"发货管理",@"账户资金",@"意见反馈",@"店铺分享",@"我的关注"];
+    NSArray *titleArr = @[NSLocalizedString(@"Bargain list", nil),NSLocalizedString(@"Offer", nil),NSLocalizedString(@"Order", nil),NSLocalizedString(@"To buy list", nil),NSLocalizedString(@"shippers", nil),NSLocalizedString(@"Account", nil),NSLocalizedString(@"Feedback", nil),NSLocalizedString(@"Populize Store", nil),NSLocalizedString(@"My Following", nil)];
     for (int i = 0; i < 3; i++) {
         UIView *bgView = [UIView new];
         [cell.btnView addSubview:bgView];

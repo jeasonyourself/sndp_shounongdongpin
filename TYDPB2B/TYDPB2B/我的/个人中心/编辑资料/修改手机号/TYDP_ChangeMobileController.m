@@ -68,12 +68,12 @@
 - (void)timerRun{
     if (_startTime == 0) {
         _timer.fireDate = [NSDate distantFuture];
-        [self.getNumBtn setTitle:@"点击重发" forState:UIControlStateNormal];
+        [self.getNumBtn setTitle:NSLocalizedString(@"Click retransmission", nil) forState:UIControlStateNormal];
         self.getNumBtn.userInteractionEnabled = YES;
         _startTime = startTime;
     }else{
         self.getNumBtn.userInteractionEnabled = NO;
-        [self.getNumBtn setTitle:[NSString stringWithFormat:@"%d秒后重发",_startTime] forState:UIControlStateNormal];
+        [self.getNumBtn setTitle:[NSString stringWithFormat:@"%d%@",_startTime,NSLocalizedString(@"seconds", nil)] forState:UIControlStateNormal];
         _startTime = _startTime-_timer.timeInterval;
     }
 }
@@ -85,7 +85,7 @@
         [self getMobileCode];
         _timer.fireDate = [NSDate distantPast];
     }else{
-        [_MBHUD setLabelText:@"请输入正确的手机号"];
+        [_MBHUD setLabelText:NSLocalizedString(@"Enter Real Phone number", nil)];
         [_MBHUD hide:YES afterDelay:1];
     }
 }

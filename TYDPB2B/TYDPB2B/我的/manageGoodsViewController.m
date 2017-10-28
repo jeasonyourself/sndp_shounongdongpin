@@ -94,7 +94,7 @@ page=1;
 - (void)creatUI{
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ico_return"] style:UIBarButtonItemStylePlain target:self action:@selector(retBtnClick)];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
-    self.navigationItem.title = @"报盘管理";
+    self.navigationItem.title = NSLocalizedString(@"Offer", nil);
     
     
     for(NSInteger i=0;i<3;i++)
@@ -464,7 +464,7 @@ page=1;
     
     
     UILabel *bottomMeasureLabel = [UILabel new];
-    [bottomMeasureLabel setText:[NSString stringWithFormat:@"复制"]];
+    [bottomMeasureLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Copy", nil)]];
     [bottomMeasureLabel setFont:ThemeFont(14)];
     [bottomMeasureLabel setTextColor:[UIColor whiteColor]];
     [bottomMeasureLabel setBackgroundColor:mainColor];
@@ -487,7 +487,7 @@ page=1;
     [bottomMeasureLabel addGestureRecognizer:tap1];
     
     UILabel *bottomEditLabel = [UILabel new];
-    [bottomEditLabel setText:[NSString stringWithFormat:@"编辑"]];
+    [bottomEditLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Edit", nil)]];
     [bottomEditLabel setFont:ThemeFont(14)];
     [bottomEditLabel setTextColor:[UIColor whiteColor]];
     [bottomEditLabel setBackgroundColor:mainColor];
@@ -511,7 +511,7 @@ page=1;
     
     
     UILabel *downLabel = [UILabel new];
-    [downLabel setText:[NSString stringWithFormat:[selectedArea isEqualToString:@"1"]?@"下架":@"上架"]];
+    [downLabel setText:[NSString stringWithString:[selectedArea isEqualToString:@"1"]?NSLocalizedString(@"Off Shelf", nil):NSLocalizedString(@"On Shelf", nil)]];
     [downLabel setFont:ThemeFont(14)];
     [downLabel setTextColor:[UIColor whiteColor]];
     [downLabel setBackgroundColor:mainColor];
@@ -524,7 +524,7 @@ page=1;
     [downLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(bottomEditLabel.mas_left).with.offset(-Gap);
         make.bottom.equalTo(bottomCellView.mas_bottom).with.offset(-8);
-        make.width.mas_equalTo(50);
+        make.width.mas_equalTo(90);
         make.height.mas_equalTo(25);
     }];
     downLabel.userInteractionEnabled=YES;

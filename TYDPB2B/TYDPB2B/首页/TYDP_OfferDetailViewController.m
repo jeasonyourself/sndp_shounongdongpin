@@ -1104,7 +1104,7 @@ typedef enum {
         UILabel *leftSmallLabel = [UILabel new];
         [smallView addSubview:leftSmallLabel];
         NSString * nameStr = [NSString stringWithFormat:@""];
-        nameStr=@"报盘说明:";
+        nameStr=NSLocalizedString(@"Offer introduction", nil);
         leftSmallLabel.text=nameStr;
         [leftSmallLabel setFont:ThemeFont(CommonFontSize+1)];
         [leftSmallLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2417,7 +2417,7 @@ typedef enum {
     [bottomViewLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(_orderTextField);
         make.left.equalTo(superView).with.offset(Gap);
-        make.width.mas_equalTo(120);
+        make.width.mas_equalTo(160);
         make.height.mas_equalTo(30);
     }];
     _offerTextField.clipsToBounds = YES;

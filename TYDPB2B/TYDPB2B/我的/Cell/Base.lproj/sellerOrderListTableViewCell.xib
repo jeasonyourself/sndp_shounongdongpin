@@ -116,7 +116,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="猪脚" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6f-Qs-oMP">
-                                <rect key="frame" x="186" y="106" width="244" height="20"/>
+                                <rect key="frame" x="186" y="106" width="234" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Xqz-DF-Dd0"/>
                                 </constraints>

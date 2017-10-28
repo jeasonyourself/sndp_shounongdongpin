@@ -92,7 +92,7 @@
 - (void)creatUI{
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ico_return"] style:UIBarButtonItemStylePlain target:self action:@selector(retBtnClick)];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
-    self.navigationItem.title = @"议价列表";
+    self.navigationItem.title = NSLocalizedString(@"Bargain list", nil);
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeBottom;
@@ -186,7 +186,7 @@ return 90.0/375.0*ScreenWidth;
     }];
     
     UILabel *titleLable = [UILabel new];
-    [titleLable setText:[NSString stringWithFormat:@"请输入自定价(¥/%@)",NSLocalizedString(@"Ton", nil)]];
+    [titleLable setText:[NSString stringWithFormat:@"(¥/%@)",NSLocalizedString(@"Ton", nil)]];
     [titleLable setFont:ThemeFont(CommonFontSize)];
     [titleLable setTextColor:[UIColor blackColor]];
     [TFView addSubview:titleLable];
@@ -320,7 +320,7 @@ return 90.0/375.0*ScreenWidth;
         }];
         
         UILabel *middleMiddleLabel = [UILabel new];
-        [middleMiddleLabel setText:[NSString stringWithFormat:@"厂号：%@",tmpGoodsModel.brand_sn]];
+        [middleMiddleLabel setText:[NSString stringWithFormat:@"%@：%@",NSLocalizedString(@"Plat No.", nil),tmpGoodsModel.brand_sn]];
         [middleMiddleLabel setFont:ThemeFont(13)];
         [middleMiddleLabel setTextColor:RGBACOLOR(102, 102, 102, 1)];
         [bottomCellView addSubview:middleMiddleLabel];
@@ -332,7 +332,7 @@ return 90.0/375.0*ScreenWidth;
         }];
         
         UILabel *bottomPriceLabel = [UILabel new];
-        [bottomPriceLabel setText:[NSString stringWithFormat:@"原价:%@/%@",tmpGoodsModel.shop_price,NSLocalizedString(@"Ton", nil)]];
+        [bottomPriceLabel setText:[NSString stringWithFormat:@"%@:%@/%@",NSLocalizedString(@"Original price", nil),tmpGoodsModel.shop_price,NSLocalizedString(@"Ton", nil)]];
         [bottomPriceLabel setFont:ThemeFont(14)];
         [bottomPriceLabel setTextColor:RGBACOLOR(252, 91, 49, 1)];
         [bottomCellView addSubview:bottomPriceLabel];
@@ -344,7 +344,7 @@ return 90.0/375.0*ScreenWidth;
         }];
     
         UILabel *bottomMeasureLabel = [UILabel new];
-        [bottomMeasureLabel setText:[NSString stringWithFormat:@"自定价"]];
+        [bottomMeasureLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Offer a price", nil)]];
         [bottomMeasureLabel setFont:ThemeFont(14)];
         [bottomMeasureLabel setTextColor:[UIColor whiteColor]];
         [bottomMeasureLabel setBackgroundColor:mainColor];
@@ -357,7 +357,7 @@ return 90.0/375.0*ScreenWidth;
         [bottomMeasureLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(bottomCellView.mas_right).with.offset(-Gap);
             make.top.equalTo(middleMiddleLabel.mas_bottom).with.offset(0);
-            make.width.mas_equalTo(60);
+            make.width.mas_equalTo(100);
             make.height.mas_equalTo((bottomCellHeight - 2*Gap)/3);
         }];
     bottomMeasureLabel.tag=section;
@@ -491,22 +491,22 @@ return 90.0/375.0*ScreenWidth;
     NSDictionary * dic =[tmpGoodsModel.huck_list objectAtIndex:indexPath.row];
     cell.priceLable.text=dic[@"price"];
     cell.timeLable.text=dic[@"created_at"];
-    cell.liuyanLable.text=[NSString stringWithFormat:@"留言:%@",dic[@"message"]];
+    cell.liuyanLable.text=[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Comment", nil),dic[@"message"]];
     if ([tmpGoodsModel.huckster isEqualToString:@"2"]) {
         if (indexPath.row==0) {
-            [cell.okBtn setTitle:@"已采用" forState:UIControlStateNormal];
+            [cell.okBtn setTitle:NSLocalizedString(@"Accepted", nil) forState:UIControlStateNormal];
             cell.okBtn.userInteractionEnabled=NO;
         }
         else
         {
-            [cell.okBtn setTitle:@"采用" forState:UIControlStateNormal];
+            [cell.okBtn setTitle:NSLocalizedString(@"Accept", nil) forState:UIControlStateNormal];
             cell.okBtn.userInteractionEnabled=YES;
         }
         
     }
     else
     {
-        [cell.okBtn setTitle:@"采用" forState:UIControlStateNormal];
+        [cell.okBtn setTitle:NSLocalizedString(@"Accept", nil) forState:UIControlStateNormal];
         cell.okBtn.userInteractionEnabled=YES;
 
     }

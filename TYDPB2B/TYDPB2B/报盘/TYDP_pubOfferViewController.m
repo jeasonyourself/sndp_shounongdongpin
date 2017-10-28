@@ -122,13 +122,13 @@
     
     UILabel *navigationLabel = [UILabel new];
     if ([self.if_addOrEditOrCopy isEqualToString:@"1"]) {
-        [navigationLabel setText:@"报盘发布"];
+        [navigationLabel setText:NSLocalizedString(@"Post offer", nil)];
     }
     if ([self.if_addOrEditOrCopy isEqualToString:@"2"]) {
-        [navigationLabel setText:@"报盘编辑"];
+        [navigationLabel setText:NSLocalizedString(@"Edit offer", nil)];
     }
     if ([self.if_addOrEditOrCopy isEqualToString:@"3"]) {
-        [navigationLabel setText:@"报盘复制"];
+        [navigationLabel setText:NSLocalizedString(@"Copy offer", nil)];
     }
     [navigationLabel setTextAlignment:NSTextAlignmentCenter];
     [navigationLabel setTextColor:[UIColor whiteColor]];
@@ -433,7 +433,7 @@
 
             if (![_pubOfferMD.user_info[@"user_rank"] isEqualToString:@"2"]) {
                  UIWindow * window = [UIApplication sharedApplication].keyWindow;
-                [window Message:@"报盘功能仅供卖家账户使用，请先入驻" HiddenAfterDelay:2.0];
+                [window Message:NSLocalizedString(@"Please settle down first", nil) HiddenAfterDelay:2.0];
                 [self leftItemClicked:nil];
             }
             if ([_pubOfferMD.user_info[@"alias"] isEqualToString:@""]) {
@@ -1438,56 +1438,56 @@
 
         cell.tag=indexPath.section*100+indexPath.row;               switch (indexPath.row) {
             case 0:
-                cell.nameLable.text=@"国家";
+                cell.nameLable.text=NSLocalizedString(@"Country", nil);
                 if ([_dic1 objectForKey:@"region_id"]) {
                     cell.contentLable.text=[_dic1 objectForKey:@"region_name"];
                 }
                 else
                 {
-                    cell.contentLable.text=@"请选择";
+                    cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                 }
                 break;
             case 1:
-                cell.nameLable.text=@"厂号";
+                cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
                 if ([_dic1 objectForKey:@"brand_id"]) {
                     cell.contentLable.text=[_dic1 objectForKey:@"brand_name"];
                 }
                 else
                 {
-                    cell.contentLable.text=@"请选择";
+                    cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                 }
                 
                 break;
             case 2:
-                cell.nameLable.text=@"产品分类";
+                cell.nameLable.text=NSLocalizedString(@"Product category", nil);
                 if ([_dic1 objectForKey:@"cat_id"]) {
                     cell.contentLable.text=[_dic1 objectForKey:@"cat_name"];
                 }
                 else
                 {
-                    cell.contentLable.text=@"请选择";
+                    cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                 }
                 
                 break;
             case 3:
-                cell.nameLable.text=@"产品名称";
+                cell.nameLable.text=NSLocalizedString(@"Product name", nil);
                 if ([_dic1 objectForKey:@"base_id"]) {
                     cell.contentLable.text=[_dic1 objectForKey:@"base_name"];
                 }
                 else
                 {
-                    cell.contentLable.text=@"请选择";
+                    cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                 }
                 
                 break;
             case 4:
-                cell.nameLable.text=@"生产日期";
+                cell.nameLable.text=NSLocalizedString(@"Date of Manufacture", nil);
                 if ([_dic1 objectForKey:@"make_date"]) {
                     cell.contentLable.text=[_dic1 objectForKey:@"make_date"];
                 }
                 else
                 {
-                    cell.contentLable.text=@"请选择";
+                    cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                 }
                 
                 break;
@@ -1504,7 +1504,7 @@
             cell.nameLable.hidden=NO;
             cell.delegate=self;
             cell.tag=indexPath.section*100+indexPath.row;
-            cell.nameLable.text=@"包装规格";
+            cell.nameLable.text=NSLocalizedString(@"Packing specification", nil);
             cell.firstLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"unit",nil)];
             cell.secondLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"Ton",nil)];
             if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
@@ -1549,7 +1549,7 @@
            else
            {
                cell.inputField.text=@"";
-                           cell.inputField.placeholder=@"请输入";
+                           cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
            }
            
             return cell;
@@ -1557,12 +1557,12 @@
        else if(indexPath.row==2) {
            static NSString * const cellID = @"twoSelectBtnCell";
            twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-           cell.nameLable.text=@"重量";
+           cell.nameLable.text=NSLocalizedString(@"weight", nil);
            cell.nameLable.hidden=NO;
            cell.delegate=self;
            cell.tag=indexPath.section*100+indexPath.row;
-           cell.firstLable.text=@"定装";
-           cell.secondLable.text=@"抄码";
+           cell.firstLable.text=NSLocalizedString(@"Fixed weight", nil);
+           cell.secondLable.text=NSLocalizedString(@"Catch weight", nil);
            if ([[_dic2 objectForKey:@"pack"] isEqualToString:@"8"]) {
                cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -1578,7 +1578,7 @@
             static NSString * const cellID = @"signTextViewCell";
             signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
            cell.tag=indexPath.section*100+indexPath.row;
-           cell.signTextView.placeholder=@"产品备注";
+           cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                cell.signTextView.PlaceholderLabel.hidden=NO;
            cell.signTextView.delegate=self;
            if ([_dic2 objectForKey:@"spec_txt"]) {
@@ -1592,7 +1592,7 @@
            else
            {
                cell.signTextView.text=@"";
-               cell.signTextView.placeholder=@"产品备注";
+               cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                cell.signTextView.PlaceholderLabel.hidden=NO;
                cell.signTextView.PlaceholderLabel.hidden=NO;
            }
@@ -1609,7 +1609,7 @@
         static NSString * const cellID = @"inputCell";
             inputTableViewCell *cell = (inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
         cell.tag=indexPath.section*100+indexPath.row;
-        cell.nameLable.text=@"库存";
+        cell.nameLable.text=NSLocalizedString(@"Stock", nil);
         cell.nameLable.hidden=NO;
         cell.inputField.delegate=self;
         cell.inputField.tag=cell.tag;
@@ -1626,7 +1626,7 @@
         else
         {
             cell.inputField.text=@"";
-                           cell.inputField.placeholder=@"请输入";
+                           cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
         }
 
         
@@ -1637,7 +1637,7 @@
             name_inputTableViewCell *cell = (name_inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
             cell.tag=indexPath.section*100+indexPath.row;
             cell.nameLable.hidden=NO;
-            cell.nameLable.text=@"货物所在地";
+            cell.nameLable.text=NSLocalizedString(@"Container Location", nil);
             cell.name_inputField.delegate=self;
             cell.name_inputField.tag=cell.tag;
             cell.name_inputField.userInteractionEnabled=YES;
@@ -1659,7 +1659,7 @@
             threeSelectBtnTableViewCell *cell = (threeSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
             cell.tag=indexPath.section*100+indexPath.row;
             cell.delegate=self;
-            cell.nameLable.text=@"金额";
+            cell.nameLable.text=NSLocalizedString(@"Amount", nil);
             cell.nameLable.hidden=NO;
             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"1"]) {
                 cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
@@ -1718,7 +1718,7 @@
             else
             {
                 cell.inputField.text=@"";
-                           cell.inputField.placeholder=@"请输入";
+                           cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
             }
             
             cell.nameLable.hidden=YES;
@@ -1731,14 +1731,14 @@
             [cell addGestureRecognizer:tap];
 
             cell.tag=indexPath.section*100+indexPath.row;
-            cell.nameLable.text=@"预付条款";
+            cell.nameLable.text=NSLocalizedString(@"Prepayment Rules", nil);
             cell.nameLable.hidden=NO;
             if ([_otherDic objectForKey:@"prepay"]) {
                 cell.contentLable.text=[_otherDic objectForKey:@"prepay_name"];
             }
             else
             {
-            cell.contentLable.text=@"请选择";
+            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
             }
             
             return cell;
@@ -1760,7 +1760,7 @@
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fengMianImageTapMethod:)];
         [cell addGestureRecognizer:tap];
-        cell.nameLable.text=@"报盘封面";
+        cell.nameLable.text=NSLocalizedString(@"Cover photo", nil);
         return cell;
         
     }
@@ -1770,7 +1770,7 @@
         signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
         cell.signTextView.hidden=NO;
         cell.tag=indexPath.section*100+indexPath.row;
-        cell.signTextView.placeholder=@"备注 描述一下你的产品信息";
+        cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
         if ([_otherDic objectForKey:@"goods_txt"]) {
             cell.signTextView.text=[_otherDic objectForKey:@"goods_txt"];
@@ -1782,7 +1782,7 @@
         else
         {
             cell.signTextView.text=@"";
-            cell.signTextView.placeholder=@"备注 描述一下你的产品信息";
+            cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
         }
 
@@ -1797,9 +1797,9 @@
         twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
         cell.tag=indexPath.section*100+indexPath.row;
         cell.nameLable.hidden=NO;
-        cell.nameLable.text=@"是否上架";
-        cell.firstLable.text=@"是";
-        cell.secondLable.text=@"否";
+        cell.nameLable.text=NSLocalizedString(@"On-self?", nil);
+        cell.firstLable.text=NSLocalizedString(@"YES", nil);
+        cell.secondLable.text=NSLocalizedString(@"NO", nil);
         if ([[_otherDic objectForKey:@"is_on_sale"] isEqualToString:@"1"]) {
             cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
             cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -1818,7 +1818,7 @@
         if (indexPath.row==0) {
             cell.nameLable.hidden=NO;
             cell.tag=indexPath.section*100+indexPath.row;
-            cell.nameLable.text=@"联系人姓名";
+            cell.nameLable.text=NSLocalizedString(@"Contact name", nil);
             
             if ([_otherDic objectForKey:@"alias"]) {
                 cell.name_inputField.text=[_otherDic objectForKey:@"alias"];
@@ -1844,7 +1844,7 @@
         if (indexPath.row==1) {
             cell.nameLable.hidden=NO;
             cell.tag=indexPath.section*100+indexPath.row;
-            cell.nameLable.text=@"联系人电话";
+            cell.nameLable.text=NSLocalizedString(@"Contact number", nil);
             if ([_otherDic objectForKey:@"mobile_phone"]) {
                 cell.name_inputField.text=[_otherDic objectForKey:@"mobile_phone"];
                 
@@ -1911,56 +1911,56 @@
                     
                     cell.tag=indexPath.section*100+indexPath.row;               switch (indexPath.row) {
                         case 0:
-                            cell.nameLable.text=@"国家";
+                            cell.nameLable.text=NSLocalizedString(@"Country", nil);
                             if ([_dic1 objectForKey:@"region_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"region_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=@"厂号";
+                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
                             if ([_dic1 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"brand_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 2:
-                            cell.nameLable.text=@"产品分类";
+                            cell.nameLable.text=NSLocalizedString(@"Product category", nil);
                             if ([_dic1 objectForKey:@"cat_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"cat_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 3:
-                            cell.nameLable.text=@"产品名称";
+                            cell.nameLable.text=NSLocalizedString(@"Product name", nil);
                             if ([_dic1 objectForKey:@"base_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"base_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 4:
-                            cell.nameLable.text=@"生产日期";
+                            cell.nameLable.text=NSLocalizedString(@"Date of Manufacture", nil);
                             if ([_dic1 objectForKey:@"make_date"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"make_date"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
@@ -1995,7 +1995,7 @@
                        else
                        {
                            cell.inputField.text=@"";
-                           cell.inputField.placeholder=@"请输入";
+                           cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                        }
 
                         return cell;
@@ -2017,7 +2017,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -2026,12 +2026,12 @@
                 else if (indexPath.row==2) {
                     static NSString * const cellID = @"twoSelectBtnCell";
                     twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                    cell.nameLable.text=@"重量";
+                    cell.nameLable.text=NSLocalizedString(@"weight", nil);
                     cell.nameLable.hidden=NO;
                     cell.delegate=self;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.firstLable.text=@"定装";
-                    cell.secondLable.text=@"抄码";
+                    cell.firstLable.text=NSLocalizedString(@"Fixed weight", nil);
+                    cell.secondLable.text=NSLocalizedString(@"Catch weight", nil);
                     if ([[_dic2 objectForKey:@"pack"] isEqualToString:@"8"]) {
                         cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                         cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -2048,7 +2048,7 @@
                         static NSString * const cellID = @"signTextViewCell";
                         signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.signTextView.placeholder=@"产品备注";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                cell.signTextView.PlaceholderLabel.hidden=NO;
                         cell.signTextView.delegate=self;
                         if ([_dic2 objectForKey:@"spec_txt"]) {
@@ -2062,7 +2062,7 @@
                         else
                         {
                             cell.signTextView.text=@"";
-                            cell.signTextView.placeholder=@"产品备注";
+                            cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                cell.signTextView.PlaceholderLabel.hidden=NO;
                         }
                         cell.signTextView.tag=cell.tag;                        return cell;
@@ -2071,7 +2071,7 @@
                     else  {
                         static NSString * const cellID = @"addNew_pinGuiCell";
                         addNew_pinGuiTableViewCell *cell = (addNew_pinGuiTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        [cell.addBtn setTitle:@"添加拼柜产品" forState:UIControlStateNormal];
+                        [cell.addBtn setTitle:NSLocalizedString(@"Add consolidation product", nil) forState:UIControlStateNormal];
                         [cell.addBtn setBackgroundColor:mainColor];
                         cell.addBtn.tag=indexPath.section;
                         cell.delegate=self;
@@ -2085,7 +2085,7 @@
                         static NSString * const cellID = @"inputCell";
                         inputTableViewCell *cell = (inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"库存";
+                        cell.nameLable.text=NSLocalizedString(@"Stock", nil);
                         cell.nameLable.hidden=NO;
                         cell.inputField.delegate=self;
                         cell.inputField.tag=cell.tag;
@@ -2102,7 +2102,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         
@@ -2113,7 +2113,7 @@
                         name_inputTableViewCell *cell = (name_inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=@"货物所在地";
+                        cell.nameLable.text=NSLocalizedString(@"Container Location", nil);
                         cell.name_inputField.delegate=self;
                         cell.name_inputField.tag=cell.tag;
                         cell.name_inputField.userInteractionEnabled=YES;
@@ -2134,7 +2134,7 @@
                         threeSelectBtnTableViewCell *cell = (threeSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
                         cell.delegate=self;
-                        cell.nameLable.text=@"金额";
+                        cell.nameLable.text=NSLocalizedString(@"Amount", nil);
                         cell.nameLable.hidden=NO;
                         if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"1"]) {
                             cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
@@ -2192,7 +2192,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         cell.nameLable.hidden=YES;
@@ -2205,14 +2205,14 @@
                         [cell addGestureRecognizer:tap];
                         
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"预付条款";
+                        cell.nameLable.text=NSLocalizedString(@"Prepayment Rules", nil);
                         cell.nameLable.hidden=NO;
                         if ([_otherDic objectForKey:@"prepay"]) {
                             cell.contentLable.text=[_otherDic objectForKey:@"prepay_name"];
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         
                         return cell;
@@ -2234,7 +2234,7 @@
                     
                     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fengMianImageTapMethod:)];
                     [cell addGestureRecognizer:tap];
-                    cell.nameLable.text=@"报盘封面";
+                    cell.nameLable.text=NSLocalizedString(@"Cover photo", nil);
                     return cell;
                     
                 }
@@ -2244,7 +2244,7 @@
                     signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.signTextView.hidden=NO;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.signTextView.placeholder=@"备注 描述一下你的产品信息";
+                    cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
                     if ([_otherDic objectForKey:@"goods_txt"]) {
                         cell.signTextView.text=[_otherDic objectForKey:@"goods_txt"];
@@ -2257,7 +2257,7 @@
                     else
                     {
                         cell.signTextView.text=@"";
-                        cell.signTextView.placeholder=@"备注 描述一下你的产品信息";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
                     }
                     
@@ -2272,9 +2272,9 @@
                     twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.tag=indexPath.section*100+indexPath.row;
                     cell.nameLable.hidden=NO;
-                    cell.nameLable.text=@"是否上架";
-                    cell.firstLable.text=@"是";
-                    cell.secondLable.text=@"否";
+                    cell.nameLable.text=NSLocalizedString(@"On-self?", nil);
+                    cell.firstLable.text=NSLocalizedString(@"YES", nil);
+                    cell.secondLable.text=NSLocalizedString(@"NO", nil);
                     if ([[_otherDic objectForKey:@"is_on_sale"] isEqualToString:@"1"]) {
                         cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                         cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -2293,7 +2293,7 @@
                     if (indexPath.row==0) {
                         cell.nameLable.hidden=NO;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"联系人姓名";
+                        cell.nameLable.text=NSLocalizedString(@"Contact name", nil);
                         
                         if ([_otherDic objectForKey:@"alias"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"alias"];
@@ -2319,7 +2319,7 @@
                     if (indexPath.row==1) {
                         cell.nameLable.hidden=NO;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"联系人电话";
+                        cell.nameLable.text=NSLocalizedString(@"Contact number", nil);
                         if ([_otherDic objectForKey:@"mobile_phone"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"mobile_phone"];
                             
@@ -2382,56 +2382,56 @@
                     
                     cell.tag=indexPath.section*100+indexPath.row;               switch (indexPath.row) {
                         case 0:
-                            cell.nameLable.text=@"国家";
+                            cell.nameLable.text=NSLocalizedString(@"Country", nil);
                             if ([_dic1 objectForKey:@"region_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"region_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=@"厂号";
+                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
                             if ([_dic1 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"brand_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 2:
-                            cell.nameLable.text=@"产品分类";
+                            cell.nameLable.text=NSLocalizedString(@"Product category", nil);
                             if ([_dic1 objectForKey:@"cat_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"cat_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 3:
-                            cell.nameLable.text=@"产品名称";
+                            cell.nameLable.text=NSLocalizedString(@"Product name", nil);
                             if ([_dic1 objectForKey:@"base_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"base_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 4:
-                            cell.nameLable.text=@"生产日期";
+                            cell.nameLable.text=NSLocalizedString(@"Date of Manufacture", nil);
                             if ([_dic1 objectForKey:@"make_date"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"make_date"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
@@ -2465,7 +2465,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -2487,7 +2487,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -2495,12 +2495,12 @@
                     else if (indexPath.row==2) {
                         static NSString * const cellID = @"twoSelectBtnCell";
                         twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        cell.nameLable.text=@"重量";
+                        cell.nameLable.text=NSLocalizedString(@"weight", nil);
                         cell.nameLable.hidden=NO;
                         cell.delegate=self;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.firstLable.text=@"定装";
-                        cell.secondLable.text=@"抄码";
+                        cell.firstLable.text=NSLocalizedString(@"Fixed weight", nil);
+                        cell.secondLable.text=NSLocalizedString(@"Catch weight", nil);
                         if ([[_dic2 objectForKey:@"pack"] isEqualToString:@"8"]) {
                             cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                             cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -2517,7 +2517,7 @@
                         static NSString * const cellID = @"signTextViewCell";
                         signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.signTextView.placeholder=@"产品备注";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                cell.signTextView.PlaceholderLabel.hidden=NO;
                         cell.signTextView.delegate=self;
                         if ([_dic2 objectForKey:@"spec_txt"]) {
@@ -2531,7 +2531,7 @@
                         else
                         {
                             cell.signTextView.text=@"";
-                            cell.signTextView.placeholder=@"产品备注";
+                            cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                cell.signTextView.PlaceholderLabel.hidden=NO;
                         }
                         cell.signTextView.tag=cell.tag;                        return cell;
@@ -2541,7 +2541,7 @@
                         //不会到这
                         static NSString * const cellID = @"addNew_pinGuiCell";
                         addNew_pinGuiTableViewCell *cell = (addNew_pinGuiTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        [cell.addBtn setTitle:@"添加拼柜产品" forState:UIControlStateNormal];
+                        [cell.addBtn setTitle:NSLocalizedString(@"Add consolidation product", nil) forState:UIControlStateNormal];
                         [cell.addBtn setBackgroundColor:mainColor];
                         cell.addBtn.tag=indexPath.section;
                         cell.delegate=self;
@@ -2560,56 +2560,56 @@
                     
                     cell.tag=indexPath.section*100+indexPath.row;               switch (indexPath.row) {
                         case 0:
-                            cell.nameLable.text=@"国家";
+                            cell.nameLable.text=NSLocalizedString(@"Country", nil);
                             if ([_dic3 objectForKey:@"region_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"region_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=@"厂号";
+                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
                             if ([_dic3 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"brand_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 2:
-                            cell.nameLable.text=@"产品分类";
+                            cell.nameLable.text=NSLocalizedString(@"Product category", nil);
                             if ([_dic3 objectForKey:@"cat_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"cat_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 3:
-                            cell.nameLable.text=@"产品名称";
+                            cell.nameLable.text=NSLocalizedString(@"Product name", nil);
                             if ([_dic3 objectForKey:@"base_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"base_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 4:
-                            cell.nameLable.text=@"生产日期";
+                            cell.nameLable.text=NSLocalizedString(@"Date of Manufacture", nil);
                             if ([_dic3 objectForKey:@"make_date"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"make_date"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
@@ -2643,7 +2643,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -2665,7 +2665,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -2673,12 +2673,12 @@
                     else if (indexPath.row==2) {
                         static NSString * const cellID = @"twoSelectBtnCell";
                         twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        cell.nameLable.text=@"重量";
+                        cell.nameLable.text=NSLocalizedString(@"weight", nil);
                         cell.nameLable.hidden=NO;
                         cell.delegate=self;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.firstLable.text=@"定装";
-                        cell.secondLable.text=@"抄码";
+                        cell.firstLable.text=NSLocalizedString(@"Fixed weight", nil);
+                        cell.secondLable.text=NSLocalizedString(@"Catch weight", nil);
                         if ([[_dic4 objectForKey:@"pack"] isEqualToString:@"8"]) {
                             cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                             cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -2695,7 +2695,7 @@
                         static NSString * const cellID = @"signTextViewCell";
                         signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.signTextView.placeholder=@"产品备注";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                cell.signTextView.PlaceholderLabel.hidden=NO;
                         cell.signTextView.delegate=self;
                         if ([_dic4 objectForKey:@"spec_txt"]) {
@@ -2708,7 +2708,7 @@
                         else
                         {
                             cell.signTextView.text=@"";
-                            cell.signTextView.placeholder=@"产品备注";
+                            cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                cell.signTextView.PlaceholderLabel.hidden=NO;
                         }
                         cell.signTextView.tag=cell.tag;                        return cell;
@@ -2729,7 +2729,7 @@
                         static NSString * const cellID = @"inputCell";
                         inputTableViewCell *cell = (inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"库存";
+                        cell.nameLable.text=NSLocalizedString(@"Stock", nil);
                         cell.nameLable.hidden=NO;
                         cell.inputField.delegate=self;
                         cell.inputField.tag=cell.tag;
@@ -2746,7 +2746,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         
@@ -2757,7 +2757,7 @@
                         name_inputTableViewCell *cell = (name_inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=@"货物所在地";
+                        cell.nameLable.text=NSLocalizedString(@"Container Location", nil);
                         cell.name_inputField.delegate=self;
                         cell.name_inputField.tag=cell.tag;
                         cell.name_inputField.userInteractionEnabled=YES;
@@ -2778,7 +2778,7 @@
                         threeSelectBtnTableViewCell *cell = (threeSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
                         cell.delegate=self;
-                        cell.nameLable.text=@"金额";
+                        cell.nameLable.text=NSLocalizedString(@"Amount", nil);
                         cell.nameLable.hidden=NO;
                         if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"1"]) {
                             cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
@@ -2835,7 +2835,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         cell.nameLable.hidden=YES;
@@ -2848,14 +2848,14 @@
                         [cell addGestureRecognizer:tap];
                         
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"预付条款";
+                        cell.nameLable.text=NSLocalizedString(@"Prepayment Rules", nil);
                         cell.nameLable.hidden=NO;
                         if ([_otherDic objectForKey:@"prepay"]) {
                             cell.contentLable.text=[_otherDic objectForKey:@"prepay_name"];
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         
                         return cell;
@@ -2877,7 +2877,7 @@
                     
                     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fengMianImageTapMethod:)];
                     [cell addGestureRecognizer:tap];
-                    cell.nameLable.text=@"报盘封面";
+                    cell.nameLable.text=NSLocalizedString(@"Cover photo", nil);
                     return cell;
                     
                 }
@@ -2887,7 +2887,7 @@
                     signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.signTextView.hidden=NO;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.signTextView.placeholder=@"备注 描述一下你的产品信息";
+                    cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
                     if ([_otherDic objectForKey:@"goods_txt"]) {
                         cell.signTextView.text=[_otherDic objectForKey:@"goods_txt"];
@@ -2900,7 +2900,7 @@
                     else
                     {
                         cell.signTextView.text=@"";
-                        cell.signTextView.placeholder=@"备注 描述一下你的产品信息";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
                     }
                     
@@ -2915,9 +2915,9 @@
                     twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.tag=indexPath.section*100+indexPath.row;
                     cell.nameLable.hidden=NO;
-                    cell.nameLable.text=@"是否上架";
-                    cell.firstLable.text=@"是";
-                    cell.secondLable.text=@"否";
+                    cell.nameLable.text=NSLocalizedString(@"On-self?", nil);
+                    cell.firstLable.text=NSLocalizedString(@"YES", nil);
+                    cell.secondLable.text=NSLocalizedString(@"NO", nil);
                     if ([[_otherDic objectForKey:@"is_on_sale"] isEqualToString:@"1"]) {
                         cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                         cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -2936,7 +2936,7 @@
                     if (indexPath.row==0) {
                         cell.nameLable.hidden=NO;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"联系人姓名";
+                        cell.nameLable.text=NSLocalizedString(@"Contact name", nil);
                         
                         if ([_otherDic objectForKey:@"alias"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"alias"];
@@ -2962,7 +2962,7 @@
                     if (indexPath.row==1) {
                         cell.nameLable.hidden=NO;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"联系人电话";
+                        cell.nameLable.text=NSLocalizedString(@"Contact number", nil);
                         if ([_otherDic objectForKey:@"mobile_phone"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"mobile_phone"];
                             
@@ -3028,56 +3028,56 @@
                     
                     cell.tag=indexPath.section*100+indexPath.row;               switch (indexPath.row) {
                         case 0:
-                            cell.nameLable.text=@"国家";
+                            cell.nameLable.text=NSLocalizedString(@"Country", nil);
                             if ([_dic1 objectForKey:@"region_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"region_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=@"厂号";
+                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
                             if ([_dic1 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"brand_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 2:
-                            cell.nameLable.text=@"产品分类";
+                            cell.nameLable.text=NSLocalizedString(@"Product category", nil);
                             if ([_dic1 objectForKey:@"cat_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"cat_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 3:
-                            cell.nameLable.text=@"产品名称";
+                            cell.nameLable.text=NSLocalizedString(@"Product name", nil);
                             if ([_dic1 objectForKey:@"base_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"base_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 4:
-                            cell.nameLable.text=@"生产日期";
+                            cell.nameLable.text=NSLocalizedString(@"Date of Manufacture", nil);
                             if ([_dic1 objectForKey:@"make_date"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"make_date"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
@@ -3111,7 +3111,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -3133,7 +3133,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -3141,12 +3141,12 @@
                     else if (indexPath.row==2) {
                         static NSString * const cellID = @"twoSelectBtnCell";
                         twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        cell.nameLable.text=@"重量";
+                        cell.nameLable.text=NSLocalizedString(@"weight", nil);
                         cell.nameLable.hidden=NO;
                         cell.delegate=self;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.firstLable.text=@"定装";
-                        cell.secondLable.text=@"抄码";
+                        cell.firstLable.text=NSLocalizedString(@"Fixed weight", nil);
+                        cell.secondLable.text=NSLocalizedString(@"Catch weight", nil);
                         if ([[_dic2 objectForKey:@"pack"] isEqualToString:@"8"]) {
                             cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                             cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -3163,7 +3163,7 @@
                         static NSString * const cellID = @"signTextViewCell";
                         signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.signTextView.placeholder=@"产品备注";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                cell.signTextView.PlaceholderLabel.hidden=NO;
                         cell.signTextView.delegate=self;
                         if ([_dic2 objectForKey:@"spec_txt"]) {
@@ -3177,7 +3177,7 @@
                         else
                         {
                             cell.signTextView.text=@"";
-                            cell.signTextView.placeholder=@"产品备注";
+                            cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                cell.signTextView.PlaceholderLabel.hidden=NO;
                         }
                         cell.signTextView.tag=cell.tag;                        return cell;
@@ -3187,7 +3187,7 @@
                         //不会到这
                         static NSString * const cellID = @"addNew_pinGuiCell";
                         addNew_pinGuiTableViewCell *cell = (addNew_pinGuiTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        [cell.addBtn setTitle:@"添加拼柜产品" forState:UIControlStateNormal];
+                        [cell.addBtn setTitle:NSLocalizedString(@"Add consolidation product", nil) forState:UIControlStateNormal];
                         [cell.addBtn setBackgroundColor:mainColor];
                         cell.addBtn.tag=indexPath.section;
                         cell.delegate=self;
@@ -3205,56 +3205,56 @@
                     
                     cell.tag=indexPath.section*100+indexPath.row;               switch (indexPath.row) {
                         case 0:
-                            cell.nameLable.text=@"国家";
+                            cell.nameLable.text=NSLocalizedString(@"Country", nil);
                             if ([_dic3 objectForKey:@"region_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"region_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=@"厂号";
+                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
                             if ([_dic3 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"brand_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 2:
-                            cell.nameLable.text=@"产品分类";
+                            cell.nameLable.text=NSLocalizedString(@"Product category", nil);
                             if ([_dic3 objectForKey:@"cat_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"cat_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 3:
-                            cell.nameLable.text=@"产品名称";
+                            cell.nameLable.text=NSLocalizedString(@"Product name", nil);
                             if ([_dic3 objectForKey:@"base_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"base_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 4:
-                            cell.nameLable.text=@"生产日期";
+                            cell.nameLable.text=NSLocalizedString(@"Date of Manufacture", nil);
                             if ([_dic3 objectForKey:@"make_date"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"make_date"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
@@ -3287,7 +3287,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -3309,7 +3309,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -3317,12 +3317,12 @@
                     else if (indexPath.row==2) {
                         static NSString * const cellID = @"twoSelectBtnCell";
                         twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        cell.nameLable.text=@"重量";
+                        cell.nameLable.text=NSLocalizedString(@"weight", nil);
                         cell.nameLable.hidden=NO;
                         cell.delegate=self;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.firstLable.text=@"定装";
-                        cell.secondLable.text=@"抄码";
+                        cell.firstLable.text=NSLocalizedString(@"Fixed weight", nil);
+                        cell.secondLable.text=NSLocalizedString(@"Catch weight", nil);
                         if ([[_dic4 objectForKey:@"pack"] isEqualToString:@"8"]) {
                             cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                             cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -3339,7 +3339,7 @@
                         static NSString * const cellID = @"signTextViewCell";
                         signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.signTextView.placeholder=@"产品备注";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                cell.signTextView.PlaceholderLabel.hidden=NO;
                         cell.signTextView.delegate=self;
                         if ([_dic4 objectForKey:@"spec_txt"]) {
@@ -3353,7 +3353,7 @@
                         else
                         {
                             cell.signTextView.text=@"";
-                            cell.signTextView.placeholder=@"产品备注";
+                            cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                cell.signTextView.PlaceholderLabel.hidden=NO;
                         }
                         cell.signTextView.tag=cell.tag;                        return cell;
@@ -3363,7 +3363,7 @@
                         //改成只能删
                         static NSString * const cellID = @"addNew_pinGuiCell";
                         addNew_pinGuiTableViewCell *cell = (addNew_pinGuiTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        [cell.addBtn setTitle:@"删除该商品" forState:UIControlStateNormal];
+                        [cell.addBtn setTitle:NSLocalizedString(@"Delete this product", nil) forState:UIControlStateNormal];
                         [cell.addBtn setBackgroundColor:[UIColor lightGrayColor]];
                         cell.addBtn.tag=indexPath.section;
                         cell.delegate=self;
@@ -3381,56 +3381,56 @@
                     
                     cell.tag=indexPath.section*100+indexPath.row;               switch (indexPath.row) {
                         case 0:
-                            cell.nameLable.text=@"国家";
+                            cell.nameLable.text=NSLocalizedString(@"Country", nil);
                             if ([_dic5 objectForKey:@"region_id"]) {
                                 cell.contentLable.text=[_dic5 objectForKey:@"region_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=@"厂号";
+                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
                             if ([_dic5 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic5 objectForKey:@"brand_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 2:
-                            cell.nameLable.text=@"产品分类";
+                            cell.nameLable.text=NSLocalizedString(@"Product category", nil);
                             if ([_dic5 objectForKey:@"cat_id"]) {
                                 cell.contentLable.text=[_dic5 objectForKey:@"cat_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 3:
-                            cell.nameLable.text=@"产品名称";
+                            cell.nameLable.text=NSLocalizedString(@"Product name", nil);
                             if ([_dic5 objectForKey:@"base_id"]) {
                                 cell.contentLable.text=[_dic5 objectForKey:@"base_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 4:
-                            cell.nameLable.text=@"生产日期";
+                            cell.nameLable.text=NSLocalizedString(@"Date of Manufacture", nil);
                             if ([_dic5 objectForKey:@"make_date"]) {
                                 cell.contentLable.text=[_dic5 objectForKey:@"make_date"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
@@ -3463,7 +3463,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -3485,7 +3485,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -3493,12 +3493,12 @@
                     else if (indexPath.row==2) {
                         static NSString * const cellID = @"twoSelectBtnCell";
                         twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        cell.nameLable.text=@"重量";
+                        cell.nameLable.text=NSLocalizedString(@"weight", nil);
                         cell.nameLable.hidden=NO;
                         cell.delegate=self;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.firstLable.text=@"定装";
-                        cell.secondLable.text=@"抄码";
+                        cell.firstLable.text=NSLocalizedString(@"Fixed weight", nil);
+                        cell.secondLable.text=NSLocalizedString(@"Catch weight", nil);
                         if ([[_dic6 objectForKey:@"pack"] isEqualToString:@"8"]) {
                             cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                             cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -3515,7 +3515,7 @@
                         static NSString * const cellID = @"signTextViewCell";
                         signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.signTextView.placeholder=@"产品备注";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                cell.signTextView.PlaceholderLabel.hidden=NO;
                         cell.signTextView.delegate=self;
                         if ([_dic6 objectForKey:@"spec_txt"]) {
@@ -3529,7 +3529,7 @@
                         else
                         {
                             cell.signTextView.text=@"";
-                            cell.signTextView.placeholder=@"产品备注";
+                            cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                cell.signTextView.PlaceholderLabel.hidden=NO;
                         }
                         cell.signTextView.tag=cell.tag;                        return cell;
@@ -3539,7 +3539,7 @@
                         //改成只能删
                         static NSString * const cellID = @"addNew_pinGuiCell";
                         addNew_pinGuiTableViewCell *cell = (addNew_pinGuiTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        [cell.addBtn setTitle:@"删除该商品" forState:UIControlStateNormal];
+                        [cell.addBtn setTitle:NSLocalizedString(@"Delete this product", nil) forState:UIControlStateNormal];
                         [cell.addBtn setBackgroundColor:[UIColor lightGrayColor]];
                         cell.addBtn.tag=indexPath.section;
                         cell.delegate=self;
@@ -3554,7 +3554,7 @@
                         static NSString * const cellID = @"inputCell";
                         inputTableViewCell *cell = (inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"库存";
+                        cell.nameLable.text=NSLocalizedString(@"Stock", nil);
                         cell.nameLable.hidden=NO;
                         cell.inputField.delegate=self;
                         cell.inputField.tag=cell.tag;
@@ -3571,7 +3571,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         
@@ -3582,7 +3582,7 @@
                         name_inputTableViewCell *cell = (name_inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=@"货物所在地";
+                        cell.nameLable.text=NSLocalizedString(@"Container Location", nil);
                         cell.name_inputField.delegate=self;
                         cell.name_inputField.tag=cell.tag;
                         cell.name_inputField.userInteractionEnabled=YES;
@@ -3603,7 +3603,7 @@
                         threeSelectBtnTableViewCell *cell = (threeSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
                         cell.delegate=self;
-                        cell.nameLable.text=@"金额";
+                        cell.nameLable.text=NSLocalizedString(@"Amount", nil);
                         cell.nameLable.hidden=NO;
                         if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"1"]) {
                             cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
@@ -3661,7 +3661,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         cell.nameLable.hidden=YES;
@@ -3674,14 +3674,14 @@
                         [cell addGestureRecognizer:tap];
                         
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"预付条款";
+                        cell.nameLable.text=NSLocalizedString(@"Prepayment Rules", nil);
                         cell.nameLable.hidden=NO;
                         if ([_otherDic objectForKey:@"prepay"]) {
                             cell.contentLable.text=[_otherDic objectForKey:@"prepay_name"];
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         
                         return cell;
@@ -3703,7 +3703,7 @@
                     
                     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fengMianImageTapMethod:)];
                     [cell addGestureRecognizer:tap];
-                    cell.nameLable.text=@"报盘封面";
+                    cell.nameLable.text=NSLocalizedString(@"Cover photo", nil);
                     return cell;
                     
                 }
@@ -3713,7 +3713,7 @@
                     signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.signTextView.hidden=NO;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.signTextView.placeholder=@"备注 描述一下你的产品信息";
+                    cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
                     if ([_otherDic objectForKey:@"goods_txt"]) {
                         cell.signTextView.text=[_otherDic objectForKey:@"goods_txt"];
@@ -3725,7 +3725,7 @@
                     else
                     {
                         cell.signTextView.text=@"";
-                        cell.signTextView.placeholder=@"备注 描述一下你的产品信息";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
                     }
                     
@@ -3740,9 +3740,9 @@
                     twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.tag=indexPath.section*100+indexPath.row;
                     cell.nameLable.hidden=NO;
-                    cell.nameLable.text=@"是否上架";
-                    cell.firstLable.text=@"是";
-                    cell.secondLable.text=@"否";
+                    cell.nameLable.text=NSLocalizedString(@"On-self?", nil);
+                    cell.firstLable.text=NSLocalizedString(@"YES", nil);
+                    cell.secondLable.text=NSLocalizedString(@"NO", nil);
                     if ([[_otherDic objectForKey:@"is_on_sale"] isEqualToString:@"1"]) {
                         cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                         cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -3761,7 +3761,7 @@
                     if (indexPath.row==0) {
                         cell.nameLable.hidden=NO;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"联系人姓名";
+                        cell.nameLable.text=NSLocalizedString(@"Contact name", nil);
                         
                         if ([_otherDic objectForKey:@"alias"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"alias"];
@@ -3787,7 +3787,7 @@
                     if (indexPath.row==1) {
                         cell.nameLable.hidden=NO;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"联系人电话";
+                        cell.nameLable.text=NSLocalizedString(@"Contact number", nil);
                         if ([_otherDic objectForKey:@"mobile_phone"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"mobile_phone"];
                             
@@ -3855,7 +3855,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=@"报价类型";
+                        cell.nameLable.text=NSLocalizedString(@"Offer type", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -3865,7 +3865,7 @@
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                          return cell;
 
@@ -3880,7 +3880,7 @@
                         cell.name_inputField.tag=cell.tag;
                         cell.name_inputField.userInteractionEnabled=YES;
 
-                        cell.nameLable.text=@"厂商订单号";
+                        cell.nameLable.text=NSLocalizedString(@"Reference number", nil);
                         if ([_otherDic objectForKey:@"goods_sn"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"goods_sn"];
                         }
@@ -3895,7 +3895,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=@"预计到港期";
+                        cell.nameLable.text=NSLocalizedString(@"Estimated time of arrival", nil);
                        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                        [cell addGestureRecognizer:tap];
                        
@@ -3905,7 +3905,7 @@
                        }
                        else
                        {
-                           cell.contentLable.text=@"请选择";
+                           cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                        }
                         return cell;
                        
@@ -3914,7 +3914,7 @@
                        static NSString * const cellID = @"selectCell";
                        selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                        cell.nameLable.hidden=NO;
-                       cell.nameLable.text=@"装船期";
+                       cell.nameLable.text=NSLocalizedString(@"Date of shipment", nil);
                        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                        [cell addGestureRecognizer:tap];
                        
@@ -3924,7 +3924,7 @@
                        }
                        else
                        {
-                           cell.contentLable.text=@"请选择";
+                           cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                        }
                         return cell;
                    }
@@ -3932,7 +3932,7 @@
                        static NSString * const cellID = @"selectCell";
                        selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                        cell.nameLable.hidden=NO;
-                       cell.nameLable.text=@"到达港口";
+                       cell.nameLable.text=NSLocalizedString(@"port of Arrical", nil);
                        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                        [cell addGestureRecognizer:tap];
                        
@@ -3942,7 +3942,7 @@
                        }
                        else
                        {
-                           cell.contentLable.text=@"请选择";
+                           cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                        }
                         return cell;
                    }
@@ -3957,57 +3957,57 @@
                 cell.tag=indexPath.section*100+indexPath.row;
                 switch (indexPath.row) {
                     case 0:
-                        cell.nameLable.text=@"国家";
+                        cell.nameLable.text=NSLocalizedString(@"Country", nil);
                         if ([_dic1 objectForKey:@"region_id"]) {
                             cell.contentLable.text=[_dic1 objectForKey:@"region_name"];
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         
                         break;
                     case 1:
-                        cell.nameLable.text=@"厂号";
+                        cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
                         if ([_dic1 objectForKey:@"brand_id"]) {
                             cell.contentLable.text=[_dic1 objectForKey:@"brand_name"];
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         
                         break;
                     case 2:
-                        cell.nameLable.text=@"产品分类";
+                        cell.nameLable.text=NSLocalizedString(@"Product category", nil);
                         if ([_dic1 objectForKey:@"cat_id"]) {
                             cell.contentLable.text=[_dic1 objectForKey:@"cat_name"];
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         
                         break;
                     case 3:
-                        cell.nameLable.text=@"产品名称";
+                        cell.nameLable.text=NSLocalizedString(@"Product name", nil);
                         if ([_dic1 objectForKey:@"base_id"]) {
                             cell.contentLable.text=[_dic1 objectForKey:@"base_name"];
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         
                         break;
                     case 4:
-                        cell.nameLable.text=@"生产日期";
+                        cell.nameLable.text=NSLocalizedString(@"Date of Manufacture", nil);
                         if ([_dic1 objectForKey:@"make_date"]) {
                             cell.contentLable.text=[_dic1 objectForKey:@"make_date"];
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         
                         break;
@@ -4024,7 +4024,7 @@
                     cell.nameLable.hidden=NO;
                     cell.delegate=self;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.nameLable.text=@"包装规格";
+                    cell.nameLable.text=NSLocalizedString(@"Packing specification", nil);
                     cell.firstLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"unit",nil)];
                     cell.secondLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"Ton",nil)];
                     if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
@@ -4060,19 +4060,19 @@
                     else
                     {
                         cell.inputField.text=@"";
-                           cell.inputField.placeholder=@"请输入";
+                           cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                     }
                     return cell;
                 }
                 else if(indexPath.row==2) {
                     static NSString * const cellID = @"twoSelectBtnCell";
                     twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                    cell.nameLable.text=@"重量";
+                    cell.nameLable.text=NSLocalizedString(@"weight", nil);
                     cell.nameLable.hidden=NO;
                     cell.delegate=self;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.firstLable.text=@"定装";
-                    cell.secondLable.text=@"抄码";
+                    cell.firstLable.text=NSLocalizedString(@"Fixed weight", nil);
+                    cell.secondLable.text=NSLocalizedString(@"Catch weight", nil);
                     if ([[_dic2 objectForKey:@"pack"] isEqualToString:@"8"]) {
                         cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                         cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -4088,7 +4088,7 @@
                     static NSString * const cellID = @"signTextViewCell";
                     signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.signTextView.placeholder=@"产品备注";
+                    cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                cell.signTextView.PlaceholderLabel.hidden=NO;
                     cell.signTextView.delegate=self;
                     if ([_dic2 objectForKey:@"spec_txt"]) {
@@ -4102,7 +4102,7 @@
                     else
                     {
                         cell.signTextView.text=@"";
-                        cell.signTextView.placeholder=@"产品备注";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                cell.signTextView.PlaceholderLabel.hidden=NO;
                     }
                     cell.signTextView.tag=cell.tag;
@@ -4117,7 +4117,7 @@
                 static NSString * const cellID = @"inputCell";
                 inputTableViewCell *cell = (inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                 cell.tag=indexPath.section*100+indexPath.row;
-                cell.nameLable.text=@"库存";
+                cell.nameLable.text=NSLocalizedString(@"Stock", nil);
                 cell.nameLable.hidden=NO;
                 cell.inputField.delegate=self;
                 cell.inputField.tag=cell.tag;
@@ -4134,7 +4134,7 @@
                 else
                 {
                     cell.inputField.text=@"";
-                           cell.inputField.placeholder=@"请输入";
+                           cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                 }
                 
                 
@@ -4147,7 +4147,7 @@
                     threeSelectBtnTableViewCell *cell = (threeSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.tag=indexPath.section*100+indexPath.row;
                     cell.delegate=self;
-                    cell.nameLable.text=@"金额";
+                    cell.nameLable.text=NSLocalizedString(@"Amount", nil);
                     cell.nameLable.hidden=NO;
                     if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"1"]) {
                         cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
@@ -4205,7 +4205,7 @@
                     else
                     {
                         cell.inputField.text=@"";
-                           cell.inputField.placeholder=@"请输入";
+                           cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                     }
                     
                     cell.nameLable.hidden=YES;
@@ -4218,14 +4218,14 @@
                     [cell addGestureRecognizer:tap];
                     
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.nameLable.text=@"预付条款";
+                    cell.nameLable.text=NSLocalizedString(@"Prepayment Rules", nil);
                     cell.nameLable.hidden=NO;
                     if ([_otherDic objectForKey:@"prepay"]) {
                         cell.contentLable.text=[_otherDic objectForKey:@"prepay_name"];
                     }
                     else
                     {
-                        cell.contentLable.text=@"请选择";
+                        cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                     }
                     
                     return cell;
@@ -4248,7 +4248,7 @@
                 
                 UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fengMianImageTapMethod:)];
                 [cell addGestureRecognizer:tap];
-                cell.nameLable.text=@"报盘封面";
+                cell.nameLable.text=NSLocalizedString(@"Cover photo", nil);
                 return cell;
                 
             }
@@ -4258,7 +4258,7 @@
                 signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                 cell.signTextView.hidden=NO;
                 cell.tag=indexPath.section*100+indexPath.row;
-                cell.signTextView.placeholder=@"备注 描述一下你的产品信息";
+                cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
                 if ([_otherDic objectForKey:@"goods_txt"]) {
                     cell.signTextView.text=[_otherDic objectForKey:@"goods_txt"];
@@ -4270,7 +4270,7 @@
                 else
                 {
                     cell.signTextView.text=@"";
-                     cell.signTextView.placeholder=@"备注 描述一下你的产品信息";
+                     cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
                 }
                 
@@ -4285,9 +4285,9 @@
                 twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                 cell.tag=indexPath.section*100+indexPath.row;
                 cell.nameLable.hidden=NO;
-                cell.nameLable.text=@"是否上架";
-                cell.firstLable.text=@"是";
-                cell.secondLable.text=@"否";
+                cell.nameLable.text=NSLocalizedString(@"On-self?", nil);
+                cell.firstLable.text=NSLocalizedString(@"YES", nil);
+                cell.secondLable.text=NSLocalizedString(@"NO", nil);
                 if ([[_otherDic objectForKey:@"is_on_sale"] isEqualToString:@"1"]) {
                     cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                     cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -4306,7 +4306,7 @@
                 if (indexPath.row==0) {
                     cell.nameLable.hidden=NO;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.nameLable.text=@"联系人姓名";
+                    cell.nameLable.text=NSLocalizedString(@"Contact name", nil);
                     
                     if ([_otherDic objectForKey:@"alias"]) {
                         cell.name_inputField.text=[_otherDic objectForKey:@"alias"];
@@ -4332,7 +4332,7 @@
                 if (indexPath.row==1) {
                     cell.nameLable.hidden=NO;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.nameLable.text=@"联系人电话";
+                    cell.nameLable.text=NSLocalizedString(@"Contact number", nil);
                     if ([_otherDic objectForKey:@"mobile_phone"]) {
                         cell.name_inputField.text=[_otherDic objectForKey:@"mobile_phone"];
                         
@@ -4394,7 +4394,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=@"报价类型";
+                        cell.nameLable.text=NSLocalizedString(@"Offer type", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -4404,7 +4404,7 @@
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         return cell;
                         
@@ -4419,7 +4419,7 @@
                         cell.name_inputField.tag=cell.tag;
                         cell.name_inputField.userInteractionEnabled=YES;
                         
-                        cell.nameLable.text=@"厂商订单号";
+                        cell.nameLable.text=NSLocalizedString(@"Reference number", nil);
                         if ([_otherDic objectForKey:@"goods_sn"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"goods_sn"];
                         }
@@ -4434,7 +4434,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=@"预计到港期";
+                        cell.nameLable.text=NSLocalizedString(@"Estimated time of arrival", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -4444,7 +4444,7 @@
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         return cell;
                         
@@ -4453,7 +4453,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=@"装船期";
+                        cell.nameLable.text=NSLocalizedString(@"Date of shipment", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -4463,7 +4463,7 @@
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         return cell;
                     }
@@ -4471,7 +4471,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=@"到达港口";
+                        cell.nameLable.text=NSLocalizedString(@"port of Arrical", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -4481,7 +4481,7 @@
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         return cell;
                     }
@@ -4496,56 +4496,56 @@
                     
                     cell.tag=indexPath.section*100+indexPath.row;               switch (indexPath.row) {
                         case 0:
-                            cell.nameLable.text=@"国家";
+                            cell.nameLable.text=NSLocalizedString(@"Country", nil);
                             if ([_dic1 objectForKey:@"region_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"region_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=@"厂号";
+                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
                             if ([_dic1 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"brand_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 2:
-                            cell.nameLable.text=@"产品分类";
+                            cell.nameLable.text=NSLocalizedString(@"Product category", nil);
                             if ([_dic1 objectForKey:@"cat_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"cat_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 3:
-                            cell.nameLable.text=@"产品名称";
+                            cell.nameLable.text=NSLocalizedString(@"Product name", nil);
                             if ([_dic1 objectForKey:@"base_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"base_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 4:
-                            cell.nameLable.text=@"生产日期";
+                            cell.nameLable.text=NSLocalizedString(@"Date of Manufacture", nil);
                             if ([_dic1 objectForKey:@"make_date"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"make_date"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
@@ -4579,7 +4579,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -4601,7 +4601,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -4609,12 +4609,12 @@
                     else if (indexPath.row==2) {
                         static NSString * const cellID = @"twoSelectBtnCell";
                         twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        cell.nameLable.text=@"重量";
+                        cell.nameLable.text=NSLocalizedString(@"weight", nil);
                         cell.nameLable.hidden=NO;
                         cell.delegate=self;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.firstLable.text=@"定装";
-                        cell.secondLable.text=@"抄码";
+                        cell.firstLable.text=NSLocalizedString(@"Fixed weight", nil);
+                        cell.secondLable.text=NSLocalizedString(@"Catch weight", nil);
                         if ([[_dic2 objectForKey:@"pack"] isEqualToString:@"8"]) {
                             cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                             cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -4631,7 +4631,7 @@
                         static NSString * const cellID = @"signTextViewCell";
                         signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.signTextView.placeholder=@"产品备注";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                         cell.signTextView.PlaceholderLabel.hidden=NO;
                         cell.signTextView.delegate=self;
                         if ([_dic2 objectForKey:@"spec_txt"]) {
@@ -4645,7 +4645,7 @@
                         else
                         {
                             cell.signTextView.text=@"";
-                            cell.signTextView.placeholder=@"产品备注";
+                            cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                             cell.signTextView.PlaceholderLabel.hidden=NO;
                         }
                         cell.signTextView.tag=cell.tag;                        return cell;
@@ -4654,7 +4654,7 @@
                     else  {
                         static NSString * const cellID = @"addNew_pinGuiCell";
                         addNew_pinGuiTableViewCell *cell = (addNew_pinGuiTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        [cell.addBtn setTitle:@"添加拼柜产品" forState:UIControlStateNormal];
+                        [cell.addBtn setTitle:NSLocalizedString(@"Add consolidation product", nil) forState:UIControlStateNormal];
                         [cell.addBtn setBackgroundColor:mainColor];
                         cell.addBtn.tag=indexPath.section;
                         cell.delegate=self;
@@ -4668,7 +4668,7 @@
                         static NSString * const cellID = @"inputCell";
                         inputTableViewCell *cell = (inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"库存";
+                        cell.nameLable.text=NSLocalizedString(@"Stock", nil);
                         cell.nameLable.hidden=NO;
                         cell.inputField.delegate=self;
                         cell.inputField.tag=cell.tag;
@@ -4682,7 +4682,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         return cell;
                     
@@ -4693,7 +4693,7 @@
                         threeSelectBtnTableViewCell *cell = (threeSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
                         cell.delegate=self;
-                        cell.nameLable.text=@"金额";
+                        cell.nameLable.text=NSLocalizedString(@"Amount", nil);
                         cell.nameLable.hidden=NO;
                         if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"1"]) {
                             cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
@@ -4750,7 +4750,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         cell.nameLable.hidden=YES;
@@ -4763,14 +4763,14 @@
                         [cell addGestureRecognizer:tap];
                         
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"预付条款";
+                        cell.nameLable.text=NSLocalizedString(@"Prepayment Rules", nil);
                         cell.nameLable.hidden=NO;
                         if ([_otherDic objectForKey:@"prepay"]) {
                             cell.contentLable.text=[_otherDic objectForKey:@"prepay_name"];
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         
                         return cell;
@@ -4792,7 +4792,7 @@
                     
                     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fengMianImageTapMethod:)];
                     [cell addGestureRecognizer:tap];
-                    cell.nameLable.text=@"报盘封面";
+                    cell.nameLable.text=NSLocalizedString(@"Cover photo", nil);
                     return cell;
                     
                 }
@@ -4802,7 +4802,7 @@
                     signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.signTextView.hidden=NO;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.signTextView.placeholder=@"备注 描述一下你的产品信息";
+                    cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
                     cell.signTextView.PlaceholderLabel.hidden=NO;
                     if ([_otherDic objectForKey:@"goods_txt"]) {
                         cell.signTextView.text=[_otherDic objectForKey:@"goods_txt"];
@@ -4815,7 +4815,7 @@
                     else
                     {
                         cell.signTextView.text=@"";
-                        cell.signTextView.placeholder=@"备注 描述一下你的产品信息";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
                         cell.signTextView.PlaceholderLabel.hidden=NO;
                     }
                     
@@ -4830,9 +4830,9 @@
                     twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.tag=indexPath.section*100+indexPath.row;
                     cell.nameLable.hidden=NO;
-                    cell.nameLable.text=@"是否上架";
-                    cell.firstLable.text=@"是";
-                    cell.secondLable.text=@"否";
+                    cell.nameLable.text=NSLocalizedString(@"On-self?", nil);
+                    cell.firstLable.text=NSLocalizedString(@"YES", nil);
+                    cell.secondLable.text=NSLocalizedString(@"NO", nil);
                     if ([[_otherDic objectForKey:@"is_on_sale"] isEqualToString:@"1"]) {
                         cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                         cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -4851,7 +4851,7 @@
                     if (indexPath.row==0) {
                         cell.nameLable.hidden=NO;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"联系人姓名";
+                        cell.nameLable.text=NSLocalizedString(@"Contact name", nil);
                         
                         if ([_otherDic objectForKey:@"alias"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"alias"];
@@ -4877,7 +4877,7 @@
                     if (indexPath.row==1) {
                         cell.nameLable.hidden=NO;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"联系人电话";
+                        cell.nameLable.text=NSLocalizedString(@"Contact number", nil);
                         if ([_otherDic objectForKey:@"mobile_phone"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"mobile_phone"];
                             
@@ -4936,7 +4936,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=@"报价类型";
+                        cell.nameLable.text=NSLocalizedString(@"Offer type", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -4946,7 +4946,7 @@
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         return cell;
                         
@@ -4961,7 +4961,7 @@
                         cell.name_inputField.tag=cell.tag;
                         cell.name_inputField.userInteractionEnabled=YES;
                         
-                        cell.nameLable.text=@"厂商订单号";
+                        cell.nameLable.text=NSLocalizedString(@"Reference number", nil);
                         if ([_otherDic objectForKey:@"goods_sn"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"goods_sn"];
                         }
@@ -4976,7 +4976,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=@"预计到港期";
+                        cell.nameLable.text=NSLocalizedString(@"Estimated time of arrival", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -4986,7 +4986,7 @@
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         return cell;
                         
@@ -4995,7 +4995,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=@"装船期";
+                        cell.nameLable.text=NSLocalizedString(@"Date of shipment", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -5005,7 +5005,7 @@
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         return cell;
                     }
@@ -5013,7 +5013,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=@"到达港口";
+                        cell.nameLable.text=NSLocalizedString(@"port of Arrical", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -5023,7 +5023,7 @@
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         return cell;
                     }
@@ -5038,56 +5038,56 @@
                     
                     cell.tag=indexPath.section*100+indexPath.row;               switch (indexPath.row) {
                         case 0:
-                            cell.nameLable.text=@"国家";
+                            cell.nameLable.text=NSLocalizedString(@"Country", nil);
                             if ([_dic1 objectForKey:@"region_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"region_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=@"厂号";
+                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
                             if ([_dic1 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"brand_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 2:
-                            cell.nameLable.text=@"产品分类";
+                            cell.nameLable.text=NSLocalizedString(@"Product category", nil);
                             if ([_dic1 objectForKey:@"cat_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"cat_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 3:
-                            cell.nameLable.text=@"产品名称";
+                            cell.nameLable.text=NSLocalizedString(@"Product name", nil);
                             if ([_dic1 objectForKey:@"base_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"base_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 4:
-                            cell.nameLable.text=@"生产日期";
+                            cell.nameLable.text=NSLocalizedString(@"Date of Manufacture", nil);
                             if ([_dic1 objectForKey:@"make_date"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"make_date"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
@@ -5120,7 +5120,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -5142,7 +5142,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -5150,12 +5150,12 @@
                     else if (indexPath.row==2) {
                         static NSString * const cellID = @"twoSelectBtnCell";
                         twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        cell.nameLable.text=@"重量";
+                        cell.nameLable.text=NSLocalizedString(@"weight", nil);
                         cell.nameLable.hidden=NO;
                         cell.delegate=self;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.firstLable.text=@"定装";
-                        cell.secondLable.text=@"抄码";
+                        cell.firstLable.text=NSLocalizedString(@"Fixed weight", nil);
+                        cell.secondLable.text=NSLocalizedString(@"Catch weight", nil);
                         if ([[_dic2 objectForKey:@"pack"] isEqualToString:@"8"]) {
                             cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                             cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -5172,7 +5172,7 @@
                         static NSString * const cellID = @"signTextViewCell";
                         signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.signTextView.placeholder=@"产品备注";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                         cell.signTextView.PlaceholderLabel.hidden=NO;
                         cell.signTextView.delegate=self;
                         if ([_dic2 objectForKey:@"spec_txt"]) {
@@ -5186,7 +5186,7 @@
                         else
                         {
                             cell.signTextView.text=@"";
-                            cell.signTextView.placeholder=@"产品备注";
+                            cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                             cell.signTextView.PlaceholderLabel.hidden=NO;
                         }
                         cell.signTextView.tag=cell.tag;                        return cell;
@@ -5202,56 +5202,56 @@
                     
                     cell.tag=indexPath.section*100+indexPath.row;               switch (indexPath.row) {
                         case 0:
-                            cell.nameLable.text=@"国家";
+                            cell.nameLable.text=NSLocalizedString(@"Country", nil);
                             if ([_dic3 objectForKey:@"region_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"region_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=@"厂号";
+                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
                             if ([_dic3 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"brand_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 2:
-                            cell.nameLable.text=@"产品分类";
+                            cell.nameLable.text=NSLocalizedString(@"Product category", nil);
                             if ([_dic3 objectForKey:@"cat_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"cat_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 3:
-                            cell.nameLable.text=@"产品名称";
+                            cell.nameLable.text=NSLocalizedString(@"Product name", nil);
                             if ([_dic3 objectForKey:@"base_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"base_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 4:
-                            cell.nameLable.text=@"生产日期";
+                            cell.nameLable.text=NSLocalizedString(@"Date of Manufacture", nil);
                             if ([_dic3 objectForKey:@"make_date"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"make_date"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
@@ -5284,7 +5284,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -5306,7 +5306,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -5314,12 +5314,12 @@
                     else if (indexPath.row==2) {
                         static NSString * const cellID = @"twoSelectBtnCell";
                         twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        cell.nameLable.text=@"重量";
+                        cell.nameLable.text=NSLocalizedString(@"weight", nil);
                         cell.nameLable.hidden=NO;
                         cell.delegate=self;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.firstLable.text=@"定装";
-                        cell.secondLable.text=@"抄码";
+                        cell.firstLable.text=NSLocalizedString(@"Fixed weight", nil);
+                        cell.secondLable.text=NSLocalizedString(@"Catch weight", nil);
                         if ([[_dic4 objectForKey:@"pack"] isEqualToString:@"8"]) {
                             cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                             cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -5336,7 +5336,7 @@
                         static NSString * const cellID = @"signTextViewCell";
                         signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.signTextView.placeholder=@"产品备注";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                         cell.signTextView.PlaceholderLabel.hidden=NO;
                         cell.signTextView.delegate=self;
                         if ([_dic4 objectForKey:@"spec_txt"]) {
@@ -5350,7 +5350,7 @@
                         else
                         {
                             cell.signTextView.text=@"";
-                            cell.signTextView.placeholder=@"产品备注";
+                            cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                             cell.signTextView.PlaceholderLabel.hidden=NO;
                         }
                         cell.signTextView.tag=cell.tag;                        return cell;
@@ -5371,7 +5371,7 @@
                         static NSString * const cellID = @"inputCell";
                         inputTableViewCell *cell = (inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"库存";
+                        cell.nameLable.text=NSLocalizedString(@"Stock", nil);
                         cell.nameLable.hidden=NO;
                         cell.inputField.delegate=self;
                         cell.inputField.tag=cell.tag;
@@ -5385,7 +5385,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         
@@ -5398,7 +5398,7 @@
                         threeSelectBtnTableViewCell *cell = (threeSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
                         cell.delegate=self;
-                        cell.nameLable.text=@"金额";
+                        cell.nameLable.text=NSLocalizedString(@"Amount", nil);
                         cell.nameLable.hidden=NO;
                         if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"1"]) {
                             cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
@@ -5455,7 +5455,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         cell.nameLable.hidden=YES;
@@ -5468,14 +5468,14 @@
                         [cell addGestureRecognizer:tap];
                         
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"预付条款";
+                        cell.nameLable.text=NSLocalizedString(@"Prepayment Rules", nil);
                         cell.nameLable.hidden=NO;
                         if ([_otherDic objectForKey:@"prepay"]) {
                             cell.contentLable.text=[_otherDic objectForKey:@"prepay_name"];
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         
                         return cell;
@@ -5497,7 +5497,7 @@
                     
                     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fengMianImageTapMethod:)];
                     [cell addGestureRecognizer:tap];
-                    cell.nameLable.text=@"报盘封面";
+                    cell.nameLable.text=NSLocalizedString(@"Cover photo", nil);
                     return cell;
                     
                 }
@@ -5507,7 +5507,7 @@
                     signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.signTextView.hidden=NO;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.signTextView.placeholder=@"备注 描述一下你的产品信息";
+                    cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
                     cell.signTextView.PlaceholderLabel.hidden=NO;
                     if ([_otherDic objectForKey:@"goods_txt"]) {
                         cell.signTextView.text=[_otherDic objectForKey:@"goods_txt"];
@@ -5520,7 +5520,7 @@
                     else
                     {
                         cell.signTextView.text=@"";
-                        cell.signTextView.placeholder=@"备注 描述一下你的产品信息";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
                         cell.signTextView.PlaceholderLabel.hidden=NO;
                     }
                     
@@ -5535,9 +5535,9 @@
                     twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.tag=indexPath.section*100+indexPath.row;
                     cell.nameLable.hidden=NO;
-                    cell.nameLable.text=@"是否上架";
-                    cell.firstLable.text=@"是";
-                    cell.secondLable.text=@"否";
+                    cell.nameLable.text=NSLocalizedString(@"On-self?", nil);
+                    cell.firstLable.text=NSLocalizedString(@"YES", nil);
+                    cell.secondLable.text=NSLocalizedString(@"NO", nil);
                     if ([[_otherDic objectForKey:@"is_on_sale"] isEqualToString:@"1"]) {
                         cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                         cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -5556,7 +5556,7 @@
                     if (indexPath.row==0) {
                         cell.nameLable.hidden=NO;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"联系人姓名";
+                        cell.nameLable.text=NSLocalizedString(@"Contact name", nil);
                         
                         if ([_otherDic objectForKey:@"alias"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"alias"];
@@ -5582,7 +5582,7 @@
                     if (indexPath.row==1) {
                         cell.nameLable.hidden=NO;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"联系人电话";
+                        cell.nameLable.text=NSLocalizedString(@"Contact number", nil);
                         if ([_otherDic objectForKey:@"mobile_phone"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"mobile_phone"];
                             
@@ -5643,7 +5643,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=@"报价类型";
+                        cell.nameLable.text=NSLocalizedString(@"Offer type", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -5653,7 +5653,7 @@
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         return cell;
                         
@@ -5668,7 +5668,7 @@
                         cell.name_inputField.tag=cell.tag;
                         cell.name_inputField.userInteractionEnabled=YES;
                         
-                        cell.nameLable.text=@"厂商订单号";
+                        cell.nameLable.text=NSLocalizedString(@"Reference number", nil);
                         if ([_otherDic objectForKey:@"goods_sn"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"goods_sn"];
                         }
@@ -5683,7 +5683,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=@"预计到港期";
+                        cell.nameLable.text=NSLocalizedString(@"Estimated time of arrival", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -5693,7 +5693,7 @@
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         return cell;
                         
@@ -5702,7 +5702,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=@"装船期";
+                        cell.nameLable.text=NSLocalizedString(@"Date of shipment", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -5712,7 +5712,7 @@
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         return cell;
                     }
@@ -5720,7 +5720,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=@"到达港口";
+                        cell.nameLable.text=NSLocalizedString(@"port of Arrical", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -5730,7 +5730,7 @@
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         return cell;
                     }
@@ -5745,56 +5745,56 @@
                     
                     cell.tag=indexPath.section*100+indexPath.row;               switch (indexPath.row) {
                         case 0:
-                            cell.nameLable.text=@"国家";
+                            cell.nameLable.text=NSLocalizedString(@"Country", nil);
                             if ([_dic1 objectForKey:@"region_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"region_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=@"厂号";
+                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
                             if ([_dic1 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"brand_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 2:
-                            cell.nameLable.text=@"产品分类";
+                            cell.nameLable.text=NSLocalizedString(@"Product category", nil);
                             if ([_dic1 objectForKey:@"cat_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"cat_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 3:
-                            cell.nameLable.text=@"产品名称";
+                            cell.nameLable.text=NSLocalizedString(@"Product name", nil);
                             if ([_dic1 objectForKey:@"base_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"base_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 4:
-                            cell.nameLable.text=@"生产日期";
+                            cell.nameLable.text=NSLocalizedString(@"Date of Manufacture", nil);
                             if ([_dic1 objectForKey:@"make_date"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"make_date"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
@@ -5827,7 +5827,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -5849,7 +5849,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -5857,12 +5857,12 @@
                     else if (indexPath.row==2) {
                         static NSString * const cellID = @"twoSelectBtnCell";
                         twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        cell.nameLable.text=@"重量";
+                        cell.nameLable.text=NSLocalizedString(@"weight", nil);
                         cell.nameLable.hidden=NO;
                         cell.delegate=self;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.firstLable.text=@"定装";
-                        cell.secondLable.text=@"抄码";
+                        cell.firstLable.text=NSLocalizedString(@"Fixed weight", nil);
+                        cell.secondLable.text=NSLocalizedString(@"Catch weight", nil);
                         if ([[_dic2 objectForKey:@"pack"] isEqualToString:@"8"]) {
                             cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                             cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -5879,7 +5879,7 @@
                         static NSString * const cellID = @"signTextViewCell";
                         signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.signTextView.placeholder=@"产品备注";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                         cell.signTextView.PlaceholderLabel.hidden=NO;
                         cell.signTextView.delegate=self;
                         if ([_dic2 objectForKey:@"spec_txt"]) {
@@ -5893,7 +5893,7 @@
                         else
                         {
                             cell.signTextView.text=@"";
-                            cell.signTextView.placeholder=@"产品备注";
+                            cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                             cell.signTextView.PlaceholderLabel.hidden=NO;
                         }
                         cell.signTextView.tag=cell.tag;                        return cell;
@@ -5909,56 +5909,56 @@
                     
                     cell.tag=indexPath.section*100+indexPath.row;               switch (indexPath.row) {
                         case 0:
-                            cell.nameLable.text=@"国家";
+                            cell.nameLable.text=NSLocalizedString(@"Country", nil);
                             if ([_dic3 objectForKey:@"region_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"region_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=@"厂号";
+                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
                             if ([_dic3 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"brand_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 2:
-                            cell.nameLable.text=@"产品分类";
+                            cell.nameLable.text=NSLocalizedString(@"Product category", nil);
                             if ([_dic3 objectForKey:@"cat_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"cat_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 3:
-                            cell.nameLable.text=@"产品名称";
+                            cell.nameLable.text=NSLocalizedString(@"Product name", nil);
                             if ([_dic3 objectForKey:@"base_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"base_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 4:
-                            cell.nameLable.text=@"生产日期";
+                            cell.nameLable.text=NSLocalizedString(@"Date of Manufacture", nil);
                             if ([_dic3 objectForKey:@"make_date"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"make_date"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
@@ -5991,7 +5991,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -6013,7 +6013,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -6021,12 +6021,12 @@
                     else if (indexPath.row==2) {
                         static NSString * const cellID = @"twoSelectBtnCell";
                         twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        cell.nameLable.text=@"重量";
+                        cell.nameLable.text=NSLocalizedString(@"weight", nil);
                         cell.nameLable.hidden=NO;
                         cell.delegate=self;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.firstLable.text=@"定装";
-                        cell.secondLable.text=@"抄码";
+                        cell.firstLable.text=NSLocalizedString(@"Fixed weight", nil);
+                        cell.secondLable.text=NSLocalizedString(@"Catch weight", nil);
                         if ([[_dic4 objectForKey:@"pack"] isEqualToString:@"8"]) {
                             cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                             cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -6043,7 +6043,7 @@
                         static NSString * const cellID = @"signTextViewCell";
                         signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.signTextView.placeholder=@"产品备注";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                         cell.signTextView.PlaceholderLabel.hidden=NO;
                         cell.signTextView.delegate=self;
                         if ([_dic4 objectForKey:@"spec_txt"]) {
@@ -6057,7 +6057,7 @@
                         else
                         {
                             cell.signTextView.text=@"";
-                            cell.signTextView.placeholder=@"产品备注";
+                            cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                             cell.signTextView.PlaceholderLabel.hidden=NO;
                         }
                         cell.signTextView.tag=cell.tag;                        return cell;
@@ -6066,7 +6066,7 @@
                         //改成删出
                         static NSString * const cellID = @"addNew_pinGuiCell";
                         addNew_pinGuiTableViewCell *cell = (addNew_pinGuiTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        [cell.addBtn setTitle:@"删除该商品" forState:UIControlStateNormal];
+                        [cell.addBtn setTitle:NSLocalizedString(@"Delete this product", nil) forState:UIControlStateNormal];
                         [cell.addBtn setBackgroundColor:[UIColor lightGrayColor]];
                         cell.addBtn.tag=indexPath.section;
                         cell.delegate=self;
@@ -6083,56 +6083,56 @@
                     
                     cell.tag=indexPath.section*100+indexPath.row;               switch (indexPath.row) {
                         case 0:
-                            cell.nameLable.text=@"国家";
+                            cell.nameLable.text=NSLocalizedString(@"Country", nil);
                             if ([_dic5 objectForKey:@"region_id"]) {
                                 cell.contentLable.text=[_dic5 objectForKey:@"region_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=@"厂号";
+                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
                             if ([_dic5 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic5 objectForKey:@"brand_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 2:
-                            cell.nameLable.text=@"产品分类";
+                            cell.nameLable.text=NSLocalizedString(@"Product category", nil);
                             if ([_dic5 objectForKey:@"cat_id"]) {
                                 cell.contentLable.text=[_dic5 objectForKey:@"cat_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 3:
-                            cell.nameLable.text=@"产品名称";
+                            cell.nameLable.text=NSLocalizedString(@"Product name", nil);
                             if ([_dic5 objectForKey:@"base_id"]) {
                                 cell.contentLable.text=[_dic5 objectForKey:@"base_name"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
                         case 4:
-                            cell.nameLable.text=@"生产日期";
+                            cell.nameLable.text=NSLocalizedString(@"Date of Manufacture", nil);
                             if ([_dic5 objectForKey:@"make_date"]) {
                                 cell.contentLable.text=[_dic5 objectForKey:@"make_date"];
                             }
                             else
                             {
-                                cell.contentLable.text=@"请选择";
+                                cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                             }
                             
                             break;
@@ -6165,7 +6165,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -6187,7 +6187,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         return cell;
@@ -6195,12 +6195,12 @@
                     else if (indexPath.row==2) {
                         static NSString * const cellID = @"twoSelectBtnCell";
                         twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        cell.nameLable.text=@"重量";
+                        cell.nameLable.text=NSLocalizedString(@"weight", nil);
                         cell.nameLable.hidden=NO;
                         cell.delegate=self;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.firstLable.text=@"定装";
-                        cell.secondLable.text=@"抄码";
+                        cell.firstLable.text=NSLocalizedString(@"Fixed weight", nil);
+                        cell.secondLable.text=NSLocalizedString(@"Catch weight", nil);
                         if ([[_dic6 objectForKey:@"pack"] isEqualToString:@"8"]) {
                             cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                             cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -6217,7 +6217,7 @@
                         static NSString * const cellID = @"signTextViewCell";
                         signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.signTextView.placeholder=@"产品备注";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                         cell.signTextView.PlaceholderLabel.hidden=NO;
                         cell.signTextView.delegate=self;
                         if ([_dic6 objectForKey:@"spec_txt"]) {
@@ -6231,7 +6231,7 @@
                         else
                         {
                             cell.signTextView.text=@"";
-                            cell.signTextView.placeholder=@"产品备注";
+                            cell.signTextView.placeholder=NSLocalizedString(@"Product Note", nil);
                             cell.signTextView.PlaceholderLabel.hidden=NO;
                         }
                         cell.signTextView.tag=cell.tag;                        return cell;
@@ -6240,7 +6240,7 @@
                         //改成删出
                         static NSString * const cellID = @"addNew_pinGuiCell";
                         addNew_pinGuiTableViewCell *cell = (addNew_pinGuiTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        [cell.addBtn setTitle:@"删除该商品" forState:UIControlStateNormal];
+                        [cell.addBtn setTitle:NSLocalizedString(@"Delete this product", nil) forState:UIControlStateNormal];
                         [cell.addBtn setBackgroundColor:[UIColor lightGrayColor]];
                         cell.addBtn.tag=indexPath.section;
                         cell.delegate=self;
@@ -6254,7 +6254,7 @@
                         static NSString * const cellID = @"inputCell";
                         inputTableViewCell *cell = (inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"库存";
+                        cell.nameLable.text=NSLocalizedString(@"Stock", nil);
                         cell.nameLable.hidden=NO;
                         cell.inputField.delegate=self;
                         cell.inputField.tag=cell.tag;
@@ -6268,7 +6268,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         
@@ -6281,7 +6281,7 @@
                         threeSelectBtnTableViewCell *cell = (threeSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
                         cell.delegate=self;
-                        cell.nameLable.text=@"金额";
+                        cell.nameLable.text=NSLocalizedString(@"Amount", nil);
                         cell.nameLable.hidden=NO;
                         if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"1"]) {
                             cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
@@ -6338,7 +6338,7 @@
                         else
                         {
                             cell.inputField.text=@"";
-                            cell.inputField.placeholder=@"请输入";
+                            cell.inputField.placeholder=NSLocalizedString(@"Please enter", nil);
                         }
                         
                         cell.nameLable.hidden=YES;
@@ -6351,14 +6351,14 @@
                         [cell addGestureRecognizer:tap];
                         
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"预付条款";
+                        cell.nameLable.text=NSLocalizedString(@"Prepayment Rules", nil);
                         cell.nameLable.hidden=NO;
                         if ([_otherDic objectForKey:@"prepay"]) {
                             cell.contentLable.text=[_otherDic objectForKey:@"prepay_name"];
                         }
                         else
                         {
-                            cell.contentLable.text=@"请选择";
+                            cell.contentLable.text=NSLocalizedString(@"Choose", nil);
                         }
                         
                         return cell;
@@ -6380,7 +6380,7 @@
                     
                     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fengMianImageTapMethod:)];
                     [cell addGestureRecognizer:tap];
-                    cell.nameLable.text=@"报盘封面";
+                    cell.nameLable.text=NSLocalizedString(@"Cover photo", nil);
                     return cell;
                     
                 }
@@ -6390,7 +6390,7 @@
                     signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.signTextView.hidden=NO;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.signTextView.placeholder=@"备注 描述一下你的产品信息";
+                    cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
                     cell.signTextView.PlaceholderLabel.hidden=NO;
                     if ([_otherDic objectForKey:@"goods_txt"]) {
                         cell.signTextView.text=[_otherDic objectForKey:@"goods_txt"];
@@ -6403,7 +6403,7 @@
                     else
                     {
                         cell.signTextView.text=@"";
-                        cell.signTextView.placeholder=@"备注 描述一下你的产品信息";
+                        cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
                         cell.signTextView.PlaceholderLabel.hidden=NO;
                     }
                     
@@ -6418,9 +6418,9 @@
                     twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.tag=indexPath.section*100+indexPath.row;
                     cell.nameLable.hidden=NO;
-                    cell.nameLable.text=@"是否上架";
-                    cell.firstLable.text=@"是";
-                    cell.secondLable.text=@"否";
+                    cell.nameLable.text=NSLocalizedString(@"On-self?", nil);
+                    cell.firstLable.text=NSLocalizedString(@"YES", nil);
+                    cell.secondLable.text=NSLocalizedString(@"NO", nil);
                     if ([[_otherDic objectForKey:@"is_on_sale"] isEqualToString:@"1"]) {
                         cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                         cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -6439,7 +6439,7 @@
                     if (indexPath.row==0) {
                         cell.nameLable.hidden=NO;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"联系人姓名";
+                        cell.nameLable.text=NSLocalizedString(@"Contact name", nil);
                         
                         if ([_otherDic objectForKey:@"alias"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"alias"];
@@ -6465,7 +6465,7 @@
                     if (indexPath.row==1) {
                         cell.nameLable.hidden=NO;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=@"联系人电话";
+                        cell.nameLable.text=NSLocalizedString(@"Contact number", nil);
                         if ([_otherDic objectForKey:@"mobile_phone"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"mobile_phone"];
                             
@@ -6524,11 +6524,11 @@
 - (void) fstffsClick:(NSInteger)sender
 {
     if ([self.if_addOrEditOrCopy isEqualToString:@"2"]) {
-        [self.view Message:@"编辑报盘不可改动产品类型" HiddenAfterDelay:1.0];
+        [self.view Message:NSLocalizedString(@"You can't change product type when edit offer", nil) HiddenAfterDelay:1.0];
         return;
     }
     if ([self.if_addOrEditOrCopy isEqualToString:@"3"]) {
-        [self.view Message:@"复制报盘不可改动产品类型" HiddenAfterDelay:1.0];
+        [self.view Message:NSLocalizedString(@"You can't change product type when copy offer", nil) HiddenAfterDelay:1.0];
         return;
     }
     
@@ -10210,14 +10210,14 @@
 {
     
     if ([_otherDic[@"alias"] isEqualToString:@""]) {
-        [self.view Message:@"请输入联系人姓名" HiddenAfterDelay:1.0];
+        [self.view Message:NSLocalizedString(@"Legal name", nil) HiddenAfterDelay:1.0];
         return;
     }
     if ([_otherDic[@"mobile_phone"] isEqualToString:@""]) {
-         [self.view Message:@"请输入联系人电话" HiddenAfterDelay:1.0];
+         [self.view Message:NSLocalizedString(@"Phone number", nil) HiddenAfterDelay:1.0];
         return;
     }
-      [_MBHUD setLabelText:@"请稍后..."];
+      [_MBHUD setLabelText:NSLocalizedString(@"Wait a minute", nil)];
     if ([self.if_addOrEditOrCopy isEqualToString:@"1"]||[self.if_addOrEditOrCopy isEqualToString:@"3"])//新增和复制
     {
     if ([[_goodsCharacterArr objectAtIndex:1] isEqualToString:@"4"])//零售
@@ -10257,7 +10257,7 @@
                 [PSDefaults setObject:_otherDic[@"mobile_phone"] forKey:@"mobile_phone"];
             }
             
-            [window Message:@"报盘成功" HiddenAfterDelay:1.5];
+            [window Message:NSLocalizedString(@"Success", nil) HiddenAfterDelay:1.5];
         } else {
             [_MBHUD setLabelText:data[@"message"]];
             [self.view addSubview:_MBHUD];
@@ -10312,7 +10312,7 @@
                      [_MBHUD hide:YES];
                                 [self leftItemClicked:nil];
                     UIWindow *window = [UIApplication sharedApplication].keyWindow;
-                    [window Message:@"报盘成功" HiddenAfterDelay:1.5];
+                    [window Message:NSLocalizedString(@"Success", nil) HiddenAfterDelay:1.5];
                     if (![PSDefaults objectForKey:@"alias"]||[[PSDefaults objectForKey:@"alias"] isEqualToString:@""]) {
                         [PSDefaults setObject:_otherDic[@"alias"] forKey:@"alias"];
                     }
@@ -10372,7 +10372,7 @@
                      [_MBHUD hide:YES];
                                 [self leftItemClicked:nil];
                     UIWindow *window = [UIApplication sharedApplication].keyWindow;
-                    [window Message:@"报盘成功" HiddenAfterDelay:1.5];
+                    [window Message:NSLocalizedString(@"Success", nil) HiddenAfterDelay:1.5];
                     if (![PSDefaults objectForKey:@"alias"]||[[PSDefaults objectForKey:@"alias"] isEqualToString:@""]) {
                         [PSDefaults setObject:_otherDic[@"alias"] forKey:@"alias"];
                     }
@@ -10432,7 +10432,7 @@
                      [_MBHUD hide:YES];
                                 [self leftItemClicked:nil];
                     UIWindow *window = [UIApplication sharedApplication].keyWindow;
-                    [window Message:@"报盘成功" HiddenAfterDelay:1.5];
+                    [window Message:NSLocalizedString(@"Success", nil) HiddenAfterDelay:1.5];
                     if (![PSDefaults objectForKey:@"alias"]||[[PSDefaults objectForKey:@"alias"] isEqualToString:@""]) {
                         [PSDefaults setObject:_otherDic[@"alias"] forKey:@"alias"];
                     }
@@ -10487,7 +10487,7 @@
                     [_MBHUD hide:YES];
                     [self leftItemClicked:nil];
                     UIWindow *window = [UIApplication sharedApplication].keyWindow;
-                    [window Message:@"报盘成功" HiddenAfterDelay:1.5];
+                    [window Message:NSLocalizedString(@"Success", nil) HiddenAfterDelay:1.5];
                     if (![PSDefaults objectForKey:@"alias"]||[[PSDefaults objectForKey:@"alias"] isEqualToString:@""]) {
                         [PSDefaults setObject:_otherDic[@"alias"] forKey:@"alias"];
                     }
@@ -10549,7 +10549,7 @@
                         [_MBHUD hide:YES];
                         [self leftItemClicked:nil];
                         UIWindow *window = [UIApplication sharedApplication].keyWindow;
-                        [window Message:@"报盘成功" HiddenAfterDelay:1.5];
+                        [window Message:NSLocalizedString(@"Success", nil) HiddenAfterDelay:1.5];
                         if (![PSDefaults objectForKey:@"alias"]||[[PSDefaults objectForKey:@"alias"] isEqualToString:@""]) {
                             [PSDefaults setObject:_otherDic[@"alias"] forKey:@"alias"];
                         }
@@ -10609,7 +10609,7 @@
                         [_MBHUD hide:YES];
                         [self leftItemClicked:nil];
                         UIWindow *window = [UIApplication sharedApplication].keyWindow;
-                        [window Message:@"报盘成功" HiddenAfterDelay:1.5];
+                        [window Message:NSLocalizedString(@"Success", nil) HiddenAfterDelay:1.5];
                         if (![PSDefaults objectForKey:@"alias"]||[[PSDefaults objectForKey:@"alias"] isEqualToString:@""]) {
                             [PSDefaults setObject:_otherDic[@"alias"] forKey:@"alias"];
                         }
@@ -10670,7 +10670,7 @@
                         [_MBHUD hide:YES];
                         [self leftItemClicked:nil];
                         UIWindow *window = [UIApplication sharedApplication].keyWindow;
-                        [window Message:@"报盘成功" HiddenAfterDelay:1.5];
+                        [window Message:NSLocalizedString(@"Success", nil) HiddenAfterDelay:1.5];
                         if (![PSDefaults objectForKey:@"alias"]||[[PSDefaults objectForKey:@"alias"] isEqualToString:@""]) {
                             [PSDefaults setObject:_otherDic[@"alias"] forKey:@"alias"];
                         }

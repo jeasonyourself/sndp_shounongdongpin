@@ -108,7 +108,7 @@
 - (void)creatUI{
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ico_return"] style:UIBarButtonItemStylePlain target:self action:@selector(retBtnClick)];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
-    self.navigationItem.title = @"我的还价";
+    self.navigationItem.title = NSLocalizedString(@"My bargain", nil);
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeBottom;
@@ -181,17 +181,17 @@
         [self configCellB:cell WithIndexPath:indexPath];
         return cell;
     }else{
-        TYDP_BargainCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"TYDP_BargainCell" owner:self options:nil] lastObject];
+        TYDP_BargainCellB *cell = [[[NSBundle mainBundle]loadNibNamed:@"TYDP_BargainCellB" owner:self options:nil] lastObject];
         if (!cell) {
-            cell = [[TYDP_BargainCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TYDP_BargainCell"];
+            cell = [[TYDP_BargainCellB alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TYDP_BargainCellB"];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         TYDP_BargainModel *model = [TYDP_BargainModel new];
         model = _dataSource[indexPath.row];
         self.tableView.rowHeight = 195+[self heightForCellWithText:model.message andFont:[NSNumber numberWithFloat:14.0] andWidth:[NSNumber numberWithFloat:ScreenWidth-20]];
-
-        [self configCell:cell WithIndexPath:indexPath];
+        [self configCellB:cell WithIndexPath:indexPath];
         return cell;
+
     }
 }
 
@@ -201,10 +201,10 @@
     model = _dataSource[indexPath.row];
     cell.titleLab.text = model.goods_name;
     
-    cell.priceAgo.text = model.last_price;
-    cell.priceNow.text = model.last_price;
+    cell.priceAgo.text = [NSString stringWithFormat:@"¥%@",model.last_price];
+    cell.priceNow.text =[NSString stringWithFormat:@"¥%@",model.last_price];
 
-    cell.priceMine.text = model.price;
+    cell.priceMine.text =[NSString stringWithFormat:@"¥%@",model.price] ;
 
     cell.numLab.text = model.brand_sn;
     [cell.buyBtn addTarget:self action:@selector(buyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -215,8 +215,8 @@
     cell.subImg3.image = [UIImage imageNamed:_subImgS[2][[model.sell_type intValue]-4]];//零，整
     cell.subImg4.image = [UIImage imageNamed:_subImgS[0][[model.is_pin intValue]]];
     cell.typeImg.image = [UIImage imageNamed:_typeImgS[[model.status intValue]]];
-    cell.timeLable.text=[NSString stringWithFormat:@"还价时间:%@",model.created_at];
-    cell.spec_textLable.text=[NSString stringWithFormat:@"还价内容:%@",model.message];
+    cell.timeLable.text=[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Bargain time", nil),model.created_at];
+    cell.spec_textLable.text=[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Bargain content", nil),model.message];
 
     if ([model.status isEqualToString:@"0"]) {
         cell.bargainBtn.backgroundColor = [UIColor grayColor];
@@ -232,12 +232,13 @@
     model = _dataSource[indexPath.row];
     
     ((TYDP_BargainCellB *)cell).titleLab.text = model.goods_name;
-    ((TYDP_BargainCellB *)cell).priceAgo.text = model.last_price;
-    ((TYDP_BargainCellB *)cell).priceMine.text = model.price;
-    ((TYDP_BargainCellB *)cell).priceNow.text = model.last_price;
+    ((TYDP_BargainCellB *)cell).priceAgo.text =[NSString stringWithFormat:@"¥%@",model.last_price] ;
+    
+    ((TYDP_BargainCellB *)cell).priceMine.text =[NSString stringWithFormat:@"¥%@",model.price] ;
+    ((TYDP_BargainCellB *)cell).priceNow.text =[NSString stringWithFormat:@"¥%@",model.last_price] ;
     ((TYDP_BargainCellB *)cell).numLab.text = model.brand_sn;
-    ((TYDP_BargainCellB *)cell).timeLable.text=[NSString stringWithFormat:@"还价时间:%@",model.created_at];
-    ((TYDP_BargainCellB *)cell).spec_textLable.text=[NSString stringWithFormat:@"还价内容:%@",model.message];
+    ((TYDP_BargainCellB *)cell).timeLable.text=[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Bargain time", nil),model.created_at];
+    ((TYDP_BargainCellB *)cell).spec_textLable.text=[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Bargain Content", nil),model.message];
     [((TYDP_BargainCellB *)cell).buyBtn addTarget:self action:@selector(buyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [((TYDP_BargainCellB *)cell).bargainBtn addTarget:self action:@selector(buyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     

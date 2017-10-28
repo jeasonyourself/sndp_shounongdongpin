@@ -44,7 +44,7 @@
 
 - (void)creatUI{
     self.automaticallyAdjustsScrollViewInsets = NO;
-    NSArray *titleArr = @[@"代理报关",@"仓储服务",@"货押贷款"];
+    NSArray *titleArr = @[NSLocalizedString(@"Inland Logistics", nil),NSLocalizedString(@"Storage Service", nil),NSLocalizedString(@"Mortgage lending", nil)];
     self.navigationItem.title = titleArr[self.sendType];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ico_return"] style:UIBarButtonItemStylePlain target:self action:@selector(retBtnClick)];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
@@ -113,7 +113,7 @@
     NSDictionary *pa = @{@"model":@"other",@"action":actionArr[self.sendType],@"sign":[TYDPManager md5:[NSString stringWithFormat:@"other%@%@",actionArr[self.sendType],ConfigNetAppKey]],@"user_id":_user_id,@"token":_token,@"goods_name":self.productTf.text,@"num":self.weightTf.text,@"spec":self.typeTf.text,@"brand_sn":self.NumberTf.text,@"country":self.addressTf.text,@"user_phone":self.PhoneNumLab.text,@"memo":self.remarksTv.text,};
     for (NSString * key in pa.allKeys) {
         if ([[pa objectForKey:key] isEqualToString:@""]) {
-            [self.view Message:@"缺少参数" HiddenAfterDelay:1.0];
+            [self.view Message:NSLocalizedString(@"Missing parameters", nil) HiddenAfterDelay:1.0];
             return;
         }
     }

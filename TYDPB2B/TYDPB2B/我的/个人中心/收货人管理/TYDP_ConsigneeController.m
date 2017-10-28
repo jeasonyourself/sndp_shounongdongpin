@@ -109,7 +109,7 @@
 - (void)creatUI{
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ico_return"] style:UIBarButtonItemStylePlain target:self action:@selector(retBtnClick)];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
-    self.title=@"地址信息";
+    self.title=NSLocalizedString(@"Address infomation", nil);
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     //创建tableview
@@ -224,7 +224,7 @@
     [self.view addSubview:addbtn];
     addbtn.frame = CGRectMake(0, ScreenHeight-TabbarHeight, ScreenWidth, TabbarHeight);
     [addbtn setBackgroundColor:mainColor];
-    [addbtn setTitle:self.type==0? @"+添加取货人":@"+添加发货人" forState:UIControlStateNormal];
+    [addbtn setTitle:self.type==0? NSLocalizedString(@"Add consignee", nil):NSLocalizedString(@"Add consogner", nil) forState:UIControlStateNormal];
     [addbtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [addbtn setBackgroundColor:mainColor];
     [addbtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -280,7 +280,7 @@
         [btn removeTarget:self action:@selector(addBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [btn addTarget:self action:@selector(postData) forControlEvents:UIControlEventTouchUpInside];
     }else{
-        [btn setTitle:self.type==0? @"+添加取货人":@"+添加发货人" forState:UIControlStateNormal];
+        [btn setTitle:self.type==0? NSLocalizedString(@"Add consignee", nil):NSLocalizedString(@"Add consogner", nil) forState:UIControlStateNormal];
         [btn removeTarget:self action:@selector(postData) forControlEvents:UIControlEventTouchUpInside];
         [btn addTarget:self action:@selector(addBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }

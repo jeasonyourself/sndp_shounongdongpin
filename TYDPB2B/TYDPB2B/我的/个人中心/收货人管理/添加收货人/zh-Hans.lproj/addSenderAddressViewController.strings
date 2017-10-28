@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; normalTitle = "保存"; ObjectID = "250-RS-4Kv"; */
+"250-RS-4Kv.normalTitle" = "保存";
+
+/* Class = "UITextField"; placeholder = "请输入手机号"; ObjectID = "BkU-Yn-VuM"; */
+"BkU-Yn-VuM.placeholder" = "请输入手机号";
+
+/* Class = "UITextField"; placeholder = "请输入姓名"; ObjectID = "C5l-uX-ck9"; */
+"C5l-uX-ck9.placeholder" = "请输入姓名";
+
+/* Class = "UITextField"; placeholder = "请输入身份证号"; ObjectID = "Vep-Cs-Z1o"; */
+"Vep-Cs-Z1o.placeholder" = "请输入身份证号";
+
+/* Class = "UIButton"; normalTitle = "删除"; ObjectID = "bdB-UW-nDE"; */
+"bdB-UW-nDE.normalTitle" = "删除";
+
+/* Class = "UITextField"; placeholder = "请输入验证码"; ObjectID = "cXK-jm-bE8"; */
+"cXK-jm-bE8.placeholder" = "请输入验证码";
+
+/* Class = "UIButton"; normalTitle = "获取验证码"; ObjectID = "hbg-fV-20k"; */
+"hbg-fV-20k.normalTitle" = "获取验证码";

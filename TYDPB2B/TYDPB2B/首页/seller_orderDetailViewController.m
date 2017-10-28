@@ -71,7 +71,7 @@ typedef enum {
 
 -(NSArray *)secondOrderDetailArray {
     if (!_secondOrderDetailArray) {
-        _secondOrderDetailArray = [NSArray arrayWithObjects:@"订  单  号：",@"订单状态：",@"支付方式：",@"买家姓名：",@"买家电话：", nil];
+        _secondOrderDetailArray = [NSArray arrayWithObjects:NSLocalizedString(@"Order NO.", nil),NSLocalizedString(@"Order status", nil),NSLocalizedString(@"Payment Method", nil),NSLocalizedString(@"Name of seller", nil),NSLocalizedString(@"Seller's phone NO.", nil), nil];
     }
     return _secondOrderDetailArray;
 }
@@ -83,26 +83,25 @@ typedef enum {
 }
 -(NSArray *)addContanctArray {
     if (!_addContanctArray) {
-        _addContanctArray = [NSArray arrayWithObjects:@"取  货  人：",@"身份证号：",@"联系电话：", nil];
+        _addContanctArray = [NSArray arrayWithObjects:NSLocalizedString(@"Consignee", nil),NSLocalizedString(@"ID number", nil),NSLocalizedString(@"Phone NO.", nil), nil];
     }
     return _addContanctArray;
 }
-
 -(NSArray *)sendArray {
     if (!_sendArray) {
-        _sendArray = [NSArray arrayWithObjects:@"发  货  人：",@"身份证号：",@"联系电话：", nil];
+        _sendArray = [NSArray arrayWithObjects:NSLocalizedString(@"consogner", nil),NSLocalizedString(@"ID number", nil),NSLocalizedString(@"Phone NO.", nil), nil];
     }
     return _sendArray;
 }
 
 -(NSArray *)bottomOrderDetailArray {
     if (!_bottomOrderDetailArray) {
-        _bottomOrderDetailArray = [NSArray arrayWithObjects:@"产 品 合 计：",@"应付款金额：",@"已付款金额", nil];
+        _bottomOrderDetailArray = [NSArray arrayWithObjects:NSLocalizedString(@"Product summation", nil),NSLocalizedString(@"Amount payable", nil),NSLocalizedString(@"Amount Paid", nil),  nil];
     }
     return _bottomOrderDetailArray;
 }
 - (void)manageOrderData{
-    _orderDetailArray = [NSMutableArray arrayWithObjects:@"订  单  号：",@"订单状态：",@"支付方式：",@"买家姓名",@"买家电话", nil];
+    _orderDetailArray = [NSMutableArray arrayWithObjects:NSLocalizedString(@"Order NO.", nil),NSLocalizedString(@"Order status", nil),NSLocalizedString(@"Payment Method", nil),NSLocalizedString(@"Inventory status", nil), nil];
     _orderDetailValueArray = [NSMutableArray array];
     [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_sn"]]];
     [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_status_name"]]];
@@ -211,7 +210,7 @@ typedef enum {
     [_navigationBarView addSubview:navigationLabel];
     [navigationLabel setTextAlignment:NSTextAlignmentCenter];
     [navigationLabel setTextColor:[UIColor whiteColor]];
-    [navigationLabel setText:[NSString stringWithFormat:@"订单详情"]];
+    [navigationLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Order detail", nil)]];
     [navigationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(_navigationBarView);
         make.centerY.equalTo(_navigationBarView).with.offset(Gap);
@@ -241,7 +240,7 @@ typedef enum {
 //    [_topView addGestureRecognizer:tap];
     UILabel *topLabel = [UILabel new];
     [_topView addSubview:topLabel];
-    [topLabel setText:@"产品信息"];
+    [topLabel setText:NSLocalizedString(@"Order information", nil)];
     [topLabel setTextColor:[UIColor lightGrayColor]];
     [topLabel setFont:ThemeFont(16)];
     [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -410,7 +409,7 @@ typedef enum {
         [leftLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(dotSmallImageView.mas_right).with.offset(Gap);
             make.top.equalTo(smallView);
-            make.width.mas_equalTo(90);
+            make.width.mas_equalTo(150);
             make.bottom.equalTo(smallView);
         }];
         UILabel *rightLabel = [UILabel new];
@@ -448,13 +447,13 @@ typedef enum {
     CGFloat smallViewHeight = 40;
     UILabel *topLabel = [UILabel new];
     [_middleView addSubview:topLabel];
-    [topLabel setText:@"订单信息"];
+    [topLabel setText:NSLocalizedString(@"Order information", nil)];
     [topLabel setTextColor:[UIColor lightGrayColor]];
     [topLabel setFont:ThemeFont(16)];
     [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_baseScrollView).with.offset(MiddleGap);;
         make.top.equalTo(_topView.mas_bottom).with.offset(MiddleGap);
-        make.width.mas_equalTo(90);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(40);
     }];
     UILabel *topDecorateLabel = [UILabel new];
@@ -487,7 +486,7 @@ typedef enum {
             [leftLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(smallView).with.offset(MiddleGap);
                 make.top.equalTo(smallView);
-                make.width.mas_equalTo(90);
+                make.width.mas_equalTo(200);
                 make.bottom.equalTo(smallView);
             }];
             UILabel *rightLabel = [UILabel new];
@@ -544,13 +543,13 @@ typedef enum {
     }];
     UILabel *topLabel = [UILabel new];
     [_contanctView addSubview:topLabel];
-    [topLabel setText:@"取货人信息"];
+    [topLabel setText:NSLocalizedString(@"Information of consignee", nil)];
     [topLabel setTextColor:[UIColor lightGrayColor]];
     [topLabel setFont:ThemeFont(16)];
     [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_baseScrollView).with.offset(MiddleGap);;
         make.top.equalTo(frontView.mas_bottom).with.offset(MiddleGap);
-        make.width.mas_equalTo(90);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(40);
     }];
     UILabel *topDecorateLabel = [UILabel new];
@@ -621,13 +620,13 @@ typedef enum {
     }];
     UILabel *topLabel = [UILabel new];
     [_sendView addSubview:topLabel];
-    [topLabel setText:@"发货人信息"];
+    [topLabel setText:NSLocalizedString(@"Information of consogner", nil)];
     [topLabel setTextColor:[UIColor lightGrayColor]];
     [topLabel setFont:ThemeFont(16)];
     [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_baseScrollView).with.offset(MiddleGap);;
         make.top.equalTo(frontView.mas_bottom).with.offset(MiddleGap);
-        make.width.mas_equalTo(90);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(40);
     }];
     UILabel *topDecorateLabel = [UILabel new];
@@ -685,13 +684,13 @@ typedef enum {
     }];
     UILabel *topLabel = [UILabel new];
     [_bottomView addSubview:topLabel];
-    [topLabel setText:@"费用明细"];
+    [topLabel setText:NSLocalizedString(@"Details of charges", nil)];
     [topLabel setTextColor:[UIColor lightGrayColor]];
     [topLabel setFont:ThemeFont(16)];
     [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_baseScrollView).with.offset(MiddleGap);;
         make.top.equalTo(frontView.mas_bottom).with.offset(tmpGap);
-        make.width.mas_equalTo(90);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(40);
     }];
     UILabel *topDecorateLabel = [UILabel new];
@@ -750,7 +749,7 @@ typedef enum {
             _specField = [UITextField new];
             [self.view addSubview:_specField];
             _specField.backgroundColor=[UIColor whiteColor];
-            _specField.placeholder=@"请输入备注信息";
+            _specField.placeholder=NSLocalizedString(@"Please input memo information", nil);
             [_specField setFont:ThemeFont(15)];
             [_specField mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.bottom.equalTo(self.view).with.offset(-TabbarHeight);
@@ -776,8 +775,8 @@ typedef enum {
         [_refuseOrderButton setBackgroundColor:[UIColor grayColor]];
         [_refuseOrderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         
-                [_confirmOrderButton setTitle:@"确认有货" forState:UIControlStateNormal];
-                [_refuseOrderButton setTitle:@"确认无货" forState:UIControlStateNormal];
+                [_confirmOrderButton setTitle:NSLocalizedString(@"Confirm shipment", nil) forState:UIControlStateNormal];
+                [_refuseOrderButton setTitle:NSLocalizedString(@"Confirm no goods", nil) forState:UIControlStateNormal];
         
             
             [_confirmOrderButton.titleLabel setFont:ThemeFont(15)];
@@ -814,7 +813,7 @@ typedef enum {
             [_confirmOrderButton setBackgroundColor:mainColor];
             [_confirmOrderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             
-            [_confirmOrderButton setTitle:@"选择发货信息" forState:UIControlStateNormal];
+            [_confirmOrderButton setTitle:NSLocalizedString(@"Add consogner information", nil) forState:UIControlStateNormal];
             
             [_confirmOrderButton.titleLabel setFont:ThemeFont(15)];
             [_confirmOrderButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -880,7 +879,7 @@ typedef enum {
 - (void)bottomControlButtonClicked:(UIButton *)button {
     switch (button.tag) {
         case 1:{
-            if ([_confirmOrderButton.titleLabel.text isEqualToString:@"确认有货"]) {
+            if ([_confirmOrderButton.titleLabel.text isEqualToString:NSLocalizedString(@"Confirm shipment", nil)]) {
                 [self refuseButtonClicked:button];
             }
            

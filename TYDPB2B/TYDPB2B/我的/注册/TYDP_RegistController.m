@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"注册";
+    self.title=NSLocalizedString(@"Register", nil);
     // Do any additional setup after loading the view.
     [self creatUI];
 }
@@ -44,7 +44,7 @@
 //    [self.view addSubview:logoImg];
     
     //四行输入框
-    NSArray *placeholderArr = @[@"手机号码",@"短信验证码",@"请输入密码",@"请再次输入密码"];
+    NSArray *placeholderArr = @[NSLocalizedString(@"Your phone NO.", nil),NSLocalizedString(@"Verification code", nil),NSLocalizedString(@"password", nil),NSLocalizedString(@"Enter password again", nil)];
 //    NSArray *leftviewArr = @[@"login_phone",@"login_message",@"login_password",@"login_verification"];
     for (int i = 0; i<4; i++) {
         UITextField *tf = [[UITextField alloc]initWithFrame:CGRectMake(15, 64+(55*i)*Height, ScreenWidth-30, 55*Height)];
@@ -69,7 +69,7 @@
             [Btn setTitleColor:mainColor forState:UIControlStateNormal];
             Btn.titleLabel.font = [UIFont systemFontOfSize:13];
             Btn.layer.cornerRadius = 12.5*Height;
-            [Btn setTitle:@"获取验证码" forState:UIControlStateNormal];
+            [Btn setTitle:NSLocalizedString(@"Get code", nil) forState:UIControlStateNormal];
             [Btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
         }else if (i == 2){//输入密码
             tf.secureTextEntry = YES;
@@ -91,7 +91,7 @@
     UIButton *registBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     registBtn.frame = CGRectMake(40, 10, ScreenWidth-80, 40*Height);
     registBtn.backgroundColor = mainColor;
-    [registBtn setTitle:@"注册" forState:UIControlStateNormal];
+    [registBtn setTitle:NSLocalizedString(@"Register", nil) forState:UIControlStateNormal];
     registBtn.titleLabel.font = [UIFont systemFontOfSize:18];
     registBtn.layer.cornerRadius = 22.5*Height;
     registBtn.layer.masksToBounds = YES;
@@ -102,7 +102,7 @@
     //登录按钮
     UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     loginBtn.frame = CGRectMake(40, 64+476*Height, ScreenWidth-80, 45*Height);
-    [loginBtn setTitle:@"登录" forState:UIControlStateNormal];
+    [loginBtn setTitle:NSLocalizedString(@"Login", nil) forState:UIControlStateNormal];
     loginBtn.titleLabel.font = [UIFont systemFontOfSize:18];
     loginBtn.layer.cornerRadius = 22.5*Height;
     loginBtn.layer.borderColor = [mainColor CGColor];
@@ -122,12 +122,12 @@
     if (_secondTime == 0) {
         _timer.fireDate = [NSDate distantFuture];
         [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        [btn setTitle:@"点击重发"forState:UIControlStateNormal];
+        [btn setTitle:NSLocalizedString(@"Click retransmission", nil)forState:UIControlStateNormal];
         [btn setTitleColor:mainColor forState:UIControlStateNormal];
         btn.userInteractionEnabled = YES;
     }else{
         btn.userInteractionEnabled = NO;
-        [btn setTitle:[NSString stringWithFormat:@"%d秒后重发",_secondTime] forState:UIControlStateNormal];
+        [btn setTitle:[NSString stringWithFormat:@"%d%@",_secondTime,NSLocalizedString(@"seconds", nil)] forState:UIControlStateNormal];
         _secondTime = _secondTime-_timer.timeInterval;
     }
 }
@@ -151,7 +151,7 @@
     UITextField *tf3 = (UITextField *)[self.view viewWithTag:102];
     UITextField *tf4 = (UITextField *)[self.view viewWithTag:103];
     if (![tf3.text isEqualToString:tf4.text]) {
-        [_MBHUD setLabelText:@"两次输入的密码不一致。"];
+        [_MBHUD setLabelText:NSLocalizedString(@"The two input password is not the same", nil)];
         [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
         [_MBHUD setMode:MBProgressHUDModeText];
         [_MBHUD show:YES];
@@ -164,7 +164,7 @@
         NSLog(@"%@",data);
         NSLog(@"%@",data[@"message"]);
         if ([data[@"error"]isEqualToString:@"0"]) {
-            [_MBHUD setLabelText:@"恭喜您注册成功！"];
+            [_MBHUD setLabelText:NSLocalizedString(@"Register success", nil)];
             [_MBHUD hide:YES afterDelay:1.5f];
             NSLog(@"注册成功");
 //            TYDP_SetDataController *setDataVC = [TYDP_SetDataController new];

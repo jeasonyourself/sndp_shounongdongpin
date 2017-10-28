@@ -1594,8 +1594,8 @@ typedef enum {
     [_cancelButton removeFromSuperview];
     [_blackView removeFromSuperview];
     NSString *telephoneString = [NSString stringWithFormat:@"tel://18501995377"];
-    NSString *reminderString = [NSString stringWithFormat:@"确认拨打客服电话？"];
-    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"远洋冻品提醒您：" message:reminderString preferredStyle:UIAlertControllerStyleAlert];
+    NSString *reminderString = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Make sure to call？",nil)];
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Remind",nil) message:reminderString preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *firstAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancle",nil) style:UIAlertActionStyleCancel handler:nil];
     [alertCon addAction:firstAction];
     UIAlertAction *Secondaction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Sure",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

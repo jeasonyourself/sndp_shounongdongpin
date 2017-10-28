@@ -31,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title=@"登录";
+    self.title=NSLocalizedString(@"Login", nil);
     self.tabBarController.tabBar.hidden = YES;
     [self creatUI];
 }
@@ -97,7 +97,7 @@
     UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     loginBtn.frame = CGRectMake(40, _forgetPasswordBtn.mj_h+_forgetPasswordBtn.mj_y+20, ScreenWidth-80, 40*Height);
     loginBtn.backgroundColor = mainColor;
-    [loginBtn setTitle:@"登录" forState:UIControlStateNormal];
+    [loginBtn setTitle:NSLocalizedString(@"Login", nil) forState:UIControlStateNormal];
     [loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     loginBtn.layer.cornerRadius = 20*Height;
     loginBtn.layer.masksToBounds = YES;
@@ -107,7 +107,7 @@
     //注册按钮
     UIButton *registBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     registBtn.frame = CGRectMake(-1, ScreenHeight- 40*Height, ScreenWidth+2, 41*Height);
-    [registBtn setTitle:@"暂无账户？立即注册" forState:UIControlStateNormal];
+    [registBtn setTitle:NSLocalizedString(@"No account? Register now!", nil) forState:UIControlStateNormal];
     [registBtn setTitleColor:mainColor forState:UIControlStateNormal];
     registBtn.layer.borderWidth = 1;
     registBtn.layer.borderColor = [mainColor CGColor];

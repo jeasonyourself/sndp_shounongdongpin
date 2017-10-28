@@ -67,7 +67,7 @@ typedef enum {
 @implementation TYDP_CommitEvidenceViewController
 -(NSArray *)secondOrderDetailArray {
     if (!_secondOrderDetailArray) {
-        _secondOrderDetailArray = [NSArray arrayWithObjects:@"订  单  号：",@"订单状态：",@"支付方式：",@"卖家姓名：",@"卖家电话：", nil];
+        _secondOrderDetailArray = [NSArray arrayWithObjects:NSLocalizedString(@"Order NO.", nil),NSLocalizedString(@"Order status", nil),NSLocalizedString(@"Payment Method", nil),NSLocalizedString(@"Name of seller", nil),NSLocalizedString(@"Seller's phone NO.", nil), nil];
     }
     return _secondOrderDetailArray;
 }
@@ -79,31 +79,31 @@ typedef enum {
 }
 -(NSArray *)addContanctArray {
     if (!_addContanctArray) {
-        _addContanctArray = [NSArray arrayWithObjects:@"取  货  人：",@"身份证号：",@"联系电话：", nil];
+        _addContanctArray = [NSArray arrayWithObjects:NSLocalizedString(@"Consignee", nil),NSLocalizedString(@"ID number", nil),NSLocalizedString(@"Phone NO.", nil), nil];
     }
     return _addContanctArray;
 }
 -(NSArray *)sendArray {
     if (!_sendArray) {
-        _sendArray = [NSArray arrayWithObjects:@"发  货  人：",@"身份证号：",@"联系电话：", nil];
+        _sendArray = [NSArray arrayWithObjects:NSLocalizedString(@"consogner", nil),NSLocalizedString(@"ID number", nil),NSLocalizedString(@"Phone NO.", nil), nil];
     }
     return _sendArray;
 }
 -(NSArray *)bottomOrderDetailArray {
     if (!_bottomOrderDetailArray) {
-        _bottomOrderDetailArray = [NSArray arrayWithObjects:@"产 品 合 计：",@"应付款金额：",@"已付款金额：", nil];
+        _bottomOrderDetailArray = [NSArray arrayWithObjects:NSLocalizedString(@"Product summation", nil),NSLocalizedString(@"Amount payable", nil),NSLocalizedString(@"Amount Paid", nil),  nil];
     }
     return _bottomOrderDetailArray;
 }
 
 -(NSArray *)bankArray {
     if (!_bankArray) {
-        _bankArray = [NSMutableArray arrayWithObjects:@"收  款  人：",@"卡      号：",@"开  户  行：", nil];
+        _bankArray = [NSMutableArray arrayWithObjects:NSLocalizedString(@"Payment Receiver", nil),NSLocalizedString(@"Bank Card No.", nil),NSLocalizedString(@"Bank account", nil),  nil];
     }
     return _bankArray;
 }
 - (void)manageOrderData{
-    _orderDetailArray = [NSMutableArray arrayWithObjects:@"订  单  号：",@"订单状态：",@"支付方式：",@"库存状态", nil];
+    _orderDetailArray = [NSMutableArray arrayWithObjects:NSLocalizedString(@"Order NO.", nil),NSLocalizedString(@"Order status", nil),NSLocalizedString(@"Payment Method", nil),NSLocalizedString(@"Inventory status", nil), nil];
     _orderDetailValueArray = [NSMutableArray array];
     [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_sn"]]];
     [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_status_name"]]];
@@ -212,7 +212,7 @@ typedef enum {
     [_navigationBarView addSubview:navigationLabel];
     [navigationLabel setTextAlignment:NSTextAlignmentCenter];
     [navigationLabel setTextColor:[UIColor whiteColor]];
-    [navigationLabel setText:[NSString stringWithFormat:@"订单详情"]];
+    [navigationLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Order details", nil)]];
     [navigationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(_navigationBarView);
         make.centerY.equalTo(_navigationBarView).with.offset(Gap);
@@ -246,7 +246,7 @@ typedef enum {
 //    [_topView addGestureRecognizer:tap];
     UILabel *topLabel = [UILabel new];
     [_topView addSubview:topLabel];
-    [topLabel setText:@"产品信息"];
+    [topLabel setText:NSLocalizedString(@"Product information", nil)];
     [topLabel setTextColor:[UIColor lightGrayColor]];
     [topLabel setFont:ThemeFont(16)];
     [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -392,13 +392,13 @@ typedef enum {
     middleViewWidth = middleViewWidth - smallViewHeight*4;
     UILabel *topLabel = [UILabel new];
     [_middleView addSubview:topLabel];
-    [topLabel setText:@"订单信息"];
+    [topLabel setText:NSLocalizedString(@"Order information", nil)];
     [topLabel setTextColor:[UIColor lightGrayColor]];
     [topLabel setFont:ThemeFont(16)];
     [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_baseScrollView).with.offset(MiddleGap);;
         make.top.equalTo(_topView.mas_bottom).with.offset(MiddleGap);
-        make.width.mas_equalTo(90);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(40);
     }];
     UILabel *topDecorateLabel = [UILabel new];
@@ -411,8 +411,8 @@ typedef enum {
         make.height.mas_equalTo(HomePageBordWidth);
     }];
         if (![[NSString stringWithFormat:@"%@",_checkOrderModel[@"user_info"][@"name"]] isEqualToString:@""]&&![[NSString stringWithFormat:@"%@",_checkOrderModel[@"stock_status"]] isEqualToString:@"0"]) {//与卖家协商UI
-            [_orderDetailArray addObject:@"卖家姓名："];
-            [_orderDetailArray addObject:@"卖家电话："];
+            [_orderDetailArray addObject:NSLocalizedString(@"Name of seller", nil)];
+            [_orderDetailArray addObject:NSLocalizedString(@"Seller's phone NO.", nil)];
                 [_orderDetailValueArray addObject:_paymentBigModel[@"name"]];
                 [_orderDetailValueArray addObject:_paymentBigModel[@"mobile"]];
            
@@ -439,7 +439,7 @@ typedef enum {
             [leftLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(smallView).with.offset(MiddleGap);
                 make.top.equalTo(smallView);
-                make.width.mas_equalTo(90);
+                make.width.mas_equalTo(150);
                 make.bottom.equalTo(smallView);
             }];
             UILabel *rightLabel = [UILabel new];
@@ -465,7 +465,7 @@ typedef enum {
                     make.bottom.equalTo(smallView);
                 }];
                 if ([[NSString stringWithFormat:@"%@",_checkOrderModel[@"pay_check"]] isEqualToString:@"1"]) {
-                    [_confirmLabel setText:@"【确认中】"];
+                    [_confirmLabel setText:[NSString stringWithFormat:@"%@",@"【%@】",NSLocalizedString(@"Confirmation", nil)]];
                 } else{
                     [_confirmLabel setText:@""];
                 }
@@ -511,13 +511,13 @@ typedef enum {
     }];
     UILabel *topLabel = [UILabel new];
     [_contanctView addSubview:topLabel];
-    [topLabel setText:@"取货人信息"];
+    [topLabel setText:NSLocalizedString(@"Information of consignee", nil)];
     [topLabel setTextColor:[UIColor lightGrayColor]];
     [topLabel setFont:ThemeFont(16)];
     [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_baseScrollView).with.offset(MiddleGap);;
         make.top.equalTo(frontView.mas_bottom).with.offset(MiddleGap);
-        make.width.mas_equalTo(90);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(40);
     }];
     UILabel *topDecorateLabel = [UILabel new];
@@ -587,13 +587,13 @@ typedef enum {
     }];
     UILabel *topLabel = [UILabel new];
     [_sendView addSubview:topLabel];
-    [topLabel setText:@"发货人信息"];
+    [topLabel setText:NSLocalizedString(@"Information of consogner", nil)];
     [topLabel setTextColor:[UIColor lightGrayColor]];
     [topLabel setFont:ThemeFont(16)];
     [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_baseScrollView).with.offset(MiddleGap);;
         make.top.equalTo(frontView.mas_bottom).with.offset(MiddleGap);
-        make.width.mas_equalTo(90);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(40);
     }];
     UILabel *topDecorateLabel = [UILabel new];
@@ -656,13 +656,13 @@ typedef enum {
     }];
     UILabel *topLabel = [UILabel new];
     [_bottomView addSubview:topLabel];
-    [topLabel setText:@"费用明细"];
+    [topLabel setText:NSLocalizedString(@"Details of charges", nil)];
     [topLabel setTextColor:[UIColor lightGrayColor]];
     [topLabel setFont:ThemeFont(16)];
     [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_baseScrollView).with.offset(MiddleGap);;
         make.top.equalTo(frontView.mas_bottom).with.offset(tmpGap);
-        make.width.mas_equalTo(90);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(40);
     }];
     UILabel *topDecorateLabel = [UILabel new];
@@ -750,13 +750,13 @@ typedef enum {
     }];
     UILabel *topLabel = [UILabel new];
     [_bankView addSubview:topLabel];
-    [topLabel setText:@"银行账户"];
+    [topLabel setText:NSLocalizedString(@"Bank account", nil)];
     [topLabel setTextColor:[UIColor lightGrayColor]];
     [topLabel setFont:ThemeFont(16)];
     [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_baseScrollView).with.offset(MiddleGap);;
         make.top.equalTo(frontView.mas_bottom).with.offset(tmpGap);
-        make.width.mas_equalTo(90);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(40);
     }];
     UILabel *topDecorateLabel = [UILabel new];
@@ -824,7 +824,7 @@ typedef enum {
     {
         
         [_confirmOrderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_confirmOrderButton setTitle:@"上传付款凭证" forState:UIControlStateNormal];
+        [_confirmOrderButton setTitle:NSLocalizedString(@"Upload payment voucher", nil) forState:UIControlStateNormal];
         [_confirmOrderButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.view);
             make.left.equalTo(self.view);
@@ -845,7 +845,7 @@ typedef enum {
                 make.right.equalTo(self.view);
                 make.height.mas_equalTo(TabbarHeight);
             }];
-            [_qieButton setTitle:@"切换支付方式" forState:UIControlStateNormal];
+            [_qieButton setTitle:NSLocalizedString(@"Choose payment method", nil) forState:UIControlStateNormal];
             _qieButton.hidden = NO;
              _baseScrollView.frame= CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight-TabbarHeight*2-1);
         }
@@ -863,7 +863,7 @@ typedef enum {
     {
         
         [_confirmOrderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_confirmOrderButton setTitle:@"添加收货人信息" forState:UIControlStateNormal];
+        [_confirmOrderButton setTitle:NSLocalizedString(@"Add consignee information", nil) forState:UIControlStateNormal];
         _confirmOrderButton.tag=101;
         [_confirmOrderButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.view);
@@ -880,7 +880,7 @@ typedef enum {
         if ([[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_status"]] isEqualToString:@"99"])//可以理赔
         {
             [_qieButton addTarget:self action:@selector(qieButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-            [_qieButton setTitle:@"理赔" forState:UIControlStateNormal];
+            [_qieButton setTitle:NSLocalizedString(@"Claims", nil) forState:UIControlStateNormal];
             _qieButton.hidden = NO;
             _qieButton.tag=201;
             [_qieButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -898,7 +898,7 @@ typedef enum {
         if (![[NSString stringWithFormat:@"%@",_checkOrderModel[@"stock_status"]] isEqualToString:@"2"]&&[[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_status"]] isEqualToString:@"99"])//不是无货订单，可以理赔
         {
             [_qieButton addTarget:self action:@selector(qieButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-            [_qieButton setTitle:@"理赔" forState:UIControlStateNormal];
+            [_qieButton setTitle:NSLocalizedString(@"Claims", nil) forState:UIControlStateNormal];
             _qieButton.hidden = NO;
             _qieButton.tag=201;
             [_qieButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -957,7 +957,7 @@ typedef enum {
                                                              delegate:self
                                                     cancelButtonTitle:NSLocalizedString(@"Cancle",nil)
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"支付宝",@"线下自助付款",@"银行卡转账", nil];
+                                                    otherButtonTitles:NSLocalizedString(@"Alipay", nil),NSLocalizedString(@"Offline self-service payment", nil),NSLocalizedString(@"Bank card transfer", nil), nil];
     [choiceSheet showInView:self.view];
 
     }
@@ -966,7 +966,7 @@ typedef enum {
     {
         TYDP_AddCommentController *addVC = [[TYDP_AddCommentController alloc]init];
         addVC.pushType = 1;
-        addVC.titleStr = [NSString stringWithFormat:@"订单号：%@",[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_sn"]]];
+        addVC.titleStr = [NSString stringWithFormat:@"%@：%@",NSLocalizedString(@"Order number", nil),[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_sn"]]];
         [self.navigationController pushViewController:addVC animated:YES];
     }
 }
@@ -988,7 +988,7 @@ typedef enum {
             debugLog(@"params:%@",params);
             [TYDPManager tydp_basePostReqWithUrlStr:@"" params:params success:^(id data) {
                 if (![data[@"error"] intValue]) {
-                    [self.view Message:@"修改支付方式成功" HiddenAfterDelay:1.0];
+                    [self.view Message:NSLocalizedString(@"Success", nil) HiddenAfterDelay:1.0];
                     
                     //跳转去新的订单详情页面
                     TYDP_CommitEvidenceViewController *CommitEvidenceVC = [TYDP_CommitEvidenceViewController new];
@@ -999,7 +999,7 @@ typedef enum {
                     CommitEvidenceVC.orderSourceString = self.orderSourceString;
                     [self.navigationController pushViewController:CommitEvidenceVC animated:YES];
                 }else {
-                    [self.view Message:@"修改支付方式失败" HiddenAfterDelay:1.0];
+                    [self.view Message:NSLocalizedString(@"Default", nil) HiddenAfterDelay:1.0];
                 }
                 
             }
@@ -1026,17 +1026,17 @@ typedef enum {
     switch (buttonIndex) {
         case 0:
         {
-            msg=@"切换为支付宝";
+            msg=NSLocalizedString(@"Switch to Alipay", nil);
         }
             break;
         case 1:
         {
-            msg=@"切换为线下自助付款";
+            msg=NSLocalizedString(@"Switch to Offline self-service payment", nil);
         }
             break;
         case 2:
         {
-        msg=@"切换为银行卡转账";
+            msg=NSLocalizedString(@"Switch to Bank card transfer", nil);
         }
             
             break;
@@ -1045,7 +1045,7 @@ typedef enum {
             break;
     }
 
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确认信息"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Confirmation information", nil)
                           
                                                     message:msg
                                                    delegate:self cancelButtonTitle:NSLocalizedString(@"Cancle",nil) otherButtonTitles:NSLocalizedString(@"Sure",nil),nil];
@@ -1057,7 +1057,7 @@ typedef enum {
 - (void)bottomControlButtonClicked:(UIButton *)button {
     switch (button.tag) {
         case confirmOrderButtonMessage:{
-            if ([_confirmOrderButton.titleLabel.text isEqualToString:@"＋上传付款凭证"]) {
+            if ([_confirmOrderButton.titleLabel.text isEqualToString:NSLocalizedString(@"Upload payment voucher", nil)]) {
                 _photoPickerManager = [TYDPPhotoPickerManager shared];
                 [_photoPickerManager showActionSheetInView:nil fromController:self completion:^(UIImage *image) {
                     NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];
@@ -1079,10 +1079,10 @@ typedef enum {
                 } cancelBlock:^{
                     
                 }];
-            } else if ([_confirmOrderButton.titleLabel.text isEqualToString:@"理赔"]) {
+            } else if ([_confirmOrderButton.titleLabel.text isEqualToString:NSLocalizedString(@"Claims", nil)]) {
                 TYDP_AddCommentController *addVC = [[TYDP_AddCommentController alloc]init];
                 addVC.pushType = 1;
-                addVC.titleStr = [NSString stringWithFormat:@"订单号：%@",[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_sn"]]];
+                addVC.titleStr = [NSString stringWithFormat:@"%@：%@",[NSString stringWithFormat:@"%@",NSLocalizedString(@"Order number", nil),_checkOrderModel[@"order_sn"]]];
                 [self.navigationController pushViewController:addVC animated:YES];
             }
             else {
@@ -1096,7 +1096,7 @@ typedef enum {
             NSLog(@"理赔");
             TYDP_AddCommentController *addVC = [[TYDP_AddCommentController alloc]init];
             addVC.pushType = 1;
-            addVC.titleStr = [NSString stringWithFormat:@"订单号：%@",[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_sn"]]];
+            addVC.titleStr = [NSString stringWithFormat:@"%@：%@",NSLocalizedString(@"Order number", nil),[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_sn"]]];
             [self.navigationController pushViewController:addVC animated:YES];
             break;
         }

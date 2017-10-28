@@ -42,7 +42,7 @@
         self.msg_type = @"0";
     }else{
         self.msg_type = @"2";
-        self.typeLab.text = @"  售后";
+        self.typeLab.text = [NSString stringWithFormat:@"  %@",NSLocalizedString(@"Customer service", nil)];
         self.titleField.text = self.titleStr;
     }
     

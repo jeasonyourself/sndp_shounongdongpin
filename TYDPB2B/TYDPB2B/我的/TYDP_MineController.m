@@ -171,8 +171,8 @@
     
     //数据源赋值
     _imgArr = @[@"person_icon_buy",@"person_icon_aftersales",@"person_-icon_bargain",@"person_icon_pickup",@"server_icon"];
-    _titleArr = @[@"售后服务",@"收货管理",@"联系客服",@"邀请好友"];
-    _subTitleArr = @[@"售后",@"地址",@"客服",@"邀请"];
+    _titleArr = @[NSLocalizedString(@"After sale service", nil),NSLocalizedString(@"Consignee management", nil),NSLocalizedString(@"Contact Customer Service", nil),NSLocalizedString(@"Inviting friends ", nil)];
+    _subTitleArr = @[@"",@"",@"",@""];
     
     _tabView = [[UITableView alloc]initWithFrame:CGRectMake(0, 145*Height+20, ScreenWidth, ScreenHeight-145*Height-20-TabbarHeight)];
     [self.view addSubview:_tabView];
@@ -226,7 +226,7 @@
     
     UILabel * qieLable = [UILabel new];
     [headImg addSubview:qieLable];
-    qieLable.text = @"切换";
+    qieLable.text = NSLocalizedString(@"Shift", nil);
     qieLable.font=[UIFont systemFontOfSize:12.0];
     CGSize qieSize = [qieLable sizeThatFits:CGSizeMake(100*Width, 20*Height)];
     qieLable.frame = CGRectMake(40*Width, 12*Height+20, qieSize.width, qieSize.height);
@@ -516,7 +516,7 @@
 - (void)configCellA:(TYDP_MineCellA *)cell{
     //四个button
     NSArray *imgArr = @[@"icon_me_order",@"icon_me_ask",@"icon_me_payment",@"icon_me_focus"];
-    NSArray *titleArr = @[@"全部订单",@"我的询盘",@"我的还价",@"我的关注"];
+    NSArray *titleArr = @[NSLocalizedString(@"All orders", nil),NSLocalizedString(@"My inquiry", nil),NSLocalizedString(@"My bargain", nil),NSLocalizedString(@"My Following", nil)];
     for (int i = 0; i < 4; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [cell.btnView addSubview:btn];

@@ -68,7 +68,7 @@
     [_mutableOrderDic setObject:_orderDic[@"goodsId"] forKey:@"goods_id"];
     [_mutableOrderDic setObject:_orderDic[@"goodsNumber"] forKey:@"buy_number"];
     NSLog(@"_noteTextView:%@",_noteTextView.text);
-    if ([_noteTextView.text isEqualToString:@"请填写备注信息"]||[_noteTextView.text isEqualToString:@""]) {
+    if ([_noteTextView.text isEqualToString:NSLocalizedString(@"Please input memo information", nil)]||[_noteTextView.text isEqualToString:@""]) {
         [_mutableOrderDic setObject:@"" forKey:@"postscript"];
     } else {
         [_mutableOrderDic setObject:_noteTextView.text forKey:@"postscript"];
@@ -134,11 +134,11 @@
     [topView addSubview:rightBottomLabel];
     //    [rightBottomLabel setBackgroundColor:[UIColor greenColor]];
     if ([[NSString stringWithFormat:@"%@",_orderDic[@"sell_type"]] isEqualToString:@"4"]) {
-        rightBottomLabel.text=[NSString stringWithFormat:@"¥%@/%@  ¥%@%@",[NSString stringWithFormat:@"%@",_orderDic[@"formated_shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"spec_2"]],NSLocalizedString(@"unit/Ctn", nil)];
+        rightBottomLabel.text=[NSString stringWithFormat:@"%@/%@  %@%@",[NSString stringWithFormat:@"%@",_orderDic[@"formated_shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"spec_2"]],NSLocalizedString(@"unit/Ctn", nil)];
         
     }
     else  {
-        rightBottomLabel.text=[NSString stringWithFormat:@"¥%@/%@  ¥%@%@",[NSString stringWithFormat:@"%@",_orderDic[@"shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"goods_weight"]],NSLocalizedString(@"ton/Ctn",nil)];
+        rightBottomLabel.text=[NSString stringWithFormat:@"¥%@/%@  %@%@",[NSString stringWithFormat:@"%@",_orderDic[@"shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"goods_weight"]],NSLocalizedString(@"ton/Ctn",nil)];
     }
    
     [rightBottomLabel setTextColor:RGBACOLOR(252, 91, 49, 1)];
@@ -339,7 +339,7 @@
     }];
     UILabel *bottomViewLeftLabel = [UILabel new];
     [middleBottomView addSubview:bottomViewLeftLabel];
-    [bottomViewLeftLabel setText:@"备注："];
+    [bottomViewLeftLabel setText:NSLocalizedString(@"Note", nil)];
     //    [bottomViewLeftLabel setBackgroundColor:[UIColor greenColor]];
     [bottomViewLeftLabel setTextColor:RGBACOLOR(85, 85, 85, 1)];
     [bottomViewLeftLabel setFont:ThemeFont(OrderFontSize)];
@@ -355,7 +355,7 @@
         _noteTextView.layer.borderColor = [RGBACOLOR(213, 213, 213, 1) CGColor];
         _noteTextView.layer.borderWidth = 1;
         _noteTextView.delegate = self;
-        _noteTextView.text = [NSString stringWithFormat:@"请填写备注信息"];
+        _noteTextView.text = [NSString stringWithFormat:NSLocalizedString(@"Please input memo information", nil)];
         _noteTextView.textColor = [UIColor lightGrayColor];
         _noteTextView.font = ThemeFont(CommonFontSize);
         [middleBottomView addSubview:_noteTextView];
@@ -434,7 +434,7 @@
     }];
     UILabel *newTopLeftLabel = [UILabel new];
     [bottomView addSubview:newTopLeftLabel];
-    [newTopLeftLabel setText:@"订购数量："];
+    [newTopLeftLabel setText:NSLocalizedString(@"Order amount", nil)];
     [newTopLeftLabel setTextColor:RGBACOLOR(85, 85, 85, 1)];
     [newTopLeftLabel setFont:ThemeFont(OrderFontSize)];
     [newTopLeftLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -466,7 +466,7 @@
     
     UILabel *TopLeftLabel = [UILabel new];
     [bottomView addSubview:TopLeftLabel];
-    [TopLeftLabel setText:@"产品总价："];
+    [TopLeftLabel setText:NSLocalizedString(@"Total price", nil)];
     [TopLeftLabel setTextColor:RGBACOLOR(85, 85, 85, 1)];
     [TopLeftLabel setFont:ThemeFont(OrderFontSize)];
     [TopLeftLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -498,10 +498,10 @@
     [bottomView addSubview:DownRightLabel];
     [DownRightLabel setTextAlignment:NSTextAlignmentRight];
     if ([_orderDic[@"prePayType"] isEqualToString:@"1"]) {
-        [DownLeftLabel setText:@"预付："];
+        [DownLeftLabel setText:NSLocalizedString(@"Prepayment", nil)];
         [DownRightLabel setText:[NSString stringWithFormat:@"¥%@",_orderDic[@"prePayNum"]]];
     } else {
-        [DownLeftLabel setText:[NSString stringWithFormat:@"预付（%@%%）",_orderDic[@"prePayName"]]];
+        [DownLeftLabel setText:[NSString stringWithFormat:@"%@（%@%%）",NSLocalizedString(@"Prepayment", nil),_orderDic[@"prePayName"]]];
         [DownRightLabel setText:[NSString stringWithFormat:@"¥%.2f",([_orderDic[@"prePayName"] floatValue]/100.0)*([_orderDic[@"orderTotalPrice"] floatValue])]];
     }
     [DownRightLabel setTextColor:RGBACOLOR(244, 88, 48, 1)];
@@ -524,7 +524,7 @@
     
     UILabel *nameLable = [UILabel new];
     [bottomView addSubview:nameLable];
-    [nameLable setText:@"真实姓名："];
+    [nameLable setText:NSLocalizedString(@"Legal name", nil)];
     [nameLable setTextColor:RGBACOLOR(85, 85, 85, 1)];
     [nameLable setFont:ThemeFont(OrderFontSize)];
     [nameLable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -535,7 +535,7 @@
     
     rightNameLable = [UITextField new];
     [bottomView addSubview:rightNameLable];
-    rightNameLable.placeholder=@"请输入真实姓名";
+    rightNameLable.placeholder=NSLocalizedString(@"Legal name", nil);
     [rightNameLable setTextAlignment:NSTextAlignmentRight];
     [rightNameLable setText:[NSString stringWithFormat:@"%@",[PSDefaults objectForKey:@"alias"]]];
     if (![PSDefaults objectForKey:@"alias"]||[[PSDefaults objectForKey:@"alias"] isEqualToString:@""])
@@ -568,7 +568,7 @@
     
     UILabel *phoneLable = [UILabel new];
     [bottomView addSubview:phoneLable];
-    [phoneLable setText:@"手机号码："];
+    [phoneLable setText:NSLocalizedString(@"Phone number", nil)];
     [phoneLable setTextColor:RGBACOLOR(85, 85, 85, 1)];
     [phoneLable setFont:ThemeFont(OrderFontSize)];
     [phoneLable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -606,7 +606,7 @@
         [_confirmOrderButton addTarget:self action:@selector(bottomControlButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [_confirmOrderButton setBackgroundColor:mainColor];
         [_confirmOrderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_confirmOrderButton setTitle:@"提交订单" forState:UIControlStateNormal];
+        [_confirmOrderButton setTitle:NSLocalizedString(@"Submit", nil) forState:UIControlStateNormal];
         [_confirmOrderButton.titleLabel setFont:ThemeFont(18)];
         [_confirmOrderButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.view);
@@ -644,7 +644,7 @@
     [_navigationBarView addSubview:navigationLabel];
     [navigationLabel setTextAlignment:NSTextAlignmentCenter];
     [navigationLabel setTextColor:[UIColor whiteColor]];
-    [navigationLabel setText:[NSString stringWithFormat:@"确认订单"]];
+    [navigationLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Confirm order", nil)]];
     [navigationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(_navigationBarView);
         make.centerY.equalTo(_navigationBarView).with.offset(Gap);
@@ -695,7 +695,7 @@
 }
 - (void)getOrderData {
     if ([rightNameLable.text isEqualToString:@""]) {
-        [self.view Message:@"请输入真实姓名" HiddenAfterDelay:1.0];
+        [self.view Message:NSLocalizedString(@"Legal name", nil) HiddenAfterDelay:1.0];
         return;
 
     }

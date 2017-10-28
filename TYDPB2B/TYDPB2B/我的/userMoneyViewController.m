@@ -76,7 +76,7 @@
                 debugLog(@"bankData:%@",data);
         if ([[NSString stringWithFormat:@"%@",data[@"content"][@"shop"][@"bank_switch"]] isEqualToString:@"0"]) {
             UIWindow *window = [UIApplication sharedApplication].keyWindow;
-            [window Message:@"尚未开放资金权限" HiddenAfterDelay:1.5];
+            [window Message:NSLocalizedString(@"Funds have not yet been opened", nil) HiddenAfterDelay:1.5];
             [self.navigationController popViewControllerAnimated:NO];
         }
         
@@ -134,7 +134,7 @@
 - (void)creatUI{
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ico_return"] style:UIBarButtonItemStylePlain target:self action:@selector(retBtnClick)];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
-    self.title=@"资金账户";
+    self.title=NSLocalizedString(@"Capital account", nil);
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -159,7 +159,7 @@
     
     UILabel *sign_numberLabel = [UILabel new];
     sign_numberLabel.textAlignment=NSTextAlignmentCenter;
-    [sign_numberLabel setText:[NSString stringWithFormat:@"月交易（笔）"]];
+    [sign_numberLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"yuejiaoyi_count", nil)]];
     [sign_numberLabel setFont:ThemeFont(14)];
     [sign_numberLabel setTextColor:[UIColor whiteColor]];
     sign_numberLabel.alpha=0.7;
@@ -190,7 +190,7 @@
     
     UILabel *sign_allKaLabel = [UILabel new];
     sign_allKaLabel.textAlignment=NSTextAlignmentCenter;
-    [sign_allKaLabel setText:[NSString stringWithFormat:@"账户数"]];
+    [sign_allKaLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Numbers of account", nil)]];
     [sign_allKaLabel setFont:ThemeFont(14)];
     [sign_allKaLabel setTextColor:[UIColor whiteColor]];
     sign_allKaLabel.alpha=0.7;
@@ -208,7 +208,7 @@
     
     morenqihuoLable = [UILabel new];
     morenqihuoLable.textAlignment=NSTextAlignmentCenter;
-    [morenqihuoLable setText:[NSString stringWithFormat:@"期货"]];
+    [morenqihuoLable setText:[NSString stringWithFormat:NSLocalizedString(@"Future", nil)]];
     [morenqihuoLable setFont:ThemeFont(14)];
     [morenqihuoLable setTextColor:mainColor];
     [morenqihuoLable setBackgroundColor:RGBACOLOR(234, 234, 234, 1)];
@@ -229,7 +229,7 @@
     
     morenxianhuoLable = [UILabel new];
     morenxianhuoLable.textAlignment=NSTextAlignmentCenter;
-    [morenxianhuoLable setText:[NSString stringWithFormat:@"现货"]];
+    [morenxianhuoLable setText:[NSString stringWithFormat:NSLocalizedString(@"Spot", nil)]];
     [morenxianhuoLable setFont:ThemeFont(14)];
     [morenxianhuoLable setTextColor:[UIColor grayColor]];
     [morenxianhuoLable setBackgroundColor:RGBACOLOR(234, 234, 234, 1)];
@@ -272,7 +272,7 @@
     [self.view addSubview:addbtn];
     addbtn.frame = CGRectMake(0, ScreenHeight-TabbarHeight, ScreenWidth, TabbarHeight);
     [addbtn setBackgroundColor:RGBACOLOR(218, 154, 41, 1)];
-    [addbtn setTitle:@"+添加账户" forState:UIControlStateNormal];
+    [addbtn setTitle:NSLocalizedString(@"+Creat an account", nil) forState:UIControlStateNormal];
     [addbtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [addbtn setBackgroundColor:mainColor];
     [addbtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -330,7 +330,7 @@
         [btn removeTarget:self action:@selector(addBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [btn addTarget:self action:@selector(postData) forControlEvents:UIControlEventTouchUpInside];
     }else{
-        [btn setTitle:@"+添加账户" forState:UIControlStateNormal];
+        [btn setTitle:NSLocalizedString(@"+Creat an account", nil) forState:UIControlStateNormal];
         [btn removeTarget:self action:@selector(postData) forControlEvents:UIControlEventTouchUpInside];
         [btn addTarget:self action:@selector(addBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -420,7 +420,7 @@
     [TYDPManager tydp_baseGetReqWithUrlStr:PHPURL params:params success:^(id data) {
         debugLog(@"deletedata:%@",data);
         if ([data[@"error"]isEqualToString:@"0"]) {
-            [self.view Message:@"删除成功" HiddenAfterDelay:1.0];
+            [self.view Message:NSLocalizedString(@"Success", nil) HiddenAfterDelay:1.0];
             [self requestData];
         }
     } failure:^(TYDPError *error) {
@@ -437,7 +437,7 @@
     NSDictionary *params = @{@"model":@"seller",@"action":@"defaultBank",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"sellerdefaultBank%@",ConfigNetAppKey]],@"bank_id":model.Id,@"user_id":[userdefaul objectForKey:@"user_id"],@"good_type":@"spot"};
     [TYDPManager tydp_baseGetReqWithUrlStr:PHPURL params:params success:^(id data) {
         if ([data[@"error"]isEqualToString:@"0"]) {
-           [self.view Message:@"操作成功" HiddenAfterDelay:1.0];
+           [self.view Message:NSLocalizedString(@"Success", nil) HiddenAfterDelay:1.0];
             [self requestData];
 
         }
@@ -454,7 +454,7 @@
     NSDictionary *params = @{@"model":@"seller",@"action":@"defaultBank",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"sellerdefaultBank%@",ConfigNetAppKey]],@"bank_id":model.Id,@"user_id":[userdefaul objectForKey:@"user_id"],@"good_type":@"future"};
     [TYDPManager tydp_baseGetReqWithUrlStr:PHPURL params:params success:^(id data) {
         if ([data[@"error"]isEqualToString:@"0"]) {
-            [self.view Message:@"操作成功" HiddenAfterDelay:1.0];
+            [self.view Message:NSLocalizedString(@"Success", nil) HiddenAfterDelay:1.0];
             [self requestData];
 
         }

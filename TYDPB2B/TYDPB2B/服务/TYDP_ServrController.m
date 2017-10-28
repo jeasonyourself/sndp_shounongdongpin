@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"服务";
+    self.title=NSLocalizedString(@"Service", nil);
     // Do any additional setup after loading the view.
     [self creatUI];
 }
@@ -34,8 +34,8 @@
 - (void)creatUI{
     
     _imgArr = @[@"serve_icon_agency",@"offer_icon_storage",@"serve_icon_financing",@"serve_icon_buy",@"serve_icon_price"];
-    _titleArr = @[@"代理报关",@"仓储服务",@"贷押货款",@"询盘服务",@"行业资讯"];
-    _subTitleArr = @[@"步骤简单，轻松搞定",@"为您选择最优质的仓库",@"步骤简单，轻松搞定",@"轻松求购，满足所需",@"行业信息，汇聚于此"];
+    _titleArr = @[NSLocalizedString(@"Inland Logistics", nil),NSLocalizedString(@"Storage Service", nil),NSLocalizedString(@"Mortgage lending", nil),NSLocalizedString(@"Enquiry service", nil),NSLocalizedString(@"Industry information", nil)];
+    _subTitleArr = @[@"",@"",@"",@"",@""];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     _tableVC = [[UITableView alloc]initWithFrame:CGRectMake(0, NavHeight, ScreenWidth, ScreenHeight-NavHeight-TabbarHeight)];

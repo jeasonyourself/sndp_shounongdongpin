@@ -84,13 +84,13 @@
 - (IBAction)saveBtnClickToPostData {
     
     if ([self.nameTf.text isEqualToString:@""]||[self.IDnumberTf.text isEqualToString:@""]||[self.kaiHuHangTf.text isEqualToString:@""]) {
-        [self.view Message:@"请完善必要信息" HiddenAfterDelay:1.0];
+        [self.view Message:NSLocalizedString(@"Please improve necessary information", nil) HiddenAfterDelay:1.0];
         return;
     }
     
     [self creatHUD];
     if (self.phoneNumberTf.text.length!=11) {
-        [_MBHUD setLabelText:@"请输入正确手机号"];
+        [_MBHUD setLabelText:NSLocalizedString(@"Enter Real Phone number", nil)];
         [_MBHUD hide:YES afterDelay:1.5f];
         NSLog(@"请输入正确手机号");
     }else{
@@ -103,7 +103,7 @@
             //        NSLog(@"%@",data);
             if ([data[@"error"] isEqualToString:@"0"]) {
                 NSLog(@"添加成功");
-                [_MBHUD setLabelText:@"操作成功！"];
+                [_MBHUD setLabelText:NSLocalizedString(@"Success", nil)];
                 [self.navigationController popViewControllerAnimated:YES];
             }else{
                 [_MBHUD setLabelText:data[@"message"]];

@@ -441,7 +441,7 @@ typedef enum {
     _followNum=ShopData[@"follow_count"];
     fo= [_followNum integerValue];
 
-    _NumLab.text = [NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Number of reads",nil),ShopData[@"follow_count"]];
+    _NumLab.text = [NSString stringWithFormat:@"%@%@",ShopData[@"follow_count"],NSLocalizedString(@"Followed",nil)];
 //        _NumLab.text = [NSString stringWithFormat:@"%@",ShopData[@"order_num"]];
 //        _addressLab.text = [NSString stringWithFormat:@"所在地:%@ %@",ShopData[@"province"],ShopData[@"city"]];
 }
@@ -603,7 +603,7 @@ typedef enum {
     
     
     _btnImgArr = @[@"firm_icon_all_n",@"firm_icon_cash_n",@"firm_icon_futures_n"];
-    _btnLabArr = @[@"全部",@"最新",@"促销"];
+    _btnLabArr = @[NSLocalizedString(@"All",nil),NSLocalizedString(@"New",nil),NSLocalizedString(@"On Sale",nil)];
     _currentBtnImgArr = @[@"firm_icon_all_s",@"firm_icon_cash_s",@"firm_icon_futures_s"];
     if (!_t_btnArray) {
         _t_btnArray=[NSMutableArray new];
@@ -789,7 +789,7 @@ typedef enum {
                 nintyLab.text=NSLocalizedString(@"Followed",nil);
                 nintyLab.backgroundColor=[UIColor grayColor];
                 fo++;
-                _NumLab.text = [NSString stringWithFormat:@"%@:%ld",NSLocalizedString(@"Number of reads",nil),fo];
+                _NumLab.text = [NSString stringWithFormat:@"%ld%@",fo,NSLocalizedString(@"Followed",nil)];
             } else {
                 [_MBHUD setLabelText:data[@"message"]];
                 [_MBHUD hide:YES afterDelay:1.5f];

@@ -101,7 +101,7 @@
 
 - (void)creatUI{
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ico_return"] style:UIBarButtonItemStylePlain target:self action:@selector(retBtnClick)];
-    self.navigationItem.title = @"我的询盘";
+    self.navigationItem.title = NSLocalizedString(@"My inquiry", nil);
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
 
     _spreadArr = [[NSMutableArray alloc]init];

@@ -1271,13 +1271,13 @@ make.edges.equalTo(bottomCellView).with.insets(UIEdgeInsetsMake(0, 0, Gap, 0)); 
             make.height.mas_equalTo(20);
         }];
         if ([_more_type isEqualToString:@"hot"]) {
-            [titleLable setText:@"秒杀"];
+            [titleLable setText:NSLocalizedString(@"Time limit", nil)];
         }
         if ([_more_type isEqualToString:@"promote"]) {
-            [titleLable setText:@"特价"];
+            [titleLable setText:NSLocalizedString(@"Today\'s deal", nil)];
         }
         if ([_more_type isEqualToString:@"best"]) {
-            [titleLable setText:@"推荐"];
+            [titleLable setText:NSLocalizedString(@"Recommended products", nil)];
         }
         titleLable.textColor=[UIColor whiteColor];
         [titleLable setFont:ThemeFont(16)];

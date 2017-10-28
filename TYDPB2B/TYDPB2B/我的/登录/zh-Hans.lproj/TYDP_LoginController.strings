@@ -1,0 +1,15 @@
+
+/* Class = "UITextField"; placeholder = "输入密码"; ObjectID = "Kix-nk-yrk"; */
+"Kix-nk-yrk.placeholder" = "输入密码";
+
+/* Class = "UIButton"; normalTitle = "忘记密码？"; ObjectID = "PG6-Iy-Qu0"; */
+"PG6-Iy-Qu0.normalTitle" = "忘记密码？";
+
+/* Class = "UILabel"; text = "微信"; ObjectID = "Sx7-fW-HFf"; */
+"Sx7-fW-HFf.text" = "微信";
+
+/* Class = "UITextField"; placeholder = "输入手机号"; ObjectID = "ZQM-sV-GNy"; */
+"ZQM-sV-GNy.placeholder" = "输入手机号";
+
+/* Class = "UILabel"; text = "————— 其他登录方式 —————"; ObjectID = "u5H-zC-Q1t"; */
+"u5H-zC-Q1t.text" = "————— 其他登录方式 —————";

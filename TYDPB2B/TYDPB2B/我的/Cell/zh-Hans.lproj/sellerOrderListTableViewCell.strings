@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "猪脚"; ObjectID = "7dw-gF-usE"; */
+"7dw-gF-usE.text" = "猪脚";
+
+/* Class = "UILabel"; text = "2016-07-05 10:28"; ObjectID = "IX1-lA-LeG"; */
+"IX1-lA-LeG.text" = "2016-07-05 10:28";
+
+/* Class = "UILabel"; text = "$12000.00"; ObjectID = "M3D-kK-ZHe"; */
+"M3D-kK-ZHe.text" = "$12000.00";
+
+/* Class = "UILabel"; text = "2016070523564"; ObjectID = "kbR-JB-vrG"; */
+"kbR-JB-vrG.text" = "2016070523564";
+
+/* Class = "UILabel"; text = "猪脚"; ObjectID = "mez-NS-MAw"; */
+"mez-NS-MAw.text" = "猪脚";
+
+/* Class = "UILabel"; text = "猪脚"; ObjectID = "p6f-Qs-oMP"; */
+"p6f-Qs-oMP.text" = "猪脚";
+
+/* Class = "UILabel"; text = "待支付"; ObjectID = "v8s-CE-ByQ"; */
+"v8s-CE-ByQ.text" = "待支付";
+
+/* Class = "UIButton"; normalTitle = "确认库存"; ObjectID = "vPG-jq-COe"; */
+"vPG-jq-COe.normalTitle" = "确认库存";

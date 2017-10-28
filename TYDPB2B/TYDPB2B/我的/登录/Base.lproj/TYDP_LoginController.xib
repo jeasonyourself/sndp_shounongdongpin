@@ -42,11 +42,11 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="secureTextEntry" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PG6-Iy-Qu0">
-                    <rect key="frame" x="40" y="298" width="70" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PG6-Iy-Qu0">
+                    <rect key="frame" x="40" y="298" width="150" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="AMN-fd-yEB"/>
-                        <constraint firstAttribute="width" constant="70" id="WJF-jz-iBj"/>
+                        <constraint firstAttribute="width" constant="150" id="WJF-jz-iBj"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="忘记密码？">

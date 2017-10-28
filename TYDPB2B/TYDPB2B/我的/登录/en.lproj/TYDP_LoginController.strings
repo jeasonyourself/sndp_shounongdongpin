@@ -1,0 +1,15 @@
+
+/* Class = "UITextField"; placeholder = "输入密码"; ObjectID = "Kix-nk-yrk"; */
+"Kix-nk-yrk.placeholder" = "Password";
+
+/* Class = "UIButton"; normalTitle = "忘记密码？"; ObjectID = "PG6-Iy-Qu0"; */
+"PG6-Iy-Qu0.normalTitle" = "Forget password？";
+
+/* Class = "UILabel"; text = "微信"; ObjectID = "Sx7-fW-HFf"; */
+"Sx7-fW-HFf.text" = "Login with Wechat";
+
+/* Class = "UITextField"; placeholder = "输入手机号"; ObjectID = "ZQM-sV-GNy"; */
+"ZQM-sV-GNy.placeholder" = "Your phone NO.";
+
+/* Class = "UILabel"; text = "————— 其他登录方式 —————"; ObjectID = "u5H-zC-Q1t"; */
+"u5H-zC-Q1t.text" = "————— Other login methods —————";

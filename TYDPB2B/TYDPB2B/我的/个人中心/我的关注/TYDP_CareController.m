@@ -34,7 +34,7 @@
 - (void)creatUI{
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ico_return"] style:UIBarButtonItemStylePlain target:self action:@selector(retBtnClick)];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
-    self.navigationItem.title = @"我的关住";
+    self.navigationItem.title = NSLocalizedString(@"My Following", nil);
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeBottom;
@@ -119,7 +119,7 @@
     TYDP_NewVendorModel *NewVendorMD=[_allArr objectAtIndex:indexPath.row];
     [cell.mainImg sd_setImageWithURL:[NSURL URLWithString:NewVendorMD.user_face] placeholderImage:nil];
     cell.numLab.text=NewVendorMD.shop_name;
-    cell.detailLab.text=[NSString stringWithFormat:@"订单成交量:%@",NewVendorMD.order_num];
+    cell.detailLab.text=[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Order volume", nil),NewVendorMD.order_num];
     if (NewVendorMD.good_list.count>0) {
         TYDP_followListIntroduceGoodsModel *followListIntroduceGoodsMD=[NewVendorMD.good_list objectAtIndex:0];
         [cell.firstImg sd_setImageWithURL:[NSURL URLWithString:followListIntroduceGoodsMD.goods_thumb] placeholderImage:nil];

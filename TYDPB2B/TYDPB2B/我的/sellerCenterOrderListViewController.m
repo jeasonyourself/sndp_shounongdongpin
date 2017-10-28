@@ -50,14 +50,14 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.navigationItem.title = @"全部订单";
+    self.navigationItem.title =NSLocalizedString(@"Order list", nil);
     self.automaticallyAdjustsScrollViewInsets = NO;
     //创建scroll
     _scroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, NavHeight, ScreenWidth, 40)];
     [self.view addSubview:_scroll];
     _scroll.delaysContentTouches = NO;
     _scroll.backgroundColor = [UIColor whiteColor];
-    NSArray *titleArr = @[@"全部",@"未收款",@"已收款",@"已预付",@"已完成"];
+    NSArray *titleArr = @[NSLocalizedString(@"All", nil),NSLocalizedString(@"Obliga-tion", nil),NSLocalizedString(@"Paid", nil),NSLocalizedString(@"Prepaid", nil),NSLocalizedString(@"Finished", nil)];
     _scroll.contentSize = CGSizeMake(ScreenWidth, 0);
     for (int i = 0; i<5; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -66,7 +66,10 @@
         btn.frame = CGRectMake(i*ScreenWidth/5+10, 0, ScreenWidth/5-20, 40);
         [btn setTitle:titleArr[i] forState:UIControlStateNormal];
         if (i != 0) {
-            btn.titleLabel.font = [UIFont systemFontOfSize:14];
+            btn.titleLabel.font = [UIFont systemFontOfSize:13];
+            if (i==1) {
+                btn.titleLabel.font = [UIFont systemFontOfSize:11];
+            }
         }
         [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
 
@@ -183,10 +186,10 @@
 //    cell.howMuchLable.text = cellData[@"order_status_format"];
 
    if (![[NSString stringWithFormat:@"%@",cellData[@"stock_status"]] isEqualToString:@"0"]){
-       [cell.typeBtn setTitle:@"详细信息" forState:UIControlStateNormal];
+       [cell.typeBtn setTitle:NSLocalizedString(@"Confirm inventory", nil) forState:UIControlStateNormal];
        cell.typeBtn.hidden=NO;
     }else{
-        [cell.typeBtn setTitle:@"确认库存" forState:UIControlStateNormal];
+        [cell.typeBtn setTitle:NSLocalizedString(@"Detailed", nil) forState:UIControlStateNormal];
         cell.typeBtn.hidden=NO;
     }
     

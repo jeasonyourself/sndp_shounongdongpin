@@ -37,7 +37,7 @@
     logoImg.frame = CGRectMake(ScreenWidth/2-38*Width, 36*Height+NavHeight, 95*Width, 95*Height);
     [self.view addSubview:logoImg];
     
-    NSArray *titleArr = @[@"输入旧密码",@"输入新密码",@"再次输入新密码"];
+    NSArray *titleArr = @[NSLocalizedString(@"Old password", nil),NSLocalizedString(@"New password", nil),NSLocalizedString(@"Re-enter new password", nil)];
     //三行输入框
     for (int i = 0; i<3; i++) {
         UITextField *tf = [[UITextField alloc]initWithFrame:CGRectMake(55*Width, (150+55*i)*Height+NavHeight, ScreenWidth-110*Width, 55*Height)];
@@ -58,7 +58,7 @@
     btn.backgroundColor = mainColor;
     btn.layer.cornerRadius = 22.5*Height;
     btn.layer.masksToBounds = YES;
-    [btn setTitle:@"保存" forState:UIControlStateNormal];
+    [btn setTitle:NSLocalizedString(@"Save", nil) forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont systemFontOfSize:20];
     [btn addTarget:self action:@selector(saveBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -77,7 +77,7 @@
         [self requestData];
     }else{
         [_MBHUD setMode:MBProgressHUDModeText];
-        [_MBHUD setLabelText:@"两次输入密码不一样"];
+        [_MBHUD setLabelText:NSLocalizedString(@"The two input password is not the same", nil)];
         [_MBHUD hide:YES afterDelay:1];
         NSLog(@"两次输入密码不一样");
     }

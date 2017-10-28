@@ -53,7 +53,7 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBW-WY-JeD">
                         <rect key="frame" x="287" y="20" width="70" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="70" id="Sfg-Fe-sRB"/>
+                            <constraint firstAttribute="width" constant="100" id="Sfg-Fe-sRB"/>
                             <constraint firstAttribute="height" constant="20" id="a5v-aK-CPL"/>
                         </constraints>
                         <state key="normal" title="进入店铺">

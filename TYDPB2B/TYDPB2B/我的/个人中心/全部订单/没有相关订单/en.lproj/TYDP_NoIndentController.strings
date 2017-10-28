@@ -1,0 +1,6 @@
+
+/* Class = "UILabel"; text = "可以去看看有哪些想买的"; ObjectID = "aUD-3D-AJi"; */
+"aUD-3D-AJi.text" = "You can buy something what you want to buy";
+
+/* Class = "UILabel"; text = "您还没有相关的订单"; ObjectID = "gov-xe-Ibb"; */
+"gov-xe-Ibb.text" = "You don't have any orders yet";
