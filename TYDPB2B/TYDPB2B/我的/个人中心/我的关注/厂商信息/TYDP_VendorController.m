@@ -770,7 +770,7 @@ typedef enum {
                 nintyLab.text=NSLocalizedString(@"Follow",nil);
                 nintyLab.backgroundColor=mainColor;
                 fo--;
-                _NumLab.text = [NSString stringWithFormat:@"已有%ld人关注",fo];
+                _NumLab.text = [NSString stringWithFormat:@"%@%ld",NSLocalizedString(@"Followed", nil),fo];
             } else {
                 [_MBHUD setLabelText:data[@"message"]];
                 [_MBHUD hide:YES afterDelay:1.5f];
