@@ -301,9 +301,9 @@
 "+Creat an account"="添加账户";
 "Order volume"="订单成交量";
 "Settle down first"="您还不是商家用户，请先入驻";
-""="";
-""="";
-""="";
+"Waiting for audit"="入驻申请提交成功，请等待审核";
+"Apply for admission"="申请入驻";
+"Company address"="企业地址";
 ""="";
 ""="";
 ""="";

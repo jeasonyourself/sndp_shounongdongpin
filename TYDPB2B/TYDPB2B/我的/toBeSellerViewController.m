@@ -115,19 +115,19 @@ MBProgressHUD *_MBHUD;
                 break;
             case 2:
                 cell.inputTextField.userInteractionEnabled=YES;
-                cell.inputTextField.placeholder=@"请输入店铺名称";
+                cell.inputTextField.placeholder=NSLocalizedString(@"Shop name", nil);
             break;
             case 3:
                 cell.inputTextField.userInteractionEnabled=YES;
-                cell.inputTextField.placeholder=@"请输入真实姓名";
+                cell.inputTextField.placeholder=NSLocalizedString(@"Legal name", nil);
                 break;
             case 4:
                 cell.inputTextField.userInteractionEnabled=YES;
-                cell.inputTextField.placeholder=@"请输入邮箱";
+                cell.inputTextField.placeholder=NSLocalizedString(@"Email", nil);
                 break;
             case 5:
                 cell.inputTextField.userInteractionEnabled=YES;
-                cell.inputTextField.placeholder=@"请输入企业地址";
+                cell.inputTextField.placeholder=NSLocalizedString(@"Company address", nil);
                 break;
             default:
                 break;
@@ -203,7 +203,7 @@ MBProgressHUD *_MBHUD;
     {
         static NSString * const cellID = @"signTextViewCell";
         signTextViewTableViewCell *cell=(signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-        cell.signTextView.placeholder=@"请输入店铺简介";
+        cell.signTextView.placeholder=NSLocalizedString(@"About the shop", nil);
         cell.signTextView.text =_pubDic[@"shop_info"];
         cell.signTextView.delegate=self;
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
@@ -250,19 +250,19 @@ MBProgressHUD *_MBHUD;
             isSelect=YES;
             switch (i) {
                 case 0:
-                   _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:@"猪"]:[NSString stringWithFormat:@"%@ 猪",_pubDic[@"product"]];
+                   _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:NSLocalizedString(@"Pork", nil)]:[NSString stringWithFormat:@"%@ %@",_pubDic[@"product"],NSLocalizedString(@"Pork", nil)];
                     break;
                 case 1:
-                    _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:@"牛"]:[NSString stringWithFormat:@"%@ 牛",_pubDic[@"product"]];
+                    _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:NSLocalizedString(@"Beef", nil)]:[NSString stringWithFormat:@"%@ %@",_pubDic[@"product"],NSLocalizedString(@"Beef", nil)];
                     break;
                 case 2:
-                    _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:@"羊"]:[NSString stringWithFormat:@"%@ 羊",_pubDic[@"product"]];
+                    _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:NSLocalizedString(@"Lamb", nil)]:[NSString stringWithFormat:@"%@ %@",_pubDic[@"product"],NSLocalizedString(@"Lamb", nil)];
                     break;
                 case 3:
-                     _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:@"禽类"]:[NSString stringWithFormat:@"%@ 禽类",_pubDic[@"product"]];
+                     _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:NSLocalizedString(@"Poultry", nil)]:[NSString stringWithFormat:@"%@ %@",_pubDic[@"product"],NSLocalizedString(@"Poultry", nil)];
                     break;
                 case 4:
-                    _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:@"水产"]:[NSString stringWithFormat:@"%@ 水产",_pubDic[@"product"]];
+                    _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:NSLocalizedString(@"Seafoods", nil)]:[NSString stringWithFormat:@"%@ %@",_pubDic[@"product"],NSLocalizedString(@"Seafoods", nil)];
                     break;
                 default:
                     break;
@@ -279,7 +279,7 @@ MBProgressHUD *_MBHUD;
     }
     else
     {
-        [self.view Message:@"请完善申请资料" HiddenAfterDelay:1.5];
+        [self.view Message:NSLocalizedString(@"Please improve necessary information", nil) HiddenAfterDelay:1.5];
         return;
     }
     NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];
@@ -293,7 +293,7 @@ MBProgressHUD *_MBHUD;
         if ([data[@"error"]isEqualToString:@"0"]) {
             [_MBHUD hide:YES];
             UIWindow *window = [UIApplication sharedApplication].keyWindow;
-            [window Message:@"入驻申请提交成功，请等待审核" HiddenAfterDelay:1.5];
+            [window Message:NSLocalizedString(@"Waiting for audit", nil) HiddenAfterDelay:1.5];
              [self leftItemClicked:nil];
             
         }else{
@@ -348,7 +348,7 @@ MBProgressHUD *_MBHUD;
         make.height.mas_equalTo(20);
     }];
     
-    [titleLable setText:@"申请入驻"];
+    [titleLable setText:NSLocalizedString(@"Apply for admission", nil)];
     
     titleLable.textColor=[UIColor whiteColor];
     [titleLable setFont:ThemeFont(16)];
