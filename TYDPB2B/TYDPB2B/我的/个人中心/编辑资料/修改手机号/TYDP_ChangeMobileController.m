@@ -23,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *oldMobileLab;//当前手机号
 @property (strong, nonatomic) IBOutlet UIButton *sureBtn;//提交按钮
 - (IBAction)postDataWithSureBtnClick;
+@property (weak, nonatomic) IBOutlet UITextField *quhaoField;
 
 @end
 
@@ -31,6 +32,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _quhaoField.placeholder=NSLocalizedString(@"Your phone Country Code(default:0086)", nil);
+
     [self creatUI];
 }
 
@@ -146,7 +149,7 @@
 }
 
 - (void)getMobileCode{
-    NSDictionary *params = @{@"model":@"user",@"action":@"send_mobile_code",@"mobile":self.mobileTf.text,@"mobile_sign":[TYDPManager md5:[NSString stringWithFormat:@"%@%@",self.mobileTf.text,ConfigNetAppKey]],@"sign":[TYDPManager md5:[NSString stringWithFormat:@"usersend_mobile_code%@",ConfigNetAppKey]]};
+    NSDictionary *params = @{@"model":@"user",@"action":@"send_mobile_code",@"mobile":self.mobileTf.text,@"mobile_sign":[TYDPManager md5:[NSString stringWithFormat:@"%@%@",self.mobileTf.text,ConfigNetAppKey]],@"sign":[TYDPManager md5:[NSString stringWithFormat:@"usersend_mobile_code%@",ConfigNetAppKey]],@"nation_code":_quhaoField.text};
     [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
         if ([data[@"error"]isEqualToString:@"0"]) {
             [_MBHUD hide:YES];

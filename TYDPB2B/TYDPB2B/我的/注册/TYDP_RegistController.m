@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=NSLocalizedString(@"Register", nil);
+
     // Do any additional setup after loading the view.
     [self creatUI];
 }
@@ -44,21 +45,23 @@
 //    [self.view addSubview:logoImg];
     
     //四行输入框
-    NSArray *placeholderArr = @[NSLocalizedString(@"Your phone NO.", nil),NSLocalizedString(@"Verification code", nil),NSLocalizedString(@"password", nil),NSLocalizedString(@"Enter password again", nil)];
+    NSArray *placeholderArr = @[NSLocalizedString(@"Your phone Country Code(default:0086)", nil),NSLocalizedString(@"Your phone NO.", nil),NSLocalizedString(@"Verification code", nil),NSLocalizedString(@"password", nil),NSLocalizedString(@"Enter password again", nil)];
 //    NSArray *leftviewArr = @[@"login_phone",@"login_message",@"login_password",@"login_verification"];
-    for (int i = 0; i<4; i++) {
+    for (int i = 0; i<5; i++) {
         UITextField *tf = [[UITextField alloc]initWithFrame:CGRectMake(15, 64+(55*i)*Height, ScreenWidth-30, 55*Height)];
         tf.tag = 100+i;
         [self.view addSubview:tf];
         tf.background = [UIImage imageNamed:@"login_input"];
         tf.placeholder = placeholderArr[i];
-        
+        if (i<3) {
+            tf.keyboardType=UIKeyboardTypePhonePad;
+        }
 //        UIImageView *tfImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:leftviewArr[i]]];
 //        tf.leftView = tfImg;
 //        tf.leftViewMode = UITextFieldViewModeAlways;
 //        tf.clearButtonMode = UITextFieldViewModeAlways;
 
-        if (i == 1) {//获取验证码Btn
+        if (i == 2) {//获取验证码Btn
             tf.clearButtonMode = UITextFieldViewModeNever;
             UIButton *Btn = [UIButton buttonWithType:UIButtonTypeCustom];
             Btn.frame = CGRectMake(tf.frame.size.width-80*Width-20, 15*Height, 80*Width, 25*Height);
@@ -71,9 +74,9 @@
             Btn.layer.cornerRadius = 12.5*Height;
             [Btn setTitle:NSLocalizedString(@"Get code", nil) forState:UIControlStateNormal];
             [Btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
-        }else if (i == 2){//输入密码
+        }else if (i == 3){//输入密码
             tf.secureTextEntry = YES;
-        }else if (i == 3){//验证码图片
+        }else if (i == 4){//验证码图片
            tf.secureTextEntry = YES;
         }
         
@@ -146,10 +149,11 @@
 //注册按钮
 - (void)registBtnClick{
     [self creatHUD];
-    UITextField *tf1 = (UITextField *)[self.view viewWithTag:100];
-    UITextField *tf2 = (UITextField *)[self.view viewWithTag:101];
-    UITextField *tf3 = (UITextField *)[self.view viewWithTag:102];
-    UITextField *tf4 = (UITextField *)[self.view viewWithTag:103];
+    UITextField *tf0 = (UITextField *)[self.view viewWithTag:100];
+    UITextField *tf1 = (UITextField *)[self.view viewWithTag:101];
+    UITextField *tf2 = (UITextField *)[self.view viewWithTag:102];
+    UITextField *tf3 = (UITextField *)[self.view viewWithTag:103];
+    UITextField *tf4 = (UITextField *)[self.view viewWithTag:104];
     if (![tf3.text isEqualToString:tf4.text]) {
         [_MBHUD setLabelText:NSLocalizedString(@"The two input password is not the same", nil)];
         [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
@@ -185,9 +189,10 @@
 - (void)btnClick{
     NSLog(@"获取验证码");
     [self creatHUD];
-    UITextField *tf = (UITextField *)[self.view viewWithTag:100];
+    UITextField *tf1 = (UITextField *)[self.view viewWithTag:100];
+    UITextField *tf = (UITextField *)[self.view viewWithTag:101];
     NSString *sign = [NSString stringWithFormat:@"usersend_mobile_code%@",ConfigNetAppKey];
-    NSDictionary *params = @{@"model":@"user",@"action":@"send_mobile_code",@"mobile":tf.text,@"mobile_sign":[TYDPManager md5:[NSString stringWithFormat:@"%@%@",tf.text,ConfigNetAppKey]],@"sign":[TYDPManager md5:sign]};
+    NSDictionary *params = @{@"model":@"user",@"action":@"send_mobile_code",@"mobile":tf.text,@"mobile_sign":[TYDPManager md5:[NSString stringWithFormat:@"%@%@",tf.text,ConfigNetAppKey]],@"sign":[TYDPManager md5:sign],@"nation_code":tf1.text};
     [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
         NSLog(@"%@",data);
         NSLog(@"%@",data[@"message"]);

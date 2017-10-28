@@ -22,7 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _quhaoField.placeholder=NSLocalizedString(@"Your phone Country Code(default:0086)", nil);
     [self creatUI];
+    
 }
 
 - (void)retBtnClick{
@@ -157,7 +159,7 @@
     [self creatHUD];
     UITextField *tf = (UITextField *)[self.view viewWithTag:100];
     NSString *sign = [NSString stringWithFormat:@"usersend_mobile_code%@",ConfigNetAppKey];
-    NSDictionary *params = @{@"model":@"user",@"action":@"send_mobile_code",@"mobile":tf.text,@"mobile_sign":[TYDPManager md5:[NSString stringWithFormat:@"%@%@",tf.text,ConfigNetAppKey]],@"sign":[TYDPManager md5:sign]};
+    NSDictionary *params = @{@"model":@"user",@"action":@"send_mobile_code",@"mobile":tf.text,@"mobile_sign":[TYDPManager md5:[NSString stringWithFormat:@"%@%@",tf.text,ConfigNetAppKey]],@"sign":[TYDPManager md5:sign],@"nation_code":_quhaoField.text};
     [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
         debugLog(@"addresssss%@",data);
         debugLog(@"%@",data[@"message"]);

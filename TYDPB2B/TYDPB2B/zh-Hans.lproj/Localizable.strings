@@ -304,10 +304,10 @@
 "Waiting for audit"="入驻申请提交成功，请等待审核";
 "Apply for admission"="申请入驻";
 "Company address"="企业地址";
-""="";
-""="";
-""="";
-""="";
+"banner_serve_en"="banner_serve_ch";
+"Your phone Country Code(default:0086)"="请输入国家区号(默认0086)";
+"binding"="绑定";
+"Bind account"="绑定账号";
 ""="";
 ""="";
 ""="";

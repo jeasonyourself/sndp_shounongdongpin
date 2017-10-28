@@ -15,6 +15,7 @@
     int _sendTime;
     MBProgressHUD *_MBHUD;
 }
+@property (weak, nonatomic) IBOutlet UITextField *quhaoField;
 @property (strong, nonatomic) IBOutlet UITextField *mobileTf;//手机号
 @property (strong, nonatomic) IBOutlet UITextField *passwordTf;//密码
 @property (strong, nonatomic) IBOutlet UITextField *codeTf;//验证码
@@ -28,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _quhaoField.placeholder=NSLocalizedString(@"Your phone Country Code(default:0086)", nil);
+
     [self creatUI];
 }
 

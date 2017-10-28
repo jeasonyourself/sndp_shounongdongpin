@@ -48,7 +48,7 @@
     _tableVC.tableHeaderView  = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 262*Height)];
 
     UIImageView *headImg = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 250*Height)];
-    headImg.image = [UIImage imageNamed:@"banner_serve_ch"];
+    headImg.image = [UIImage imageNamed:NSLocalizedString(@"banner_serve_en", nil)];
     headImg.userInteractionEnabled=YES;
     [_tableVC.tableHeaderView addSubview:headImg];
     

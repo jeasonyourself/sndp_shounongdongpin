@@ -258,7 +258,6 @@
 		84136A2A1F4A8E24005BEA89 /* TYDP_pubOfferViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_pubOfferViewController.h; sourceTree = "<group>"; };
 		84136A2B1F4A8E24005BEA89 /* TYDP_pubOfferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_pubOfferViewController.m; sourceTree = "<group>"; };
 		8414D3F41FA44C700039D081 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/addSenderAddressViewController.xib; sourceTree = "<group>"; };
-		8414D3F71FA44C730039D081 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/addSenderAddressViewController.strings; sourceTree = "<group>"; };
 		8414D3F91FA44C760039D081 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/addSenderAddressViewController.strings"; sourceTree = "<group>"; };
 		8414D3FB1FA44CCE0039D081 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/addUserMoneyViewController.xib; sourceTree = "<group>"; };
 		8414D3FE1FA44CD00039D081 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/addUserMoneyViewController.strings; sourceTree = "<group>"; };
@@ -308,6 +307,7 @@
 		8414D4641FA496870039D081 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TYDP_CareCell.xib; sourceTree = "<group>"; };
 		8414D4671FA496890039D081 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TYDP_CareCell.strings; sourceTree = "<group>"; };
 		8414D4691FA4968B0039D081 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TYDP_CareCell.strings"; sourceTree = "<group>"; };
+		8414D46A1FA4D0710039D081 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/addSenderAddressViewController.strings; sourceTree = "<group>"; };
 		8417E2201F68DB460056E7F1 /* TYDP_wantBuyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_wantBuyDetailViewController.h; sourceTree = "<group>"; };
 		8417E2211F68DB460056E7F1 /* TYDP_wantBuyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_wantBuyDetailViewController.m; sourceTree = "<group>"; };
 		8417E2231F6928840056E7F1 /* commentListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentListModel.h; sourceTree = "<group>"; };
@@ -2177,8 +2177,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				8414D3F41FA44C700039D081 /* Base */,
-				8414D3F71FA44C730039D081 /* en */,
 				8414D3F91FA44C760039D081 /* zh-Hans */,
+				8414D46A1FA4D0710039D081 /* en */,
 			);
 			name = addSenderAddressViewController.xib;
 			sourceTree = "<group>";

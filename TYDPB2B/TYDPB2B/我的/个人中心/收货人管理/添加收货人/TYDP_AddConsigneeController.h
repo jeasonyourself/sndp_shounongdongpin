@@ -19,6 +19,7 @@
 @property (nonatomic, assign) int pushType;//0:修改,1:添加.
 @property (nonatomic, strong) TYDP_ConsigneeModel *model;
 @property (nonatomic, assign) int type;//0:买家,1:卖家.
+@property (weak, nonatomic) IBOutlet UITextField *quhaoField;
 
 @property (weak, nonatomic) IBOutlet JKCountDownButton *codeBtn;
 - (IBAction)codeBtnClick:(JKCountDownButton *)sender;
