@@ -333,7 +333,7 @@ return 90.0/375.0*ScreenWidth;
         
         UILabel *bottomPriceLabel = [UILabel new];
         [bottomPriceLabel setText:[NSString stringWithFormat:@"%@:%@/%@",NSLocalizedString(@"Original price", nil),tmpGoodsModel.shop_price,NSLocalizedString(@"Ton", nil)]];
-        [bottomPriceLabel setFont:ThemeFont(14)];
+        [bottomPriceLabel setFont:ThemeFont(12)];
         [bottomPriceLabel setTextColor:RGBACOLOR(252, 91, 49, 1)];
         [bottomCellView addSubview:bottomPriceLabel];
         [bottomPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {

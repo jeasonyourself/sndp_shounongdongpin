@@ -50,7 +50,7 @@
             if (_shopListModelArray.count) {
                 [self createWholeUI];
             } else {
-                [_MBHUD setLabelText:@"没有搜索结果～"];
+                [_MBHUD setLabelText:NSLocalizedString(@"No search result", nil)];
                 [_MBHUD hide:YES afterDelay:1.5f];
             }
         } else{
@@ -123,7 +123,7 @@
             //            make.width.mas_equalTo(16*6);
         }];
         [bottomSmallLabel setFont:ThemeFont(13)];
-        [bottomSmallLabel setText:[NSString stringWithFormat:@"订单成交量%@",shopListModel.order_num]];
+        [bottomSmallLabel setText:[NSString stringWithFormat:@"%@%@",NSLocalizedString(@"Order volume", nil),shopListModel.order_num]];
         [bottomSmallLabel setTextColor:[UIColor grayColor]];
         [bottomSmallLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(leftBigImageView.mas_right).with.offset(Gap);
@@ -151,7 +151,7 @@
         UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [smallTopView addSubview:rightButton];
         rightButton.tag = i+1;
-        [rightButton setTitle:[NSString stringWithFormat:@"进入店铺"] forState:UIControlStateNormal];
+        [rightButton setTitle:[NSString stringWithFormat:NSLocalizedString(@"Into store", nil)] forState:UIControlStateNormal];
         [rightButton setTitleColor:RGBACOLOR(85, 85, 85, 1) forState:UIControlStateNormal];
         rightButton.clipsToBounds = YES;
         rightButton.layer.cornerRadius = 6;
@@ -238,7 +238,7 @@
     [_navigationBarView addSubview:navigationLabel];
     [navigationLabel setTextAlignment:NSTextAlignmentCenter];
     [navigationLabel setTextColor:[UIColor whiteColor]];
-    [navigationLabel setText:[NSString stringWithFormat:@"店铺列表"]];
+    [navigationLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Shop list", nil)]];
     [navigationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(_navigationBarView);
         make.centerY.equalTo(_navigationBarView).with.offset(Gap);

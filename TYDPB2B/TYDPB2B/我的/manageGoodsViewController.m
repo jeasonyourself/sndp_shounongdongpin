@@ -42,7 +42,7 @@
     _goodsModelArray=[[NSMutableArray alloc] init];
     
     province=[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Future", nil)],[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Spot", nil)], nil];
-    city=[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"FCL", nil)],[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Retail", nil)], nil];
+    city=[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Retail", nil)],[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"FCL", nil)], nil];
     district=[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"On Shelf", nil)],[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Off Shelf", nil)],nil];
     
     selectedProvince=[NSString stringWithFormat:@"6"];
@@ -120,7 +120,7 @@ page=1;
     }
 
     UILabel *bottomMeasureLabel = [UILabel new];
-    [bottomMeasureLabel setText:[NSString stringWithFormat:@"我要卖"]];
+    [bottomMeasureLabel setText:[NSString stringWithFormat:NSLocalizedString(@"For sell", nil)]];
     [bottomMeasureLabel setFont:ThemeFont(14)];
     [bottomMeasureLabel setTextColor:[UIColor whiteColor]];
     [bottomMeasureLabel setBackgroundColor:mainColor];
@@ -350,7 +350,7 @@ page=1;
     }];
 
     UILabel *passLale = [UILabel new];
-    [passLale setText:[NSString stringWithFormat:@"%@",@"审核通过"]];
+    [passLale setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Audit through", nil)]];
     [passLale setFont:ThemeFont(12)];
     [passLale setTextColor:RGBACOLOR(102, 102, 102, 1)];
     passLale.textAlignment=NSTextAlignmentRight;
@@ -407,7 +407,7 @@ page=1;
     }];
     
     UILabel *middleMiddleLabel = [UILabel new];
-    [middleMiddleLabel setText:[NSString stringWithFormat:@"厂号：%@",tmpGoodsModel.brand_sn]];
+    [middleMiddleLabel setText:[NSString stringWithFormat:@"%@%@",NSLocalizedString(@"Plat NO.", nil),tmpGoodsModel.brand_sn]];
     [middleMiddleLabel setFont:ThemeFont(13)];
     [middleMiddleLabel setTextColor:RGBACOLOR(102, 102, 102, 1)];
     [bottomCellView addSubview:middleMiddleLabel];
@@ -419,7 +419,8 @@ page=1;
     }];
     
     UILabel *bottomPriceLabel = [UILabel new];
-    [bottomPriceLabel setText:[NSString stringWithFormat:@"原价:%@/%@",tmpGoodsModel.shop_price,tmpGoodsModel.unit_name]];
+//    原价:
+    [bottomPriceLabel setText:[NSString stringWithFormat:@"%@/%@",tmpGoodsModel.shop_price,tmpGoodsModel.unit_name]];
     [bottomPriceLabel setFont:ThemeFont(14)];
     [bottomPriceLabel setTextColor:RGBACOLOR(252, 91, 49, 1)];
     [bottomCellView addSubview:bottomPriceLabel];
@@ -498,7 +499,7 @@ page=1;
     bottomEditLabel.layer.masksToBounds = YES;//设为NO去试试
     [bottomCellView addSubview:bottomEditLabel];
     [bottomEditLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(bottomMeasureLabel.mas_left).with.offset(-Gap);
+        make.right.equalTo(bottomMeasureLabel.mas_left).with.offset(-5);
         make.bottom.equalTo(bottomCellView.mas_bottom).with.offset(-8);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(25);
@@ -522,7 +523,7 @@ page=1;
     downLabel.layer.masksToBounds = YES;//设为NO去试试
     [bottomCellView addSubview:downLabel];
     [downLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(bottomEditLabel.mas_left).with.offset(-Gap);
+        make.right.equalTo(bottomEditLabel.mas_left).with.offset(-5);
         make.bottom.equalTo(bottomCellView.mas_bottom).with.offset(-8);
         make.width.mas_equalTo(90);
         make.height.mas_equalTo(25);

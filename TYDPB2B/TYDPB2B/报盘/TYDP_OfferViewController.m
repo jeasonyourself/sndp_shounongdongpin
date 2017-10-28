@@ -107,7 +107,7 @@ typedef enum {
 
 - (NSArray *)rightFirstListArray {
     if (!_rightFirstListArray) {
-        _rightFirstListArray = [NSArray arrayWithObjects:NSLocalizedString(@"Origin", nil),NSLocalizedString(@"Plat No.", nil),NSLocalizedString(@"Product", nil),NSLocalizedString(@"Port", nil),NSLocalizedString(@"Offer type", nil),[NSString stringWithFormat:@"%@/%@/%@",NSLocalizedString(@"SpotToBe", nil),NSLocalizedString(@"Future", nil),NSLocalizedString(@"Spot", nil)],NSLocalizedString(@"Location", nil),NSLocalizedString(@"Estimated time of arrival", nil),[NSString stringWithFormat:@"%@/%@",NSLocalizedString(@"Retail", nil),NSLocalizedString(@"FCL", nil)], nil];
+        _rightFirstListArray = [NSArray arrayWithObjects:NSLocalizedString(@"Origin", nil),NSLocalizedString(@"Plat No.", nil),NSLocalizedString(@"Product", nil),NSLocalizedString(@"Port", nil),NSLocalizedString(@"Offer type", nil),[NSString stringWithFormat:@"%@/%@/%@",NSLocalizedString(@"SpotToBe", nil),NSLocalizedString(@"Future", nil),NSLocalizedString(@"Spot", nil)],NSLocalizedString(@"Location", nil),NSLocalizedString(@"Estimated time of arrival", nil),[NSString stringWithFormat:@"%@/%@",NSLocalizedString(@"FCL", nil),NSLocalizedString(@"Retail", nil)], nil];
 //        _rightFirstListArray = [NSArray arrayWithObjects:@"产地",@"厂号",@"产品",@"港口",@"报盘类型",@"准/期／现货",@"所在地",@"预计到港时间",@"整柜/零售", nil];
     }
     return _rightFirstListArray;

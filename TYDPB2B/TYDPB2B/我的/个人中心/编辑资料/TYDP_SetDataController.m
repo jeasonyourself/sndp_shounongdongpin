@@ -78,7 +78,7 @@
     if (!self.model.user_face) {
         rightImg.image = [UIImage imageNamed:@"person_head_default"];
     }else{
-        [rightImg sd_setImageWithURL:[NSURL URLWithString:self.model.user_face]];//从网络获取
+        [rightImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.model.user_face]]];//从网络获取
     }
     rightImg.userInteractionEnabled = YES;
     rightImg.tag = 300;

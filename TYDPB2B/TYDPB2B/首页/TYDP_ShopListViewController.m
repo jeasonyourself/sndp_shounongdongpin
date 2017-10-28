@@ -94,7 +94,7 @@ typedef enum {
 
 -(NSArray *)topLabelArray {
     if (!_topLabelArray) {
-        _topLabelArray = [NSArray arrayWithObjects:NSLocalizedString(@"Spot", nil),NSLocalizedString(@"Future", nil),NSLocalizedString(@"SpotToBe", nil),NSLocalizedString(@"Retail", nil),NSLocalizedString(@"FCL", nil), nil];
+        _topLabelArray = [NSArray arrayWithObjects:NSLocalizedString(@"Spot", nil),NSLocalizedString(@"Future", nil),NSLocalizedString(@"SpotToBe", nil),NSLocalizedString(@"FCL", nil),NSLocalizedString(@"Retail", nil), nil];
     }
     return _topLabelArray;
 }

@@ -28,7 +28,8 @@
 #import "TTTAttributedLabel.h"
 #import "TYDP_wantBuyViewController.h"
 #import "TYDP_wantBuyDetailViewController.h"
-
+#import "AppDelegate.h"
+#import "NSBundle+Language.h"
 @interface TYDP_HomepageViewController ()<UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate,UIGestureRecognizerDelegate,UIScrollViewDelegate,UISearchBarDelegate>
 @property(nonatomic, strong)UIView *navigationBarView;
 @property(nonatomic, strong)UIView *blackView;
@@ -59,6 +60,7 @@
 @property(nonatomic, strong)NSArray *qiuGouModelArray;
 @property(nonatomic, strong)HomePageMiddlePicModel *middlePicModel;
 @property(nonatomic, strong)UIButton *searchTypeButton;
+@property(nonatomic, strong)UIButton *offerButton;
 @property(nonatomic, assign)BOOL isUnfold;
 @property(nonatomic, strong)UIImageView *selectImageView;
 @property(nonatomic, assign)BOOL searchTypeState;
@@ -88,7 +90,7 @@ typedef enum {
 }
 -(NSArray *)functionViewStringArray {
     if (!_functionViewStringArray) {
-        _functionViewStringArray = [NSArray arrayWithObjects:NSLocalizedString(@"Spot", nil),NSLocalizedString(@"Future", nil),NSLocalizedString(@"SpotToBe", nil),NSLocalizedString(@"Retail", nil),NSLocalizedString(@"FCL", nil),@"通关",@"物流",@"金融",@"询盘", nil];
+        _functionViewStringArray = [NSArray arrayWithObjects:NSLocalizedString(@"Spot", nil),NSLocalizedString(@"Future", nil),NSLocalizedString(@"SpotToBe", nil),NSLocalizedString(@"FCL", nil),NSLocalizedString(@"Retail", nil),@"通关",@"物流",@"金融",@"询盘", nil];
     }
     return _functionViewStringArray;
 }
@@ -1363,7 +1365,7 @@ typedef enum {
         make.left.equalTo(_searchTypeButton).with.offset(60);
         make.bottom.equalTo(_navigationBarView.mas_bottom).with.offset(-8);
         make.height.mas_equalTo(CommonSearchViewHeight);
-        make.right.equalTo(_navigationBarView).with.offset(-20);
+        make.right.equalTo(_navigationBarView).with.offset(-105);
 //        make.edges.equalTo(_searchView).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     _searchBar.layer.borderColor = [RGBACOLOR(230, 230, 230, 1) CGColor];
@@ -1411,7 +1413,62 @@ typedef enum {
     [_cancelButton setAlpha:0.5];
     _cancelButton.tag = CancelButtonMessage;
     [_cancelButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    _offerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_offerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_offerButton setTitle:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Switch language",nil)] forState:UIControlStateNormal];
+    [_offerButton addTarget:self action:@selector(offerButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    _offerButton.titleLabel.font=[UIFont systemFontOfSize:13.0];
+    //    [_searchTypeButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [_navigationBarView addSubview:_offerButton];
+    [_offerButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(_navigationBarView).with.offset(0);
+        make.top.equalTo(_navigationBarView).with.offset(20);
+        make.bottom.equalTo(_navigationBarView);
+        make.width.mas_equalTo(100.0);
+    }];
+
+    
     [self getHomepageData];
+}
+-(void)offerButtonClicked:(UIButton *)Btn
+{
+    // 切换语言前
+    NSArray *langArr1 = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
+    NSString *language1 = langArr1.firstObject;
+    debugLog(@"模拟器语言切换之前：%@",language1);
+    
+    NSArray *lans;
+    if ([language1 isEqualToString:@"zh-Hans"]) {
+        lans = @[@"en"];
+    }
+    else
+    {
+        lans = @[@"zh-Hans"];
+    }
+    // 切换语言
+    
+    [[NSUserDefaults standardUserDefaults] setObject:lans forKey:@"AppleLanguages"];
+    
+    // 切换语言后
+    NSArray *langArr2 = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
+    NSString *language2 = langArr2.firstObject;
+    debugLog(@"语言切换之后：%@",language2);
+    //改变完成之后发送通知，告诉其他页面修改完成，提示刷新界面
+    
+    [NSBundle setLanguage:language2];
+    
+    // 然后将设置好的语言存储好，下次进来直接加载
+    [[NSUserDefaults standardUserDefaults] setObject:language2 forKey:@"myLanguage"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [PSDefaults setObject:@"0" forKey:@"needCenterBtn"];
+    
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    TYDPTabBarController*  rootVC = story.instantiateInitialViewController;
+    AppDelegate* appDele=(AppDelegate* )[UIApplication sharedApplication].delegate;
+    appDele.window.rootViewController=rootVC;
 }
 #pragma mark 侧滑按钮的触发方法
 -(void)buttonClicked:(UIButton *)button {
@@ -1481,7 +1538,7 @@ typedef enum {
     [filterDic setObject:_searchBar.text forKey:@"keywords"];
     if (_searchTypeState) {//商品搜索
         if ([_searchBar.text isEqualToString:@""]||_searchBar.text == nil) {
-            [_MBHUD setLabelText:@"亲，没有输入搜索关键字哦。"];
+            [_MBHUD setLabelText:NSLocalizedString(@"No keyword", nil)];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             [_MBHUD hide:YES afterDelay:1.0f];
@@ -1497,7 +1554,7 @@ typedef enum {
         }
     } else {//店铺搜索
         if ([_searchBar.text isEqualToString:@""]||_searchBar.text == nil) {
-            [_MBHUD setLabelText:@"亲，没有输入搜索关键字哦。"];
+            [_MBHUD setLabelText:NSLocalizedString(@"No keyword", nil)];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             [_MBHUD hide:YES afterDelay:1.0f];
