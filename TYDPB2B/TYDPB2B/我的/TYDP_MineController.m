@@ -598,7 +598,7 @@
     if (![[NSString stringWithFormat:@"%@",_model.user_rank] isEqualToString:@"2"]) {
         if ([[NSString stringWithFormat:@"%@",_model.join] isEqualToString:@"1"]) {
             UIWindow *window = [UIApplication sharedApplication].keyWindow;
-            [window Message:@"您还不是商家用户，请先入驻" HiddenAfterDelay:1.0];
+            [window Message:NSLocalizedString(@"Settle down first", nil) HiddenAfterDelay:1.0];
             
             UIStoryboard *story = [UIStoryboard storyboardWithName:@"seller_Storyboard" bundle:nil];
             toBeSellerViewController * toBeSellerVC = [story instantiateViewControllerWithIdentifier:@"toBeSellerVC"];
