@@ -397,11 +397,11 @@ return 90.0/375.0*ScreenWidth;
         NSString *firstImageViewString;
         switch ([tmpGoodsModel.goods_type intValue]) {
             case 7:{
-                firstImageViewString = [NSString stringWithFormat:@"pic_cash"];
+                firstImageViewString = [NSString stringWithFormat:NSLocalizedString(@"pic_cash_en",nil)];
                 break;
             }
             case 6:{
-                firstImageViewString = [NSString stringWithFormat:@"pic_futures"];
+                firstImageViewString = [NSString stringWithFormat:NSLocalizedString(@"pic_futures_en",nil)];
                 break;
             }
             default:
@@ -410,11 +410,11 @@ return 90.0/375.0*ScreenWidth;
         NSString *secondImageViewString;
         switch ([tmpGoodsModel.sell_type intValue]) {
             case 4:{
-                secondImageViewString = [NSString stringWithFormat:@"pic_zero"];
+                secondImageViewString = [NSString stringWithFormat:NSLocalizedString(@"pic_zero_en",nil)];
                 break;
             }
             case 5:{
-                secondImageViewString = [NSString stringWithFormat:@"pic_fcl"];
+                secondImageViewString = [NSString stringWithFormat:NSLocalizedString(@"pic_fcl_en",nil)];
                 break;
             }
             default:
@@ -423,13 +423,13 @@ return 90.0/375.0*ScreenWidth;
         [smallRightFirstImageView setImage:[UIImage imageNamed:firstImageViewString]];
         [smallRightSecondImageView setImage:[UIImage imageNamed:secondImageViewString]];
         if ([tmpGoodsModel.offer isEqualToString:@"11"]) {
-            [smallRightThirdImageView setImage:[UIImage imageNamed:@"pic_bargaining"]];
+            [smallRightThirdImageView setImage:[UIImage imageNamed:NSLocalizedString(@"pic_bargaining_en",nil)]];
 //            if ([tmpGoodsModel.is_pin isEqualToString:@"1"]) {
-//                [smallRightFouthImageView setImage:[UIImage imageNamed:@"pic_lcl"]];
+//                [smallRightFouthImageView setImage:[UIImage imageNamed:NSLocalizedString(@"pic_lcl_en",nil)]];
 //            }
 //        } else {
 //            if ([tmpGoodsModel.is_pin isEqualToString:@"1"]) {
-//                [smallRightThirdImageView setImage:[UIImage imageNamed:@"pic_lcl"]];
+//                [smallRightThirdImageView setImage:[UIImage imageNamed:NSLocalizedString(@"pic_lcl_en",nil)]];
 //            }
         }
         [bottomCellView addSubview:smallRightFirstImageView];

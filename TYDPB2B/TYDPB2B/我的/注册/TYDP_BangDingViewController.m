@@ -11,7 +11,7 @@
 #define startTime 60
 
 
-@interface TYDP_BangDingViewController ()
+@interface TYDP_BangDingViewController ()<UITextFieldDelegate>
 {
     NSTimer *_timer;
     int _secondTime;
@@ -32,6 +32,18 @@
 - (void)retBtnClick{
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField.text.length >= 15 && range.length == 0)
+    {
+        return NO; // return NO to not change text
+    }
+    else
+    {
+        return YES;
+    }
+}
+
 
 - (void)creatUI{
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ico_return"] style:UIBarButtonItemStylePlain target:self action:@selector(retBtnClick)];
@@ -55,6 +67,9 @@
         tf.placeholder = placeholderArr[i];
         
         if (i<2) {
+            if (i==1) {
+                tf.delegate=self;
+            }
             tf.keyboardType=UIKeyboardTypePhonePad;
         }
         //        UIImageView *tfImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:leftviewArr[i]]];

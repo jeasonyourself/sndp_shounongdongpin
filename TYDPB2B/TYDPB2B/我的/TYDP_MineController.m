@@ -337,7 +337,7 @@
     }
     if (indexPath.row ==3) {
         NSLog(@"专属客服");
-        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"18888888888"];
+        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"15038271936"];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
     }
         if (indexPath.row ==4) {

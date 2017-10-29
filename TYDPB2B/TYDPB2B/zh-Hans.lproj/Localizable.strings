@@ -166,7 +166,7 @@
 "Confirm no goods"="确认无货";
 "Confirm inventory"="确认库存";
 "Detailed"="详细信息";
-"Pending payment"="待支付";
+"Obligation"="待支付";
 "Confirmation information"="确认信息";
 "Confirm order"="确认订单";
 "Remind"="提醒";
@@ -181,8 +181,8 @@
 "All"="全部";
 "New"="最新";
 "On Sale"="促销";
-"Pending payment"="待付款";
-"Payment already paid"="已付款";
+"Obligation"="待付款";
+"Paid"="已付款";
 "Prepaid"="已预付";
 "Finished"="已完成";
 "Register"="注册";
@@ -276,7 +276,7 @@
 "Container Location"="货物所在地";
 "Amount"="金额";
 "Cover photo"="报盘封面";
-"Offer introduction"="备注 描述一下你的产品信息";
+"Note product message"="备注 描述一下你的产品信息";
 "On-self?"="是否上架";
 "YES"="是";
 "NO"="否";
@@ -284,6 +284,7 @@
 "Contact number"="联系人电话";
 "Add consolidation product"="添加拼柜产品";
 "Delete this product"="删除该商品";
+"Delete"="删除";
 "Reference number"="厂商订单号";
 "Estimated time of arrival"="预计到港期";
 "Date of shipment"="装船期";
@@ -316,6 +317,14 @@
 "No keyword"="亲，没有输入搜索关键字哦。";
 "No search result"="没有搜索结果～";
 "Shop list"="店铺列表";
+"Purchase quantity cannot be greater than"="购买数量不能大于";
+"pic_bargaining_en"="pic_bargaining_ch";
+"pic_cash_en"="pic_cash_ch";
+"pic_fcl_en"="pic_fcl_ch";
+"pic_futures_en"="pic_futures_ch";
+"pic_lcl_en"="pic_lcl_ch";
+"pic_retail_en"="pic_retail_ch";
+"pic_zero_en"="pic_zero_ch";
 ""="";
 ""="";
 ""="";
@@ -339,14 +348,3 @@
 ""="";
 ""="";
 ""="";
-""="";
-""="";
-""="";
-""="";
-""="";
-""="";
-""="";
-""="";
-
-
-

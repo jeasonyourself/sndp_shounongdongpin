@@ -37,6 +37,19 @@
     [self creatUI];
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField.text.length >= 15 && range.length == 0 &&textField==self.mobileTf)
+    {
+        return NO; // return NO to not change text
+    }
+    else
+    {
+        return YES;
+    }
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -106,7 +119,6 @@
 
 //监听输入框字数改变按钮状态
 - (void)btnChangeColor{
-    if (self.mobileTf.text.length == 11) {
         if (self.numTf.text.length == 6) {
             [self.sureBtn setBackgroundColor:RGBACOLOR(226, 114, 27, 1)];
             self.sureBtn.userInteractionEnabled = YES;
@@ -122,14 +134,7 @@
             [self.getNumBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             self.getNumBtn.userInteractionEnabled = YES;
         }
-    }else{
-        [self.sureBtn setBackgroundColor:RGBACOLOR(134, 134, 134, 1)];
-        self.sureBtn.userInteractionEnabled = NO;
-        self.getNumBtn.backgroundColor = [UIColor whiteColor];
-        self.getNumBtn.layer.borderColor = [[UIColor blackColor] CGColor];
-        [self.getNumBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        self.getNumBtn.userInteractionEnabled = NO;
-    }
+    
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{

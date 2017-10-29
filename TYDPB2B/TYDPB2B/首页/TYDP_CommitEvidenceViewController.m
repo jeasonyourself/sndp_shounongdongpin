@@ -109,6 +109,22 @@ typedef enum {
     [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_sn"]]];
     [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_status_name"]]];
     [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",_checkOrderModel[@"pay_name"]]];
+    if ([_checkOrderModel[@"stock_status"] isEqualToString:@"0"]) {
+         [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",NSLocalizedString(@"To be confirmed",nil)]];
+        
+    }
+    else if ([_checkOrderModel[@"stock_status"] isEqualToString:@"1"]) {
+        [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Confirm shipment",nil)]];
+        
+    }
+    else if ([_checkOrderModel[@"Confirm no goods"] isEqualToString:@"2"]) {
+        [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",NSLocalizedString(@"To be confirmed",nil)]];
+        
+    }
+    else
+    {
+    [_orderDetailValueArray addObject:[NSString stringWithFormat:@""]];
+    }
     [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",_checkOrderModel[@"stock_status_tag"]]];
 
     [self createTopUI];
@@ -466,7 +482,7 @@ typedef enum {
                     make.bottom.equalTo(smallView);
                 }];
                 if ([[NSString stringWithFormat:@"%@",_checkOrderModel[@"pay_check"]] isEqualToString:@"1"]) {
-                    [_confirmLabel setText:[NSString stringWithFormat:@"%@",@"【%@】",NSLocalizedString(@"Confirmation", nil)]];
+                    [_confirmLabel setText:[NSString stringWithFormat:@"【%@】",NSLocalizedString(@"Confirmation", nil)]];
                 } else{
                     [_confirmLabel setText:@""];
                 }

@@ -124,7 +124,7 @@
     }
 
     //拼，期，现，整，零，还
-    _subImgS = @[@[@"",@"pic_lcl"],@[@"pic_futures",@"pic_cash"],@[@"pic_retail",@"pic_fcl"]];//@[@[拼，空],@[期，现],@[零，整]]
+    _subImgS = @[@[@"",NSLocalizedString(@"pic_lcl_en",nil)],@[NSLocalizedString(@"pic_futures_en",nil),NSLocalizedString(@"pic_cash_en",nil)],@[NSLocalizedString(@"pic_retail_en",nil),NSLocalizedString(@"pic_fcl_en",nil)]];//@[@[拼，空],@[期，现],@[零，整]]
     
     //还价成功，等待回复，还价失败
     _typeImgS = @[@"pic_wait",@"pic_failure",@"pic_succed"];
@@ -210,7 +210,7 @@
     [cell.buyBtn addTarget:self action:@selector(buyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [cell.mainImg sd_setImageWithURL:[NSURL URLWithString:model.goods_thumb] placeholderImage:[UIImage imageNamed:@"pic_loading"]];
 //    [cell.stateImg sd_setImageWithURL:[NSURL URLWithString:model]];
-    cell.subImg1.image = [UIImage imageNamed:@"pic_bargaining"];//还
+    cell.subImg1.image = [UIImage imageNamed:NSLocalizedString(@"pic_bargaining_en",nil)];//还
     cell.subImg2.image = [UIImage imageNamed:_subImgS[1][[model.goods_type intValue]-6]];//现，期
     cell.subImg3.image = [UIImage imageNamed:_subImgS[2][[model.sell_type intValue]-4]];//零，整
     cell.subImg4.image = [UIImage imageNamed:_subImgS[0][[model.is_pin intValue]]];
@@ -238,12 +238,12 @@
     ((TYDP_BargainCellB *)cell).priceNow.text =[NSString stringWithFormat:@"¥%@",model.last_price] ;
     ((TYDP_BargainCellB *)cell).numLab.text = model.brand_sn;
     ((TYDP_BargainCellB *)cell).timeLable.text=[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Bargain time", nil),model.created_at];
-    ((TYDP_BargainCellB *)cell).spec_textLable.text=[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Bargain Content", nil),model.message];
+    ((TYDP_BargainCellB *)cell).spec_textLable.text=[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Bargain content", nil),model.message];
     [((TYDP_BargainCellB *)cell).buyBtn addTarget:self action:@selector(buyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [((TYDP_BargainCellB *)cell).bargainBtn addTarget:self action:@selector(buyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     [((TYDP_BargainCellB *)cell).mainImg sd_setImageWithURL:[NSURL URLWithString:model.goods_thumb] placeholderImage:[UIImage imageNamed:@"pic_loading"]];
-    ((TYDP_BargainCellB *)cell).subImg1.image = [UIImage imageNamed:@"pic_bargaining"];//还
+    ((TYDP_BargainCellB *)cell).subImg1.image = [UIImage imageNamed:NSLocalizedString(@"pic_bargaining_en",nil)];//还
     ((TYDP_BargainCellB *)cell).subImg2.image = [UIImage imageNamed:_subImgS[1][[model.goods_type intValue]-6]];//现，期
     ((TYDP_BargainCellB *)cell).subImg3.image = [UIImage imageNamed:_subImgS[2][[model.sell_type intValue]-4]];//零，整
     ((TYDP_BargainCellB *)cell).subImg4.image = [UIImage imageNamed:_subImgS[0][[model.is_pin intValue]]];

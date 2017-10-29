@@ -9,7 +9,7 @@
 #import "TYDP_ForgetPasswordController.h"
 
 #define startTime 60
-@interface TYDP_ForgetPasswordController ()
+@interface TYDP_ForgetPasswordController ()<UITextFieldDelegate>
 {
     NSTimer *_timer;
     int _sendTime;
@@ -42,7 +42,7 @@
 - (void)creatUI{
     self.mobileTf.leftView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_phone"]];
     self.mobileTf.leftViewMode = UITextFieldViewModeAlways;
-    
+    self.mobileTf.delegate=self;
     self.codeTf.leftView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_message"]];
     self.codeTf.leftViewMode = UITextFieldViewModeAlways;
     
@@ -63,7 +63,7 @@
 - (void)timerRun{
     if (_sendTime == 0) {
         _timer.fireDate = [NSDate distantFuture];
-        [self.getCodeBtn setTitle:@"点击重发" forState:UIControlStateNormal];
+        [self.getCodeBtn setTitle:NSLocalizedString(@"Click retransmission",nil) forState:UIControlStateNormal];
         self.getCodeBtn.userInteractionEnabled = YES;
         _sendTime = startTime;
     }else{
@@ -74,13 +74,22 @@
 }
 
 - (void)getCodeBtnClick{
-    if (self.mobileTf.text.length!=11) {
-        NSLog(@"请输入正确手机号码");
-    }else{
-        [self getCodeRequest];
-    }
+    
+    [self getCodeRequest];
+    
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField.text.length >= 15 && range.length == 0 &&textField==_mobileTf)
+    {
+        return NO; // return NO to not change text
+    }
+    else
+    {
+        return YES;
+    }
+}
 - (void)getCodeRequest{
     NSDictionary *params = @{@"model":@"user",@"action":@"send_mobile_code",@"mobile":self.mobileTf.text,@"mobile_sign":[TYDPManager md5:[NSString stringWithFormat:@"%@%@",self.mobileTf.text,ConfigNetAppKey]],@"sign":[TYDPManager md5:[NSString stringWithFormat:@"usersend_mobile_code%@",ConfigNetAppKey]],};
     [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {

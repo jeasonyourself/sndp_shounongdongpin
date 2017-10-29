@@ -21,6 +21,7 @@
 //#import "UserNotifications.h"
 //商品详情：交易历史。店铺详情：二级排序。
 //你从东到西，我从南到北，我们总会有一个交叉口，或是始不得遇，又或是终将分离
+
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @end

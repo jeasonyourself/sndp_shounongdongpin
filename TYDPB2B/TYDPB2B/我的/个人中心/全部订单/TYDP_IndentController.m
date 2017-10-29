@@ -55,7 +55,7 @@
     [self.view addSubview:_scroll];
     _scroll.delaysContentTouches = NO;
     _scroll.backgroundColor = [UIColor whiteColor];
-    NSArray *titleArr = @[NSLocalizedString(@"All", nil),NSLocalizedString(@"Obliga-tion", nil),NSLocalizedString(@"Paid", nil),NSLocalizedString(@"Prepaid", nil),NSLocalizedString(@"Finished", nil)];
+    NSArray *titleArr = @[NSLocalizedString(@"All", nil),NSLocalizedString(@"Obligation", nil),NSLocalizedString(@"Paid", nil),NSLocalizedString(@"Prepaid", nil),NSLocalizedString(@"Finished", nil)];
     _scroll.contentSize = CGSizeMake(ScreenWidth, 0);
     for (int i = 0; i<5; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];

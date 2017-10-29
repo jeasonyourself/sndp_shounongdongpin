@@ -210,7 +210,7 @@
     NSIndexPath *indexPath = [_tableVC indexPathForCell:(TYDP_MyWantCell *)sender.superview.superview];
     TYDP_MyWantModel *model = _dataSource[indexPath.row];
 //    NSLog(@"---删除cellId:%@---",sender.titleLabel.text);
-    if ([sender.titleLabel.text isEqualToString:@"删除"]) {
+    if ([sender.titleLabel.text isEqualToString:NSLocalizedString(@"Delete",nil)]) {
         [self deleteCellPostData:model.Id];
     }else{
         [self compileCellPostData:model];

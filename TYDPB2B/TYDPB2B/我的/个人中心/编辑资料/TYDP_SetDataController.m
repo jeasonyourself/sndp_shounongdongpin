@@ -97,8 +97,9 @@
     if (!self.model) {
         _modelArr = @[@"",@"",@"",@"",@"",@"",@"",@"",@""];
     }else{
-        if (![[PSDefaults objectForKey:@"user_rank"] isEqualToString:@"1"]) {
-        _modelArr = @[self.model.user_name,self.model.alias,[[NSString stringWithFormat:@"%@",self.model.sex] isEqualToString:@"1"]?NSLocalizedString(@"Male", nil):NSLocalizedString(@"Female", nil),self.model.mobile_phone,self.model.email,self.model.address,self.model.shop_name,self.model.shop_info];
+        if ([[PSDefaults objectForKey:@"userType"] isEqualToString:@"1"]) {
+            _modelArr = @[self.model.user_name,self.model.alias,[[NSString stringWithFormat:@"%@",self.model.sex] isEqualToString:@"1"]?NSLocalizedString(@"Male", nil):NSLocalizedString(@"Female", nil),self.model.mobile_phone,self.model.email,self.model.address,self.model.shop_name,self.model.shop_info?self.model.shop_info:@""];
+            debugLog(@"_modelArr:%@",_modelArr);
         }
         else
         {
@@ -107,7 +108,7 @@
     }
     debugLog(@"user_rankkkk:%@",[PSDefaults objectForKey:@"user_rank"]);
     int count;
-    if (![[PSDefaults objectForKey:@"user_rank"] isEqualToString:@"1"]) {
+    if ([[PSDefaults objectForKey:@"userType"] isEqualToString:@"1"]) {
         count=8;
     }
     else
@@ -374,7 +375,7 @@
         [_MBHUD setLabelText:NSLocalizedString(@"Wait a minute", nil)];
         NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];
         NSDictionary *params;
-         if ([[PSDefaults objectForKey:@"user_rank"] isEqualToString:@"1"]) {
+         if (![[PSDefaults objectForKey:@"userType"] isEqualToString:@"1"]) {
              params = @{@"model":@"user",@"action":@"edit_info",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"useredit_info%@",ConfigNetAppKey]],@"user_id":[userdefaul objectForKey:@"user_id"],@"token":[userdefaul objectForKey:@"token"],@"alias":tf1.text,@"sex":self.model.sex,@"mobile_phone":tf3.text,@"email":tf4.text,@"city":self.cityId,@"province":self.provinceId,@"user_name":user_name};
          }
         else

@@ -96,7 +96,7 @@ typedef enum {
 -(NSArray *)topLabelArray {
     if (!_topLabelArray) {
 //        _topLabelArray = [NSArray arrayWithObjects:@"现货",@"期货",@"准现货",@"整柜",@"零售", nil];
-        _topLabelArray = [NSArray arrayWithObjects:NSLocalizedString(@"Spot",nil),NSLocalizedString(@"Future",nil),NSLocalizedString(@"SpotToBe",nil),NSLocalizedString(@"Retail",nil),NSLocalizedString(@"FCL",nil), nil];
+        _topLabelArray = [NSArray arrayWithObjects:NSLocalizedString(@"Spot",nil),NSLocalizedString(@"Future",nil),NSLocalizedString(@"SpotToBe",nil),NSLocalizedString(@"FCL",nil),NSLocalizedString(@"Retail",nil), nil];
 
     }
     return _topLabelArray;
@@ -845,7 +845,7 @@ typedef enum {
     cell.unitNameLable.text = [NSString stringWithFormat:@"/%@",model.unit_name];
 
     [cell.regin_icon sd_setImageWithURL:[NSURL URLWithString:model.region_icon]];
-    NSArray *subimgArr = @[@[@"pic_futures",@"pic_cash"],@[@"pic_retail",@"pic_fcl"],@[@"",@"pic_lcl"],@[@"",@"pic_bargaining"]];//@[期，现],@[零，整]]@[否，拼],@[正，还]
+    NSArray *subimgArr = @[@[NSLocalizedString(@"pic_futures_en",nil),NSLocalizedString(@"pic_cash_en",nil)],@[NSLocalizedString(@"pic_retail_en",nil),NSLocalizedString(@"pic_fcl_en",nil)],@[@"",NSLocalizedString(@"pic_lcl_en",nil)],@[@"",NSLocalizedString(@"pic_bargaining_en",nil)]];//@[期，现],@[零，整]]@[否，拼],@[正，还]
     cell.subImg1.image = [UIImage imageNamed:subimgArr[0][[model.goods_type intValue]-6]];
     cell.subImg2.image = [UIImage imageNamed:subimgArr[1][[model.sell_type intValue]-4]];
     if ([model.offer isEqualToString:@"10"]) {
@@ -891,7 +891,7 @@ typedef enum {
 - (void)dianPuTelephoneBtnClick:(UIButton *)sender
 {
     UIWebView*callWebview =[[UIWebView alloc] init];
-    NSURL *telURL =[NSURL URLWithString:[NSString stringWithFormat:@"tel:18888888888"]];// 貌似tel:// 或者 tel: 都行
+    NSURL *telURL =[NSURL URLWithString:[NSString stringWithFormat:@"tel:15038271936"]];// 貌似tel:// 或者 tel: 都行
     [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
     
     //记得添加到view上

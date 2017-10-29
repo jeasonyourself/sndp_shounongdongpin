@@ -11,7 +11,7 @@
 #import "TYDP_SetDataController.h"
 
 #define startTime 60
-@interface TYDP_RegistController ()
+@interface TYDP_RegistController ()<UITextFieldDelegate>
 {
     NSTimer *_timer;
     int _secondTime;
@@ -31,6 +31,17 @@
 
 - (void)retBtnClick{
     [self.navigationController popViewControllerAnimated:YES];
+}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField.text.length >= 15 && range.length == 0)
+    {
+        return NO; // return NO to not change text
+    }
+    else
+    {
+        return YES;
+    }
 }
 
 - (void)creatUI{
@@ -54,7 +65,10 @@
         tf.background = [UIImage imageNamed:@"login_input"];
         tf.placeholder = placeholderArr[i];
         if (i<3) {
-            tf.keyboardType=UIKeyboardTypePhonePad;
+            if (i==1) {
+                tf.delegate=self;
+            }
+            tf.keyboardType=UIKeyboardTypeNumberPad;
         }
 //        UIImageView *tfImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:leftviewArr[i]]];
 //        tf.leftView = tfImg;
@@ -149,7 +163,7 @@
 //注册按钮
 - (void)registBtnClick{
     [self creatHUD];
-    UITextField *tf0 = (UITextField *)[self.view viewWithTag:100];
+//    UITextField *tf0 = (UITextField *)[self.view viewWithTag:100];
     UITextField *tf1 = (UITextField *)[self.view viewWithTag:101];
     UITextField *tf2 = (UITextField *)[self.view viewWithTag:102];
     UITextField *tf3 = (UITextField *)[self.view viewWithTag:103];

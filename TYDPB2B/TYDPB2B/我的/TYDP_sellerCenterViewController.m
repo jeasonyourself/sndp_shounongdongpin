@@ -315,7 +315,7 @@
     }
     else {
         NSLog(@"专属客服");
-        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"18888888888"];
+        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"15038271936"];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
 //        TYDP_CustomerServiceController *VC = [[TYDP_CustomerServiceController alloc]init];
 //        VC.TYDPmodel = _model;

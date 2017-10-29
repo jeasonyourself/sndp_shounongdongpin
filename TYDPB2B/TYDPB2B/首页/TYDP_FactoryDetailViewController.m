@@ -376,9 +376,9 @@
         UIImageView *smallRightFirstImageView = [UIImageView new];
         UIImageView *smallRightSecondImageView = [UIImageView new];
         UIImageView *smallRightThirdImageView = [UIImageView new];
-        [smallRightFirstImageView setImage:[UIImage imageNamed:@"pic_bargaining"]];
-        [smallRightSecondImageView setImage:[UIImage imageNamed:@"pic_fcl"]];
-        [smallRightThirdImageView setImage:[UIImage imageNamed:@"pic_cash"]];
+        [smallRightFirstImageView setImage:[UIImage imageNamed:NSLocalizedString(@"pic_bargaining_en",nil)]];
+        [smallRightSecondImageView setImage:[UIImage imageNamed:NSLocalizedString(@"pic_fcl_en",nil)]];
+        [smallRightThirdImageView setImage:[UIImage imageNamed:NSLocalizedString(@"pic_cash_en",nil)]];
         [bottomCellView addSubview:smallRightFirstImageView];
         [bottomCellView addSubview:smallRightSecondImageView];
         [bottomCellView addSubview:smallRightThirdImageView];

@@ -130,24 +130,24 @@
             make.centerY.equalTo(leftBigImageView).with.offset(Gap);
             make.height.mas_equalTo(20);
         }];
-        UIImage *RightFirstImage = [UIImage imageNamed:@"shop_icon_company"];
-        UIImageView *RightFirstImageView = [[UIImageView alloc] initWithImage:RightFirstImage];
-        [smallTopView addSubview:RightFirstImageView];
-        [RightFirstImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(topSmallLabel.mas_right).with.offset(Gap);
-            make.centerY.equalTo(topSmallLabel);
-            make.height.mas_equalTo(25);
-            make.width.mas_equalTo(25*(RightFirstImage.size.width/RightFirstImage.size.height));
-        }];
-        UIImage *RightSecondImage = [UIImage imageNamed:@"shop_icon_deposit"];
-        UIImageView *RightSecondImageView = [[UIImageView alloc] initWithImage:RightSecondImage];
-        [smallTopView addSubview:RightSecondImageView];
-        [RightSecondImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(RightFirstImageView.mas_right);
-            make.centerY.equalTo(topSmallLabel);
-            make.height.mas_equalTo(25);
-            make.width.mas_equalTo(25*(RightSecondImage.size.width/RightSecondImage.size.height));
-        }];
+//        UIImage *RightFirstImage = [UIImage imageNamed:@"shop_icon_company"];
+//        UIImageView *RightFirstImageView = [[UIImageView alloc] initWithImage:RightFirstImage];
+//        [smallTopView addSubview:RightFirstImageView];
+//        [RightFirstImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.equalTo(topSmallLabel.mas_right).with.offset(Gap);
+//            make.centerY.equalTo(topSmallLabel);
+//            make.height.mas_equalTo(25);
+//            make.width.mas_equalTo(25*(RightFirstImage.size.width/RightFirstImage.size.height));
+//        }];
+//        UIImage *RightSecondImage = [UIImage imageNamed:@"shop_icon_deposit"];
+//        UIImageView *RightSecondImageView = [[UIImageView alloc] initWithImage:RightSecondImage];
+//        [smallTopView addSubview:RightSecondImageView];
+//        [RightSecondImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.equalTo(RightFirstImageView.mas_right);
+//            make.centerY.equalTo(topSmallLabel);
+//            make.height.mas_equalTo(25);
+//            make.width.mas_equalTo(25*(RightSecondImage.size.width/RightSecondImage.size.height));
+//        }];
         UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [smallTopView addSubview:rightButton];
         rightButton.tag = i+1;

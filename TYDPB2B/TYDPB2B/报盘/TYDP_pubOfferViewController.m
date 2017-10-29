@@ -1770,7 +1770,7 @@
         signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
         cell.signTextView.hidden=NO;
         cell.tag=indexPath.section*100+indexPath.row;
-        cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
+        cell.signTextView.placeholder=NSLocalizedString(@"Note product message", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
         if ([_otherDic objectForKey:@"goods_txt"]) {
             cell.signTextView.text=[_otherDic objectForKey:@"goods_txt"];
@@ -1782,7 +1782,7 @@
         else
         {
             cell.signTextView.text=@"";
-            cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
+            cell.signTextView.placeholder=NSLocalizedString(@"Note product message", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
         }
 
@@ -2244,7 +2244,7 @@
                     signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.signTextView.hidden=NO;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
+                    cell.signTextView.placeholder=NSLocalizedString(@"Note product message", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
                     if ([_otherDic objectForKey:@"goods_txt"]) {
                         cell.signTextView.text=[_otherDic objectForKey:@"goods_txt"];
@@ -2257,7 +2257,7 @@
                     else
                     {
                         cell.signTextView.text=@"";
-                        cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
+                        cell.signTextView.placeholder=NSLocalizedString(@"Note product message", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
                     }
                     
@@ -2887,7 +2887,7 @@
                     signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.signTextView.hidden=NO;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
+                    cell.signTextView.placeholder=NSLocalizedString(@"Note product message", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
                     if ([_otherDic objectForKey:@"goods_txt"]) {
                         cell.signTextView.text=[_otherDic objectForKey:@"goods_txt"];
@@ -2900,7 +2900,7 @@
                     else
                     {
                         cell.signTextView.text=@"";
-                        cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
+                        cell.signTextView.placeholder=NSLocalizedString(@"Note product message", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
                     }
                     
@@ -3713,7 +3713,7 @@
                     signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.signTextView.hidden=NO;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
+                    cell.signTextView.placeholder=NSLocalizedString(@"Note product message", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
                     if ([_otherDic objectForKey:@"goods_txt"]) {
                         cell.signTextView.text=[_otherDic objectForKey:@"goods_txt"];
@@ -3725,7 +3725,7 @@
                     else
                     {
                         cell.signTextView.text=@"";
-                        cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
+                        cell.signTextView.placeholder=NSLocalizedString(@"Note product message", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
                     }
                     
@@ -4258,7 +4258,7 @@
                 signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                 cell.signTextView.hidden=NO;
                 cell.tag=indexPath.section*100+indexPath.row;
-                cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
+                cell.signTextView.placeholder=NSLocalizedString(@"Note product message", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
                 if ([_otherDic objectForKey:@"goods_txt"]) {
                     cell.signTextView.text=[_otherDic objectForKey:@"goods_txt"];
@@ -4270,7 +4270,7 @@
                 else
                 {
                     cell.signTextView.text=@"";
-                     cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
+                     cell.signTextView.placeholder=NSLocalizedString(@"Note product message", nil);
             cell.signTextView.PlaceholderLabel.hidden=NO;
                 }
                 
@@ -4802,7 +4802,7 @@
                     signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.signTextView.hidden=NO;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
+                    cell.signTextView.placeholder=NSLocalizedString(@"Note product message", nil);
                     cell.signTextView.PlaceholderLabel.hidden=NO;
                     if ([_otherDic objectForKey:@"goods_txt"]) {
                         cell.signTextView.text=[_otherDic objectForKey:@"goods_txt"];
@@ -4815,7 +4815,7 @@
                     else
                     {
                         cell.signTextView.text=@"";
-                        cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
+                        cell.signTextView.placeholder=NSLocalizedString(@"Note product message", nil);
                         cell.signTextView.PlaceholderLabel.hidden=NO;
                     }
                     
@@ -5507,7 +5507,7 @@
                     signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.signTextView.hidden=NO;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
+                    cell.signTextView.placeholder=NSLocalizedString(@"Note product message", nil);
                     cell.signTextView.PlaceholderLabel.hidden=NO;
                     if ([_otherDic objectForKey:@"goods_txt"]) {
                         cell.signTextView.text=[_otherDic objectForKey:@"goods_txt"];
@@ -5520,7 +5520,7 @@
                     else
                     {
                         cell.signTextView.text=@"";
-                        cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
+                        cell.signTextView.placeholder=NSLocalizedString(@"Note product message", nil);
                         cell.signTextView.PlaceholderLabel.hidden=NO;
                     }
                     
@@ -6390,7 +6390,7 @@
                     signTextViewTableViewCell *cell = (signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.signTextView.hidden=NO;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
+                    cell.signTextView.placeholder=NSLocalizedString(@"Note product message", nil);
                     cell.signTextView.PlaceholderLabel.hidden=NO;
                     if ([_otherDic objectForKey:@"goods_txt"]) {
                         cell.signTextView.text=[_otherDic objectForKey:@"goods_txt"];
@@ -6403,7 +6403,7 @@
                     else
                     {
                         cell.signTextView.text=@"";
-                        cell.signTextView.placeholder=NSLocalizedString(@"Offer introduction", nil);
+                        cell.signTextView.placeholder=NSLocalizedString(@"Note product message", nil);
                         cell.signTextView.PlaceholderLabel.hidden=NO;
                     }
                     

@@ -65,7 +65,7 @@ typedef enum {
  */
 -(NSArray *)defaultCategoryPicArray{
     if (!_defaultCategoryPicArray) {
-        _defaultCategoryPicArray = [NSMutableArray arrayWithObjects:@"productlist_hot_n",@"productlist_time_n",@"productlist_price_n",@"productlist_location_n", nil];
+        _defaultCategoryPicArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"", nil];
     }
     return _defaultCategoryPicArray;
 }
@@ -76,7 +76,7 @@ typedef enum {
  */
 -(NSArray *)defaultCategoryButtonPicArray{
     if (!_defaultCategoryButtonPicArray) {
-        _defaultCategoryButtonPicArray = [NSMutableArray arrayWithObjects:@"productlist_hot_down",@"productlist_time_down",@"productlist_price_down",@"productlist_location_down", nil];
+        _defaultCategoryButtonPicArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"", nil];
     }
     return _defaultCategoryButtonPicArray;
 }
@@ -87,7 +87,7 @@ typedef enum {
  */
 -(NSArray *)defaultCategoryButtonSelectedPicArray{
     if (!_defaultCategoryButtonSelectedPicArray) {
-        _defaultCategoryButtonSelectedPicArray = [NSMutableArray arrayWithObjects:@"productlist_hot_up",@"productlist_time_up",@"productlist_price_up",@"productlist_location_up", nil];
+        _defaultCategoryButtonSelectedPicArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"", nil];
     }
     return _defaultCategoryButtonSelectedPicArray;
 }
@@ -220,13 +220,13 @@ typedef enum {
     _middleFilterView.layer.borderColor = [RGBACOLOR(222, 222, 222, 0.7) CGColor];
     _middleFilterView.layer.borderWidth = HomePageBordWidth;
     if (_topFutureFilterFlag) {
-        [_defaultCategoryPicArray replaceObjectAtIndex:3 withObject:@"productlist_area_n"];
-        [_defaultCategoryButtonPicArray replaceObjectAtIndex:3 withObject:@"productlist_area_down"];
-        [_defaultCategoryButtonSelectedPicArray replaceObjectAtIndex:3 withObject:@"productlist_area_up"];
+        [_defaultCategoryPicArray replaceObjectAtIndex:3 withObject:@""];
+        [_defaultCategoryButtonPicArray replaceObjectAtIndex:3 withObject:@""];
+        [_defaultCategoryButtonSelectedPicArray replaceObjectAtIndex:3 withObject:@""];
     } else {
-        [_defaultCategoryPicArray replaceObjectAtIndex:3 withObject:@"productlist_location_n"];
-        [_defaultCategoryButtonPicArray replaceObjectAtIndex:3 withObject:@"productlist_location_down"];
-        [_defaultCategoryButtonSelectedPicArray replaceObjectAtIndex:3 withObject:@"productlist_location_up"];
+        [_defaultCategoryPicArray replaceObjectAtIndex:3 withObject:@""];
+        [_defaultCategoryButtonPicArray replaceObjectAtIndex:3 withObject:@""];
+        [_defaultCategoryButtonSelectedPicArray replaceObjectAtIndex:3 withObject:@""];
     }
     for (int i = 0; i < 3; i++) {
         UIImageView *primaryImageView = [[UIImageView alloc] initWithFrame:CGRectMake(smallMiddleWidth*i, 0, smallMiddleWidth, tmpHeight)];
@@ -306,7 +306,7 @@ typedef enum {
     [_locationFilterButton setBackgroundColor:[UIColor whiteColor]];
     _locationFilterButton.tag = LocationFilterButtonMessage;
     _locationFilterButton.frame = CGRectMake(smallMiddleWidth*3, 0, smallMiddleWidth, tmpHeight);
-    [_locationFilterButton setBackgroundImage:[UIImage imageNamed:@"productlist_location_down"] forState:UIControlStateNormal];
+    [_locationFilterButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     [_locationFilterButton addTarget:self action:@selector(filterButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_middleFilterView addSubview:_locationFilterButton];
     _filterButtonFlag = NO;
@@ -383,9 +383,9 @@ typedef enum {
     [_smallFilterView removeFromSuperview];
     _isUnfold = YES;
     if (_topFutureFilterFlag) {
-        [_locationFilterButton setBackgroundImage:[UIImage imageNamed:@"productlist_area_up"] forState:UIControlStateNormal];
+        [_locationFilterButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     } else {
-        [_locationFilterButton setBackgroundImage:[UIImage imageNamed:@"productlist_location_up"] forState:UIControlStateNormal];
+        [_locationFilterButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     }
     _filterButtonFlag = NO;
 }
@@ -397,7 +397,7 @@ typedef enum {
     CGFloat smallMiddleWidth = ScreenWidth/4;
     CGFloat bottomCellHeight = ScreenWidth/3;
     _smallFilterView = [UIScrollView new];
-    UIImage *tmpImage = [UIImage imageNamed:@"productlist_hot_down"];
+    UIImage *tmpImage = [UIImage imageNamed:@""];
     CGFloat tmpHeight = smallMiddleWidth*(tmpImage.size.height/tmpImage.size.width);
     _smallFilterView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,0,0)];
     _smallFilterView.center = CGPointMake(ScreenWidth/4.0+ScreenWidth*3/8.0-1, tmpHeight+40+NavHeight+(bottomCellHeight + Gap)*3/2.0);
@@ -852,15 +852,15 @@ typedef enum {
         NSString *firstImageViewString;
         switch ([tmpGoodsModel.goods_type intValue]) {
             case 8:{
-                firstImageViewString = [NSString stringWithFormat:@"pic_cash"];
+                firstImageViewString = [NSString stringWithFormat:NSLocalizedString(@"pic_cash_en",nil)];
                 break;
             }
             case 7:{
-                firstImageViewString = [NSString stringWithFormat:@"pic_cash"];
+                firstImageViewString = [NSString stringWithFormat:NSLocalizedString(@"pic_cash_en",nil)];
                 break;
             }
             case 6:{
-                firstImageViewString = [NSString stringWithFormat:@"pic_futures"];
+                firstImageViewString = [NSString stringWithFormat:NSLocalizedString(@"pic_futures_en",nil)];
                 break;
             }
             default:
@@ -869,11 +869,11 @@ typedef enum {
         NSString *secondImageViewString;
         switch ([tmpGoodsModel.sell_type intValue]) {
             case 4:{
-                secondImageViewString = [NSString stringWithFormat:@"pic_zero"];
+                secondImageViewString = [NSString stringWithFormat:NSLocalizedString(@"pic_zero_en",nil)];
                 break;
             }
             case 5:{
-                secondImageViewString = [NSString stringWithFormat:@"pic_fcl"];
+                secondImageViewString = [NSString stringWithFormat:NSLocalizedString(@"pic_fcl_en",nil)];
                 break;
             }
             default:
@@ -881,14 +881,16 @@ typedef enum {
         }
         [smallRightFirstImageView setImage:[UIImage imageNamed:firstImageViewString]];
         [smallRightSecondImageView setImage:[UIImage imageNamed:secondImageViewString]];
+        
+        
         if ([tmpGoodsModel.offer isEqualToString:@"11"]) {
-            [smallRightThirdImageView setImage:[UIImage imageNamed:@"pic_bargaining"]];
+            [smallRightThirdImageView setImage:[UIImage imageNamed:NSLocalizedString(@"pic_bargaining_en",nil)]];
             if ([tmpGoodsModel.is_pin isEqualToString:@"1"]) {
-                [smallRightFouthImageView setImage:[UIImage imageNamed:@"pic_lcl"]];
+                [smallRightFouthImageView setImage:[UIImage imageNamed:NSLocalizedString(@"pic_lcl_en",nil)]];
             }
         } else {
             if ([tmpGoodsModel.is_pin isEqualToString:@"1"]) {
-                [smallRightThirdImageView setImage:[UIImage imageNamed:@"pic_lcl"]];
+                [smallRightThirdImageView setImage:[UIImage imageNamed:NSLocalizedString(@"pic_lcl_en",nil)]];
             }
         }
         [bottomCellView addSubview:smallRightFirstImageView];
