@@ -91,7 +91,13 @@
     }
 }
 - (void)getCodeRequest{
-    NSDictionary *params = @{@"model":@"user",@"action":@"send_mobile_code",@"mobile":self.mobileTf.text,@"mobile_sign":[TYDPManager md5:[NSString stringWithFormat:@"%@%@",self.mobileTf.text,ConfigNetAppKey]],@"sign":[TYDPManager md5:[NSString stringWithFormat:@"usersend_mobile_code%@",ConfigNetAppKey]],};
+    if (_mobileTf.text.length == 0) {
+        [_MBHUD setLabelText:NSLocalizedString(@"Enter Real Phone number", nil)];
+        [_MBHUD hide:YES afterDelay:1];
+        return;
+    }
+    
+    NSDictionary *params = @{@"model":@"user",@"action":@"send_mobile_code",@"mobile":self.mobileTf.text,@"mobile_sign":[TYDPManager md5:[NSString stringWithFormat:@"%@%@",self.mobileTf.text,ConfigNetAppKey]],@"sign":[TYDPManager md5:[NSString stringWithFormat:@"usersend_mobile_code%@",ConfigNetAppKey]],@"nation_code":_quhaoField.text};
     [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
         if ([data[@"error"]isEqualToString:@"0"]) {
             _timer.fireDate = [NSDate distantPast];

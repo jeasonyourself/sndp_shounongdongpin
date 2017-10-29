@@ -47,7 +47,7 @@
     UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [headV addSubview:cancelBtn];
     cancelBtn.frame = CGRectMake(0, 0, 80, 40);
-    [cancelBtn setTitle:NSLocalizedString(@"Cancle",nil) forState:UIControlStateNormal];
+    [cancelBtn setTitle:NSLocalizedString(@"Cancel",nil) forState:UIControlStateNormal];
     [cancelBtn addTarget:self action:@selector(cancelBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     //确定按钮

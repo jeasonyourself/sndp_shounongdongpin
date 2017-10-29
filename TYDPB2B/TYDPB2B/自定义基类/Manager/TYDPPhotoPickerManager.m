@@ -30,9 +30,9 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         UIActionSheet *actionSheet = nil;
         if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-            actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancle",nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Photo Library",nil),NSLocalizedString(@"Photo",nil), nil];
+            actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Photo Library",nil),NSLocalizedString(@"Photo",nil), nil];
         }else{
-            actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancle",nil)destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Photo Library",nil), nil];
+            actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",nil)destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Photo Library",nil), nil];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [actionSheet showInView:inView];

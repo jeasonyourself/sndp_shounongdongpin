@@ -1653,7 +1653,7 @@ typedef enum {
     NSString *telephoneString = [NSString stringWithFormat:@"tel://18501995377"];
     NSString *reminderString = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Make sure to call？",nil)];
     UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Remind",nil) message:reminderString preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *firstAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancle",nil) style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *firstAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleCancel handler:nil];
     [alertCon addAction:firstAction];
     UIAlertAction *Secondaction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Sure",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telephoneString]];

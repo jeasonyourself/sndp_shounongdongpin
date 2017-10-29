@@ -35,6 +35,8 @@
 		8417E2251F6928840056E7F1 /* commentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8417E2241F6928840056E7F1 /* commentListModel.m */; };
 		84194BEB1F90B3AF008876B2 /* seller_orderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84194BEA1F90B3AF008876B2 /* seller_orderDetailViewController.m */; };
 		8419EABB1F47E82800023F70 /* TYDP_BangDingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8419EABA1F47E82800023F70 /* TYDP_BangDingViewController.m */; };
+		8419F64F1FA6317700200124 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 8419F64E1FA6317700200124 /* Order.m */; };
+		8419F6AF1FA6327D00200124 /* APAuthV2Info.m in Sources */ = {isa = PBXBuildFile; fileRef = 8419F6AE1FA6327D00200124 /* APAuthV2Info.m */; };
 		841A2CA01F9E55490011CBBD /* dianpuDetailMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A2C9E1F9E55490011CBBD /* dianpuDetailMsgViewController.m */; };
 		841BB1211FA3C27500A1B75C /* TYDP_BargainCellB.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841BB1231FA3C27500A1B75C /* TYDP_BargainCellB.xib */; };
 		841BB1281FA3C33000A1B75C /* TYDP_BargainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841BB12A1FA3C33000A1B75C /* TYDP_BargainCell.xib */; };
@@ -319,6 +321,10 @@
 		84194BEA1F90B3AF008876B2 /* seller_orderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = seller_orderDetailViewController.m; sourceTree = "<group>"; };
 		8419EAB91F47E82800023F70 /* TYDP_BangDingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_BangDingViewController.h; sourceTree = "<group>"; };
 		8419EABA1F47E82800023F70 /* TYDP_BangDingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_BangDingViewController.m; sourceTree = "<group>"; };
+		8419F64D1FA6317700200124 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		8419F64E1FA6317700200124 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		8419F6AD1FA6327D00200124 /* APAuthV2Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APAuthV2Info.h; sourceTree = "<group>"; };
+		8419F6AE1FA6327D00200124 /* APAuthV2Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APAuthV2Info.m; sourceTree = "<group>"; };
 		841A2C9D1F9E55490011CBBD /* dianpuDetailMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dianpuDetailMsgViewController.h; sourceTree = "<group>"; };
 		841A2C9E1F9E55490011CBBD /* dianpuDetailMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dianpuDetailMsgViewController.m; sourceTree = "<group>"; };
 		841BA32B1F409C37003F5E2F /* TYDPB2B.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TYDPB2B.entitlements; sourceTree = "<group>"; };
@@ -409,6 +415,7 @@
 		8427B96B1F72083A00D9D23E /* tobeSeller_subBtnTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tobeSeller_subBtnTableViewCell.m; sourceTree = "<group>"; };
 		84283D7C1F54F9D300D18C07 /* TYDP_selectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_selectViewController.h; sourceTree = "<group>"; };
 		84283D7D1F54F9D300D18C07 /* TYDP_selectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_selectViewController.m; sourceTree = "<group>"; };
+		842852321FA6486E00679A1D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		844127C41F92E10F008F9609 /* sellerOrderDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sellerOrderDetailModel.h; sourceTree = "<group>"; };
 		844127C51F92E10F008F9609 /* sellerOrderDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sellerOrderDetailModel.m; sourceTree = "<group>"; };
 		845BC6541F70FE6E002902BA /* TYDP_sellerCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_sellerCenterViewController.h; sourceTree = "<group>"; };
@@ -944,6 +951,10 @@
 				A82163ED1D360FE800EFCFD0 /* TYDP_Const.h */,
 				A82163E91D3608B900EFCFD0 /* CustomerBarItem.h */,
 				A82163EA1D3608B900EFCFD0 /* CustomerBarItem.m */,
+				8419F64D1FA6317700200124 /* Order.h */,
+				8419F64E1FA6317700200124 /* Order.m */,
+				8419F6AD1FA6327D00200124 /* APAuthV2Info.h */,
+				8419F6AE1FA6327D00200124 /* APAuthV2Info.m */,
 				A82163EC1D360F7F00EFCFD0 /* TYDP_PrefixHeader.pch */,
 				841C9FC61FA1D347009A701E /* InfoPlist.strings */,
 				841C9FCC1FA1D444009A701E /* Localizable.strings */,
@@ -1724,6 +1735,7 @@
 		EAAB2E6624E85E46041D1A26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				842852321FA6486E00679A1D /* SystemConfiguration.framework */,
 				77E09B41EF05E91D7E599344 /* libPods-TYDPB2B.a */,
 			);
 			name = Frameworks;
@@ -2010,6 +2022,7 @@
 				841E9F481F5C5EAB00A0C1F9 /* goodsBaseModel.m in Sources */,
 				E27FA9901D7FF76F00898B9A /* TYDP_NewsCell.m in Sources */,
 				841A2CA01F9E55490011CBBD /* dianpuDetailMsgViewController.m in Sources */,
+				8419F6AF1FA6327D00200124 /* APAuthV2Info.m in Sources */,
 				84FB108A1F8A87A50055B79E /* talkPriceModel.m in Sources */,
 				8417E2221F68DB460056E7F1 /* TYDP_wantBuyDetailViewController.m in Sources */,
 				84266AE81F540A1400411F5B /* pubOfferModel.m in Sources */,
@@ -2108,6 +2121,7 @@
 				A8AE676C1D3CD90800225005 /* OfferRightViewCell.m in Sources */,
 				E27FA95B1D7FF76F00898B9A /* TYDP_AfterServiceCell.m in Sources */,
 				84266AEE1F54138400411F5B /* goodsNameModel.m in Sources */,
+				8419F64F1FA6317700200124 /* Order.m in Sources */,
 				848484C91F3F90250061C9F2 /* purchaseListModel.m in Sources */,
 				E27FA98C1D7FF76F00898B9A /* TYDP_LoginController.m in Sources */,
 				E27FA96A1D7FF76F00898B9A /* TYDP_MyMessageCell.m in Sources */,
@@ -2561,6 +2575,27 @@
 				DEVELOPMENT_TEAM = BRG8DKYLY2;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)//TYDPB2B/TYDP_PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(PODS_ROOT)/MagicWindowSDK/MagicWindowSDK\"",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/AliPay\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/MagicWindowSDK-noWXSDK\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/PGDatePicker\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/TTTAttributedLabel\"",
+					"\"${PODS_ROOT}/Headers/Public/UITableView+FDTemplateLayoutCell\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengUShare\"",
+					"\"${PODS_ROOT}/Headers/Public/UMessage_NOIDFA\"",
+					"\"${PODS_ROOT}/Headers/Public/pop\"",
+				);
 				INFOPLIST_FILE = TYDPB2B/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2609,6 +2644,27 @@
 				DEVELOPMENT_TEAM = BRG8DKYLY2;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)//TYDPB2B/TYDP_PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(PODS_ROOT)/MagicWindowSDK/MagicWindowSDK\"",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/AliPay\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/MagicWindowSDK-noWXSDK\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/PGDatePicker\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/TTTAttributedLabel\"",
+					"\"${PODS_ROOT}/Headers/Public/UITableView+FDTemplateLayoutCell\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengUShare\"",
+					"\"${PODS_ROOT}/Headers/Public/UMessage_NOIDFA\"",
+					"\"${PODS_ROOT}/Headers/Public/pop\"",
+				);
 				INFOPLIST_FILE = TYDPB2B/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

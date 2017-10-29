@@ -107,29 +107,23 @@ typedef enum {
     [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_status_name"]]];
     [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",_checkOrderModel[@"pay_name"]]];
     
-    //只有list里有数据的时候才处理
-    //    if (_paymentBigModel.payment_list.count) {
-    //        NSMutableArray *orderDetailListModelArray = [NSMutableArray array];
-    //        //把除key为heng的字段加入数组
-    //        for (OrderPaymentListModel *model in _paymentBigModel.payment_list) {
-    //            if (![model.name isEqualToString:@"heng"]) {
-    //                NSMutableString *tmpString = [NSMutableString stringWithFormat:@"%@：",model.name];
-    //                if ([tmpString length] == 3) {
-    //                    [tmpString insertString:@"       " atIndex:1];
-    //                } else if([tmpString length] == 4) {
-    //                    [tmpString insertString:@"  " atIndex:1];
-    //                    [tmpString insertString:@"  " atIndex:4];
-    //                }
-    //                [orderDetailListModelArray addObject:tmpString];
-    //            }
-    //        }
-    //        [_orderDetailArray addObjectsFromArray:orderDetailListModelArray];
-    //        for (OrderPaymentListModel *model in _paymentBigModel.payment_list) {
-    //            if (![model.name isEqualToString:@"heng"]) {
-    //                [_orderDetailValueArray addObject:model.value];
-    //            }
-    //        }
-    //    }
+    if ([_checkOrderModel[@"stock_status"] isEqualToString:@"0"]) {
+        [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",NSLocalizedString(@"To be confirmed",nil)]];
+        
+    }
+    else if ([_checkOrderModel[@"stock_status"] isEqualToString:@"1"]) {
+        [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Confirm shipment",nil)]];
+        
+    }
+    else if ([_checkOrderModel[@"stock_status"] isEqualToString:@"2"]) {
+        [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Confirm no goods",nil)]];
+        
+    }
+    else
+    {
+        [_orderDetailValueArray addObject:[NSString stringWithFormat:@""]];
+    }
+
     [self createTopUI];
 }
 
@@ -466,6 +460,8 @@ typedef enum {
         make.height.mas_equalTo(HomePageBordWidth);
     }];
     
+    [_orderDetailArray addObject:NSLocalizedString(@"Name of seller", nil)];
+    [_orderDetailArray addObject:NSLocalizedString(@"Seller's phone NO.", nil)];
                 [_orderDetailValueArray addObject:_paymentBigModel[@"name"]];
                 [_orderDetailValueArray addObject:_paymentBigModel[@"mobile"]];
     debugLog(@"_orderDetailValueArraylll:%@",_orderDetailValueArray);

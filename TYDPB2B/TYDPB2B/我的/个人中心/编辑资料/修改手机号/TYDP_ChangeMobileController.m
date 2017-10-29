@@ -97,7 +97,7 @@
 //发送验证码
 - (void)sendNumBtnClick{
     [self creatHUD];
-    if (self.mobileTf.text.length == 11) {
+    if (self.mobileTf.text.length != 0) {
         [self getMobileCode];
         _timer.fireDate = [NSDate distantPast];
     }else{
@@ -156,6 +156,7 @@
 - (void)getMobileCode{
     NSDictionary *params = @{@"model":@"user",@"action":@"send_mobile_code",@"mobile":self.mobileTf.text,@"mobile_sign":[TYDPManager md5:[NSString stringWithFormat:@"%@%@",self.mobileTf.text,ConfigNetAppKey]],@"sign":[TYDPManager md5:[NSString stringWithFormat:@"usersend_mobile_code%@",ConfigNetAppKey]],@"nation_code":_quhaoField.text};
     [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
+        debugLog(@"codedata:%@",data);
         if ([data[@"error"]isEqualToString:@"0"]) {
             [_MBHUD hide:YES];
             //            _timer.fireDate = [NSDate distantPast];

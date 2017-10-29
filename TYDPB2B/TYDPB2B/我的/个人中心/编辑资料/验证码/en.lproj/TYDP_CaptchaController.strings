@@ -15,7 +15,7 @@
 "gxY-MM-6aN.normalTitle" = "Sure";
 
 /* Class = "UIButton"; normalTitle = "取消"; ObjectID = "wdW-SA-4Kc"; */
-"wdW-SA-4Kc.normalTitle" = "Cancle";
+"wdW-SA-4Kc.normalTitle" = "Cancel";
 
 /* Class = "UITextField"; placeholder = "输入短信验证码"; ObjectID = "yHu-lQ-FZn"; */
 "yHu-lQ-FZn.placeholder" = "输入短信验证码";

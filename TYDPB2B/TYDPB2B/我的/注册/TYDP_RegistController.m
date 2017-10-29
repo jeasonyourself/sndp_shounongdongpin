@@ -205,6 +205,13 @@
     [self creatHUD];
     UITextField *tf1 = (UITextField *)[self.view viewWithTag:100];
     UITextField *tf = (UITextField *)[self.view viewWithTag:101];
+    if (tf.text.length == 0) {
+        [_MBHUD setLabelText:NSLocalizedString(@"Enter Real Phone number", nil)];
+        [_MBHUD hide:YES afterDelay:1];
+        return;
+    }
+
+    
     NSString *sign = [NSString stringWithFormat:@"usersend_mobile_code%@",ConfigNetAppKey];
     NSDictionary *params = @{@"model":@"user",@"action":@"send_mobile_code",@"mobile":tf.text,@"mobile_sign":[TYDPManager md5:[NSString stringWithFormat:@"%@%@",tf.text,ConfigNetAppKey]],@"sign":[TYDPManager md5:sign],@"nation_code":tf1.text};
     [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {

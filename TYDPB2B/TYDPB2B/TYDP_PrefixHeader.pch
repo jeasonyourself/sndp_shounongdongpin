@@ -26,7 +26,7 @@
 #endif
 
 #define IS_OS_10_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)
-#define ChangeLanguageNotificationName @"changeLanguage"
+#define AlipayNotificationName @"alipayback"
 // NSLocalizedString(key, comment) 本质
 // NSlocalizeString 第一个参数是内容,根据第一个参数去对应语言的文件中取对应的字符串，第二个参数将会转化为字符串文件里的注释，可以传nil，也可以传空字符串@""。
 
