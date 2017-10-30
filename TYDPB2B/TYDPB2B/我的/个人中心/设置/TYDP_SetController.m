@@ -115,7 +115,7 @@
         debugLog(@"模拟器语言切换之前：%@",language1);
         
         NSArray *lans;
-        if ([language1 isEqualToString:@"zh-Hans"]) {
+        if ([language1 rangeOfString:@"zh-Hans"].location !=NSNotFound) {
             lans = @[@"en"];
         }
         else

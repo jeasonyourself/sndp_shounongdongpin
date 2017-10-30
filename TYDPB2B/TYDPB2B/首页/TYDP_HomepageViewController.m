@@ -113,6 +113,10 @@ typedef enum {
     return _sliderSelectedPicArray;
 }
 - (void)createFirstLaunchScrollView{
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]){
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+    [self setUpNavigationBar];
+    }
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
         
         self.tabBarController.tabBar.hidden= YES;

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -87,7 +86,7 @@
                         </mask>
                     </variation>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="————— 其他登录方式 —————" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5H-zC-Q1t">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="其他登录方式" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5H-zC-Q1t">
                     <rect key="frame" x="50" y="423" width="275" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="Kkl-Kf-dp9"/>
@@ -97,18 +96,19 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sx7-fW-HFf" userLabel="lab_wechat">
-                    <rect key="frame" x="175" y="482.5" width="25" height="12.5"/>
+                    <rect key="frame" x="16" y="499" width="343" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="Sx7-fW-HFf" secondAttribute="height" multiplier="2:1" id="6FV-eS-Hxv"/>
+                        <constraint firstAttribute="height" constant="20" id="Vr1-Kj-BVa"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <color key="textColor" red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oy0-8m-KnT" userLabel="btn_wechat">
-                    <rect key="frame" x="175" y="458" width="25" height="20"/>
+                    <rect key="frame" x="165" y="458" width="45" height="36"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="oy0-8m-KnT" secondAttribute="height" multiplier="5:4" id="Riw-fx-JgB"/>
+                        <constraint firstAttribute="height" constant="36" id="1Df-Ep-uos"/>
+                        <constraint firstAttribute="width" constant="45" id="wkM-mK-akh"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <state key="normal" backgroundImage="login_icon_wechat"/>
@@ -122,10 +122,10 @@
                 <constraint firstItem="oy0-8m-KnT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="C7M-oe-f5w"/>
                 <constraint firstItem="Kix-nk-yrk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="CpF-CY-qlF"/>
                 <constraint firstAttribute="trailing" secondItem="Kix-nk-yrk" secondAttribute="trailing" constant="40" id="GHI-Se-t5e"/>
+                <constraint firstAttribute="trailing" secondItem="Sx7-fW-HFf" secondAttribute="trailing" constant="16" id="Oja-RO-0V2"/>
                 <constraint firstAttribute="trailing" secondItem="u5H-zC-Q1t" secondAttribute="trailing" constant="50" id="PB9-al-bAb"/>
                 <constraint firstAttribute="trailing" secondItem="ZQM-sV-GNy" secondAttribute="trailing" constant="40" id="SBw-Iz-KYH"/>
                 <constraint firstItem="ZQM-sV-GNy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="XNc-mt-NLx"/>
-                <constraint firstItem="Sx7-fW-HFf" firstAttribute="width" secondItem="oy0-8m-KnT" secondAttribute="width" id="bu1-T3-GAS"/>
                 <constraint firstItem="bRs-kn-B7q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="c7c-iH-cK0"/>
                 <constraint firstItem="Sx7-fW-HFf" firstAttribute="top" secondItem="oy0-8m-KnT" secondAttribute="bottom" constant="5" id="cif-02-qI3"/>
                 <constraint firstItem="Sx7-fW-HFf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="d5G-E4-tJD"/>
@@ -133,6 +133,7 @@
                 <constraint firstItem="bRs-kn-B7q" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fSO-uc-euC"/>
                 <constraint firstItem="u5H-zC-Q1t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="j9e-2a-ZrG"/>
                 <constraint firstItem="u5H-zC-Q1t" firstAttribute="top" secondItem="PG6-Iy-Qu0" secondAttribute="bottom" constant="95" id="nM9-6q-sXP"/>
+                <constraint firstItem="Sx7-fW-HFf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="puS-Vc-0qe"/>
                 <constraint firstItem="Kix-nk-yrk" firstAttribute="top" secondItem="ZQM-sV-GNy" secondAttribute="bottom" id="r26-ip-hwq"/>
                 <constraint firstItem="PG6-Iy-Qu0" firstAttribute="top" secondItem="ZQM-sV-GNy" secondAttribute="bottom" constant="48" id="xRK-Pl-GTU"/>
                 <constraint firstItem="PG6-Iy-Qu0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="xmk-c4-tnw"/>
