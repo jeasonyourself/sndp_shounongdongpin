@@ -152,7 +152,7 @@ typedef enum {
         //所在地
         _goodsLocalListArray=[NSMutableArray arrayWithArray:totalFilterInfo.goods_local];
         
-        _rightSecondListArray = [NSMutableArray arrayWithObjects:_siteListArray,_siteBrandArray,_catDataBigArray,_sellListArray,@[@{/*报盘类型*/@"id":@"1",@"name":@"CIF"},@{@"id":@"2",@"name":@"FOB"},@{@"id":@"3",@"name":@"DDP"},@{@"id":@"34",@"name":@"CFR"}],/*准、期、现货*/@[@{@"id":@"6",@"name":NSLocalizedString(@"Future",nil)},@{@"id":@"7",@"name":NSLocalizedString(@"Spot",nil)},@{@"id":@"8",@"name":NSLocalizedString(@"SpotToBe",nil)}],/*所在地*/_goodsLocalListArray,/*到港时间*/@[@{@"id":@"1",@"name":@"15天"},@{@"id":@"2",@"name":@"30天"},@{@"id":@"3",@"name":@"60天"},@{@"id":@"4",@"name":@"90天"}],/*整柜、零售*/@[@{@"sell_type":@"5",@"name":NSLocalizedString(@"Retail",nil)},@{@"sell_type":@"4",@"name":NSLocalizedString(@"FCL",nil)}], nil];
+        _rightSecondListArray = [NSMutableArray arrayWithObjects:_siteListArray,_siteBrandArray,_catDataBigArray,_sellListArray,@[@{/*报盘类型*/@"id":@"1",@"name":@"CIF"},@{@"id":@"2",@"name":@"FOB"},@{@"id":@"3",@"name":@"DDP"},@{@"id":@"34",@"name":@"CFR"}],/*准、期、现货*/@[@{@"id":@"6",@"name":NSLocalizedString(@"Future",nil)},@{@"id":@"7",@"name":NSLocalizedString(@"Spot",nil)},@{@"id":@"8",@"name":NSLocalizedString(@"SpotToBe",nil)}],/*所在地*/_goodsLocalListArray,/*到港时间*/@[@{@"id":@"1",@"name":@"15天"},@{@"id":@"2",@"name":@"30天"},@{@"id":@"3",@"name":@"60天"},@{@"id":@"4",@"name":@"90天"}],/*整柜、零售*/@[@{@"sell_type":@"5",@"name":NSLocalizedString(@"FCL",nil)},@{@"sell_type":@"4",@"name":NSLocalizedString(@"Retail",nil)}], nil];
         [self resetRightUIDataWithFlag:@"clickRightButton"];
         [self refreshOtherCellState];
         //        NSLog(@"WY:%@",[_otherCellSaveFlagArray firstObject]);

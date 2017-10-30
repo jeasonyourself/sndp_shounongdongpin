@@ -12,7 +12,7 @@
 "6td-BW-x4A.text" = "Future";
 
 /* Class = "UILabel"; text = "整柜"; ObjectID = "DgV-u4-hXW"; */
-"DgV-u4-hXW.text" = "Retail";
+"DgV-u4-hXW.text" = "FCL";
 
 /* Class = "UILabel"; text = "否"; ObjectID = "EVd-Fj-nHb"; */
 "EVd-Fj-nHb.text" = "NO";
@@ -51,7 +51,7 @@
 "WkQ-bN-SAf.text" = "Please choose";
 
 /* Class = "UILabel"; text = "零售"; ObjectID = "Zrp-rP-Qr4"; */
-"Zrp-rP-Qr4.text" = "FCL";
+"Zrp-rP-Qr4.text" = "Retail";
 
 /* Class = "UILabel"; text = "产品性质"; ObjectID = "ccX-Qx-f20"; */
 "ccX-Qx-f20.text" = "Product Character";
