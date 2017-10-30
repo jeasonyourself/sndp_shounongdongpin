@@ -186,10 +186,10 @@
 //    cell.howMuchLable.text = cellData[@"order_status_format"];
 
    if (![[NSString stringWithFormat:@"%@",cellData[@"stock_status"]] isEqualToString:@"0"]){
-       [cell.typeBtn setTitle:NSLocalizedString(@"Confirm inventory", nil) forState:UIControlStateNormal];
+       [cell.typeBtn setTitle:NSLocalizedString(@"Detailed", nil) forState:UIControlStateNormal];
        cell.typeBtn.hidden=NO;
     }else{
-        [cell.typeBtn setTitle:NSLocalizedString(@"Detailed", nil) forState:UIControlStateNormal];
+        [cell.typeBtn setTitle:NSLocalizedString(@"Confirm inventory", nil) forState:UIControlStateNormal];
         cell.typeBtn.hidden=NO;
     }
     

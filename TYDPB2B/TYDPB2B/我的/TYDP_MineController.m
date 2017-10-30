@@ -486,7 +486,7 @@
             if (!cell) {
                 cell = [[TYDP_MineCellC alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TYDP_MineCellC"];
             }
-           
+            cell.bgImg.image=[UIImage imageNamed:NSLocalizedString(@"banner_me_en", nil)];
             return cell;
         }
         else{

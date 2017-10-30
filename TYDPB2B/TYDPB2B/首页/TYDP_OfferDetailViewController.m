@@ -1833,7 +1833,7 @@ typedef enum {
     UIImage* thumbURL =  [UIImage imageNamed:@"shareIcon"];
     UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"首农冻品" descr:@"国内领先的一站式冻品交易平台" thumImage:thumbURL];
     //设置网页地址
-    shareObject.webpageUrl = [NSString stringWithFormat:@"http://test.taiyanggo.com/mobile/share.php?act=goods&id=%@",self.goods_id];
+    shareObject.webpageUrl = [NSString stringWithFormat:@"http://www.taiyanggo.com/mobile/share.php?act=goods&id=%@",self.goods_id];
     
     //分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;

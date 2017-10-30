@@ -102,6 +102,7 @@ MBProgressHUD *_MBHUD;
         static NSString * const cellID = @"tobeSeller_bannerImageCell";
         tobeSeller_bannerImageTableViewCell *cell=(tobeSeller_bannerImageTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.bannerImage.image=[UIImage imageNamed:NSLocalizedString(@"bg_enter_en", nil)];
         return cell;
     }
     else if (indexPath.row<6)
@@ -250,19 +251,19 @@ MBProgressHUD *_MBHUD;
             isSelect=YES;
             switch (i) {
                 case 0:
-                   _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:NSLocalizedString(@"Pork", nil)]:[NSString stringWithFormat:@"%@ %@",_pubDic[@"product"],NSLocalizedString(@"Pork", nil)];
+                   _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:@"猪"]:[NSString stringWithFormat:@"%@ %@",_pubDic[@"product"],@"猪"];
                     break;
                 case 1:
-                    _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:NSLocalizedString(@"Beef", nil)]:[NSString stringWithFormat:@"%@ %@",_pubDic[@"product"],NSLocalizedString(@"Beef", nil)];
+                    _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:@"牛"]:[NSString stringWithFormat:@"%@ %@",_pubDic[@"product"],@"牛"];
                     break;
                 case 2:
-                    _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:NSLocalizedString(@"Lamb", nil)]:[NSString stringWithFormat:@"%@ %@",_pubDic[@"product"],NSLocalizedString(@"Lamb", nil)];
+                    _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:@"羊"]:[NSString stringWithFormat:@"%@ %@",_pubDic[@"product"],@"羊"];
                     break;
                 case 3:
-                     _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:NSLocalizedString(@"Poultry", nil)]:[NSString stringWithFormat:@"%@ %@",_pubDic[@"product"],NSLocalizedString(@"Poultry", nil)];
+                     _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:@"禽类"]:[NSString stringWithFormat:@"%@ %@",_pubDic[@"product"],@"禽类"];
                     break;
                 case 4:
-                    _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:NSLocalizedString(@"Seafoods", nil)]:[NSString stringWithFormat:@"%@ %@",_pubDic[@"product"],NSLocalizedString(@"Seafoods", nil)];
+                    _pubDic[@"product"]=[_pubDic[@"product"] isEqualToString:@""]?[NSString stringWithFormat:@"水产"]:[NSString stringWithFormat:@"%@ %@",_pubDic[@"product"],@"水产"];
                     break;
                 default:
                     break;

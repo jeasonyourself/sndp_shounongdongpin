@@ -180,14 +180,91 @@
     }
     return result;
 }
+
+#pragma mark - 处理支付宝支付结果  (字符串转json)
+- (NSDictionary *)stringToJson:(NSString *)str
+{
+    
+    NSString *requestTmp = [NSString stringWithString: str];
+    
+    NSData *resData = [[NSData alloc] initWithData:[requestTmp dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:resData options:NSJSONReadingMutableLeaves error:nil];
+    return resultDic;
+}
 //iOS9+
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(nonnull NSDictionary *)options
 {
     if ([url.host isEqualToString:@"safepay"]) {
         //跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            NSLog(@"result = %@",resultDic);
-            [[NSNotificationCenter defaultCenter] postNotificationName:AlipayNotificationName object:nil];
+            NSLog(@"backkkresult = %@",resultDic);
+            
+            
+            if ([[NSString stringWithFormat:@"%@",resultDic[@"resultStatus"]] isEqualToString:@"9000"])//支付成功
+            {
+                
+//                NSDictionary *returnDic =  [self stringToJson:resultDic[@"result"]];
+//                
+//                debugLog(@"returnDicccc:%@",returnDic);
+//
+//                
+//                NSDictionary *dataDic = returnDic[@"alipay_trade_app_pay_response"];
+//                debugLog(@"dataDicDicccc:%@",dataDic);
+
+                
+                NSMutableDictionary *params = [[NSMutableDictionary alloc]initWithDictionary:@{@"model":@"order",@"action":@"savePayStatus",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"ordersavePayStatus%@",ConfigNetAppKey]],@"user_id":[PSDefaults objectForKey:@"user_id"],@"trade_response":resultDic[@"result"]}];
+                 debugLog(@"paramsparamssdsdsd:%@",params);
+                [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
+                    debugLog(@"refreashOrderData:%@",data);
+                    
+                    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+                    [window Message:[NSString stringWithFormat:@"%@",data[@"message"]] HiddenAfterDelay:1.0];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:AlipayNotificationName object:nil];
+                    
+                    
+                }
+                                                failure:^(TYDPError *error) {
+                                                    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+                                                    [window Message:[NSString stringWithFormat:@"%@",error] HiddenAfterDelay:1.0];
+                                                    
+                                                }];
+
+            }
+            else
+            {
+
+//                NSMutableDictionary *params = [[NSMutableDictionary alloc]initWithDictionary:@{@"model":@"order",@"action":@"savePayStatus",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"orderPayStatus%@",ConfigNetAppKey]],@"user_id":[PSDefaults objectForKey:@"user_id"],@"trade_response":@{
+//                    @"code":@"10000",
+//                    @"msg":@"Success",
+//                    @"app_id":@"2014072300007148",
+//                    @"out_trade_no":@"081622560194853",
+//                    @"trade_no":@"2016081621001004400236957647",
+//                    @"total_amount":@"0.01",
+//                    @"seller_id":@"2088702849871851",
+//                    @"charset":@"utf-8",
+//                    @"timestamp":@"2016-10-11 17:43:36"
+//                }}];
+//                debugLog(@"paramsparamssdsdsd:%@",params);
+//                [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
+//                    debugLog(@"refreashOrderData:%@",data);
+//                    
+//                    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+//                    [window Message:[NSString stringWithFormat:@"%@",data[@"message"]] HiddenAfterDelay:1.0];
+//                    [[NSNotificationCenter defaultCenter] postNotificationName:AlipayNotificationName object:nil];
+//                    
+//                    
+//                }
+//                                                failure:^(TYDPError *error) {
+//                                                    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+//                                                    [window Message:[NSString stringWithFormat:@"%@",error] HiddenAfterDelay:1.0];
+//                                                    
+//                                                }];
+//                
+                UIWindow *window = [UIApplication sharedApplication].keyWindow;
+                [window Message:[NSString stringWithFormat:@"%@",resultDic[@"memo"]] HiddenAfterDelay:1.0];
+            }
+            
         }];
     }
     //必写

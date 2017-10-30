@@ -224,7 +224,7 @@ typedef enum {
     UIImage* thumbURL =  [UIImage imageNamed:@"shareIcon"];
     UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"首农冻品" descr:@"国内领先的一站式冻品交易平台" thumImage:thumbURL];
     //设置网页地址
-    shareObject.webpageUrl = [NSString stringWithFormat:@"http://test.taiyanggo.com/mobile/share.php?act=shop&id=%@",self.shopId];
+    shareObject.webpageUrl = [NSString stringWithFormat:@"http://www.taiyanggo.com/mobile/share.php?act=shop&id=%@",self.shopId];
     
     //分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;
@@ -414,7 +414,7 @@ typedef enum {
                 _shopDic=data[@"content"];
                 [self configShopDetailUI:data[@"content"]];
                 _user_id = [NSString stringWithFormat:@"%@",data[@"content"][@"user_id"]];
-
+                [_MBHUD hide:YES afterDelay:1.5f];
                 [self requestGoodsList];
             } else {
                 [_MBHUD setLabelText:data[@"message"]];
@@ -464,6 +464,7 @@ typedef enum {
                 _page_count = [data[@"content"][@"total"][@"page_count"] intValue];
                 [_tableVC.mj_footer endRefreshing];
                 [self analyseGoodsListData:data[@"content"][@"list"]];
+                [_MBHUD hide:YES afterDelay:1];
             }
         }else{
             [_MBHUD setLabelText:data[@"message"]];
@@ -595,10 +596,10 @@ typedef enum {
     _NumLab.font = [UIFont systemFontOfSize:13];
     _NumLab.textColor = [UIColor whiteColor];
     [_NumLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_nameLab.mas_right).offset(0);
+//        make.left.equalTo(_nameLab.mas_right).offset(0);
         make.right.equalTo(nintyLab.mas_left).offset(-10);
         make.bottom.equalTo(nintyLab.mas_bottom).offset(0);
-        make.top.equalTo(nintyLab).offset(0);
+        make.top.equalTo(nintyLab).offset(2);
     }];
     
     

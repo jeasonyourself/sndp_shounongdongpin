@@ -993,8 +993,7 @@ typedef enum {
 
 -(void)AliPay
 {
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    [window Message:NSLocalizedString(@"Pay success!", nil) HiddenAfterDelay:1.0];
+    
     //跳转
     TYDP_CommitEvidenceViewController *CommitEvidenceVC = [TYDP_CommitEvidenceViewController new];
     CommitEvidenceVC.orderId = self.orderId;
@@ -1009,98 +1008,59 @@ typedef enum {
 #pragma mark 支付
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    switch (alertView.tag) {
-        case 0:
-        {
-            NSString *appID = @"2017102409496962";
-            NSString *rsa2PrivateKey = _checkOrderModel[@"pay_online"];
-            NSString *rsaPrivateKey = @"";
-            //将商品信息赋予AlixPayOrder的成员变量
-            Order* order = [Order new];
-            
-            // NOTE: app_id设置
-            order.app_id = appID;
-            
-            // NOTE: 支付接口名称
-            order.method = @"alipay.trade.app.pay";
-            
-            // NOTE: 参数编码格式
-            order.charset = @"utf-8";
-            
-            // NOTE: 当前时间点
-            NSDateFormatter* formatter = [NSDateFormatter new];
-            [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-            order.timestamp = [formatter stringFromDate:[NSDate date]];
-            
-            // NOTE: 支付版本
-            order.version = @"1.0";
-            
-            // NOTE: sign_type 根据商户设置的私钥来决定
-            order.sign_type = (rsa2PrivateKey.length > 1)?@"RSA2":@"RSA";
-            
-            // NOTE: 商品数据
-            order.biz_content = [BizContent new];
-            order.biz_content.body = @"我是测试数据";
-            order.biz_content.subject = @"1";
-            order.biz_content.out_trade_no = [self generateTradeNO]; //订单ID（由商家自行制定）
-            order.biz_content.timeout_express = @"30m"; //超时时间设置
-            order.biz_content.total_amount = [NSString stringWithFormat:@"%.2f", 0.01]; //商品价格
-            
-            //将商品信息拼接成字符串
-            NSString *orderInfo = [order orderInfoEncoded:NO];
-            NSString *orderInfoEncoded = [order orderInfoEncoded:YES];
-            NSLog(@"orderSpec = %@",orderInfo);
-            
-                //应用注册scheme,在AliSDKDemo-Info.plist定义URL types
+    if (buttonIndex==1) {
+        switch (alertView.tag) {
+            case 0:
+            {
                 NSString *appScheme = @"alisdksndp";
                 
-                // NOTE: 将签名成功字符串格式化为订单字符串,请严格按照该格式
-                NSString *orderString = [NSString stringWithFormat:@"%@&sign=%@",
-                                         orderInfoEncoded, _checkOrderModel[@"pay_online"]];
-                
                 // NOTE: 调用支付结果开始支付
-                [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
-                    NSLog(@"reslut = %@",resultDic);
+                [[AlipaySDK defaultService] payOrder:_checkOrderModel[@"pay_online"] fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+                    
+                    debugLog(@"reslut = %@",resultDic);
+                    //                    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+                    //                    [window Message:NSLocalizedString(@"Pay success!", nil) HiddenAfterDelay:1.0];
                 }];
-        }
-            break;
-        case 1:
-        {
-            NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];
-            NSString *Sign = [NSString stringWithFormat:@"%@%@%@",@"order",@"order_edit_payment",ConfigNetAppKey];
-            NSDictionary *params = @{@"action":@"order_edit_payment",@"sign":[TYDPManager md5:Sign],@"model":@"order",@"user_id":[userdefaul objectForKey:@"user_id"],@"token":[userdefaul objectForKey:@"token"],@"order_id":_orderId,@"pay_id":@"-1"};
-            debugLog(@"params:%@",params);
-            [TYDPManager tydp_basePostReqWithUrlStr:@"" params:params success:^(id data) {
-                if (![data[@"error"] intValue]) {
-                    [self.view Message:NSLocalizedString(@"Success", nil) HiddenAfterDelay:1.0];
+            }
+                break;
+            case 1:
+            {
+                NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];
+                NSString *Sign = [NSString stringWithFormat:@"%@%@%@",@"order",@"order_edit_payment",ConfigNetAppKey];
+                NSDictionary *params = @{@"action":@"order_edit_payment",@"sign":[TYDPManager md5:Sign],@"model":@"order",@"user_id":[userdefaul objectForKey:@"user_id"],@"token":[userdefaul objectForKey:@"token"],@"order_id":_orderId,@"pay_id":@"-1"};
+                debugLog(@"params:%@",params);
+                [TYDPManager tydp_basePostReqWithUrlStr:@"" params:params success:^(id data) {
+                    if (![data[@"error"] intValue]) {
+                        [self.view Message:NSLocalizedString(@"Success", nil) HiddenAfterDelay:1.0];
+                        
+                        //跳转去新的订单详情页面
+                        TYDP_CommitEvidenceViewController *CommitEvidenceVC = [TYDP_CommitEvidenceViewController new];
+                        CommitEvidenceVC.orderId = self.orderId;
+                        CommitEvidenceVC.order_status =self.order_status;
+                        CommitEvidenceVC.popMore =YES;
+                        
+                        CommitEvidenceVC.orderSourceString = self.orderSourceString;
+                        [self.navigationController pushViewController:CommitEvidenceVC animated:YES];
+                    }else {
+                        [self.view Message:NSLocalizedString(@"Default", nil) HiddenAfterDelay:1.0];
+                    }
                     
-                    //跳转去新的订单详情页面
-                    TYDP_CommitEvidenceViewController *CommitEvidenceVC = [TYDP_CommitEvidenceViewController new];
-                    CommitEvidenceVC.orderId = self.orderId;
-                    CommitEvidenceVC.order_status =self.order_status;
-                    CommitEvidenceVC.popMore =YES;
-                    
-                    CommitEvidenceVC.orderSourceString = self.orderSourceString;
-                    [self.navigationController pushViewController:CommitEvidenceVC animated:YES];
-                }else {
-                    [self.view Message:NSLocalizedString(@"Default", nil) HiddenAfterDelay:1.0];
                 }
+                                                failure:^(TYDPError *error) {
+                                                    NSLog(@"%@",error);
+                                                }];
                 
             }
-                                            failure:^(TYDPError *error) {
-                                                NSLog(@"%@",error);
-                                            }];
-            
+                break;
+            case 2:
+                
+                break;
+            default:
+                
+                break;
         }
-            break;
-        case 2:
-            
-            break;
-        default:
 
-            break;
     }
-
 }
 
 - (NSString *)generateTradeNO
@@ -1278,14 +1238,17 @@ typedef enum {
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [MobClick endLogPageView:@"订单详情界面"];
+
 }
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:AlipayNotificationName];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AlipayNotificationName object:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
  #pragma mark - Navigation

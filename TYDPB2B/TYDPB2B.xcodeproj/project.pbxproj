@@ -34,6 +34,7 @@
 		8417E2221F68DB460056E7F1 /* TYDP_wantBuyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8417E2211F68DB460056E7F1 /* TYDP_wantBuyDetailViewController.m */; };
 		8417E2251F6928840056E7F1 /* commentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8417E2241F6928840056E7F1 /* commentListModel.m */; };
 		84194BEB1F90B3AF008876B2 /* seller_orderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84194BEA1F90B3AF008876B2 /* seller_orderDetailViewController.m */; };
+		8419D8741FA6F0E300DD1AAD /* TYDP_MineCellC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8419D8761FA6F0E300DD1AAD /* TYDP_MineCellC.xib */; };
 		8419EABB1F47E82800023F70 /* TYDP_BangDingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8419EABA1F47E82800023F70 /* TYDP_BangDingViewController.m */; };
 		8419F64F1FA6317700200124 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 8419F64E1FA6317700200124 /* Order.m */; };
 		8419F6AF1FA6327D00200124 /* APAuthV2Info.m in Sources */ = {isa = PBXBuildFile; fileRef = 8419F6AE1FA6327D00200124 /* APAuthV2Info.m */; };
@@ -62,7 +63,6 @@
 		841E9F421F5C5D9000A0C1F9 /* goodsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 841E9F411F5C5D9000A0C1F9 /* goodsDetailModel.m */; };
 		841E9F481F5C5EAB00A0C1F9 /* goodsBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 841E9F471F5C5EAB00A0C1F9 /* goodsBaseModel.m */; };
 		8420C9BA1F9632F100A65A7C /* TYDP_MineCellC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8420C9B81F9632F100A65A7C /* TYDP_MineCellC.m */; };
-		8420C9BB1F9632F100A65A7C /* TYDP_MineCellC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8420C9B91F9632F100A65A7C /* TYDP_MineCellC.xib */; };
 		8421FF961F569A840077FAB7 /* UIView+Five.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421FF951F569A840077FAB7 /* UIView+Five.m */; };
 		842268231F8A7698003B01EA /* talkPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842268221F8A7698003B01EA /* talkPriceViewController.m */; };
 		842268271F8A76CD003B01EA /* talkPriceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 842268251F8A76CD003B01EA /* talkPriceTableViewCell.m */; };
@@ -319,6 +319,9 @@
 		8417E2241F6928840056E7F1 /* commentListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commentListModel.m; sourceTree = "<group>"; };
 		84194BE91F90B3AF008876B2 /* seller_orderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = seller_orderDetailViewController.h; sourceTree = "<group>"; };
 		84194BEA1F90B3AF008876B2 /* seller_orderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = seller_orderDetailViewController.m; sourceTree = "<group>"; };
+		8419D8751FA6F0E300DD1AAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TYDP_MineCellC.xib; sourceTree = "<group>"; };
+		8419D8781FA6F0E600DD1AAD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TYDP_MineCellC.strings; sourceTree = "<group>"; };
+		8419D87A1FA6F0E800DD1AAD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TYDP_MineCellC.strings"; sourceTree = "<group>"; };
 		8419EAB91F47E82800023F70 /* TYDP_BangDingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_BangDingViewController.h; sourceTree = "<group>"; };
 		8419EABA1F47E82800023F70 /* TYDP_BangDingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_BangDingViewController.m; sourceTree = "<group>"; };
 		8419F64D1FA6317700200124 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
@@ -384,7 +387,6 @@
 		841E9F471F5C5EAB00A0C1F9 /* goodsBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = goodsBaseModel.m; sourceTree = "<group>"; };
 		8420C9B71F9632F100A65A7C /* TYDP_MineCellC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_MineCellC.h; sourceTree = "<group>"; };
 		8420C9B81F9632F100A65A7C /* TYDP_MineCellC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_MineCellC.m; sourceTree = "<group>"; };
-		8420C9B91F9632F100A65A7C /* TYDP_MineCellC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TYDP_MineCellC.xib; sourceTree = "<group>"; };
 		8421FF941F569A840077FAB7 /* UIView+Five.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Five.h"; sourceTree = "<group>"; };
 		8421FF951F569A840077FAB7 /* UIView+Five.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Five.m"; sourceTree = "<group>"; };
 		842268211F8A7698003B01EA /* talkPriceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = talkPriceViewController.h; sourceTree = "<group>"; };
@@ -1245,7 +1247,7 @@
 				E27FA8AA1D7FF76E00898B9A /* TYDP_MineCellB.xib */,
 				8420C9B71F9632F100A65A7C /* TYDP_MineCellC.h */,
 				8420C9B81F9632F100A65A7C /* TYDP_MineCellC.m */,
-				8420C9B91F9632F100A65A7C /* TYDP_MineCellC.xib */,
+				8419D8761FA6F0E300DD1AAD /* TYDP_MineCellC.xib */,
 				845BC65A1F70FF69002902BA /* TYDP_sellerCenterTableViewCell.h */,
 				845BC65B1F70FF69002902BA /* TYDP_sellerCenterTableViewCell.m */,
 				845BC65C1F70FF69002902BA /* TYDP_sellerCenterTableViewCell.xib */,
@@ -1866,7 +1868,7 @@
 				8414D4321FA458580039D081 /* TYDP_MyWantCell.xib in Resources */,
 				8414D42B1FA457CA0039D081 /* TYDP_ConsigneeCell.xib in Resources */,
 				E27FA9781D7FF76F00898B9A /* TYDP_NoBargainController.xib in Resources */,
-				8420C9BB1F9632F100A65A7C /* TYDP_MineCellC.xib in Resources */,
+				8419D8741FA6F0E300DD1AAD /* TYDP_MineCellC.xib in Resources */,
 				8414D44E1FA45A750039D081 /* TYDP_AfterServiceCell.xib in Resources */,
 				8414D4241FA457920039D081 /* TYDP_NoConsigneeController.xib in Resources */,
 				8414D4391FA458780039D081 /* TYDP_MyMessageCell.xib in Resources */,
@@ -2362,6 +2364,16 @@
 				8414D4691FA4968B0039D081 /* zh-Hans */,
 			);
 			name = TYDP_CareCell.xib;
+			sourceTree = "<group>";
+		};
+		8419D8761FA6F0E300DD1AAD /* TYDP_MineCellC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8419D8751FA6F0E300DD1AAD /* Base */,
+				8419D8781FA6F0E600DD1AAD /* en */,
+				8419D87A1FA6F0E800DD1AAD /* zh-Hans */,
+			);
+			name = TYDP_MineCellC.xib;
 			sourceTree = "<group>";
 		};
 		841BB1231FA3C27500A1B75C /* TYDP_BargainCellB.xib */ = {

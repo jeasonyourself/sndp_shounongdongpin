@@ -671,7 +671,7 @@ typedef enum {
             make.width.mas_equalTo(demandCellImageWidth);
             make.height.mas_equalTo(demandCellImageWidth);
         }];
-        [headImageView sd_setImageWithURL:[NSURL URLWithString:[purchaseListMD.user_face isEqualToString:@""]?@"http://test.taiyanggo.com/images/no_picture.gif":purchaseListMD.user_face] placeholderImage:nil];
+        [headImageView sd_setImageWithURL:[NSURL URLWithString:[purchaseListMD.user_face isEqualToString:@""]?@"http://www.taiyanggo.com/images/no_picture.gif":purchaseListMD.user_face] placeholderImage:nil];
         
         
         UILabel *nameLabel = [UILabel new];
@@ -846,7 +846,25 @@ typedef enum {
 
 - (void)setReFreshMethod {
     NSMutableDictionary *tmpDic = [NSMutableDictionary dictionary];
-    [tmpDic setObject:[_topLabelArray objectAtIndex:_typeFlag-1] forKey:@"type"];
+    if ([[_topLabelArray objectAtIndex:_typeFlag-1] isEqualToString:NSLocalizedString(@"Pork", nil)]) {
+        [tmpDic setObject:@"猪" forKey:@"type"];
+    }
+    if ([[_topLabelArray objectAtIndex:_typeFlag-1] isEqualToString:NSLocalizedString(@"Beef", nil)]) {
+        [tmpDic setObject:@"牛" forKey:@"type"];
+    }
+    if ([[_topLabelArray objectAtIndex:_typeFlag-1] isEqualToString:NSLocalizedString(@"Lamb", nil)]) {
+        [tmpDic setObject:@"羊" forKey:@"type"];
+    }
+    if ([[_topLabelArray objectAtIndex:_typeFlag-1] isEqualToString:NSLocalizedString(@"Poultry", nil)]) {
+        [tmpDic setObject:@"禽类" forKey:@"type"];
+    }
+    if ([[_topLabelArray objectAtIndex:_typeFlag-1] isEqualToString:NSLocalizedString(@"Seafoods", nil)]) {
+        [tmpDic setObject:@"水产" forKey:@"type"];
+    }
+    if ([[_topLabelArray objectAtIndex:_typeFlag-1] isEqualToString:NSLocalizedString(@"Other", nil)]) {
+        [tmpDic setObject:@"其他" forKey:@"type"];
+    }
+    
        //上拉刷新
     _baseScrollView.mj_footer.automaticallyHidden = YES;
     _baseScrollView.mj_footer = [MJRefreshAutoNormalFooter  footerWithRefreshingBlock:^{
@@ -981,7 +999,25 @@ typedef enum {
     [_topIndicatorButton setTitle:self.topLabelArray[superView.tag-1] forState:UIControlStateNormal];
     _tmpDic = [NSMutableDictionary dictionary];
     _typeFlag = superView.tag;
-    [_tmpDic setObject:[_topLabelArray objectAtIndex:_typeFlag-1] forKey:@"type"];
+    if ([[_topLabelArray objectAtIndex:_typeFlag-1] isEqualToString:NSLocalizedString(@"Pork", nil)]) {
+        [_tmpDic setObject:@"猪" forKey:@"type"];
+    }
+    if ([[_topLabelArray objectAtIndex:_typeFlag-1] isEqualToString:NSLocalizedString(@"Beef", nil)]) {
+        [_tmpDic setObject:@"牛" forKey:@"type"];
+    }
+    if ([[_topLabelArray objectAtIndex:_typeFlag-1] isEqualToString:NSLocalizedString(@"Lamb", nil)]) {
+        [_tmpDic setObject:@"羊" forKey:@"type"];
+    }
+    if ([[_topLabelArray objectAtIndex:_typeFlag-1] isEqualToString:NSLocalizedString(@"Poultry", nil)]) {
+        [_tmpDic setObject:@"禽类" forKey:@"type"];
+    }
+    if ([[_topLabelArray objectAtIndex:_typeFlag-1] isEqualToString:NSLocalizedString(@"Seafoods", nil)]) {
+        [_tmpDic setObject:@"水产" forKey:@"type"];
+    }
+    if ([[_topLabelArray objectAtIndex:_typeFlag-1] isEqualToString:NSLocalizedString(@"Other", nil)]) {
+        [_tmpDic setObject:@"其他" forKey:@"type"];
+    }
+//    [_tmpDic setObject:[_topLabelArray objectAtIndex:_typeFlag-1] forKey:@"type"];
     //设置对象动画属性
     POPBasicAnimation *anBasic = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionX];
     anBasic.fromValue = @(_tmpMemory);
