@@ -384,9 +384,9 @@
         }
         if (indexPath.row ==4) {
             NSLog(@"专属客服");
-            TYDP_CustomerServiceController *VC = [[TYDP_CustomerServiceController alloc]init];
-            VC.TYDPmodel = _model;
-            [self.navigationController pushViewController:VC animated:YES];
+            NSLog(@"专属客服");
+            NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"15038271936"];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
         }
         if (indexPath.row ==5) {
             NSLog(@"邀请好友");

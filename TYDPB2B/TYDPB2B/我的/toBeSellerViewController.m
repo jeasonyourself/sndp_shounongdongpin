@@ -345,7 +345,7 @@ MBProgressHUD *_MBHUD;
     [titleLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(_navigationBarView);
         make.centerY.equalTo(_navigationBarView).with.offset(Gap);
-        make.width.mas_equalTo(80);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(20);
     }];
     

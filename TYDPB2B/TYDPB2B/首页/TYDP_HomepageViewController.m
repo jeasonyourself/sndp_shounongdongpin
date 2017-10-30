@@ -134,6 +134,7 @@ typedef enum {
                 goMain.frame = CGRectMake(ScreenWidth*3, 0, ScreenWidth, ScreenHeight);
                 [goMain addTarget:self action:@selector(fisrtLaunchButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
                 [_firstLaunchScrollView addSubview:goMain];
+//                [self fisrtLaunchButtonClicked:nil];
             }
         }
         _firstLaunchScrollView.contentSize = CGSizeMake(ScreenWidth*4, 0);
@@ -1440,7 +1441,8 @@ typedef enum {
     debugLog(@"模拟器语言切换之前：%@",language1);
     
     NSArray *lans;
-    if ([language1 isEqualToString:@"zh-Hans"]) {
+     if ([language1 rangeOfString:@"zh-Hans"].location !=NSNotFound)
+     {
         lans = @[@"en"];
     }
     else

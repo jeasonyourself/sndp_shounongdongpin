@@ -42,7 +42,7 @@ static TYDPManager *_instance;
     NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
     NSString *languageName = [appLanguages objectAtIndex:0];
     debugLog(@"languageNameeeee:%@",languageName);
-    if ([languageName isEqualToString:@"zh-Hans"]) {
+     if ([languageName rangeOfString:@"zh-Hans"].location !=NSNotFound) {
         np[@"lang"]=@"zh";
     }
     else
@@ -72,7 +72,8 @@ static TYDPManager *_instance;
     NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
     NSString *languageName = [appLanguages objectAtIndex:0];
     debugLog(@"languageNameeeee:%@",languageName);
-    if ([languageName isEqualToString:@"zh-Hans"]) {
+    
+    if ([languageName rangeOfString:@"zh-Hans"].location !=NSNotFound) {
         np[@"lang"]=@"zh";
     }
     else
@@ -124,7 +125,7 @@ static TYDPManager *_instance;
     NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
     NSString *languageName = [appLanguages objectAtIndex:0];
     debugLog(@"languageNameeeee:%@",languageName);
-    if ([languageName isEqualToString:@"zh-Hans"]) {
+     if ([languageName rangeOfString:@"zh-Hans"].location !=NSNotFound) {
         np[@"lang"]=@"zh";
     }
     else
