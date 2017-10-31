@@ -51,7 +51,7 @@
 #define TYDPIphone5sHeight 568.0
 
 //PHP
-#define PHPURL @"http://www.taiyanggo.com/app/api.php"
+#define PHPURL @"http://test.taiyanggo.com/app/api.php"
 
 //长，宽缩放比例（按iPhone6尺寸适配）
 #define Width [UIScreen mainScreen].bounds.size.width / 375.f

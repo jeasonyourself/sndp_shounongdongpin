@@ -430,7 +430,7 @@ typedef enum {
         make.right.equalTo(_baseScrollView);
         make.height.mas_equalTo(HomePageBordWidth);
     }];
-        if (![[NSString stringWithFormat:@"%@",_checkOrderModel[@"user_info"][@"name"]] isEqualToString:@""]&&![[NSString stringWithFormat:@"%@",_checkOrderModel[@"stock_status"]] isEqualToString:@"0"]) {//与卖家协商UI
+        if (![[NSString stringWithFormat:@"%@",_checkOrderModel[@"user_info"][@"name"]] isEqualToString:@""]&&![[NSString stringWithFormat:@"%@",_checkOrderModel[@"stock_status"]] isEqualToString:@"0"]) {//订单不是待确认
             [_orderDetailArray addObject:NSLocalizedString(@"Name of seller", nil)];
             [_orderDetailArray addObject:NSLocalizedString(@"Seller's phone NO.", nil)];
                 [_orderDetailValueArray addObject:_paymentBigModel[@"name"]];
@@ -735,7 +735,7 @@ typedef enum {
         }
     }
     
-    if (_checkOrderModel[@"bank"][@"account"]&&![[NSString stringWithFormat:@"%@",_checkOrderModel[@"bank"][@"account"]] isEqualToString:@""]&&[[NSString stringWithFormat:@"%@",_checkOrderModel[@"stock_status"]] isEqualToString:@"1"]) {
+    if (_checkOrderModel[@"bank"][@"account"]&&![[NSString stringWithFormat:@"%@",_checkOrderModel[@"bank"][@"account"]] isEqualToString:@""]&&[[NSString stringWithFormat:@"%@",_checkOrderModel[@"stock_status"]] isEqualToString:@"1"]&&[[NSString stringWithFormat:@"%@",_checkOrderModel[@"pay_id"]] isEqualToString:@"1"]) {
         [self BBankViewWithFrontView:_bottomView];
     }
     else
@@ -1012,15 +1012,41 @@ typedef enum {
         switch (alertView.tag) {
             case 0:
             {
-                NSString *appScheme = @"alisdksndp";
-                
-                // NOTE: 调用支付结果开始支付
-                [[AlipaySDK defaultService] payOrder:_checkOrderModel[@"pay_online"] fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+                NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];
+                NSString *Sign = [NSString stringWithFormat:@"%@%@%@",@"order",@"order_edit_payment",ConfigNetAppKey];
+                NSDictionary *params = @{@"action":@"order_edit_payment",@"sign":[TYDPManager md5:Sign],@"model":@"order",@"user_id":[userdefaul objectForKey:@"user_id"],@"token":[userdefaul objectForKey:@"token"],@"order_id":_orderId,@"pay_id":@"3"};
+                debugLog(@"params:%@",params);
+                [TYDPManager tydp_basePostReqWithUrlStr:@"" params:params success:^(id data) {
+                    if (![data[@"error"] intValue]) {
+                        
+                        TYDP_CommitEvidenceViewController *CommitEvidenceVC = [TYDP_CommitEvidenceViewController new];
+                        CommitEvidenceVC.orderId = self.orderId;
+                        CommitEvidenceVC.order_status =self.order_status;
+                        CommitEvidenceVC.popMore =YES;
+                        
+                        CommitEvidenceVC.orderSourceString = self.orderSourceString;
+                        [self.navigationController pushViewController:CommitEvidenceVC animated:YES];
+                        
+                        NSString *appScheme = @"alisdksndp";
+                        
+                        // NOTE: 调用支付结果开始支付
+                        [[AlipaySDK defaultService] payOrder:_checkOrderModel[@"pay_online"] fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+                            
+                            debugLog(@"reslut = %@",resultDic);
+                            //                    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+                            //                    [window Message:NSLocalizedString(@"Pay success!", nil) HiddenAfterDelay:1.0];
+                        }];
+
+                    }else {
+                        [self.view Message:NSLocalizedString(@"Default", nil) HiddenAfterDelay:1.0];
+                    }
                     
-                    debugLog(@"reslut = %@",resultDic);
-                    //                    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-                    //                    [window Message:NSLocalizedString(@"Pay success!", nil) HiddenAfterDelay:1.0];
-                }];
+                }
+               failure:^(TYDPError *error) {
+                    NSLog(@"%@",error);
+                                                }
+                 ];
+                
             }
                 break;
             case 1:
@@ -1053,7 +1079,34 @@ typedef enum {
             }
                 break;
             case 2:
+            {
+                NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];
+                NSString *Sign = [NSString stringWithFormat:@"%@%@%@",@"order",@"order_edit_payment",ConfigNetAppKey];
+                NSDictionary *params = @{@"action":@"order_edit_payment",@"sign":[TYDPManager md5:Sign],@"model":@"order",@"user_id":[userdefaul objectForKey:@"user_id"],@"token":[userdefaul objectForKey:@"token"],@"order_id":_orderId,@"pay_id":@"2"};
+                debugLog(@"params:%@",params);
+                [TYDPManager tydp_basePostReqWithUrlStr:@"" params:params success:^(id data) {
+                    if (![data[@"error"] intValue]) {
+                        [self.view Message:NSLocalizedString(@"Success", nil) HiddenAfterDelay:1.0];
+                        
+                        //跳转去新的订单详情页面
+                        TYDP_CommitEvidenceViewController *CommitEvidenceVC = [TYDP_CommitEvidenceViewController new];
+                        CommitEvidenceVC.orderId = self.orderId;
+                        CommitEvidenceVC.order_status =self.order_status;
+                        CommitEvidenceVC.popMore =YES;
+                        
+                        CommitEvidenceVC.orderSourceString = self.orderSourceString;
+                        [self.navigationController pushViewController:CommitEvidenceVC animated:YES];
+                    }else {
+                        [self.view Message:NSLocalizedString(@"Default", nil) HiddenAfterDelay:1.0];
+                    }
+                    
+                }
+                                                failure:^(TYDPError *error) {
+                                                    NSLog(@"%@",error);
+                                                }];
                 
+            }
+
                 break;
             default:
                 
