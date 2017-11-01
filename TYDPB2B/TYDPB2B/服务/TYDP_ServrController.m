@@ -72,7 +72,7 @@
         [bgView addSubview:imageView];
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(bgView.mas_left).with.offset(i==0?(ScreenWidth-40)/4-25:(ScreenWidth-40)*3/4-25);
-            make.top.equalTo(bgView.mas_top).with.offset(10);
+            make.top.equalTo(bgView.mas_top).with.offset(25);
             make.width.mas_equalTo(50);
             make.height.mas_equalTo(50);
         }];

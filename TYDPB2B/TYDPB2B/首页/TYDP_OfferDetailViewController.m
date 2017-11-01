@@ -197,7 +197,7 @@ typedef enum {
     [backButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_navigationBarView).with.offset(Gap);
         make.centerY.equalTo(_navigationBarView).with.offset(Gap);
-        make.width.mas_equalTo(180);
+        make.width.mas_equalTo(100);
         make.height.mas_equalTo(100*(backButtonImage.size.height/backButtonImage.size.width));
     }];
     UILabel *navigationLabel = [UILabel new];
@@ -281,14 +281,17 @@ typedef enum {
         lastSlideModel = [_picListArray firstObject];
         firstImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-ScreenWidth, 0, _bannerScrollView.frame.size.width, _bannerScrollView.frame.size.height)];
         [firstImageView sd_setImageWithURL:[NSURL URLWithString:firstSlideModel] placeholderImage:nil];
+//    firstImageView.contentMode=   UIViewContentModeScaleAspectFit;
         [_bannerScrollView addSubview:firstImageView];
         lastImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth*_picListArray.count, 0, _bannerScrollView.frame.size.width, _bannerScrollView.frame.size.height)];
         [lastImageView sd_setImageWithURL:[NSURL URLWithString:lastSlideModel] placeholderImage:nil];
+//    lastImageView.contentMode=   UIViewContentModeScaleAspectFit;
         [_bannerScrollView addSubview:lastImageView];
         
          for (int i = 0 ; i < _picListArray.count; i++) {
          NSString *tmpModel = _picListArray[i];
          UIImageView *tmpImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth*i, 0, _bannerScrollView.frame.size.width, _bannerScrollView.frame.size.height)];
+//             tmpImageView.contentMode=   UIViewContentModeScaleAspectFit;
          [tmpImageView sd_setImageWithURL:[NSURL URLWithString:tmpModel] placeholderImage:nil];
          [_bannerScrollView addSubview:tmpImageView];
          }
