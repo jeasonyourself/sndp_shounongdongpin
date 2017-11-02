@@ -169,7 +169,7 @@
     cell.numberLab.text = cellData[@"order_sn"];
     cell.timeLab.text = cellData[@"add_time"];
     [cell.headImg sd_setImageWithURL:[NSURL URLWithString:cellData[@"goods"][@"goods_thumb"]]];
-    cell.priceLab.text = [NSString stringWithFormat:@"¥%@/%@",cellData[@"goods"][@"goods_price"],NSLocalizedString(@"Ton", nil)];
+    cell.priceLab.text = [NSString stringWithFormat:@"¥%@/%@",cellData[@"goods"][@"goods_price"],NSLocalizedString(@"MT", nil)];
     cell.changNumLable.text = [NSString stringWithFormat:@"厂号   %@",cellData[@"goods"][@"brand_sn"]];
     cell.regionNameLable.text = [NSString stringWithFormat:@"%@",cellData[@"goods"][@"region_name"]];
     if ([[NSString stringWithFormat:@"%@",cellData[@"goods"][@"is_retail"]] isEqualToString:@"1"]) {

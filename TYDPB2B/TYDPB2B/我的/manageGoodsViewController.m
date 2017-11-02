@@ -407,7 +407,7 @@ page=1;
     }];
     
     UILabel *middleMiddleLabel = [UILabel new];
-    [middleMiddleLabel setText:[NSString stringWithFormat:@"%@%@",NSLocalizedString(@"Plat NO.", nil),tmpGoodsModel.brand_sn]];
+    [middleMiddleLabel setText:[NSString stringWithFormat:@"%@%@",NSLocalizedString(@"Plant No.", nil),tmpGoodsModel.brand_sn]];
     [middleMiddleLabel setFont:ThemeFont(13)];
     [middleMiddleLabel setTextColor:RGBACOLOR(102, 102, 102, 1)];
     [bottomCellView addSubview:middleMiddleLabel];

@@ -117,19 +117,38 @@ typedef enum {
 - (void)viewDidLoad {
     [super viewDidLoad];
     _goodsListModelArray = [NSMutableArray new];
-    [self createWholeUI];
+    _isUnfold = YES;
+    _filterPageDic = [NSMutableDictionary dictionary];
+    //    _topFutureFilterFlag = NO;
+    _totalCount = 1;
+    _typeFlag = 1;
+    _tmpPage = 1;
+    _MBHUD = [[MBProgressHUD alloc] init];
+    [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
+    [_MBHUD setMode:MBProgressHUDModeText];
+    if (_filterDic) {
+        [_filterPageDic addEntriesFromDictionary:_filterDic];
+    }
+    [self.view setBackgroundColor:RGBACOLOR(255, 255, 255, 1)];
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self setUpNavigationBar];//导航栏
+    [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
+    [self.view addSubview:_MBHUD];
+    [_MBHUD show:YES];
+
     [self getDetail];
+    
     // Do any additional setup after loading the view.
 }
 - (void)getDetail{
-    
     NSString *Sign = [NSString stringWithFormat:@"%@%@%@",@"purchase",@"getPurchaseInfo",ConfigNetAppKey];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"action":@"getPurchaseInfo",@"sign":[TYDPManager md5:Sign],@"model":@"purchase",@"id":self.qiugou_id}];
     NSLog(@"qiugouDetailparams:%@",params);
     [TYDPManager tydp_basePostReqWithUrlStr:@"" params:params success:^(id data) {
         NSLog(@"qiugoudetaildata:%@",data);
         [_bottomCellContainerView removeFromSuperview];
-        if (![data[@"error"] intValue]) {
+        if ([data[@"error"] intValue]==0) {
             [_MBHUD hide:YES];
             
             _purchaseListMD=[[purchaseListModel alloc] initWithDictionary:data[@"content"] error:nil];
@@ -192,7 +211,8 @@ typedef enum {
                 MBProgressHUD *tmpHud = [[MBProgressHUD alloc] init];
                 [tmpHud setAnimationType:MBProgressHUDAnimationFade];
                 [tmpHud setMode:MBProgressHUDModeText];
-                [tmpHud setLabelText:@"暂时没有评论。。。"];
+                
+                [tmpHud setLabelText:NSLocalizedString(@"No comment for the moment",nil)];
                 [_goodsListModelArray removeAllObjects];
                 [self.view addSubview:tmpHud];
                 [tmpHud show:YES];
@@ -561,30 +581,7 @@ typedef enum {
     }
 }
 - (void)createWholeUI{
-    _isUnfold = YES;
-    [self.view setBackgroundColor:RGBACOLOR(255, 255, 255, 1)];
-
-    //    _searchCancelButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    //    _searchCancelButton.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
-    //    [_searchCancelButton setBackgroundColor:RGBACOLOR(0, 0, 0, 0.5)];
-    //    [_searchCancelButton addTarget:self action:@selector(searchCancelButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self setUpNavigationBar];//导航栏
-    
-    _filterPageDic = [NSMutableDictionary dictionary];
-    //    _topFutureFilterFlag = NO;
-    _totalCount = 1;
-    _typeFlag = 1;
-    _tmpPage = 1;
-    _MBHUD = [[MBProgressHUD alloc] init];
-    [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
-    [_MBHUD setMode:MBProgressHUDModeText];
-    if (_filterDic) {
-        [_filterPageDic addEntriesFromDictionary:_filterDic];
-    }
-    [self.view setBackgroundColor:RGBACOLOR(255, 255, 255, 1)];
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;
     _baseScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight-50)];
     _baseScrollView.backgroundColor=RGBACOLOR(250, 250, 250, 1);
     _baseScrollView.delegate = self;
@@ -724,7 +721,7 @@ typedef enum {
     }];
     
     UILabel *detailDemandLabel = [UILabel new];
-    [detailDemandLabel setText:[NSString stringWithFormat:@"%@  %@%@  %@-%@%@",_purchaseListMD.goods_name,_purchaseListMD.goods_num,NSLocalizedString(@"Ton",nil),_purchaseListMD.price_low,_purchaseListMD.price_up,NSLocalizedString(@"yuan/ton",nil)]];
+    [detailDemandLabel setText:[NSString stringWithFormat:@"%@  %@%@  %@-%@%@",_purchaseListMD.goods_name,_purchaseListMD.goods_num,NSLocalizedString(@"MT",nil),_purchaseListMD.price_low,_purchaseListMD.price_up,NSLocalizedString(@"yuan/MT",nil)]];
     [detailDemandLabel setFont:ThemeFont(13)];
     [detailDemandLabel setTextColor:RGBACOLOR(51, 51, 51, 1)];
     

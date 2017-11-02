@@ -281,10 +281,10 @@ typedef enum {
     [shareButton addTarget:self action:@selector(rightItemClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_navigationBarView addSubview:shareButton];
     [shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(_navigationBarView);
+        make.right.equalTo(_navigationBarView).with.offset(-10);
         make.centerY.equalTo(_navigationBarView).with.offset(Gap);
-        make.width.mas_equalTo(30);
-        make.height.mas_equalTo(30*(shareButtonImage.size.height/shareButtonImage.size.width));
+        make.width.mas_equalTo(20);
+        make.height.mas_equalTo(20);
     }];
 
 #pragma mark 设置搜索框
@@ -422,6 +422,7 @@ typedef enum {
             }
         } failure:^(TYDPError *error) {
             NSLog(@"---ShopDetailError:%@---",error);
+             [_MBHUD hide:YES afterDelay:1.5f];
         }];
     }
 }
@@ -472,6 +473,7 @@ typedef enum {
         }
     } failure:^(TYDPError *error) {
         [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",error]];
+         [_MBHUD hide:YES afterDelay:1.5f];
         NSLog(@"---GoodsListError:%@---",error);
     }];
 }

@@ -1448,7 +1448,7 @@
                 }
                 break;
             case 1:
-                cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
+                cell.nameLable.text=NSLocalizedString(@"Plant No.", nil);
                 if ([_dic1 objectForKey:@"brand_id"]) {
                     cell.contentLable.text=[_dic1 objectForKey:@"brand_name"];
                 }
@@ -1505,8 +1505,8 @@
             cell.delegate=self;
             cell.tag=indexPath.section*100+indexPath.row;
             cell.nameLable.text=NSLocalizedString(@"Packing specification", nil);
-            cell.firstLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"unit",nil)];
-            cell.secondLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"Ton",nil)];
+            cell.firstLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
+            cell.secondLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"MT",nil)];
             if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                 cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                 cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -1535,11 +1535,11 @@
 //            }
            
            if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""]) {
-               cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/unit",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"unit/Ctn", nil)];
+               cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
            }
            else
            {
-           cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/unit",nil),NSLocalizedString(@"unit/Ctn", nil)];
+           cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
            }
            
            if ([_dic2 objectForKey:@"spec_1"]) {
@@ -1614,10 +1614,10 @@
         cell.inputField.delegate=self;
         cell.inputField.tag=cell.tag;
         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
-            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"unit",nil)];
+            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
         }
         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
-            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"unit",nil)];
+            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
         }
         
         if ([_otherDic objectForKey:@"goods_number"]) {
@@ -1688,26 +1688,26 @@
             if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                 if ([[_otherDic objectForKey:@"currency"]
                      isEqualToString:@"1"]) {
-                    cell.unitLable.text=NSLocalizedString(@"yuan/unit",nil);
+                    cell.unitLable.text=NSLocalizedString(@"yuan/pc",nil);
                 }
                 if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                    cell.unitLable.text=NSLocalizedString(@"dollar/unit",nil);
+                    cell.unitLable.text=NSLocalizedString(@"dollar/pc",nil);
                 }
                 if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                    cell.unitLable.text=NSLocalizedString(@"euro/unit",nil);
+                    cell.unitLable.text=NSLocalizedString(@"euro/pc",nil);
                 }
 
             }
             if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                 if ([[_otherDic objectForKey:@"currency"]
                      isEqualToString:@"1"]) {
-                    cell.unitLable.text=NSLocalizedString(@"yuan/ton",nil);
+                    cell.unitLable.text=NSLocalizedString(@"yuan/MT",nil);
                 }
                 if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                    cell.unitLable.text=NSLocalizedString(@"dollar/ton",nil);
+                    cell.unitLable.text=NSLocalizedString(@"dollar/MT",nil);
                 }
                 if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                    cell.unitLable.text=NSLocalizedString(@"euro/ton",nil);
+                    cell.unitLable.text=NSLocalizedString(@"euro/MT",nil);
                 }
             }
 
@@ -1921,7 +1921,7 @@
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
+                            cell.nameLable.text=NSLocalizedString(@"Plant No.", nil);
                             if ([_dic1 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"brand_name"];
                             }
@@ -1981,11 +1981,11 @@
                        cell.inputField.delegate=self;
                        
                        if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                           cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/unit",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"unit/Ctn", nil)];
+                           cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
                        }
                        else
                        {
-                           cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/unit",nil),NSLocalizedString(@"unit/Ctn", nil)];
+                           cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
                        }
 
                        if ([_dic2 objectForKey:@"spec_1"]) {
@@ -2008,7 +2008,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"ton/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
                         
                         if ([_dic2 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic2 objectForKey:@"spec_3"];
@@ -2090,7 +2090,7 @@
                         cell.inputField.delegate=self;
                         cell.inputField.tag=cell.tag;
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"unit",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
                         }
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                             cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"Caninet",nil)];
@@ -2163,26 +2163,26 @@
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/unit",nil);
+                                cell.unitLable.text=NSLocalizedString(@"yuan/pc",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/unit",nil);
+                                cell.unitLable.text=NSLocalizedString(@"dollar/pc",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/unit",nil);
+                                cell.unitLable.text=NSLocalizedString(@"euro/pc",nil);
                             }
                             
                         }
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/ton",nil);
+                                cell.unitLable.text=NSLocalizedString(@"yuan/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/ton",nil);
+                                cell.unitLable.text=NSLocalizedString(@"dollar/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/ton",nil);
+                                cell.unitLable.text=NSLocalizedString(@"euro/MT",nil);
                             }
                         }
                         
@@ -2392,7 +2392,7 @@
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
+                            cell.nameLable.text=NSLocalizedString(@"Plant No.", nil);
                             if ([_dic1 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"brand_name"];
                             }
@@ -2452,11 +2452,11 @@
                         cell.inputField.delegate=self;
                         
                         if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/unit",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/unit",nil),NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
                         }
                         
                         if ([_dic2 objectForKey:@"spec_1"]) {
@@ -2478,7 +2478,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"ton/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
                         
                         if ([_dic2 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic2 objectForKey:@"spec_3"];
@@ -2570,7 +2570,7 @@
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
+                            cell.nameLable.text=NSLocalizedString(@"Plant No.", nil);
                             if ([_dic3 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"brand_name"];
                             }
@@ -2630,11 +2630,11 @@
                         cell.inputField.delegate=self;
                        
                         if ([_dic4 objectForKey:@"spec_1"]&&![[_dic4 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/unit",nil),1000/[[_dic4 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic4 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/unit",nil),NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
                         }
                         
                         if ([_dic4 objectForKey:@"spec_1"]) {
@@ -2656,7 +2656,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"ton/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
                         
                         if ([_dic4 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic4 objectForKey:@"spec_3"];
@@ -2734,7 +2734,7 @@
                         cell.inputField.delegate=self;
                         cell.inputField.tag=cell.tag;
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"unit",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
                         }
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                             cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"Caninet",nil)];
@@ -2807,26 +2807,26 @@
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/unit",nil);
+                                cell.unitLable.text=NSLocalizedString(@"yuan/pc",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/unit",nil);
+                                cell.unitLable.text=NSLocalizedString(@"dollar/pc",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/unit",nil);
+                                cell.unitLable.text=NSLocalizedString(@"euro/pc",nil);
                             }
                             
                         }
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/ton",nil);
+                                cell.unitLable.text=NSLocalizedString(@"yuan/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/ton",nil);
+                                cell.unitLable.text=NSLocalizedString(@"dollar/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/ton",nil);
+                                cell.unitLable.text=NSLocalizedString(@"euro/MT",nil);
                             }
                         }
                         if ([_otherDic objectForKey:@"currency_money"]) {
@@ -3038,7 +3038,7 @@
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
+                            cell.nameLable.text=NSLocalizedString(@"Plant No.", nil);
                             if ([_dic1 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"brand_name"];
                             }
@@ -3098,11 +3098,11 @@
                         cell.inputField.delegate=self;
                         
                         if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/unit",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/unit",nil),NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
                         }
                         
                         if ([_dic2 objectForKey:@"spec_1"]) {
@@ -3124,7 +3124,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"ton/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
                         
                         if ([_dic2 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic2 objectForKey:@"spec_3"];
@@ -3215,7 +3215,7 @@
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
+                            cell.nameLable.text=NSLocalizedString(@"Plant No.", nil);
                             if ([_dic3 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"brand_name"];
                             }
@@ -3274,11 +3274,11 @@
                         cell.inputField.delegate=self;
                        
                         if ([_dic4 objectForKey:@"spec_1"]&&![[_dic4 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/unit",nil),1000/[[_dic4 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic4 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/unit",nil),NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
                         }
                         
                         if ([_dic4 objectForKey:@"spec_1"]) {
@@ -3300,7 +3300,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"ton/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
                         
                         if ([_dic4 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic4 objectForKey:@"spec_3"];
@@ -3391,7 +3391,7 @@
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
+                            cell.nameLable.text=NSLocalizedString(@"Plant No.", nil);
                             if ([_dic5 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic5 objectForKey:@"brand_name"];
                             }
@@ -3450,11 +3450,11 @@
                         cell.inputField.delegate=self;
                        
                         if ([_dic6 objectForKey:@"spec_1"]&&![[_dic6 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/unit",nil),1000/[[_dic6 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic6 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/unit",nil),NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
                         }
                         
                         if ([_dic6 objectForKey:@"spec_1"]) {
@@ -3476,7 +3476,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"ton/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
                         
                         if ([_dic6 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic6 objectForKey:@"spec_3"];
@@ -3559,7 +3559,7 @@
                         cell.inputField.delegate=self;
                         cell.inputField.tag=cell.tag;
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"unit",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
                         }
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                             cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"Caninet",nil)];
@@ -3632,26 +3632,26 @@
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/unit",nil);
+                                cell.unitLable.text=NSLocalizedString(@"yuan/pc",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/unit",nil);
+                                cell.unitLable.text=NSLocalizedString(@"dollar/pc",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/unit",nil);
+                                cell.unitLable.text=NSLocalizedString(@"euro/pc",nil);
                             }
                             
                         }
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/ton",nil);
+                                cell.unitLable.text=NSLocalizedString(@"yuan/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/ton",nil);
+                                cell.unitLable.text=NSLocalizedString(@"dollar/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/ton",nil);
+                                cell.unitLable.text=NSLocalizedString(@"euro/MT",nil);
                             }
                         }
                         
@@ -3968,7 +3968,7 @@
                         
                         break;
                     case 1:
-                        cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Plant No.", nil);
                         if ([_dic1 objectForKey:@"brand_id"]) {
                             cell.contentLable.text=[_dic1 objectForKey:@"brand_name"];
                         }
@@ -4025,8 +4025,8 @@
                     cell.delegate=self;
                     cell.tag=indexPath.section*100+indexPath.row;
                     cell.nameLable.text=NSLocalizedString(@"Packing specification", nil);
-                    cell.firstLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"unit",nil)];
-                    cell.secondLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"Ton",nil)];
+                    cell.firstLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
+                    cell.secondLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"MT",nil)];
                     if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                         cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
                         cell.secondImage.image=[UIImage imageNamed:@"no_select"];
@@ -4047,11 +4047,11 @@
                     cell.inputField.delegate=self;
                     cell.inputField.tag=cell.tag;
                     if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                        cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/unit",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"unit/Ctn", nil)];
+                        cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
                     }
                     else
                     {
-                        cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/unit",nil),NSLocalizedString(@"unit/Ctn", nil)];
+                        cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
                     }
 
                     if ([_dic2 objectForKey:@"spec_1"]) {
@@ -4122,10 +4122,10 @@
                 cell.inputField.delegate=self;
                 cell.inputField.tag=cell.tag;
                 if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
-                    cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"unit",nil)];
+                    cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
                 }
                 if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
-                    cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"unit",nil)];
+                    cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
                 }
                 
                 if ([_otherDic objectForKey:@"goods_number"]) {
@@ -4176,26 +4176,26 @@
                     if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                         if ([[_otherDic objectForKey:@"currency"]
                              isEqualToString:@"1"]) {
-                            cell.unitLable.text=NSLocalizedString(@"yuan/unit",nil);
+                            cell.unitLable.text=NSLocalizedString(@"yuan/pc",nil);
                         }
                         if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                            cell.unitLable.text=NSLocalizedString(@"dollar/unit",nil);
+                            cell.unitLable.text=NSLocalizedString(@"dollar/pc",nil);
                         }
                         if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                            cell.unitLable.text=NSLocalizedString(@"euro/unit",nil);
+                            cell.unitLable.text=NSLocalizedString(@"euro/pc",nil);
                         }
                         
                     }
                     if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                         if ([[_otherDic objectForKey:@"currency"]
                              isEqualToString:@"1"]) {
-                            cell.unitLable.text=NSLocalizedString(@"yuan/ton",nil);
+                            cell.unitLable.text=NSLocalizedString(@"yuan/MT",nil);
                         }
                         if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                            cell.unitLable.text=NSLocalizedString(@"dollar/ton",nil);
+                            cell.unitLable.text=NSLocalizedString(@"dollar/MT",nil);
                         }
                         if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                            cell.unitLable.text=NSLocalizedString(@"euro/ton",nil);
+                            cell.unitLable.text=NSLocalizedString(@"euro/MT",nil);
                         }
                     }
                     
@@ -4506,7 +4506,7 @@
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
+                            cell.nameLable.text=NSLocalizedString(@"Plant No.", nil);
                             if ([_dic1 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"brand_name"];
                             }
@@ -4566,11 +4566,11 @@
                         cell.inputField.delegate=self;
                         
                         if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/unit",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/unit",nil),NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
                         }
                         
                         if ([_dic2 objectForKey:@"spec_1"]) {
@@ -4592,7 +4592,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"ton/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
                         
                         if ([_dic2 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic2 objectForKey:@"spec_3"];
@@ -4722,26 +4722,26 @@
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/unit",nil);
+                                cell.unitLable.text=NSLocalizedString(@"yuan/pc",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/unit",nil);
+                                cell.unitLable.text=NSLocalizedString(@"dollar/pc",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/unit",nil);
+                                cell.unitLable.text=NSLocalizedString(@"euro/pc",nil);
                             }
                             
                         }
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/ton",nil);
+                                cell.unitLable.text=NSLocalizedString(@"yuan/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/ton",nil);
+                                cell.unitLable.text=NSLocalizedString(@"dollar/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/ton",nil);
+                                cell.unitLable.text=NSLocalizedString(@"euro/MT",nil);
                             }
                         }
                         if ([_otherDic objectForKey:@"currency_money"]) {
@@ -5048,7 +5048,7 @@
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
+                            cell.nameLable.text=NSLocalizedString(@"Plant No.", nil);
                             if ([_dic1 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"brand_name"];
                             }
@@ -5107,11 +5107,11 @@
                         cell.inputField.delegate=self;
                         
                         if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/unit",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/unit",nil),NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
                         }
                         
                         if ([_dic2 objectForKey:@"spec_1"]) {
@@ -5133,7 +5133,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"ton/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
                         
                         if ([_dic2 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic2 objectForKey:@"spec_3"];
@@ -5212,7 +5212,7 @@
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
+                            cell.nameLable.text=NSLocalizedString(@"Plant No.", nil);
                             if ([_dic3 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"brand_name"];
                             }
@@ -5271,11 +5271,11 @@
                         cell.inputField.delegate=self;
                         
                         if ([_dic4 objectForKey:@"spec_1"]&&![[_dic4 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/unit",nil),1000/[[_dic4 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic4 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/unit",nil),NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
                         }
                         
                         if ([_dic4 objectForKey:@"spec_1"]) {
@@ -5297,7 +5297,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"ton/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
                         
                         if ([_dic4 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic4 objectForKey:@"spec_3"];
@@ -5427,26 +5427,26 @@
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/unit",nil);
+                                cell.unitLable.text=NSLocalizedString(@"yuan/pc",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/unit",nil);
+                                cell.unitLable.text=NSLocalizedString(@"dollar/pc",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/unit",nil);
+                                cell.unitLable.text=NSLocalizedString(@"euro/pc",nil);
                             }
                             
                         }
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/ton",nil);
+                                cell.unitLable.text=NSLocalizedString(@"yuan/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/ton",nil);
+                                cell.unitLable.text=NSLocalizedString(@"dollar/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/ton",nil);
+                                cell.unitLable.text=NSLocalizedString(@"euro/MT",nil);
                             }
                         }
                         if ([_otherDic objectForKey:@"currency_money"]) {
@@ -5755,7 +5755,7 @@
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
+                            cell.nameLable.text=NSLocalizedString(@"Plant No.", nil);
                             if ([_dic1 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic1 objectForKey:@"brand_name"];
                             }
@@ -5814,11 +5814,11 @@
                         cell.inputField.delegate=self;
                         
                         if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/unit",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/unit",nil),NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
                         }
                         
                         if ([_dic2 objectForKey:@"spec_1"]) {
@@ -5840,7 +5840,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"ton/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
                         
                         if ([_dic2 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic2 objectForKey:@"spec_3"];
@@ -5919,7 +5919,7 @@
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
+                            cell.nameLable.text=NSLocalizedString(@"Plant No.", nil);
                             if ([_dic3 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic3 objectForKey:@"brand_name"];
                             }
@@ -5978,11 +5978,11 @@
                         cell.inputField.delegate=self;
                         
                         if ([_dic4 objectForKey:@"spec_1"]&&![[_dic4 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/unit",nil),1000/[[_dic4 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic4 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/unit",nil),NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
                         }
                         
                         if ([_dic4 objectForKey:@"spec_1"]) {
@@ -6004,7 +6004,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"ton/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
                         
                         if ([_dic4 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic4 objectForKey:@"spec_3"];
@@ -6093,7 +6093,7 @@
                             }
                             break;
                         case 1:
-                            cell.nameLable.text=NSLocalizedString(@"Plat No.", nil);
+                            cell.nameLable.text=NSLocalizedString(@"Plant No.", nil);
                             if ([_dic5 objectForKey:@"brand_id"]) {
                                 cell.contentLable.text=[_dic5 objectForKey:@"brand_name"];
                             }
@@ -6152,11 +6152,11 @@
                         cell.inputField.delegate=self;
                         
                         if ([_dic6 objectForKey:@"spec_1"]&&![[_dic6 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/unit",nil),1000/[[_dic6 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic6 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/unit",nil),NSLocalizedString(@"unit/Ctn", nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
                         }
                         
                         if ([_dic6 objectForKey:@"spec_1"]) {
@@ -6178,7 +6178,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"ton/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
                         
                         if ([_dic6 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic6 objectForKey:@"spec_3"];
@@ -6310,26 +6310,26 @@
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/unit",nil);
+                                cell.unitLable.text=NSLocalizedString(@"yuan/pc",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/unit",nil);
+                                cell.unitLable.text=NSLocalizedString(@"dollar/pc",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/unit",nil);
+                                cell.unitLable.text=NSLocalizedString(@"euro/pc",nil);
                             }
                             
                         }
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/ton",nil);
+                                cell.unitLable.text=NSLocalizedString(@"yuan/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/ton",nil);
+                                cell.unitLable.text=NSLocalizedString(@"dollar/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/ton",nil);
+                                cell.unitLable.text=NSLocalizedString(@"euro/MT",nil);
                             }
                         }
                         if ([_otherDic objectForKey:@"currency_money"]) {

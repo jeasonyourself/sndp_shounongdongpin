@@ -275,7 +275,7 @@ typedef enum {
     UILabel *rightBottomLabel = [UILabel new];
     [_topView addSubview:rightBottomLabel];
     //    [rightBottomLabel setBackgroundColor:[UIColor greenColor]];
-    [rightBottomLabel setText:[NSString stringWithFormat:@"¥%@/%@",_orderGoodsModel[@"goods_price"],NSLocalizedString(@"Ton", nil)]];
+    [rightBottomLabel setText:[NSString stringWithFormat:@"¥%@/%@",_orderGoodsModel[@"goods_price"],NSLocalizedString(@"MT", nil)]];
     [rightBottomLabel setTextColor:RGBACOLOR(252, 91, 49, 1)];
     [rightBottomLabel setFont:ThemeFont(14)];
     [rightBottomLabel mas_makeConstraints:^(MASConstraintMaker *make) {

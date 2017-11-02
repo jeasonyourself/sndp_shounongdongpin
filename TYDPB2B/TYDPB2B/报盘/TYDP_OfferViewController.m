@@ -107,7 +107,7 @@ typedef enum {
 
 - (NSArray *)rightFirstListArray {
     if (!_rightFirstListArray) {
-        _rightFirstListArray = [NSArray arrayWithObjects:NSLocalizedString(@"Origin", nil),NSLocalizedString(@"Plat No.", nil),NSLocalizedString(@"Product", nil),NSLocalizedString(@"Port", nil),NSLocalizedString(@"Offer type", nil),[NSString stringWithFormat:@"%@/%@/%@",NSLocalizedString(@"SpotToBe", nil),NSLocalizedString(@"Future", nil),NSLocalizedString(@"Spot", nil)],NSLocalizedString(@"Location", nil),NSLocalizedString(@"Estimated time of arrival", nil),[NSString stringWithFormat:@"%@/%@",NSLocalizedString(@"FCL", nil),NSLocalizedString(@"Retail", nil)], nil];
+        _rightFirstListArray = [NSArray arrayWithObjects:NSLocalizedString(@"Origin", nil),NSLocalizedString(@"Plant No.", nil),NSLocalizedString(@"Product", nil),NSLocalizedString(@"Port", nil),NSLocalizedString(@"Offer type", nil),[NSString stringWithFormat:@"%@/%@/%@",NSLocalizedString(@"SpotToBe", nil),NSLocalizedString(@"Future", nil),NSLocalizedString(@"Spot", nil)],NSLocalizedString(@"Location", nil),NSLocalizedString(@"Estimated time of arrival", nil),[NSString stringWithFormat:@"%@/%@",NSLocalizedString(@"FCL", nil),NSLocalizedString(@"Retail", nil)], nil];
 //        _rightFirstListArray = [NSArray arrayWithObjects:@"产地",@"厂号",@"产品",@"港口",@"报盘类型",@"准/期／现货",@"所在地",@"预计到港时间",@"整柜/零售", nil];
     }
     return _rightFirstListArray;
@@ -715,21 +715,58 @@ typedef enum {
             make.right.equalTo(self.view).with.offset(-Gap);
             make.height.mas_equalTo(CommonSearchViewHeight);
         }];
+
         _searchBar = [[UISearchBar alloc] init];
         [topView addSubview:_searchBar];
-        [_searchBar setBackgroundColor:[UIColor whiteColor]];
-        _searchBar.placeholder = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Factory number / Product name / Origin",nil)];
+        _searchBar.returnKeyType=UIReturnKeySearch;
         _searchBar.delegate = self;
+        [_searchBar setSearchBarStyle:UISearchBarStyleDefault];
+        _searchBar.placeholder = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Factory number / Product name / Origin", nil)];
+        [_searchBar setBackgroundColor:[UIColor whiteColor]];
         _searchBar.showsCancelButton = NO;
         [_searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(topView).with.insets(UIEdgeInsetsMake(-2, -Gap, 4, -Gap));
+            make.left.equalTo(topView).with.offset(10);
+            make.top.equalTo(topView.mas_top).with.offset(0);
+            make.height.mas_equalTo(CommonSearchViewHeight);
+            make.right.equalTo(topView).with.offset(-10);
+            //        make.edges.equalTo(_searchView).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
         }];
-        
+        _searchBar.layer.borderColor = [RGBACOLOR(230, 230, 230, 1) CGColor];
+        _searchBar.layer.borderWidth = 0;
+        _searchBar.clipsToBounds = YES;
+        _searchBar.layer.cornerRadius = CommonSearchViewHeight/2;
+        for (UIView *subView in _searchBar.subviews) {
+            if ([subView isKindOfClass:[UIView  class]]) {
+                [[subView.subviews objectAtIndex:0] removeFromSuperview];
+                if ([[subView.subviews objectAtIndex:0] isKindOfClass:[UITextField class]]) {
+                    UITextField *textField = [subView.subviews objectAtIndex:0];
+                    textField.backgroundColor = [UIColor whiteColor];
+                    
+                    //设置输入框边框的颜色
+                    //                    textField.layer.borderColor = [UIColor blackColor].CGColor;
+                    //                    textField.layer.borderWidth = 1;
+                    
+                    //设置输入字体颜色
+                    //                    textField.textColor = [UIColor lightGrayColor];
+                    
+                    //设置默认文字颜色
+                    UIColor *color = [UIColor grayColor];
+                    [textField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Factory number / Product name / Origin",nil)]
+                                                                                        attributes:@{NSForegroundColorAttributeName:color}]];
+                    //                //修改默认的放大镜图片
+                    //                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 13, 13)];
+                    //                imageView.backgroundColor = [UIColor clearColor];
+                    //                imageView.image = [UIImage imageNamed:@"gww_search_ misplaces"];
+                    //                textField.leftView = imageView;
+                }
+            }
+        }
+
         
         UIButton *rightBottomButton = [UIButton buttonWithType:UIButtonTypeSystem];
         [rightBottomButton setBackgroundColor:mainColor];
         [rightBottomButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [rightBottomButton setTitle:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Sure",nil)] forState:UIControlStateNormal];
+        [rightBottomButton setTitle:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Confirm",nil)] forState:UIControlStateNormal];
         rightBottomButton.tag = BottomConfirmButtonMessage;
         [rightBottomButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
         rightBottomButton.clipsToBounds = YES;
@@ -1096,7 +1133,7 @@ typedef enum {
             _rightTableView.delegate = self;
             _rightTopButton = [UIButton buttonWithType:UIButtonTypeSystem];
             [topView addSubview:_rightTopButton];
-            [_rightTopButton setTitle:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Sure",nil)] forState:UIControlStateNormal];
+            [_rightTopButton setTitle:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Confirm",nil)] forState:UIControlStateNormal];
             [_rightTopButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             _rightTopButton.tag = TopConfirmButtonMessage*100+indexPath.row;
             [_rightTopButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -1104,7 +1141,7 @@ typedef enum {
             [_rightTopButton mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerY.equalTo(topView);
                 make.right.equalTo(topView).with.offset(-Gap);
-                make.width.mas_equalTo(50);
+                make.width.mas_equalTo(60);
                 make.height.mas_equalTo(CommonHeight);
             }];
             [self createRightTableViewWithCategory:self.rightFirstListArray[indexPath.row]];

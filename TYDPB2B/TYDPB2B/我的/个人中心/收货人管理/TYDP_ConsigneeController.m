@@ -276,7 +276,7 @@
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn.titleLabel setFont:ThemeFont(18)];
     if (_currentIndex) {
-        [btn setTitle:NSLocalizedString(@"Sure",nil) forState:UIControlStateNormal];
+        [btn setTitle:NSLocalizedString(@"Confirm",nil) forState:UIControlStateNormal];
         [btn removeTarget:self action:@selector(addBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [btn addTarget:self action:@selector(postData) forControlEvents:UIControlEventTouchUpInside];
     }else{

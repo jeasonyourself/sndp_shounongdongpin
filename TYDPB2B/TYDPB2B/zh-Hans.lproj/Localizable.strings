@@ -10,14 +10,14 @@
 "Check Internet connection"="网络故障";
 "Wait a moment"="稍等片刻";
 "Submit"="提交";
-"Want to buy"="我要买";
+"Buy"="我要买";
 "News"="看资讯";
-"Want to sell"="我要卖";
+"Sell"="我要卖";
 "Product"="产品";
 "Shop"="店铺";
 "Origin"="产地";
 "Shop neme"="店铺名称";
-"Plat No."="厂号";
+"Plant No."="厂号";
 "Original price"="原价";
 "Offer a price"="自定价";
 "Accept"="采用";
@@ -40,7 +40,7 @@
 "Time"="时间";
 "Price"="价格";
 "Search the Product"="搜索商品";
-"Filter"="筛选";"Sure"="确定";"Cancel"="取消";"Selected"="已选";
+"Filter"="筛选";"Confirm"="确定";"Cancel"="取消";"Selected"="已选";
 "No screening results for a while"="暂时没有筛选结果。。。";
 "Pork"="猪";
 "Beef"="牛";
@@ -86,15 +86,20 @@
 "Offer a price"="报盘出价";
 "Offer a bid"="请输入您的出价";
 "Leave a mesage"="留言信息";
-"Ton"="吨";
-"KG/unit"="KG/件";
-"unit/Ctn"="件/吨";
-"unit"="件";
+"MT"="吨";
+"KG/pc"="KG/件";
+"pc/MT"="件/吨";
+"pc"="件";
 "Caninet"="柜";
-"ton/Ctn"="吨/柜";
-"yuan/ton"="元/吨";
-"dollar/ton"="美元/吨";
-"euro/ton"="欧元/吨";
+"MT/Ctn"="吨/柜";
+"yuan/MT"="元/吨";
+"dollar/MT"="美元/吨";
+"euro/MT"="欧元/吨";
+
+"yuan/pc"="元/件";
+"dollar/pc"="美元/件";
+"euro/pc"="欧元/件";
+
 "Bid can't be zero"="出价不能为零";
 "The bid must be smaller than the manufacturer's offer"="出价必须小于厂家报价";
 "purchase amount"="购买数量:";
@@ -328,7 +333,7 @@
 "Pay success!"="支付成功！";
 "banner_me_en"="banner_me_ch";
 "bg_enter_en"="bg_enter_ch";
-""="";
+"No comment for the moment"="暂时没有评论。。。";
 ""="";
 ""="";
 ""="";

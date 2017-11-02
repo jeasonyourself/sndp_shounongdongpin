@@ -27,7 +27,7 @@
 "IKu-CQ-YPe.normalTitle" = "Apply for enter";
 
 /* Class = "UILabel"; text = "元/件"; ObjectID = "JJs-BX-U9z"; */
-"JJs-BX-U9z.text" = "yuan/unit";
+"JJs-BX-U9z.text" = "yuan/pc";
 
 /* Class = "UILabel"; text = "是"; ObjectID = "M7t-z1-YnP"; */
 "M7t-z1-YnP.text" = "YES";

@@ -3,7 +3,7 @@
 "0wL-fz-sUb.text" = "Label";
 
 /* Class = "UILabel"; text = "厂号:"; ObjectID = "4wA-6q-x1h"; */
-"4wA-6q-x1h.text" = "Plat No.:";
+"4wA-6q-x1h.text" = "Plant No.:";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "6PU-Vp-4km"; */
 "6PU-Vp-4km.text" = "Label";
@@ -15,10 +15,10 @@
 "Cbl-GF-dW2.text" = "My bargain:";
 
 /* Class = "UILabel"; text = "元/吨"; ObjectID = "D8x-6a-EXq"; */
-"D8x-6a-EXq.text" = "yuan/ton";
+"D8x-6a-EXq.text" = "yuan/MT";
 
 /* Class = "UILabel"; text = "元/吨"; ObjectID = "FWN-sP-yDP"; */
-"FWN-sP-yDP.text" = "yuan/ton";
+"FWN-sP-yDP.text" = "yuan/MT";
 
 /* Class = "UIButton"; normalTitle = "再次还价"; ObjectID = "HCY-c5-328"; */
 "HCY-c5-328.normalTitle" = "Bargain again";

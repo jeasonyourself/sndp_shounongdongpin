@@ -15,7 +15,7 @@
 "H5Z-D8-TlL.text" = "Weight";
 
 /* Class = "UILabel"; text = "厂号："; ObjectID = "HRb-0b-sYV"; */
-"HRb-0b-sYV.text" = "Plat No.";
+"HRb-0b-sYV.text" = "Plant No.";
 
 /* Class = "UILabel"; text = "规格："; ObjectID = "KZp-vh-1cK"; */
 "KZp-vh-1cK.text" = "Specification";

@@ -27,6 +27,8 @@
 @property (assign, nonatomic) CGPoint pathCenterButtonBloomCenter;
 
 @property (strong, nonatomic) UIView *bottomView;
+@property (strong, nonatomic) UIView *bbView;
+
 @property (strong, nonatomic) UIButton *pathCenterButton;
 @property (strong, nonatomic) NSMutableArray *itemButtons;
 
@@ -141,12 +143,21 @@
     
     // Configure bottom view
     //
-    _bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.bloomSize.width * 2, self.bloomSize.height * 2)];
+    _bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.bloomSize.width , self.bloomSize.height)];
     _bottomView.backgroundColor = self.bottomViewColor;
     _bottomView.alpha = 0.0f;
     
+    if (ScreenWidth <= 375) {
+        _bbView =[[UIView alloc]initWithFrame:CGRectMake(0, self.bloomSize.height-250, self.bloomSize.width,250)];
+    }
+    else
+    {
+    _bbView =[[UIView alloc]initWithFrame:CGRectMake(0, self.bloomSize.height-275, self.bloomSize.width,275)];
+    }
+    _bbView.backgroundColor = [UIColor whiteColor];
+    _bbView.alpha = 0.0f;
+    
 }
-
 #pragma mark - Configure Bottom View Color
 
 - (void)setBottomViewColor:(UIColor *)bottomViewColor {
@@ -395,6 +406,7 @@
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
                          _bottomView.alpha = 0.0f;
+                         _bbView.alpha = 0.0f;
                      }
                      completion:nil];
     
@@ -410,6 +422,7 @@
         self.pathCenterButton.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
         
         [self.bottomView removeFromSuperview];
+        [self.bbView removeFromSuperview];
     });
     
     _bloom = NO;
@@ -494,6 +507,7 @@
     self.center = CGPointMake(self.bloomSize.width / 2, self.bloomSize.height / 2);
     
     [self insertSubview:self.bottomView belowSubview:self.pathCenterButton];
+    [self insertSubview:self.bbView belowSubview:self.pathCenterButton];
     
     // 3. Excute the bottom view alpha animation
     //
@@ -502,6 +516,7 @@
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          _bottomView.alpha = 0.618f;
+                         _bbView.alpha = 0.8f;
                      }
                      completion:nil];
     

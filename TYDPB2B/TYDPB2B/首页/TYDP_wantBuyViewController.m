@@ -734,7 +734,7 @@ typedef enum {
         }];
         
         UILabel *detailDemandLabel = [UILabel new];
-        [detailDemandLabel setText:[NSString stringWithFormat:@"%@  %@%@  %@-%@%@",purchaseListMD.goods_name,purchaseListMD.goods_num,NSLocalizedString(@"Ton",nil),purchaseListMD.price_low,purchaseListMD.price_up,NSLocalizedString(@"yuan/ton",nil)]];
+        [detailDemandLabel setText:[NSString stringWithFormat:@"%@  %@%@  %@-%@%@",purchaseListMD.goods_name,purchaseListMD.goods_num,NSLocalizedString(@"MT",nil),purchaseListMD.price_low,purchaseListMD.price_up,NSLocalizedString(@"yuan/MT",nil)]];
         [detailDemandLabel setFont:ThemeFont(13)];
         [detailDemandLabel setTextColor:RGBACOLOR(51, 51, 51, 1)];
         
@@ -1081,7 +1081,7 @@ typedef enum {
     // Dispose of any resources that can be recreated.
 }
 - (void)viewWillAppear:(BOOL)animated {
-    self.navigationController.navigationBarHidden = YES;
+//    self.navigationController.navigationBarHidden = YES;
     [MobClick beginLogPageView:@"求购列表界面"];
 }
 - (void)viewWillDisappear:(BOOL)animated

@@ -74,27 +74,27 @@ typedef enum {
         {
             if ([[NSString stringWithFormat:@"%@",_offerDetailModel.sell_type] isEqualToString:@"4"])//零售
             {
-                _middleListArray = [NSArray arrayWithObjects:NSLocalizedString(@"Serial Number", nil),NSLocalizedString(@"Country", nil),NSLocalizedString(@"Plat No.", nil),NSLocalizedString(@"Specification", nil),NSLocalizedString(@"Stock", nil),NSLocalizedString(@"Packing specification", nil),NSLocalizedString(@"Date of Manufacture", nil),NSLocalizedString(@"Prepayment Rules", nil),NSLocalizedString(@"Container Location", nil),NSLocalizedString(@"Edit time", nil), nil];
+                _middleListArray = [NSArray arrayWithObjects:NSLocalizedString(@"Serial Number", nil),NSLocalizedString(@"Country", nil),NSLocalizedString(@"Plant No.", nil),NSLocalizedString(@"Specification", nil),NSLocalizedString(@"Stock", nil),NSLocalizedString(@"Packing specification", nil),NSLocalizedString(@"Date of Manufacture", nil),NSLocalizedString(@"Prepayment Rules", nil),NSLocalizedString(@"Container Location", nil),NSLocalizedString(@"Edit time", nil), nil];
 
 //             _middleListArray = [NSArray arrayWithObjects:@"编       号：",@"国       家：",@"厂       号：",@"规       格：",@"库       存：",@"包装规格：",@"生产日期：",@"预付条约：",@"货物地址：",@"编辑时间：", nil];
             }
             if ([[NSString stringWithFormat:@"%@",_offerDetailModel.sell_type] isEqualToString:@"5"]) {
                 
-                 _middleListArray = [NSArray arrayWithObjects:NSLocalizedString(@"Serial Number", nil),NSLocalizedString(@"Country", nil),NSLocalizedString(@"Plat No.", nil),NSLocalizedString(@"Stock", nil),NSLocalizedString(@"Packing specification", nil),NSLocalizedString(@"Prepayment Rules", nil),NSLocalizedString(@"Container Location", nil),NSLocalizedString(@"Edit time", nil), nil];
-                _middleListArray = [NSArray arrayWithObjects:NSLocalizedString(@"Serial Number",nil),NSLocalizedString(@"Country",nil),NSLocalizedString(@"Plat No.",nil),NSLocalizedString(@"Stock",nil),NSLocalizedString(@"Packing specification",nil),NSLocalizedString(@"Prepayment Rules",nil),NSLocalizedString(@"Container Location",nil),NSLocalizedString(@"Edit time",nil), nil];
+                 _middleListArray = [NSArray arrayWithObjects:NSLocalizedString(@"Serial Number", nil),NSLocalizedString(@"Country", nil),NSLocalizedString(@"Plant No.", nil),NSLocalizedString(@"Stock", nil),NSLocalizedString(@"Packing specification", nil),NSLocalizedString(@"Prepayment Rules", nil),NSLocalizedString(@"Container Location", nil),NSLocalizedString(@"Edit time", nil), nil];
+                _middleListArray = [NSArray arrayWithObjects:NSLocalizedString(@"Serial Number",nil),NSLocalizedString(@"Country",nil),NSLocalizedString(@"Plant No.",nil),NSLocalizedString(@"Stock",nil),NSLocalizedString(@"Packing specification",nil),NSLocalizedString(@"Prepayment Rules",nil),NSLocalizedString(@"Container Location",nil),NSLocalizedString(@"Edit time",nil), nil];
             }
         }
         if ([[NSString stringWithFormat:@"%@",_offerDetailModel.goods_type] isEqualToString:@"6"])//期货
         {
             if ([[NSString stringWithFormat:@"%@",_offerDetailModel.sell_type] isEqualToString:@"4"])//零售
             {
-                _middleListArray = [NSArray arrayWithObjects:NSLocalizedString(@"Serial Number", nil),NSLocalizedString(@"Country", nil),NSLocalizedString(@"Plat No.", nil),NSLocalizedString(@"Specification", nil),NSLocalizedString(@"Stock", nil),NSLocalizedString(@"Packing specification", nil),NSLocalizedString(@"Date of Manufacture", nil),NSLocalizedString(@"Prepayment Rules", nil),NSLocalizedString(@"Edit time", nil),NSLocalizedString(@"Port", nil),NSLocalizedString(@"Estimated time of arrival", nil),NSLocalizedString(@"date of shipment", nil),NSLocalizedString(@"Offer type", nil), nil];
+                _middleListArray = [NSArray arrayWithObjects:NSLocalizedString(@"Serial Number", nil),NSLocalizedString(@"Country", nil),NSLocalizedString(@"Plant No.", nil),NSLocalizedString(@"Specification", nil),NSLocalizedString(@"Stock", nil),NSLocalizedString(@"Packing specification", nil),NSLocalizedString(@"Date of Manufacture", nil),NSLocalizedString(@"Prepayment Rules", nil),NSLocalizedString(@"Edit time", nil),NSLocalizedString(@"Port", nil),NSLocalizedString(@"Estimated time of arrival", nil),NSLocalizedString(@"date of shipment", nil),NSLocalizedString(@"Offer type", nil), nil];
 //             _middleListArray = [NSArray arrayWithObjects:NSLocalizedString(@"Serial Number", nil),@"国       家：",@"厂       号：",@"规       格：",@"库       存：",@"包装规格：",@"生产日期：",@"预付条约：",@"编辑时间：",@"港       口：",@"预计到港：",@"装船日期：",@"报盘类型：", nil];
             }
             if ([[NSString stringWithFormat:@"%@",_offerDetailModel.sell_type] isEqualToString:@"5"])//整柜
             {
                 
-                 _middleListArray = [NSArray arrayWithObjects:NSLocalizedString(@"Serial Number", nil),NSLocalizedString(@"Country", nil),NSLocalizedString(@"Plat No.", nil),NSLocalizedString(@"Stock", nil),NSLocalizedString(@"Packing specification", nil),NSLocalizedString(@"Prepayment Rules", nil),NSLocalizedString(@"Edit time", nil),NSLocalizedString(@"Port", nil),NSLocalizedString(@"Estimated time of arrival", nil),NSLocalizedString(@"date of shipment", nil),NSLocalizedString(@"Offer type", nil), nil];
+                 _middleListArray = [NSArray arrayWithObjects:NSLocalizedString(@"Serial Number", nil),NSLocalizedString(@"Country", nil),NSLocalizedString(@"Plant No.", nil),NSLocalizedString(@"Stock", nil),NSLocalizedString(@"Packing specification", nil),NSLocalizedString(@"Prepayment Rules", nil),NSLocalizedString(@"Edit time", nil),NSLocalizedString(@"Port", nil),NSLocalizedString(@"Estimated time of arrival", nil),NSLocalizedString(@"date of shipment", nil),NSLocalizedString(@"Offer type", nil), nil];
 //                _middleListArray = [NSArray arrayWithObjects:@"编       号：",@"国       家：",@"厂       号：",@"库       存：",@"包装规格：",@"预付条约：",@"编辑时间：",@"港       口：",@"预计到港：",@"装船日期：",@"报盘类型：", nil];
             }
         }
@@ -258,7 +258,7 @@ typedef enum {
     [_baseScrollView addSubview:topView];
     [topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_baseScrollView).with.offset(0);
-        make.top.equalTo(_baseScrollView).with.offset(20);
+        make.top.equalTo(_baseScrollView).with.offset(0);
         make.right.equalTo(_baseScrollView).with.offset(0);
         make.height.mas_equalTo(ScreenWidth/2.0+80.0);
     }];
@@ -281,17 +281,17 @@ typedef enum {
         lastSlideModel = [_picListArray firstObject];
         firstImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-ScreenWidth, 0, _bannerScrollView.frame.size.width, _bannerScrollView.frame.size.height)];
         [firstImageView sd_setImageWithURL:[NSURL URLWithString:firstSlideModel] placeholderImage:nil];
-//    firstImageView.contentMode=   UIViewContentModeScaleAspectFit;
+    firstImageView.contentMode=   UIViewContentModeScaleAspectFit;
         [_bannerScrollView addSubview:firstImageView];
         lastImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth*_picListArray.count, 0, _bannerScrollView.frame.size.width, _bannerScrollView.frame.size.height)];
         [lastImageView sd_setImageWithURL:[NSURL URLWithString:lastSlideModel] placeholderImage:nil];
-//    lastImageView.contentMode=   UIViewContentModeScaleAspectFit;
+    lastImageView.contentMode=   UIViewContentModeScaleAspectFit;
         [_bannerScrollView addSubview:lastImageView];
         
          for (int i = 0 ; i < _picListArray.count; i++) {
          NSString *tmpModel = _picListArray[i];
          UIImageView *tmpImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth*i, 0, _bannerScrollView.frame.size.width, _bannerScrollView.frame.size.height)];
-//             tmpImageView.contentMode=   UIViewContentModeScaleAspectFit;
+             tmpImageView.contentMode=   UIViewContentModeScaleAspectFit;
          [tmpImageView sd_setImageWithURL:[NSURL URLWithString:tmpModel] placeholderImage:nil];
          [_bannerScrollView addSubview:tmpImageView];
          }
@@ -516,6 +516,16 @@ typedef enum {
         make.height.mas_equalTo(smallViewHeight);
     }];
     
+    UILabel *redLineLabel3 = [UILabel new];
+    [_baseScrollView addSubview:redLineLabel3];
+    redLineLabel3.backgroundColor=mainColor;
+    [redLineLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(topleftSmallLabel.mas_left).with.offset(-5);
+        make.centerY.equalTo(topleftSmallLabel).with.offset(0);
+        make.width.mas_equalTo(2);
+        make.height.mas_equalTo(20);
+    }];
+    
     UILabel *topDecorateLabel = [UILabel new];
     [topDecorateLabel setBackgroundColor:RGBACOLOR(236, 243, 254, 1)];
     [middleView addSubview:topDecorateLabel];
@@ -590,7 +600,7 @@ typedef enum {
                             }
                         } else {
                             if (![_offerDetailModel.goods_weight isEqualToString:@""]&&_offerDetailModel.goods_weight) {
-                                infoString = [NSString stringWithFormat:@"%@%@",_offerDetailModel.goods_weight,NSLocalizedString(@"ton/Ctn",nil)];
+                                infoString = [NSString stringWithFormat:@"%@%@",_offerDetailModel.goods_weight,NSLocalizedString(@"MT/Ctn",nil)];
                             }
                         }
                         break;
@@ -598,7 +608,7 @@ typedef enum {
                     case 4:{
                         if (![_offerDetailModel.goods_number isEqualToString:@""]&&_offerDetailModel.goods_number) {
                             if ([_offerDetailModel.sell_type isEqualToString:@"4"]) {
-                                infoString = [NSString stringWithFormat:@"%@%@",_offerDetailModel.goods_number,NSLocalizedString(@"unit",nil)];
+                                infoString = [NSString stringWithFormat:@"%@%@",_offerDetailModel.goods_number,NSLocalizedString(@"pc",nil)];
                             }
                             else
                             {
@@ -694,7 +704,7 @@ typedef enum {
                     case 3:{
                         if (![_offerDetailModel.goods_number isEqualToString:@""]&&_offerDetailModel.goods_number) {
                             if ([_offerDetailModel.sell_type isEqualToString:@"4"]) {
-                                infoString = [NSString stringWithFormat:@"%@%@",_offerDetailModel.goods_number,NSLocalizedString(@"unit",nil)];
+                                infoString = [NSString stringWithFormat:@"%@%@",_offerDetailModel.goods_number,NSLocalizedString(@"pc",nil)];
                             }
                             else
                             {
@@ -790,7 +800,7 @@ typedef enum {
                             }
                         } else {
                             if (![_offerDetailModel.goods_weight isEqualToString:@""]&&_offerDetailModel.goods_weight) {
-                                infoString = [NSString stringWithFormat:@"%@%@",_offerDetailModel.goods_weight,NSLocalizedString(@"ton/Ctn",nil)];
+                                infoString = [NSString stringWithFormat:@"%@%@",_offerDetailModel.goods_weight,NSLocalizedString(@"MT/Ctn",nil)];
                             }
                         }
                         break;
@@ -798,7 +808,7 @@ typedef enum {
                     case 4:{
                         if (![_offerDetailModel.goods_number isEqualToString:@""]&&_offerDetailModel.goods_number) {
                             if ([_offerDetailModel.sell_type isEqualToString:@"4"]) {
-                                infoString = [NSString stringWithFormat:@"%@%@",_offerDetailModel.goods_number,NSLocalizedString(@"unit",nil)];
+                                infoString = [NSString stringWithFormat:@"%@%@",_offerDetailModel.goods_number,NSLocalizedString(@"pc",nil)];
                             }
                             else
                             {
@@ -922,7 +932,7 @@ typedef enum {
                 case 3:{
                     if (![_offerDetailModel.goods_number isEqualToString:@""]&&_offerDetailModel.goods_number) {
                         if ([_offerDetailModel.sell_type isEqualToString:@"4"]) {
-                            infoString = [NSString stringWithFormat:@"%@%@",_offerDetailModel.goods_number,NSLocalizedString(@"unit",nil)];
+                            infoString = [NSString stringWithFormat:@"%@%@",_offerDetailModel.goods_number,NSLocalizedString(@"pc",nil)];
                         }
                         else
                         {
@@ -1116,6 +1126,16 @@ typedef enum {
             make.width.mas_equalTo(90);
             make.height.mas_equalTo(30);
         }];
+    
+    UILabel *redLineLabel3 = [UILabel new];
+    [smallView addSubview:redLineLabel3];
+    redLineLabel3.backgroundColor=mainColor;
+    [redLineLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(leftSmallLabel.mas_left).with.offset(-5);
+        make.centerY.equalTo(leftSmallLabel).with.offset(0);
+        make.width.mas_equalTo(2);
+        make.height.mas_equalTo(20);
+    }];
         
         UILabel *rightSmallLabel = [UILabel new];
     rightSmallLabel.numberOfLines=0;
@@ -1192,7 +1212,7 @@ typedef enum {
                 break;
             }
             case 2:{
-                nameStr=NSLocalizedString(@"Plat No.",nil);
+                nameStr=NSLocalizedString(@"Plant No.",nil);
                 leftSmallLabel.textColor=[UIColor grayColor];
                 break;
             }
@@ -1343,6 +1363,17 @@ typedef enum {
             make.left.equalTo(smallView).with.offset(30);
             make.width.mas_equalTo(ScreenWidth-30);
             make.height.mas_equalTo(30);
+        }];
+        
+        UILabel *redLineLabel3 = [UILabel new];
+        [smallView addSubview:redLineLabel3];
+        redLineLabel3.backgroundColor=mainColor;
+        redLineLabel3.hidden=i==0?NO:YES;
+        [redLineLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(leftSmallLabel.mas_left).with.offset(-5);
+            make.centerY.equalTo(leftSmallLabel).with.offset(0);
+            make.width.mas_equalTo(2);
+            make.height.mas_equalTo(20);
         }];
         
         UILabel *rightSmallLabel = [UILabel new];
@@ -1534,6 +1565,16 @@ typedef enum {
         make.left.equalTo(_baseScrollView).with.offset(20);
         make.right.equalTo(_baseScrollView).with.offset(-20);
         make.top.equalTo(SecondsKillView).with.offset(10);
+        make.height.mas_equalTo(20);
+    }];
+    
+    UILabel *redLineLabel3 = [UILabel new];
+    [SecondsKillView addSubview:redLineLabel3];
+    redLineLabel3.backgroundColor=mainColor;
+    [redLineLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(SecondsKillLabel.mas_left).with.offset(-5);
+        make.centerY.equalTo(SecondsKillLabel).with.offset(0);
+        make.width.mas_equalTo(2);
         make.height.mas_equalTo(20);
     }];
     
@@ -1987,7 +2028,7 @@ typedef enum {
                     }];
                     UILabel *amountLabel = [UILabel new];
                     [amountLabel setTextColor:[UIColor lightGrayColor]];
-                    [amountLabel setText:[NSString stringWithFormat:@"¥%@/%@",_offerDetailModel.shop_price,NSLocalizedString(@"Ton", nil)]];
+                    [amountLabel setText:[NSString stringWithFormat:@"¥%@/%@",_offerDetailModel.shop_price,NSLocalizedString(@"MT", nil)]];
                     //适配iphone5s
                     if (ScreenHeight == TYDPIphone5sHeight) {
                         [amountLabel setFont:ThemeFont(CommonFontSize)];
@@ -2112,7 +2153,7 @@ typedef enum {
                 [_orderTextField resignFirstResponder];
                 [_cancelButton removeFromSuperview];
                 NSLog(@"order");
-                [_orderButton setTitle:NSLocalizedString(@"Sure",nil) forState:UIControlStateNormal];
+                [_orderButton setTitle:NSLocalizedString(@"Confirm",nil) forState:UIControlStateNormal];
                 if (!_blackView) {
                     _blackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight-TabbarHeight)];
                     [_blackView setBackgroundColor:[UIColor blackColor]];
@@ -2181,10 +2222,10 @@ typedef enum {
                     [bottomCellView addSubview:middleTopLabel];
                     UILabel *middlePriceLabel = [UILabel new];
                     if ([_offerDetailModel.sell_type isEqualToString:@"4"]) {
-                        [middlePriceLabel setText:[NSString stringWithFormat:@"%@/%@  %@%@",_offerDetailModel.formated_shop_price,_offerDetailModel.shop_price_unit,_offerDetailModel.spec_2,NSLocalizedString(@"unit/Ctn", nil)]];
+                        [middlePriceLabel setText:[NSString stringWithFormat:@"%@/%@  %@%@",_offerDetailModel.formated_shop_price,_offerDetailModel.shop_price_unit,_offerDetailModel.spec_2,NSLocalizedString(@"pc/MT",nil)]];
                     }
                     else  {
-                        [middlePriceLabel setText:[NSString stringWithFormat:@"¥%@/%@  %@%@",_offerDetailModel.shop_price,_offerDetailModel.shop_price_unit,_offerDetailModel.goods_weight,NSLocalizedString(@"ton/Ctn",nil)]];
+                        [middlePriceLabel setText:[NSString stringWithFormat:@"¥%@/%@  %@%@",_offerDetailModel.shop_price,_offerDetailModel.shop_price_unit,_offerDetailModel.goods_weight,NSLocalizedString(@"MT/Ctn",nil)]];
                     }
                     [middlePriceLabel setFont:ThemeFont(18)];
                     //                [middlePriceLabel setBackgroundColor:[UIColor greenColor]];
@@ -2216,7 +2257,7 @@ typedef enum {
 //                    }];
                     NSString *tmpMeasureString = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Caninet",nil)];
                     if ([_offerDetailModel.sell_type isEqualToString:@"4"]) {
-                        tmpMeasureString = [NSString stringWithFormat:@"%@",NSLocalizedString(@"unit",nil)];
+                        tmpMeasureString = [NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
                     }
                     UILabel *bottomAmountLabel = [UILabel new];
                     [bottomAmountLabel setText:[NSString stringWithFormat:@"%@%@",_offerDetailModel.goods_number,tmpMeasureString]];
@@ -2314,7 +2355,7 @@ typedef enum {
                         frontString = _offerDetailModel.spec_2;
                         behindString = _offerDetailModel.spec_2_unit;
                     } else {
-                        frontString = [NSString stringWithFormat:@"%@%@",_offerDetailModel.goods_weight,NSLocalizedString(@"Ton", nil)];
+                        frontString = [NSString stringWithFormat:@"%@%@",_offerDetailModel.goods_weight,NSLocalizedString(@"MT", nil)];
                         behindString = [NSString stringWithFormat:@"/柜"];
                     }
                     [tmpDic setObject:frontString forKey:@"frontNumber"];
@@ -2330,7 +2371,7 @@ typedef enum {
                     [tmpDic setObject:_offerDetailModel.goods_id forKey:@"goodsId"];
                     NSString *tmpMeasureString = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Caninet",nil)];
                     if ([_offerDetailModel.sell_type isEqualToString:@"4"]) {
-                        tmpMeasureString = [NSString stringWithFormat:@"%@",NSLocalizedString(@"unit",nil)];
+                        tmpMeasureString = [NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
                     }
                     [tmpDic setObject:tmpMeasureString forKey:@"sellMeasureUnit"];
                     [tmpDic setObject:_offerDetailModel.formated_shop_price forKey:@"formated_shop_price"];
@@ -2559,13 +2600,13 @@ typedef enum {
 - (void)setUserLimit{
     if ([_offerDetailModel.sell_type isEqualToString:@"4"]) {
         if ([_orderTextField.text intValue] < [_offerDetailModel.spec_2 intValue]) {
-            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@%@%@",NSLocalizedString(@"The amount of purchase can not be less than",nil),_offerDetailModel.spec_2,NSLocalizedString(@"unit",nil)]];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@%@%@",NSLocalizedString(@"The amount of purchase can not be less than",nil),_offerDetailModel.spec_2,NSLocalizedString(@"pc",nil)]];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             [_MBHUD hide:YES afterDelay:1.5f];
             [self setBottomButtonUserInteraction:NO];
         } else if ([_orderTextField.text intValue] > [_offerDetailModel.goods_number intValue]) {
-            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@%@%@",NSLocalizedString(@"Purchase quantity cannot be greater than",nil),_offerDetailModel.goods_number,NSLocalizedString(@"unit",nil)]];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@%@%@",NSLocalizedString(@"Purchase quantity cannot be greater than",nil),_offerDetailModel.goods_number,NSLocalizedString(@"pc",nil)]];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             [_MBHUD hide:YES afterDelay:1.5f];
@@ -2582,7 +2623,7 @@ typedef enum {
             [_MBHUD hide:YES afterDelay:1.5f];
             [self setBottomButtonUserInteraction:NO];
         } else if ([_orderTextField.text intValue] == 0) {
-            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@0%@",NSLocalizedString(@"The amount of purchase can not be less than",nil),NSLocalizedString(@"unit",nil)]];
+            [_MBHUD setLabelText:[NSString stringWithFormat:@"%@0%@",NSLocalizedString(@"The amount of purchase can not be less than",nil),NSLocalizedString(@"pc",nil)]];
             [self.view addSubview:_MBHUD];
             [_MBHUD show:YES];
             [_MBHUD hide:YES afterDelay:1.5f];

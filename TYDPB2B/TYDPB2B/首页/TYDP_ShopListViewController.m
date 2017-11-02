@@ -109,7 +109,7 @@ typedef enum {
     [self createWholeUI];
     // Do any additional setup after loading the view.
 }
-- (void)getTJorMSShopListDataWithNewDic:(NSMutableDictionary *)dic{
+- (void)getTJorMSShopListDataWithNewDic:(NSMutableDictionary *)dic{    
     if ([dic[@"page"] intValue] > 1) {
         //pages are bigger than 1
     } else {
@@ -787,7 +787,7 @@ typedef enum {
             make.height.mas_equalTo(CommonHeight);
         }];
         UILabel *middleMiddleLabel = [UILabel new];
-        [middleMiddleLabel setText:[NSString stringWithFormat:@"%@：%@",NSLocalizedString(@"Plat No.",nil),tmpGoodsModel.brand_sn]];
+        [middleMiddleLabel setText:[NSString stringWithFormat:@"%@：%@",NSLocalizedString(@"Plant No.",nil),tmpGoodsModel.brand_sn]];
         //        [middleMiddleLabel setTextColor:[UIColor grayColor]];
         [middleMiddleLabel setFont:ThemeFont(16)];
         [bottomCellView addSubview:middleMiddleLabel];

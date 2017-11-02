@@ -338,7 +338,7 @@
             make.height.mas_equalTo(25);
         }];
         UILabel *bottomMeasureLabel = [UILabel new];
-        [bottomMeasureLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"yuan/ton", nil)]];
+        [bottomMeasureLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"yuan/MT", nil)]];
         [bottomMeasureLabel setFont:ThemeFont(CommonFontSize)];
         [bottomMeasureLabel setTextColor:[UIColor blackColor]];
         [bottomCellView addSubview:bottomMeasureLabel];
@@ -349,7 +349,7 @@
             make.height.mas_equalTo(CommonHeight);
         }];
         UILabel *bottomAmountLabel = [UILabel new];
-        [bottomAmountLabel setText:[NSString stringWithFormat:@"500%@",NSLocalizedString(@"unit/Ctn", nil)]];
+        [bottomAmountLabel setText:[NSString stringWithFormat:@"500%@",NSLocalizedString(@"pc/MT",nil)]];
         [bottomAmountLabel setFont:ThemeFont(CommonFontSize)];
         [bottomAmountLabel setTextColor:[UIColor blackColor]];
         [bottomCellView addSubview:bottomAmountLabel];

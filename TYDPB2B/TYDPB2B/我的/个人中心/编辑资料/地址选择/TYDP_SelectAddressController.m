@@ -54,7 +54,7 @@
     UIButton *sureBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [headV addSubview:sureBtn];
     sureBtn.frame = CGRectMake(ScreenWidth-80, 0, 80, 40);
-    [sureBtn setTitle:NSLocalizedString(@"Sure",nil) forState:UIControlStateNormal];
+    [sureBtn setTitle:NSLocalizedString(@"Confirm",nil) forState:UIControlStateNormal];
     [sureBtn addTarget:self action:@selector(sureBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     UIPickerView *picker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 40, ScreenWidth, ScreenHeight/3-40)];

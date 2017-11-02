@@ -134,11 +134,11 @@
     [topView addSubview:rightBottomLabel];
     //    [rightBottomLabel setBackgroundColor:[UIColor greenColor]];
     if ([[NSString stringWithFormat:@"%@",_orderDic[@"sell_type"]] isEqualToString:@"4"]) {
-        rightBottomLabel.text=[NSString stringWithFormat:@"%@/%@  %@%@",[NSString stringWithFormat:@"%@",_orderDic[@"formated_shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"spec_2"]],NSLocalizedString(@"unit/Ctn", nil)];
+        rightBottomLabel.text=[NSString stringWithFormat:@"%@/%@  %@%@",[NSString stringWithFormat:@"%@",_orderDic[@"formated_shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"spec_2"]],NSLocalizedString(@"pc/MT",nil)];
         
     }
     else  {
-        rightBottomLabel.text=[NSString stringWithFormat:@"¥%@/%@  %@%@",[NSString stringWithFormat:@"%@",_orderDic[@"shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"goods_weight"]],NSLocalizedString(@"ton/Ctn",nil)];
+        rightBottomLabel.text=[NSString stringWithFormat:@"¥%@/%@  %@%@",[NSString stringWithFormat:@"%@",_orderDic[@"shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"goods_weight"]],NSLocalizedString(@"MT/Ctn",nil)];
     }
    
     [rightBottomLabel setTextColor:RGBACOLOR(252, 91, 49, 1)];

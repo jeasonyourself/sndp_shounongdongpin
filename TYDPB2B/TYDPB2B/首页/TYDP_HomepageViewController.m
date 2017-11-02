@@ -334,6 +334,17 @@ typedef enum {
         make.height.mas_equalTo(CommonHeight);
     }];
     
+    UILabel *redLineLabel = [UILabel new];
+    [_baseScrollView addSubview:redLineLabel];
+    redLineLabel.backgroundColor=mainColor;
+    [redLineLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(SecondsKillLabel.mas_left).with.offset(-5);
+        make.top.equalTo(functionView.mas_bottom).with.offset(MiddleGap);
+        make.width.mas_equalTo(2);
+        make.height.mas_equalTo(CommonHeight);
+    }];
+
+    
     UILabel *moreSecondsKillLabel = [UILabel new];
     [_baseScrollView addSubview:moreSecondsKillLabel];
     [moreSecondsKillLabel setText:[NSString stringWithFormat:@"%@>",NSLocalizedString(@"more", nil)]];
@@ -537,6 +548,18 @@ typedef enum {
         make.height.mas_equalTo(CommonHeight);
     }];
     
+    UILabel *redLineLabel1 = [UILabel new];
+    [_baseScrollView addSubview:redLineLabel1];
+    redLineLabel1.backgroundColor=mainColor;
+    [redLineLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(salePriceLabel.mas_left).with.offset(-5);
+        make.top.equalTo(titleSalePriceView.mas_top).with.offset(Gap);
+        make.width.mas_equalTo(2);
+        make.height.mas_equalTo(CommonHeight);
+    }];
+
+    
+    
     UILabel *moresalePriceLabel = [UILabel new];
     [titleSalePriceView addSubview:moresalePriceLabel];
     [moresalePriceLabel setText:[NSString stringWithFormat:@"%@>",NSLocalizedString(@"more", nil)]];
@@ -699,6 +722,18 @@ typedef enum {
         make.height.mas_equalTo(CommonHeight);
     }];
     
+    
+    UILabel *redLineLabel2 = [UILabel new];
+    [_baseScrollView addSubview:redLineLabel2];
+    redLineLabel2.backgroundColor=mainColor;
+    [redLineLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(demandLabel.mas_left).with.offset(-5);
+        make.top.equalTo(titleDemandView.mas_top).with.offset(Gap);
+        make.width.mas_equalTo(2);
+        make.height.mas_equalTo(CommonHeight);
+    }];
+    
+    
     UILabel *moreDemandLabel = [UILabel new];
     [titleDemandView addSubview:moreDemandLabel];
     [moreDemandLabel setText:[NSString stringWithFormat:@"%@>",NSLocalizedString(@"more", nil)]];
@@ -815,7 +850,7 @@ typedef enum {
         }];
         
         UILabel *detailDemandLabel = [UILabel new];
-        [detailDemandLabel setText:[NSString stringWithFormat:@"%@  %@%@  %@-%@%@",purchaseListMD.goods_name,NSLocalizedString(@"Ton", nil),purchaseListMD.goods_num,purchaseListMD.price_low,purchaseListMD.price_up,NSLocalizedString(@"yuan/ton", nil)]];
+        [detailDemandLabel setText:[NSString stringWithFormat:@"%@  %@%@  %@-%@%@",purchaseListMD.goods_name,NSLocalizedString(@"MT", nil),purchaseListMD.goods_num,purchaseListMD.price_low,purchaseListMD.price_up,NSLocalizedString(@"yuan/MT", nil)]];
         [detailDemandLabel setFont:ThemeFont(13)];
         [detailDemandLabel setTextColor:RGBACOLOR(51, 51, 51, 1)];
 
@@ -848,9 +883,19 @@ typedef enum {
     [middleAdvertLabel setFont:ThemeFont(14)];
     [middleAdvertLabel setTextColor:RGBACOLOR(85, 85, 85, 1)];
     [middleAdvertLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_bannerScrollView).with.offset(Gap);
-        make.right.equalTo(_bannerScrollView).with.offset(-Gap);
+        make.left.equalTo(_baseScrollView).with.offset(18);
+        make.right.equalTo(_baseScrollView).with.offset(-MiddleGap);
         make.top.equalTo(lastdemandCellView.mas_bottom).with.offset(MiddleGap);
+        make.height.mas_equalTo(CommonHeight);
+    }];
+    
+    UILabel *redLineLabel3 = [UILabel new];
+    [_baseScrollView addSubview:redLineLabel3];
+    redLineLabel3.backgroundColor=mainColor;
+    [redLineLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(middleAdvertLabel.mas_left).with.offset(-5);
+       make.top.equalTo(lastdemandCellView.mas_bottom).with.offset(MiddleGap);
+        make.width.mas_equalTo(2);
         make.height.mas_equalTo(CommonHeight);
     }];
     
@@ -941,7 +986,7 @@ typedef enum {
         }];
         
         UILabel *middleMiddleLabel = [UILabel new];
-        [middleMiddleLabel setText:[NSString stringWithFormat:@"%@：%@",NSLocalizedString(@"Plat No.",nil) ,tmpGoodsModel.brand_sn]];
+        [middleMiddleLabel setText:[NSString stringWithFormat:@"%@：%@",NSLocalizedString(@"Plant No.",nil) ,tmpGoodsModel.brand_sn]];
         [middleMiddleLabel setFont:ThemeFont(13)];
         [middleMiddleLabel setTextColor:RGBACOLOR(102, 102, 102, 1)];
         [bottomCellView addSubview:middleMiddleLabel];
@@ -1661,7 +1706,7 @@ typedef enum {
     UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Remind",nil) message:reminderString preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *firstAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleCancel handler:nil];
     [alertCon addAction:firstAction];
-    UIAlertAction *Secondaction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Sure",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *Secondaction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Confirm",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telephoneString]];
     }];
     [alertCon addAction:Secondaction];

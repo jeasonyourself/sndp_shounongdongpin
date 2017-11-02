@@ -186,7 +186,7 @@ return 90.0/375.0*ScreenWidth;
     }];
     
     UILabel *titleLable = [UILabel new];
-    [titleLable setText:[NSString stringWithFormat:@"(¥/%@)",NSLocalizedString(@"Ton", nil)]];
+    [titleLable setText:[NSString stringWithFormat:@"(¥/%@)",NSLocalizedString(@"MT", nil)]];
     [titleLable setFont:ThemeFont(CommonFontSize)];
     [titleLable setTextColor:[UIColor blackColor]];
     [TFView addSubview:titleLable];
@@ -209,7 +209,7 @@ return 90.0/375.0*ScreenWidth;
     [priceTf becomeFirstResponder];
     
     UILabel *sureLable = [UILabel new];
-    [sureLable setText:NSLocalizedString(@"Sure",nil)];
+    [sureLable setText:NSLocalizedString(@"Confirm",nil)];
     [sureLable setFont:ThemeFont(CommonFontSize-2)];
     [sureLable setTextColor:mainColor];
     sureLable.textAlignment=NSTextAlignmentCenter;
@@ -320,7 +320,7 @@ return 90.0/375.0*ScreenWidth;
         }];
         
         UILabel *middleMiddleLabel = [UILabel new];
-        [middleMiddleLabel setText:[NSString stringWithFormat:@"%@：%@",NSLocalizedString(@"Plat No.", nil),tmpGoodsModel.brand_sn]];
+        [middleMiddleLabel setText:[NSString stringWithFormat:@"%@：%@",NSLocalizedString(@"Plant No.", nil),tmpGoodsModel.brand_sn]];
         [middleMiddleLabel setFont:ThemeFont(13)];
         [middleMiddleLabel setTextColor:RGBACOLOR(102, 102, 102, 1)];
         [bottomCellView addSubview:middleMiddleLabel];
@@ -332,7 +332,7 @@ return 90.0/375.0*ScreenWidth;
         }];
         
         UILabel *bottomPriceLabel = [UILabel new];
-        [bottomPriceLabel setText:[NSString stringWithFormat:@"%@:%@/%@",NSLocalizedString(@"Original price", nil),tmpGoodsModel.shop_price,NSLocalizedString(@"Ton", nil)]];
+        [bottomPriceLabel setText:[NSString stringWithFormat:@"%@:%@/%@",NSLocalizedString(@"Original price", nil),tmpGoodsModel.shop_price,NSLocalizedString(@"MT", nil)]];
         [bottomPriceLabel setFont:ThemeFont(12)];
         [bottomPriceLabel setTextColor:RGBACOLOR(252, 91, 49, 1)];
         [bottomCellView addSubview:bottomPriceLabel];
