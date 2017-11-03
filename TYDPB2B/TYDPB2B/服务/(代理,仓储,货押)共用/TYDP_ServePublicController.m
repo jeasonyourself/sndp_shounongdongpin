@@ -44,7 +44,7 @@
 
 - (void)creatUI{
     self.automaticallyAdjustsScrollViewInsets = NO;
-    NSArray *titleArr = @[NSLocalizedString(@"Inland Logistics", nil),NSLocalizedString(@"Storage Service", nil),NSLocalizedString(@"Mortgage lending", nil)];
+    NSArray *titleArr = @[NSLocalizedString(@"Inland Logistics", nil),NSLocalizedString(@"Warehouse Service", nil),NSLocalizedString(@"Mortgage loaning", nil)];
     self.navigationItem.title = titleArr[self.sendType];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ico_return"] style:UIBarButtonItemStylePlain target:self action:@selector(retBtnClick)];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];

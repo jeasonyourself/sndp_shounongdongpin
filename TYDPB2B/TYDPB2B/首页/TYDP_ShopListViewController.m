@@ -130,7 +130,7 @@ typedef enum {
                 MBProgressHUD *tmpHud = [[MBProgressHUD alloc] init];
                 [tmpHud setAnimationType:MBProgressHUDAnimationFade];
                 [tmpHud setMode:MBProgressHUDModeText];
-                [tmpHud setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"No screening results for a while",nil)]];
+                [tmpHud setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"No results for now",nil)]];
                 [self.view addSubview:tmpHud];
                 [tmpHud show:YES];
                 [tmpHud hide:YES afterDelay:1.5f];
@@ -181,7 +181,7 @@ typedef enum {
                 MBProgressHUD *tmpHud = [[MBProgressHUD alloc] init];
                 [tmpHud setAnimationType:MBProgressHUDAnimationFade];
                 [tmpHud setMode:MBProgressHUDModeText];
-                [tmpHud setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"No screening results for a while",nil)]];
+                [tmpHud setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"No results for now",nil)]];
                 [self.view addSubview:tmpHud];
                 [tmpHud show:YES];
                 [tmpHud hide:YES afterDelay:1.5f];
@@ -1042,7 +1042,7 @@ make.edges.equalTo(bottomCellView).with.insets(UIEdgeInsetsMake(0, 0, Gap, 0)); 
             MBProgressHUD *tmpHud = [[MBProgressHUD alloc] init];
             [tmpHud setAnimationType:MBProgressHUDAnimationFade];
             [tmpHud setMode:MBProgressHUDModeText];
-            [tmpHud setLabelText:@"已经是最后一页～"];
+            [tmpHud setLabelText:NSLocalizedString(@"No more",nil)];
             [self.view addSubview:tmpHud];
             [tmpHud show:YES];
             [tmpHud hide:YES afterDelay:1.5f];
@@ -1269,11 +1269,11 @@ make.edges.equalTo(bottomCellView).with.insets(UIEdgeInsetsMake(0, 0, Gap, 0)); 
         [titleLable mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(_navigationBarView);
             make.centerY.equalTo(_navigationBarView).with.offset(Gap);
-            make.width.mas_equalTo(80);
+            make.width.mas_equalTo(280);
             make.height.mas_equalTo(20);
         }];
         if ([_more_type isEqualToString:@"hot"]) {
-            [titleLable setText:NSLocalizedString(@"Time limit", nil)];
+            [titleLable setText:NSLocalizedString(@"Timed special", nil)];
         }
         if ([_more_type isEqualToString:@"promote"]) {
             [titleLable setText:NSLocalizedString(@"Today\'s deal", nil)];

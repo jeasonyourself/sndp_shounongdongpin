@@ -44,7 +44,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    NSArray *arr = @[NSLocalizedString(@"Edit login password", nil),NSLocalizedString(@"Help Center", nil),NSLocalizedString(@"About Us", nil),NSLocalizedString(@"Wipe Cache", nil),NSLocalizedString(@"Switch language", nil)];
+    NSArray *arr = @[NSLocalizedString(@"Change login password", nil),NSLocalizedString(@"Help Center", nil),NSLocalizedString(@"About Us", nil),NSLocalizedString(@"Clear Cache", nil),NSLocalizedString(@"Switch language", nil)];
     for (int i = 0; i<5; i++) {
         UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(20, 55*i*Height+NavHeight, ScreenWidth-40, 55*Height)];
         [self.view addSubview:lab];

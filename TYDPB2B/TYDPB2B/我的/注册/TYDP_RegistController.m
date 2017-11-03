@@ -56,7 +56,7 @@
 //    [self.view addSubview:logoImg];
     
     //四行输入框
-    NSArray *placeholderArr = @[NSLocalizedString(@"Your phone Country Code(default:0086)", nil),NSLocalizedString(@"Your phone NO.", nil),NSLocalizedString(@"Verification code", nil),NSLocalizedString(@"password", nil),NSLocalizedString(@"Enter password again", nil)];
+    NSArray *placeholderArr = @[NSLocalizedString(@"Your phone Country Code(default:0086)", nil),NSLocalizedString(@"Your phone No.", nil),NSLocalizedString(@"Verification code", nil),NSLocalizedString(@"password", nil),NSLocalizedString(@"Enter password again", nil)];
 //    NSArray *leftviewArr = @[@"login_phone",@"login_message",@"login_password",@"login_verification"];
     for (int i = 0; i<5; i++) {
         UITextField *tf = [[UITextField alloc]initWithFrame:CGRectMake(15, 64+(55*i)*Height, ScreenWidth-30, 55*Height)];
@@ -139,7 +139,7 @@
     if (_secondTime == 0) {
         _timer.fireDate = [NSDate distantFuture];
         [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        [btn setTitle:NSLocalizedString(@"Click retransmission", nil)forState:UIControlStateNormal];
+        [btn setTitle:NSLocalizedString(@"Resend", nil)forState:UIControlStateNormal];
         [btn setTitleColor:mainColor forState:UIControlStateNormal];
         btn.userInteractionEnabled = YES;
     }else{
@@ -169,7 +169,7 @@
     UITextField *tf3 = (UITextField *)[self.view viewWithTag:103];
     UITextField *tf4 = (UITextField *)[self.view viewWithTag:104];
     if (![tf3.text isEqualToString:tf4.text]) {
-        [_MBHUD setLabelText:NSLocalizedString(@"The two input password is not the same", nil)];
+        [_MBHUD setLabelText:NSLocalizedString(@"Two inputs dismatch!", nil)];
         [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
         [_MBHUD setMode:MBProgressHUDModeText];
         [_MBHUD show:YES];
@@ -206,7 +206,7 @@
     UITextField *tf1 = (UITextField *)[self.view viewWithTag:100];
     UITextField *tf = (UITextField *)[self.view viewWithTag:101];
     if (tf.text.length == 0) {
-        [_MBHUD setLabelText:NSLocalizedString(@"Enter Real Phone number", nil)];
+        [_MBHUD setLabelText:NSLocalizedString(@"Enter Real Phone No.", nil)];
         [_MBHUD hide:YES afterDelay:1];
         return;
     }

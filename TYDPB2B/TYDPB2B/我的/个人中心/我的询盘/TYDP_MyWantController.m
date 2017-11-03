@@ -149,7 +149,7 @@
             MBProgressHUD *tmpHud = [[MBProgressHUD alloc] init];
             [tmpHud setAnimationType:MBProgressHUDAnimationFade];
             [tmpHud setMode:MBProgressHUDModeText];
-            [tmpHud setLabelText:@"没有更多了"];
+            [tmpHud setLabelText:NSLocalizedString(@"No more",nil)];
             [self.view addSubview:tmpHud];
             [tmpHud show:YES];
             [tmpHud hide:YES afterDelay:1.5f];

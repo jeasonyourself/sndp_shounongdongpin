@@ -18,7 +18,7 @@
 "p6f-Qs-oMP.text" = "猪脚";
 
 /* Class = "UILabel"; text = "待支付"; ObjectID = "v8s-CE-ByQ"; */
-"v8s-CE-ByQ.text" = "Obligation";
+"v8s-CE-ByQ.text" = "Pay pending";
 
 /* Class = "UIButton"; normalTitle = "确认库存"; ObjectID = "vPG-jq-COe"; */
 "vPG-jq-COe.normalTitle" = "Confirm inventory";

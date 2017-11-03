@@ -6,7 +6,7 @@
 "feC-Hc-OeC.placeholder" = "Please enter an account bank";
 
 /* Class = "UITextField"; placeholder = "请输入手机号"; ObjectID = "kmA-0V-Ry4"; */
-"kmA-0V-Ry4.placeholder" = "Phone number";
+"kmA-0V-Ry4.placeholder" = "Phone No.";
 
 /* Class = "UITextField"; placeholder = "请输入银行卡号"; ObjectID = "mfW-yv-d8N"; */
 "mfW-yv-d8N.placeholder" = "Please enter the bank card number";

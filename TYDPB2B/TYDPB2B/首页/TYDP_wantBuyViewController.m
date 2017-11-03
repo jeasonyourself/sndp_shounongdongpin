@@ -141,7 +141,7 @@ typedef enum {
                 MBProgressHUD *tmpHud = [[MBProgressHUD alloc] init];
                 [tmpHud setAnimationType:MBProgressHUDAnimationFade];
                 [tmpHud setMode:MBProgressHUDModeText];
-                [tmpHud setLabelText:NSLocalizedString(@"No screening results for a while", nil)];
+                [tmpHud setLabelText:NSLocalizedString(@"No results for now", nil)];
                 [_goodsListModelArray removeAllObjects];
                 [self.view addSubview:tmpHud];
                 [tmpHud show:YES];
@@ -720,8 +720,8 @@ typedef enum {
         
         
         UILabel *needLabel = [UILabel new];
-        [needLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Need", nil)]];
-        [needLabel setFont:ThemeFont(12)];
+        [needLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Enquiry", nil)]];
+        [needLabel setFont:ThemeFont(11)];
         [needLabel setTextAlignment:NSTextAlignmentCenter];
         [needLabel setBackgroundColor:RGBACOLOR(153, 153, 153, 1)];
         [needLabel setTextColor:[UIColor whiteColor]];
@@ -734,7 +734,7 @@ typedef enum {
         }];
         
         UILabel *detailDemandLabel = [UILabel new];
-        [detailDemandLabel setText:[NSString stringWithFormat:@"%@  %@%@  %@-%@%@",purchaseListMD.goods_name,purchaseListMD.goods_num,NSLocalizedString(@"MT",nil),purchaseListMD.price_low,purchaseListMD.price_up,NSLocalizedString(@"yuan/MT",nil)]];
+        [detailDemandLabel setText:[NSString stringWithFormat:@"%@  %@%@  %@-%@%@",purchaseListMD.goods_name,purchaseListMD.goods_num,NSLocalizedString(@"MT",nil),purchaseListMD.price_low,purchaseListMD.price_up,NSLocalizedString(@"RMB/MT",nil)]];
         [detailDemandLabel setFont:ThemeFont(13)];
         [detailDemandLabel setTextColor:RGBACOLOR(51, 51, 51, 1)];
         
@@ -884,7 +884,7 @@ typedef enum {
             MBProgressHUD *tmpHud = [[MBProgressHUD alloc] init];
             [tmpHud setAnimationType:MBProgressHUDAnimationFade];
             [tmpHud setMode:MBProgressHUDModeText];
-            [tmpHud setLabelText:@"已经是最后一页～"];
+            [tmpHud setLabelText:NSLocalizedString(@"No more",nil)];
             [self.view addSubview:tmpHud];
             [tmpHud show:YES];
             [tmpHud hide:YES afterDelay:1.5f];
@@ -1061,7 +1061,7 @@ typedef enum {
             make.height.mas_equalTo(20);
         }];
     
-            [titleLable setText:NSLocalizedString(@"To buy list", nil)];
+            [titleLable setText:NSLocalizedString(@"Enquiry list", nil)];
         titleLable.textColor=[UIColor whiteColor];
         [titleLable setFont:ThemeFont(16)];
         [titleLable setTextAlignment:NSTextAlignmentCenter];

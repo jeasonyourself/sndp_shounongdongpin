@@ -151,7 +151,7 @@
         UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [smallTopView addSubview:rightButton];
         rightButton.tag = i+1;
-        [rightButton setTitle:[NSString stringWithFormat:NSLocalizedString(@"Into store", nil)] forState:UIControlStateNormal];
+        [rightButton setTitle:[NSString stringWithFormat:NSLocalizedString(@"Enter stall", nil)] forState:UIControlStateNormal];
         [rightButton setTitleColor:RGBACOLOR(85, 85, 85, 1) forState:UIControlStateNormal];
         rightButton.clipsToBounds = YES;
         rightButton.layer.cornerRadius = 6;
@@ -238,7 +238,7 @@
     [_navigationBarView addSubview:navigationLabel];
     [navigationLabel setTextAlignment:NSTextAlignmentCenter];
     [navigationLabel setTextColor:[UIColor whiteColor]];
-    [navigationLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Shop list", nil)]];
+    [navigationLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Stall list", nil)]];
     [navigationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(_navigationBarView);
         make.centerY.equalTo(_navigationBarView).with.offset(Gap);

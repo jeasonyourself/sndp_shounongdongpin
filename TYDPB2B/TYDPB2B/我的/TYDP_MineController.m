@@ -516,7 +516,7 @@
 - (void)configCellA:(TYDP_MineCellA *)cell{
     //四个button
     NSArray *imgArr = @[@"icon_me_order",@"icon_me_ask",@"icon_me_payment",@"icon_me_focus"];
-    NSArray *titleArr = @[NSLocalizedString(@"All orders", nil),NSLocalizedString(@"My inquiry", nil),NSLocalizedString(@"My bargain", nil),NSLocalizedString(@"My Following", nil)];
+    NSArray *titleArr = @[NSLocalizedString(@"All orders", nil),NSLocalizedString(@"My inquiry", nil),NSLocalizedString(@"My bids", nil),NSLocalizedString(@"My Following", nil)];
     for (int i = 0; i < 4; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [cell.btnView addSubview:btn];
@@ -598,7 +598,7 @@
     if (![[NSString stringWithFormat:@"%@",_model.user_rank] isEqualToString:@"2"]) {
         if ([[NSString stringWithFormat:@"%@",_model.join] isEqualToString:@"1"]) {
             UIWindow *window = [UIApplication sharedApplication].keyWindow;
-            [window Message:NSLocalizedString(@"Settle down first", nil) HiddenAfterDelay:1.0];
+            [window Message:NSLocalizedString(@" Please apply for seller account first ", nil) HiddenAfterDelay:1.0];
             
             UIStoryboard *story = [UIStoryboard storyboardWithName:@"seller_Storyboard" bundle:nil];
             toBeSellerViewController * toBeSellerVC = [story instantiateViewControllerWithIdentifier:@"toBeSellerVC"];

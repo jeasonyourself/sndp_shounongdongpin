@@ -3,7 +3,7 @@
 "2ii-Rr-qyM.placeholder" = "Please enter the verification code";
 
 /* Class = "UITextField"; placeholder = "请输入手机号"; ObjectID = "8xd-c8-tON"; */
-"8xd-c8-tON.placeholder" = "Phone number";
+"8xd-c8-tON.placeholder" = "Phone No.";
 
 /* Class = "UITextField"; placeholder = "请输入身份证号"; ObjectID = "gMd-h1-V6z"; */
 "gMd-h1-V6z.placeholder" = "Please enter the ID number";

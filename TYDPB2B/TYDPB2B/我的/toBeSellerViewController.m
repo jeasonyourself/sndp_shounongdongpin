@@ -116,7 +116,7 @@ MBProgressHUD *_MBHUD;
                 break;
             case 2:
                 cell.inputTextField.userInteractionEnabled=YES;
-                cell.inputTextField.placeholder=NSLocalizedString(@"Shop name", nil);
+                cell.inputTextField.placeholder=NSLocalizedString(@"Stall name", nil);
             break;
             case 3:
                 cell.inputTextField.userInteractionEnabled=YES;
@@ -204,7 +204,7 @@ MBProgressHUD *_MBHUD;
     {
         static NSString * const cellID = @"signTextViewCell";
         signTextViewTableViewCell *cell=(signTextViewTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-        cell.signTextView.placeholder=NSLocalizedString(@"About the shop", nil);
+        cell.signTextView.placeholder=NSLocalizedString(@"About the stall", nil);
         cell.signTextView.text =_pubDic[@"shop_info"];
         cell.signTextView.delegate=self;
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
@@ -280,7 +280,7 @@ MBProgressHUD *_MBHUD;
     }
     else
     {
-        [self.view Message:NSLocalizedString(@"Please improve necessary information", nil) HiddenAfterDelay:1.5];
+        [self.view Message:NSLocalizedString(@"Please complete required information", nil) HiddenAfterDelay:1.5];
         return;
     }
     NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];
@@ -294,7 +294,7 @@ MBProgressHUD *_MBHUD;
         if ([data[@"error"]isEqualToString:@"0"]) {
             [_MBHUD hide:YES];
             UIWindow *window = [UIApplication sharedApplication].keyWindow;
-            [window Message:NSLocalizedString(@"Waiting for audit", nil) HiddenAfterDelay:1.5];
+            [window Message:NSLocalizedString(@"Application under review", nil) HiddenAfterDelay:1.5];
              [self leftItemClicked:nil];
             
         }else{
@@ -349,7 +349,7 @@ MBProgressHUD *_MBHUD;
         make.height.mas_equalTo(20);
     }];
     
-    [titleLable setText:NSLocalizedString(@"Apply for admission", nil)];
+    [titleLable setText:NSLocalizedString(@"Apply for seller account", nil)];
     
     titleLable.textColor=[UIColor whiteColor];
     [titleLable setFont:ThemeFont(16)];

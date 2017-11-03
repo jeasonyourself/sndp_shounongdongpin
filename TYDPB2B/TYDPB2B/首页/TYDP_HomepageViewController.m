@@ -324,7 +324,7 @@ typedef enum {
 
     UILabel *SecondsKillLabel = [UILabel new];
     [_baseScrollView addSubview:SecondsKillLabel];
-    [SecondsKillLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Time limit", nil)]];
+    [SecondsKillLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Timed special", nil)]];
     [SecondsKillLabel setFont:ThemeFont(14)];
     SecondsKillLabel.textColor=RGBACOLOR(85, 85, 85, 1);
     [SecondsKillLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -712,7 +712,7 @@ typedef enum {
     
     UILabel *demandLabel = [UILabel new];
     [titleDemandView addSubview:demandLabel];
-    [demandLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"List wanted", nil)]];
+    [demandLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Enquiry list", nil)]];
     [demandLabel setFont:ThemeFont(14)];
     demandLabel.textColor=RGBACOLOR(85, 85, 85, 1);
     [demandLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -836,8 +836,8 @@ typedef enum {
         
         
         UILabel *needLabel = [UILabel new];
-        [needLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Need", nil)]];
-        [needLabel setFont:ThemeFont(12)];
+        [needLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Enquiry", nil)]];
+        [needLabel setFont:ThemeFont(11)];
         [needLabel setTextAlignment:NSTextAlignmentCenter];
         [needLabel setBackgroundColor:RGBACOLOR(153, 153, 153, 1)];
         [needLabel setTextColor:[UIColor whiteColor]];
@@ -850,7 +850,7 @@ typedef enum {
         }];
         
         UILabel *detailDemandLabel = [UILabel new];
-        [detailDemandLabel setText:[NSString stringWithFormat:@"%@  %@%@  %@-%@%@",purchaseListMD.goods_name,NSLocalizedString(@"MT", nil),purchaseListMD.goods_num,purchaseListMD.price_low,purchaseListMD.price_up,NSLocalizedString(@"yuan/MT", nil)]];
+        [detailDemandLabel setText:[NSString stringWithFormat:@"%@  %@%@  %@-%@%@",purchaseListMD.goods_name,NSLocalizedString(@"MT", nil),purchaseListMD.goods_num,purchaseListMD.price_low,purchaseListMD.price_up,NSLocalizedString(@"RMB/MT", nil)]];
         [detailDemandLabel setFont:ThemeFont(13)];
         [detailDemandLabel setTextColor:RGBACOLOR(51, 51, 51, 1)];
 
@@ -1154,13 +1154,13 @@ typedef enum {
         case ShopButtonMessage:{
             
             [_searchTypeButton setTitle:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Product",nil)] forState:UIControlStateNormal];
-            _searchBar.placeholder = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Factory number / Product name / Origin", nil)];
+            _searchBar.placeholder = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Plant No. / Product / Origin", nil)];
             _searchTypeState = YES;
             break;
         }
         case StoreButtonMessage:{
-             [_searchTypeButton setTitle:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Shop",nil)] forState:UIControlStateNormal];
-            _searchBar.placeholder = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Shop name",nil)];
+             [_searchTypeButton setTitle:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Stall",nil)] forState:UIControlStateNormal];
+            _searchBar.placeholder = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Stall name",nil)];
             _searchTypeState = NO;
             break;
         }
@@ -1190,7 +1190,7 @@ typedef enum {
         shopButton.tag = ShopButtonMessage;
         [shopButton addTarget:self action:@selector(searchSelectButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         UIButton *storeButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [storeButton setTitle:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Shop", nil)] forState:UIControlStateNormal];
+        [storeButton setTitle:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Stall", nil)] forState:UIControlStateNormal];
         storeButton.tag = StoreButtonMessage;
         [storeButton addTarget:self action:@selector(searchSelectButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [storeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -1214,14 +1214,14 @@ typedef enum {
         if (_searchTypeState) {
             [_searchTypeButton setTitle:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Product",nil)] forState:UIControlStateNormal];
         } else {
-           [_searchTypeButton setTitle:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Shop",nil)] forState:UIControlStateNormal];
+           [_searchTypeButton setTitle:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Stall",nil)] forState:UIControlStateNormal];
         }
         _selectImageView.hidden = NO;
     } else {
         if (_searchTypeState) {
             [_searchTypeButton setTitle:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Product",nil)] forState:UIControlStateNormal];
         } else {
-            [_searchTypeButton setTitle:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Shop",nil)] forState:UIControlStateNormal];
+            [_searchTypeButton setTitle:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Stall",nil)] forState:UIControlStateNormal];
         }
         _selectImageView.hidden = YES;
     }
@@ -1408,7 +1408,7 @@ typedef enum {
     _searchBar.returnKeyType=UIReturnKeySearch;
     _searchBar.delegate = self;
     [_searchBar setSearchBarStyle:UISearchBarStyleDefault];
-    _searchBar.placeholder = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Factory number / Product name / Origin", nil)];
+    _searchBar.placeholder = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Plant No. / Product / Origin", nil)];
     [_searchBar setBackgroundColor:[UIColor whiteColor]];
     _searchBar.showsCancelButton = NO;
     [_searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1438,7 +1438,7 @@ typedef enum {
                 
                 //设置默认文字颜色
                 UIColor *color = [UIColor grayColor];
-                [textField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Factory number / Product name / Origin",nil)]
+                [textField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Plant No. / Product / Origin",nil)]
                                                                                     attributes:@{NSForegroundColorAttributeName:color}]];
 //                //修改默认的放大镜图片
 //                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 13, 13)];
@@ -1702,7 +1702,7 @@ typedef enum {
     [_cancelButton removeFromSuperview];
     [_blackView removeFromSuperview];
     NSString *telephoneString = [NSString stringWithFormat:@"tel://18501995377"];
-    NSString *reminderString = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Make sure to call？",nil)];
+    NSString *reminderString = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Make the call?",nil)];
     UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Remind",nil) message:reminderString preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *firstAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleCancel handler:nil];
     [alertCon addAction:firstAction];

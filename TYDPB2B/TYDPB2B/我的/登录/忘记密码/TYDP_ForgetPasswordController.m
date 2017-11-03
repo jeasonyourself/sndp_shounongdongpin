@@ -63,7 +63,7 @@
 - (void)timerRun{
     if (_sendTime == 0) {
         _timer.fireDate = [NSDate distantFuture];
-        [self.getCodeBtn setTitle:NSLocalizedString(@"Click retransmission",nil) forState:UIControlStateNormal];
+        [self.getCodeBtn setTitle:NSLocalizedString(@"Resend",nil) forState:UIControlStateNormal];
         self.getCodeBtn.userInteractionEnabled = YES;
         _sendTime = startTime;
     }else{
@@ -92,7 +92,7 @@
 }
 - (void)getCodeRequest{
     if (_mobileTf.text.length == 0) {
-        [_MBHUD setLabelText:NSLocalizedString(@"Enter Real Phone number", nil)];
+        [_MBHUD setLabelText:NSLocalizedString(@"Enter Real Phone No.", nil)];
         [_MBHUD hide:YES afterDelay:1];
         return;
     }

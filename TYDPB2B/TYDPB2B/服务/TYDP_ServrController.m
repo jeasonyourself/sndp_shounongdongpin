@@ -34,7 +34,7 @@
 - (void)creatUI{
     
     _imgArr = @[@"serve_icon_agency",@"offer_icon_storage",@"serve_icon_financing",@"serve_icon_buy",@"serve_icon_price"];
-    _titleArr = @[NSLocalizedString(@"Inland Logistics", nil),NSLocalizedString(@"Storage Service", nil),NSLocalizedString(@"Mortgage lending", nil),NSLocalizedString(@"Enquiry service", nil),NSLocalizedString(@"Industry information", nil)];
+    _titleArr = @[NSLocalizedString(@"Inland Logistics", nil),NSLocalizedString(@"Warehouse Service", nil),NSLocalizedString(@"Mortgage loaning", nil),NSLocalizedString(@"Enquiry service", nil),NSLocalizedString(@"Industry information", nil)];
     _subTitleArr = @[@"",@"",@"",@"",@""];
     
     self.automaticallyAdjustsScrollViewInsets = NO;

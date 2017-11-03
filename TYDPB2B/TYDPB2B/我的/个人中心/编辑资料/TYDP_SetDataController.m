@@ -88,7 +88,7 @@
     
     NSArray *imgArr = @[@"edit_icon_username",@"edit_icon_name",@"edit_icon_gender",@"edit_icon_phone",@"edit_icon_email",@"edit_icon_location",@"edit_icon_name",@"edit_icon_name"];
     
-    NSArray *titleArr = @[NSLocalizedString(@"Username", nil),NSLocalizedString(@"Legal name", nil),NSLocalizedString(@"Gender", nil),NSLocalizedString(@"Phone number", nil),NSLocalizedString(@"Email", nil),NSLocalizedString(@"Location", nil),NSLocalizedString(@"Shop name", nil),NSLocalizedString(@"Shop detail",nil)];
+    NSArray *titleArr = @[NSLocalizedString(@"Username", nil),NSLocalizedString(@"Legal name", nil),NSLocalizedString(@"Gender", nil),NSLocalizedString(@"Phone No.", nil),NSLocalizedString(@"Email", nil),NSLocalizedString(@"Location", nil),NSLocalizedString(@"Stall name", nil),NSLocalizedString(@"Stall detail",nil)];
     
     if (!_modelArr) {
         _modelArr = [NSArray copy];
@@ -372,7 +372,7 @@
         [_MBHUD hide:YES afterDelay:1];
         NSLog(@"请选择您所在城市");
     }else{
-        [_MBHUD setLabelText:NSLocalizedString(@"Wait a minute", nil)];
+        [_MBHUD setLabelText:NSLocalizedString(@"Wait a moment", nil)];
         NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];
         NSDictionary *params;
          if (![[PSDefaults objectForKey:@"userType"] isEqualToString:@"1"]) {
@@ -384,7 +384,7 @@
         }
         
         if ([params[@"alias"] isEqualToString:@""]) {
-            [self.view Message:NSLocalizedString(@"Please fill in the real name", nil) HiddenAfterDelay:1.5];
+            [self.view Message:NSLocalizedString(@"Please fill in the legal name", nil) HiddenAfterDelay:1.5];
             return;
         }
         

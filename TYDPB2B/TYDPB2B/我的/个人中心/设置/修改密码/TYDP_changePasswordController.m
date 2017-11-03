@@ -77,7 +77,7 @@
         [self requestData];
     }else{
         [_MBHUD setMode:MBProgressHUDModeText];
-        [_MBHUD setLabelText:NSLocalizedString(@"The two input password is not the same", nil)];
+        [_MBHUD setLabelText:NSLocalizedString(@"Two inputs dismatch!", nil)];
         [_MBHUD hide:YES afterDelay:1];
         NSLog(@"两次输入密码不一样");
     }

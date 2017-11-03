@@ -431,7 +431,7 @@ typedef enum {
         [_headImg sd_setImageWithURL:[NSURL URLWithString:ShopData[@"user_face"]] placeholderImage:[UIImage imageNamed:@"person_head_default"]];
         _nameLab.text =[NSString stringWithFormat:@"%@",ShopData[@"shop_name"]];
     if ([[NSString stringWithFormat:@"%@",ShopData[@"is_follow"]] isEqualToString:@"1"]) {
-        nintyLab.text=NSLocalizedString(@"Followed",nil);
+        nintyLab.text=NSLocalizedString(@"Following",nil);
         nintyLab.backgroundColor=[UIColor grayColor];
     }
     else
@@ -442,7 +442,7 @@ typedef enum {
     _followNum=ShopData[@"follow_count"];
     fo= [_followNum integerValue];
 
-    _NumLab.text = [NSString stringWithFormat:@"%@%@",ShopData[@"follow_count"],NSLocalizedString(@"Followed",nil)];
+    _NumLab.text = [NSString stringWithFormat:@"%@%@",ShopData[@"follow_count"],NSLocalizedString(@"Following",nil)];
 //        _NumLab.text = [NSString stringWithFormat:@"%@",ShopData[@"order_num"]];
 //        _addressLab.text = [NSString stringWithFormat:@"所在地:%@ %@",ShopData[@"province"],ShopData[@"city"]];
 }
@@ -527,7 +527,7 @@ typedef enum {
             MBProgressHUD *tmpHud = [[MBProgressHUD alloc] init];
             [tmpHud setAnimationType:MBProgressHUDAnimationFade];
             [tmpHud setMode:MBProgressHUDModeText];
-            [tmpHud setLabelText:@"没有更多了"];
+            [tmpHud setLabelText:NSLocalizedString(@"No more",nil)];
             [self.view addSubview:tmpHud];
             [tmpHud show:YES];
             [tmpHud hide:YES afterDelay:1.5f];
@@ -594,7 +594,7 @@ typedef enum {
     
     _NumLab = [UILabel new];
     [imgView addSubview:_NumLab];
-    _NumLab.text = [NSString stringWithFormat:@"%@N",NSLocalizedString(@"Number of reads",nil)];
+    _NumLab.text = [NSString stringWithFormat:@"%@N",NSLocalizedString(@"No. of reads",nil)];
     _NumLab.font = [UIFont systemFontOfSize:13];
     _NumLab.textColor = [UIColor whiteColor];
     [_NumLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -737,7 +737,7 @@ typedef enum {
     [bottomView addSubview:btn];
     btn.backgroundColor = mainColor;
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [btn setTitle:NSLocalizedString(@"Shop detail",nil) forState:UIControlStateNormal];
+    [btn setTitle:NSLocalizedString(@"Stall detail",nil) forState:UIControlStateNormal];
 
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(bottomView.mas_top).with.offset(10);
@@ -764,7 +764,7 @@ typedef enum {
 }
 - (void)addednintyLabViewTap:(UITapGestureRecognizer *)tap {
     UILabel * lableView=(UILabel *)tap.view;
-    if ([lableView.text isEqualToString:NSLocalizedString(@"Followed",nil)]) {
+    if ([lableView.text isEqualToString:NSLocalizedString(@"Following",nil)]) {
         NSDictionary *params = @{@"model":@"user",@"action":@"unfollow_store",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"userunfollow_store%@",ConfigNetAppKey]],@"shop_id":self.shopId,@"user_id":[PSDefaults objectForKey:@"user_id"]};
         [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
             debugLog(@"ifFollowData:%@",data[@"content"]);
@@ -773,7 +773,7 @@ typedef enum {
                 nintyLab.text=NSLocalizedString(@"Follow",nil);
                 nintyLab.backgroundColor=mainColor;
                 fo--;
-                _NumLab.text = [NSString stringWithFormat:@"%@%ld",NSLocalizedString(@"Followed", nil),fo];
+                _NumLab.text = [NSString stringWithFormat:@"%@%ld",NSLocalizedString(@"Following", nil),fo];
             } else {
                 [_MBHUD setLabelText:data[@"message"]];
                 [_MBHUD hide:YES afterDelay:1.5f];
@@ -789,10 +789,10 @@ typedef enum {
             debugLog(@"ifFollowData:%@",data[@"content"]);
             if (![data[@"error"] intValue]) {
                 
-                nintyLab.text=NSLocalizedString(@"Followed",nil);
+                nintyLab.text=NSLocalizedString(@"Following",nil);
                 nintyLab.backgroundColor=[UIColor grayColor];
                 fo++;
-                _NumLab.text = [NSString stringWithFormat:@"%ld%@",fo,NSLocalizedString(@"Followed",nil)];
+                _NumLab.text = [NSString stringWithFormat:@"%ld%@",fo,NSLocalizedString(@"Following",nil)];
             } else {
                 [_MBHUD setLabelText:data[@"message"]];
                 [_MBHUD hide:YES afterDelay:1.5f];

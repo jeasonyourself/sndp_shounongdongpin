@@ -60,7 +60,7 @@ static char HUDKEY_BE;
 
 	hud_0314.yOffset = yoffset;
 	hud_0314.mode = MBProgressHUDModeText;
-	hud_0314.labelText = message;
+	hud_0314.detailsLabelText = message;
 	[hud_0314  show:true];
 	
 	[hud_0314  hide:true afterDelay:delay];

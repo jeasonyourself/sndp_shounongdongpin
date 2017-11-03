@@ -374,7 +374,7 @@
 - (void)configCellA:(TYDP_sellerCenterTableViewCell *)cell{
     //四个button
     NSArray *imgArr = @[@"icon_seller_exchange",@"icon_seller_seller",@"icon_seller_order",@"icon_seller_buy",@"icon_seller_box",@"icon_seller_money",@"icon_seller_feedback",@"icon_seller_share",@"icon_seller_focus"];
-    NSArray *titleArr = @[NSLocalizedString(@"Bargain list", nil),NSLocalizedString(@"Offer", nil),NSLocalizedString(@"Order", nil),NSLocalizedString(@"To buy list", nil),NSLocalizedString(@"shippers", nil),NSLocalizedString(@"Account", nil),NSLocalizedString(@"Feedback", nil),NSLocalizedString(@"Populize Store", nil),NSLocalizedString(@"My Following", nil)];
+    NSArray *titleArr = @[NSLocalizedString(@"Bid list", nil),NSLocalizedString(@"Offers", nil),NSLocalizedString(@"Orders", nil),NSLocalizedString(@"Enquiry list", nil),NSLocalizedString(@"Consigners", nil),NSLocalizedString(@"Account fund", nil),NSLocalizedString(@"Feedback", nil),NSLocalizedString(@"Share Stall", nil),NSLocalizedString(@"My Following", nil)];
     for (int i = 0; i < 3; i++) {
         UIView *bgView = [UIView new];
         [cell.btnView addSubview:bgView];

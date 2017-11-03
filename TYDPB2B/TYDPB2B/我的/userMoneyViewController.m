@@ -76,7 +76,7 @@
                 debugLog(@"bankData:%@",data);
         if ([[NSString stringWithFormat:@"%@",data[@"content"][@"shop"][@"bank_switch"]] isEqualToString:@"0"]) {
             UIWindow *window = [UIApplication sharedApplication].keyWindow;
-            [window Message:NSLocalizedString(@"Funds have not yet been opened", nil) HiddenAfterDelay:1.5];
+            [window Message:NSLocalizedString(@"Not authorized to manage fund", nil) HiddenAfterDelay:1.5];
             [self.navigationController popViewControllerAnimated:NO];
         }
         
@@ -134,7 +134,7 @@
 - (void)creatUI{
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ico_return"] style:UIBarButtonItemStylePlain target:self action:@selector(retBtnClick)];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
-    self.title=NSLocalizedString(@"Capital account", nil);
+    self.title=NSLocalizedString(@"Fund management", nil);
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -159,7 +159,7 @@
     
     UILabel *sign_numberLabel = [UILabel new];
     sign_numberLabel.textAlignment=NSTextAlignmentCenter;
-    [sign_numberLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"yuejiaoyi_count", nil)]];
+    [sign_numberLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Monthly deals No.", nil)]];
     [sign_numberLabel setFont:ThemeFont(14)];
     [sign_numberLabel setTextColor:[UIColor whiteColor]];
     sign_numberLabel.alpha=0.7;
@@ -190,7 +190,7 @@
     
     UILabel *sign_allKaLabel = [UILabel new];
     sign_allKaLabel.textAlignment=NSTextAlignmentCenter;
-    [sign_allKaLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Numbers of account", nil)]];
+    [sign_allKaLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"No. of accounts", nil)]];
     [sign_allKaLabel setFont:ThemeFont(14)];
     [sign_allKaLabel setTextColor:[UIColor whiteColor]];
     sign_allKaLabel.alpha=0.7;
@@ -272,7 +272,7 @@
     [self.view addSubview:addbtn];
     addbtn.frame = CGRectMake(0, ScreenHeight-TabbarHeight, ScreenWidth, TabbarHeight);
     [addbtn setBackgroundColor:RGBACOLOR(218, 154, 41, 1)];
-    [addbtn setTitle:NSLocalizedString(@"+Creat an account", nil) forState:UIControlStateNormal];
+    [addbtn setTitle:NSLocalizedString(@"Add an account", nil) forState:UIControlStateNormal];
     [addbtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [addbtn setBackgroundColor:mainColor];
     [addbtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -330,7 +330,7 @@
         [btn removeTarget:self action:@selector(addBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [btn addTarget:self action:@selector(postData) forControlEvents:UIControlEventTouchUpInside];
     }else{
-        [btn setTitle:NSLocalizedString(@"+Creat an account", nil) forState:UIControlStateNormal];
+        [btn setTitle:NSLocalizedString(@"Add an account", nil) forState:UIControlStateNormal];
         [btn removeTarget:self action:@selector(postData) forControlEvents:UIControlEventTouchUpInside];
         [btn addTarget:self action:@selector(addBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }

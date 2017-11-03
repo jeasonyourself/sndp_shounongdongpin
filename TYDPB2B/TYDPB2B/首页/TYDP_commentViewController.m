@@ -77,7 +77,7 @@
     if (pubTextView.text&&![pubTextView.text isEqualToString:@""]) {
         //pages are bigger than 1
     } else {
-        [self.view Message:NSLocalizedString(@"Enter something", nil) HiddenAfterDelay:1.0];
+        [self.view Message:NSLocalizedString(@"Type in", nil) HiddenAfterDelay:1.0];
         return;
     }
     [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];

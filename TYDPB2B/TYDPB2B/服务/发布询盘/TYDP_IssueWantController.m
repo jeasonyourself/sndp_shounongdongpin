@@ -57,7 +57,7 @@
     
     self.view.backgroundColor = RGBACOLOR(246, 246, 246, 1);
 
-    NSArray *titleArr = @[NSLocalizedString(@"Inqurity Subject", nil),NSLocalizedString(@"Product category", nil),NSLocalizedString(@"Inqurity Products", nil),NSLocalizedString(@"Number of inqurity", nil),NSLocalizedString(@"Range of price", nil),NSLocalizedString(@"Delivery address", nil)];
+    NSArray *titleArr = @[NSLocalizedString(@"Enquiry Subject", nil),NSLocalizedString(@"Product category", nil),NSLocalizedString(@"Enquired Products", nil),NSLocalizedString(@"No. of Enquiry", nil),NSLocalizedString(@"Range of price", nil),NSLocalizedString(@"Delivery address", nil)];
     CGFloat tmpFontSize;
     if (ScreenHeight == TYDPIphone5sHeight) {
         tmpFontSize = 13.0f;
@@ -82,6 +82,7 @@
             UITextField *tf = [[UITextField alloc]initWithFrame:CGRectMake(145*Width, 0, ScreenWidth-115*Width, 50*Height)];
             [cellView addSubview:tf];
             tf.tag = 200+i;
+            tf.font=[UIFont systemFontOfSize:14.0];
             if (i == 0) {
                 tf.placeholder = NSLocalizedString(@"Enter inquiry subject", nil);
                 //灰色的线
@@ -98,19 +99,21 @@
             lab.text =NSLocalizedString(@"Please choose", nil);
             lab.textColor = RGBACOLOR(198, 198, 204, 1);
             lab.tag = 201;
-            
+            lab.font=[UIFont systemFontOfSize:14.0];
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(chooseTap)];
             [lab addGestureRecognizer:tap];
         }else if (i == 3){//求购数量
-            UITextField *tf = [[UITextField alloc]initWithFrame:CGRectMake(145*Width, 0, 121*Width, 50*Height)];
+            UITextField *tf = [[UITextField alloc]initWithFrame:CGRectMake(145*Width, 0, 161*Width, 50*Height)];
             [cellView addSubview:tf];
             tf.delegate = self;
             tf.tag = 200+i;
-            tf.placeholder = NSLocalizedString(@"Enter number of inquiry", nil);
+            tf.font=[UIFont systemFontOfSize:14.0];
+            tf.placeholder = NSLocalizedString(@"Enter amount of enquiry", nil);
             tf.keyboardType = UIKeyboardTypeNumberPad;
             
-            UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(220*Width, 0, 20*Width, 50*Height)];
+            UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(310*Width, 0, 30*Width, 50*Height)];
             [cellView addSubview:lab];
+            lab.font=[UIFont systemFontOfSize:14.0];
             lab.text = [NSString stringWithFormat:@"%@",NSLocalizedString(@"MT",nil)];
             lab.textColor = RGBACOLOR(203, 203, 203, 1);
         }else if (i == 4){//价格范围
@@ -120,19 +123,22 @@
             _tf1.keyboardType = UIKeyboardTypeNumberPad;
             _tf1.tag = 204;
             _tf1.delegate = self;
+            _tf1.font=[UIFont systemFontOfSize:14.0];
             UILabel *lab1 = [[UILabel alloc]initWithFrame:CGRectMake(215*Width, 0, 20*Width, 50*Height)];
             [cellView addSubview:lab1];
             lab1.text = NSLocalizedString(@"to", nil);
             [lab1 setFont:ThemeFont(tmpFontSize)];
             _tf2 = [[UITextField alloc]initWithFrame:CGRectMake(240*Width, 0, 70*Width, 50*Height)];
+            _tf2.font=[UIFont systemFontOfSize:14.0];
             [cellView addSubview:_tf2];
             _tf2.placeholder = NSLocalizedString(@"Max", nil);
             _tf2.keyboardType = UIKeyboardTypeNumberPad;
             _tf2.tag = 205;
             _tf2.delegate = self;
-            UILabel *lab2 = [[UILabel alloc]initWithFrame:CGRectMake(310*Width, 0, 50*Width, 50*Height)];
+            UILabel *lab2 = [[UILabel alloc]initWithFrame:CGRectMake(310*Width, 0, 65*Width, 50*Height)];
             [cellView addSubview:lab2];
-            lab2.text = NSLocalizedString(@"yuan/MT",nil);
+            lab2.font=[UIFont systemFontOfSize:13.0];
+            lab2.text = NSLocalizedString(@"RMB/MT",nil);
             lab2.textColor = RGBACOLOR(203, 203, 203, 1);
         }else{//收货地
 //            UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(ScreenWidth-25*Width, 15*Height, 10*Width, 20*Height)];
@@ -153,6 +159,7 @@
             [cellView addSubview:tf];
             tf.delegate = self;
             tf.tag = 206;
+            tf.font=[UIFont systemFontOfSize:14.0];
             tf.placeholder = NSLocalizedString(@"Enter the receiving address", nil);
         }
     }
@@ -168,14 +175,15 @@
     
     UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(15*Width, 0, ScreenWidth-30*Width, 35*Height)];
     [textV addSubview:lab];
-    lab.text = NSLocalizedString(@"Please input memo information", nil);
+    lab.text = NSLocalizedString(@"Please input remark info", nil);
+    lab.font=[UIFont systemFontOfSize:14.0];
     lab.textColor = RGBACOLOR(203, 203, 203, 1);
     lab.tag = 300;
     
     UITextView *tv = [[UITextView alloc]initWithFrame:CGRectMake(10*Width, 0, ScreenWidth-20*Width, 110*Height)];
     [textV addSubview:tv];
     tv.backgroundColor = [UIColor clearColor];
-    tv.font = [UIFont systemFontOfSize:17];
+    tv.font = [UIFont systemFontOfSize:14];
     tv.delegate = self;
     tv.tag = 500;
     
@@ -201,10 +209,10 @@
             UIView *grayLineTop = [[UIView alloc]initWithFrame:CGRectMake(0, -1, ScreenWidth, 0.5)];
             [cellView addSubview:grayLineTop];
             grayLineTop.backgroundColor = RGBACOLOR(203, 203, 203, 1);
-            lab.text = NSLocalizedString(@"Name of inquirer", nil);
+            lab.text = NSLocalizedString(@"Name of enquirer", nil);
             tf.text = _user_name;
         }else{
-            lab.text = NSLocalizedString(@"Inquirer's phone NO.", nil);
+            lab.text = NSLocalizedString(@"Enquirer's phone NO.", nil);
             tf.text = _user_phone;
         }
     }

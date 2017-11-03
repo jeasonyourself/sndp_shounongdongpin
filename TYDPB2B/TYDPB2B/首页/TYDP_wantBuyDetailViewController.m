@@ -707,8 +707,8 @@ typedef enum {
     
     
     UILabel *needLabel = [UILabel new];
-    [needLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Need", nil)]];
-    [needLabel setFont:ThemeFont(12)];
+    [needLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Enquiry", nil)]];
+    [needLabel setFont:ThemeFont(11)];
     [needLabel setTextAlignment:NSTextAlignmentCenter];
     [needLabel setBackgroundColor:RGBACOLOR(153, 153, 153, 1)];
     [needLabel setTextColor:[UIColor whiteColor]];
@@ -721,7 +721,7 @@ typedef enum {
     }];
     
     UILabel *detailDemandLabel = [UILabel new];
-    [detailDemandLabel setText:[NSString stringWithFormat:@"%@  %@%@  %@-%@%@",_purchaseListMD.goods_name,_purchaseListMD.goods_num,NSLocalizedString(@"MT",nil),_purchaseListMD.price_low,_purchaseListMD.price_up,NSLocalizedString(@"yuan/MT",nil)]];
+    [detailDemandLabel setText:[NSString stringWithFormat:@"%@  %@%@  %@-%@%@",_purchaseListMD.goods_name,_purchaseListMD.goods_num,NSLocalizedString(@"MT",nil),_purchaseListMD.price_low,_purchaseListMD.price_up,NSLocalizedString(@"RMB/MT",nil)]];
     [detailDemandLabel setFont:ThemeFont(13)];
     [detailDemandLabel setTextColor:RGBACOLOR(51, 51, 51, 1)];
     
@@ -945,7 +945,7 @@ typedef enum {
             MBProgressHUD *tmpHud = [[MBProgressHUD alloc] init];
             [tmpHud setAnimationType:MBProgressHUDAnimationFade];
             [tmpHud setMode:MBProgressHUDModeText];
-            [tmpHud setLabelText:@"已经是最后一页～"];
+            [tmpHud setLabelText:NSLocalizedString(@"No more",nil)];
             [self.view addSubview:tmpHud];
             [tmpHud show:YES];
             [tmpHud hide:YES afterDelay:1.5f];
@@ -1082,7 +1082,7 @@ typedef enum {
         make.height.mas_equalTo(20);
     }];
     
-    [titleLable setText:NSLocalizedString(@"To buy detail", nil)];
+    [titleLable setText:NSLocalizedString(@"Enquiry detail", nil)];
     
     titleLable.textColor=[UIColor whiteColor];
     [titleLable setFont:ThemeFont(16)];
@@ -1134,7 +1134,7 @@ typedef enum {
     // Dispose of any resources that can be recreated.
 }
 - (void)viewWillAppear:(BOOL)animated {
-    self.navigationController.navigationBarHidden = YES;
+   // self.navigationController.navigationBarHidden = YES;
     [MobClick beginLogPageView:@"求购详情界面"];
 }
 - (void)viewWillDisappear:(BOOL)animated

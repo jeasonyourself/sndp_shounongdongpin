@@ -85,14 +85,14 @@
 //增修收货地址接口
 - (IBAction)saveBtnClickToPostData {
     if ([self.nameTf.text isEqualToString:@""]||[self.IDnumberTf.text isEqualToString:@""]) {
-        [self.view Message:NSLocalizedString(@"Please improve necessary information", nil) HiddenAfterDelay:1.0];
+        [self.view Message:NSLocalizedString(@"Please complete required information", nil) HiddenAfterDelay:1.0];
         return;
     }
 
     [self creatHUD];
     
     if (self.phoneNumberTf.text.length!=11) {
-        [_MBHUD setLabelText:NSLocalizedString(@"Enter Real Phone number", nil)];
+        [_MBHUD setLabelText:NSLocalizedString(@"Enter Real Phone No.", nil)];
         [_MBHUD hide:YES afterDelay:1.5f];
         NSLog(@"请输入正确手机号");
     }else{
@@ -136,7 +136,7 @@
 
 - (IBAction)codeBtnClick:(JKCountDownButton *)sender {
     if (self.phoneNumberTf.text.length!=11) {
-        [_MBHUD setLabelText:NSLocalizedString(@"Enter Real Phone number", nil)];
+        [_MBHUD setLabelText:NSLocalizedString(@"Enter Real Phone No.", nil)];
         [_MBHUD hide:YES afterDelay:1.5f];
         debugLog(@"请输入正确手机号");
         return;

@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ico_return"] style:UIBarButtonItemStylePlain target:self action:@selector(retBtnClick)];
-    self.title=NSLocalizedString(@"Shop detail",nil);
+    self.title=NSLocalizedString(@"Stall detail",nil);
     //
     _shopDic=[[NSMutableDictionary alloc] init];
     self.view.backgroundColor=RGBACOLOR(234, 234, 234, 1);
@@ -74,7 +74,7 @@
     UILabel *righttopLabel = [UILabel new];
     [bgView addSubview:righttopLabel];
     righttopLabel.textAlignment=NSTextAlignmentRight;
-    [righttopLabel setText:[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Followed",nil),_shopDic[@"follow_count"]]];
+    [righttopLabel setText:[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Following",nil),_shopDic[@"follow_count"]]];
     [righttopLabel setTextColor:[UIColor lightGrayColor]];
     [righttopLabel setFont:ThemeFont(16)];
     [righttopLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -102,10 +102,10 @@
         UILabel *topLabel1 = [UILabel new];
         [landView addSubview:topLabel1];
         if (i==0) {
-             [topLabel1 setText:NSLocalizedString(@"About the shop",nil)];
+             [topLabel1 setText:NSLocalizedString(@"About the stall",nil)];
         }
         if (i==1) {
-            [topLabel1 setText:NSLocalizedString(@"Shop location",nil)];
+            [topLabel1 setText:NSLocalizedString(@"Stall location",nil)];
         }
         if (i==2) {
             [topLabel1 setText:NSLocalizedString(@"Time of opening",nil)];

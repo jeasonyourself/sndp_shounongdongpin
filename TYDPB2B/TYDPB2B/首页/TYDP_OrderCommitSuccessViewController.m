@@ -118,7 +118,7 @@
      _orderDetailArray = [NSMutableArray arrayWithObjects:NSLocalizedString(@"Order NO.", nil),NSLocalizedString(@"Order status", nil),NSLocalizedString(@"Payment Method", nil), nil];
     _orderDetailValueArray = [NSMutableArray array];
     [_orderDetailValueArray addObject:_orderDetailModel.order_sn];
-    [_orderDetailValueArray addObject:NSLocalizedString(@"Obligation", nil)];
+    [_orderDetailValueArray addObject:NSLocalizedString(@"Pay pending", nil)];
     [_orderDetailValueArray addObject:NSLocalizedString(@"To be confirmed", nil)];
     //只有list里有数据的时候才处理
 //    if (orderDetailPaymentBigModel.payment_list.count) {

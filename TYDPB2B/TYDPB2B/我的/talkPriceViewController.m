@@ -92,7 +92,7 @@
 - (void)creatUI{
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ico_return"] style:UIBarButtonItemStylePlain target:self action:@selector(retBtnClick)];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
-    self.navigationItem.title = NSLocalizedString(@"Bargain list", nil);
+    self.navigationItem.title = NSLocalizedString(@"Bid list", nil);
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeBottom;
@@ -344,7 +344,7 @@ return 90.0/375.0*ScreenWidth;
         }];
     
         UILabel *bottomMeasureLabel = [UILabel new];
-        [bottomMeasureLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Offer a price", nil)]];
+        [bottomMeasureLabel setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Bid", nil)]];
         [bottomMeasureLabel setFont:ThemeFont(14)];
         [bottomMeasureLabel setTextColor:[UIColor whiteColor]];
         [bottomMeasureLabel setBackgroundColor:mainColor];

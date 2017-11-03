@@ -9,7 +9,7 @@
 "Sx7-fW-HFf.text" = "Login with Wechat";
 
 /* Class = "UITextField"; placeholder = "输入手机号"; ObjectID = "ZQM-sV-GNy"; */
-"ZQM-sV-GNy.placeholder" = "Your phone NO.";
+"ZQM-sV-GNy.placeholder" = "Your phone No.";
 
 /* Class = "UILabel"; text = "————— 其他登录方式 —————"; ObjectID = "u5H-zC-Q1t"; */
 "u5H-zC-Q1t.text" = "Other login methods";

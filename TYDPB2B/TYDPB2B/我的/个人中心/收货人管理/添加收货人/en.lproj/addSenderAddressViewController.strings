@@ -3,7 +3,7 @@
 "250-RS-4Kv.normalTitle" = "Save";
 
 /* Class = "UITextField"; placeholder = "请输入手机号"; ObjectID = "BkU-Yn-VuM"; */
-"BkU-Yn-VuM.placeholder" = "Phone number";
+"BkU-Yn-VuM.placeholder" = "Phone No.";
 
 /* Class = "UITextField"; placeholder = "请输入姓名"; ObjectID = "C5l-uX-ck9"; */
 "C5l-uX-ck9.placeholder" = "Please enter your name";

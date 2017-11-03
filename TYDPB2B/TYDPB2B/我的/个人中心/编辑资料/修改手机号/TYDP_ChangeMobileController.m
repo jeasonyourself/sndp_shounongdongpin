@@ -84,7 +84,7 @@
 - (void)timerRun{
     if (_startTime == 0) {
         _timer.fireDate = [NSDate distantFuture];
-        [self.getNumBtn setTitle:NSLocalizedString(@"Click retransmission", nil) forState:UIControlStateNormal];
+        [self.getNumBtn setTitle:NSLocalizedString(@"Resend", nil) forState:UIControlStateNormal];
         self.getNumBtn.userInteractionEnabled = YES;
         _startTime = startTime;
     }else{
@@ -101,7 +101,7 @@
         [self getMobileCode];
         _timer.fireDate = [NSDate distantPast];
     }else{
-        [_MBHUD setLabelText:NSLocalizedString(@"Enter Real Phone number", nil)];
+        [_MBHUD setLabelText:NSLocalizedString(@"Enter Real Phone No.", nil)];
         [_MBHUD hide:YES afterDelay:1];
     }
 }

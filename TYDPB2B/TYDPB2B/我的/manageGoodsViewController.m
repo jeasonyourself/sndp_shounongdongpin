@@ -43,7 +43,7 @@
     
     province=[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Future", nil)],[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Spot", nil)], nil];
     city=[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Retail", nil)],[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"FCL", nil)], nil];
-    district=[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"On Shelf", nil)],[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Off Shelf", nil)],nil];
+    district=[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Listing", nil)],[NSString stringWithFormat:@"%@↓",NSLocalizedString(@"Unlisting", nil)],nil];
     
     selectedProvince=[NSString stringWithFormat:@"6"];
     selectedCity=[NSString stringWithFormat:@"4"];
@@ -94,7 +94,7 @@ page=1;
 - (void)creatUI{
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ico_return"] style:UIBarButtonItemStylePlain target:self action:@selector(retBtnClick)];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
-    self.navigationItem.title = NSLocalizedString(@"Offer", nil);
+    self.navigationItem.title = NSLocalizedString(@"Offers", nil);
     
     
     for(NSInteger i=0;i<3;i++)
@@ -120,7 +120,7 @@ page=1;
     }
 
     UILabel *bottomMeasureLabel = [UILabel new];
-    [bottomMeasureLabel setText:[NSString stringWithFormat:NSLocalizedString(@"For sell", nil)]];
+    [bottomMeasureLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Sell", nil)]];
     [bottomMeasureLabel setFont:ThemeFont(14)];
     [bottomMeasureLabel setTextColor:[UIColor whiteColor]];
     [bottomMeasureLabel setBackgroundColor:mainColor];
@@ -350,7 +350,7 @@ page=1;
     }];
 
     UILabel *passLale = [UILabel new];
-    [passLale setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Audit through", nil)]];
+    [passLale setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Application approved", nil)]];
     [passLale setFont:ThemeFont(12)];
     [passLale setTextColor:RGBACOLOR(102, 102, 102, 1)];
     passLale.textAlignment=NSTextAlignmentRight;
@@ -512,7 +512,7 @@ page=1;
     
     
     UILabel *downLabel = [UILabel new];
-    [downLabel setText:[NSString stringWithString:[selectedArea isEqualToString:@"1"]?NSLocalizedString(@"Off Shelf", nil):NSLocalizedString(@"On Shelf", nil)]];
+    [downLabel setText:[NSString stringWithString:[selectedArea isEqualToString:@"1"]?NSLocalizedString(@"Unlisting", nil):NSLocalizedString(@"Listing", nil)]];
     [downLabel setFont:ThemeFont(14)];
     [downLabel setTextColor:[UIColor whiteColor]];
     [downLabel setBackgroundColor:mainColor];

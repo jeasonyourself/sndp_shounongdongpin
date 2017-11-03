@@ -433,7 +433,7 @@
 
             if (![_pubOfferMD.user_info[@"user_rank"] isEqualToString:@"2"]) {
                  UIWindow * window = [UIApplication sharedApplication].keyWindow;
-                [window Message:NSLocalizedString(@"Please settle down first", nil) HiddenAfterDelay:2.0];
+                [window Message:NSLocalizedString(@"Please apply for seller account first", nil) HiddenAfterDelay:2.0];
                 [self leftItemClicked:nil];
             }
             if ([_pubOfferMD.user_info[@"alias"] isEqualToString:@""]) {
@@ -1504,8 +1504,8 @@
             cell.nameLable.hidden=NO;
             cell.delegate=self;
             cell.tag=indexPath.section*100+indexPath.row;
-            cell.nameLable.text=NSLocalizedString(@"Packing specification", nil);
-            cell.firstLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
+            cell.nameLable.text=NSLocalizedString(@"Packing spec", nil);
+            cell.firstLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"ctn",nil)];
             cell.secondLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"MT",nil)];
             if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                 cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
@@ -1535,11 +1535,11 @@
 //            }
            
            if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""]) {
-               cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
+               cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/ctn",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"ctn/MT",nil)];
            }
            else
            {
-           cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
+           cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/ctn",nil),NSLocalizedString(@"ctn/MT",nil)];
            }
            
            if ([_dic2 objectForKey:@"spec_1"]) {
@@ -1609,15 +1609,15 @@
         static NSString * const cellID = @"inputCell";
             inputTableViewCell *cell = (inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
         cell.tag=indexPath.section*100+indexPath.row;
-        cell.nameLable.text=NSLocalizedString(@"Stock", nil);
+        cell.nameLable.text=NSLocalizedString(@"Inventory", nil);
         cell.nameLable.hidden=NO;
         cell.inputField.delegate=self;
         cell.inputField.tag=cell.tag;
         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
-            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
+            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"ctn",nil)];
         }
         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
-            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
+            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"ctn",nil)];
         }
         
         if ([_otherDic objectForKey:@"goods_number"]) {
@@ -1637,7 +1637,7 @@
             name_inputTableViewCell *cell = (name_inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
             cell.tag=indexPath.section*100+indexPath.row;
             cell.nameLable.hidden=NO;
-            cell.nameLable.text=NSLocalizedString(@"Container Location", nil);
+            cell.nameLable.text=NSLocalizedString(@"Current Location", nil);
             cell.name_inputField.delegate=self;
             cell.name_inputField.tag=cell.tag;
             cell.name_inputField.userInteractionEnabled=YES;
@@ -1688,26 +1688,26 @@
             if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                 if ([[_otherDic objectForKey:@"currency"]
                      isEqualToString:@"1"]) {
-                    cell.unitLable.text=NSLocalizedString(@"yuan/pc",nil);
+                    cell.unitLable.text=NSLocalizedString(@"RMB/ctn",nil);
                 }
                 if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                    cell.unitLable.text=NSLocalizedString(@"dollar/pc",nil);
+                    cell.unitLable.text=NSLocalizedString(@"USD/ctn",nil);
                 }
                 if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                    cell.unitLable.text=NSLocalizedString(@"euro/pc",nil);
+                    cell.unitLable.text=NSLocalizedString(@"Euro/ctn",nil);
                 }
 
             }
             if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                 if ([[_otherDic objectForKey:@"currency"]
                      isEqualToString:@"1"]) {
-                    cell.unitLable.text=NSLocalizedString(@"yuan/MT",nil);
+                    cell.unitLable.text=NSLocalizedString(@"RMB/MT",nil);
                 }
                 if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                    cell.unitLable.text=NSLocalizedString(@"dollar/MT",nil);
+                    cell.unitLable.text=NSLocalizedString(@"USD/MT",nil);
                 }
                 if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                    cell.unitLable.text=NSLocalizedString(@"euro/MT",nil);
+                    cell.unitLable.text=NSLocalizedString(@"Euro/MT",nil);
                 }
             }
 
@@ -1731,7 +1731,7 @@
             [cell addGestureRecognizer:tap];
 
             cell.tag=indexPath.section*100+indexPath.row;
-            cell.nameLable.text=NSLocalizedString(@"Prepayment Rules", nil);
+            cell.nameLable.text=NSLocalizedString(@"Prepayment term", nil);
             cell.nameLable.hidden=NO;
             if ([_otherDic objectForKey:@"prepay"]) {
                 cell.contentLable.text=[_otherDic objectForKey:@"prepay_name"];
@@ -1797,7 +1797,7 @@
         twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
         cell.tag=indexPath.section*100+indexPath.row;
         cell.nameLable.hidden=NO;
-        cell.nameLable.text=NSLocalizedString(@"On-self?", nil);
+        cell.nameLable.text=NSLocalizedString(@"Listing?", nil);
         cell.firstLable.text=NSLocalizedString(@"YES", nil);
         cell.secondLable.text=NSLocalizedString(@"NO", nil);
         if ([[_otherDic objectForKey:@"is_on_sale"] isEqualToString:@"1"]) {
@@ -1844,7 +1844,7 @@
         if (indexPath.row==1) {
             cell.nameLable.hidden=NO;
             cell.tag=indexPath.section*100+indexPath.row;
-            cell.nameLable.text=NSLocalizedString(@"Contact number", nil);
+            cell.nameLable.text=NSLocalizedString(@"Contact No.", nil);
             if ([_otherDic objectForKey:@"mobile_phone"]) {
                 cell.name_inputField.text=[_otherDic objectForKey:@"mobile_phone"];
                 
@@ -1981,11 +1981,11 @@
                        cell.inputField.delegate=self;
                        
                        if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                           cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
+                           cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/ctn",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"ctn/MT",nil)];
                        }
                        else
                        {
-                           cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
+                           cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/ctn",nil),NSLocalizedString(@"ctn/MT",nil)];
                        }
 
                        if ([_dic2 objectForKey:@"spec_1"]) {
@@ -2008,7 +2008,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/FCL",nil);
                         
                         if ([_dic2 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic2 objectForKey:@"spec_3"];
@@ -2071,7 +2071,7 @@
                     else  {
                         static NSString * const cellID = @"addNew_pinGuiCell";
                         addNew_pinGuiTableViewCell *cell = (addNew_pinGuiTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        [cell.addBtn setTitle:NSLocalizedString(@"Add consolidation product", nil) forState:UIControlStateNormal];
+                        [cell.addBtn setTitle:NSLocalizedString(@"Add LCL product", nil) forState:UIControlStateNormal];
                         [cell.addBtn setBackgroundColor:mainColor];
                         cell.addBtn.tag=indexPath.section;
                         cell.delegate=self;
@@ -2085,15 +2085,15 @@
                         static NSString * const cellID = @"inputCell";
                         inputTableViewCell *cell = (inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=NSLocalizedString(@"Stock", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Inventory", nil);
                         cell.nameLable.hidden=NO;
                         cell.inputField.delegate=self;
                         cell.inputField.tag=cell.tag;
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"ctn",nil)];
                         }
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"Caninet",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"FCL",nil)];
                         }
                         
                         if ([_otherDic objectForKey:@"goods_number"]) {
@@ -2113,7 +2113,7 @@
                         name_inputTableViewCell *cell = (name_inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=NSLocalizedString(@"Container Location", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Current Location", nil);
                         cell.name_inputField.delegate=self;
                         cell.name_inputField.tag=cell.tag;
                         cell.name_inputField.userInteractionEnabled=YES;
@@ -2163,26 +2163,26 @@
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/pc",nil);
+                                cell.unitLable.text=NSLocalizedString(@"RMB/ctn",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/pc",nil);
+                                cell.unitLable.text=NSLocalizedString(@"USD/ctn",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/pc",nil);
+                                cell.unitLable.text=NSLocalizedString(@"Euro/ctn",nil);
                             }
                             
                         }
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/MT",nil);
+                                cell.unitLable.text=NSLocalizedString(@"RMB/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/MT",nil);
+                                cell.unitLable.text=NSLocalizedString(@"USD/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/MT",nil);
+                                cell.unitLable.text=NSLocalizedString(@"Euro/MT",nil);
                             }
                         }
                         
@@ -2205,7 +2205,7 @@
                         [cell addGestureRecognizer:tap];
                         
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=NSLocalizedString(@"Prepayment Rules", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Prepayment term", nil);
                         cell.nameLable.hidden=NO;
                         if ([_otherDic objectForKey:@"prepay"]) {
                             cell.contentLable.text=[_otherDic objectForKey:@"prepay_name"];
@@ -2272,7 +2272,7 @@
                     twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.tag=indexPath.section*100+indexPath.row;
                     cell.nameLable.hidden=NO;
-                    cell.nameLable.text=NSLocalizedString(@"On-self?", nil);
+                    cell.nameLable.text=NSLocalizedString(@"Listing?", nil);
                     cell.firstLable.text=NSLocalizedString(@"YES", nil);
                     cell.secondLable.text=NSLocalizedString(@"NO", nil);
                     if ([[_otherDic objectForKey:@"is_on_sale"] isEqualToString:@"1"]) {
@@ -2319,7 +2319,7 @@
                     if (indexPath.row==1) {
                         cell.nameLable.hidden=NO;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=NSLocalizedString(@"Contact number", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Contact No.", nil);
                         if ([_otherDic objectForKey:@"mobile_phone"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"mobile_phone"];
                             
@@ -2452,11 +2452,11 @@
                         cell.inputField.delegate=self;
                         
                         if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/ctn",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"ctn/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/ctn",nil),NSLocalizedString(@"ctn/MT",nil)];
                         }
                         
                         if ([_dic2 objectForKey:@"spec_1"]) {
@@ -2478,7 +2478,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/FCL",nil);
                         
                         if ([_dic2 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic2 objectForKey:@"spec_3"];
@@ -2541,7 +2541,7 @@
                         //不会到这
                         static NSString * const cellID = @"addNew_pinGuiCell";
                         addNew_pinGuiTableViewCell *cell = (addNew_pinGuiTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        [cell.addBtn setTitle:NSLocalizedString(@"Add consolidation product", nil) forState:UIControlStateNormal];
+                        [cell.addBtn setTitle:NSLocalizedString(@"Add LCL product", nil) forState:UIControlStateNormal];
                         [cell.addBtn setBackgroundColor:mainColor];
                         cell.addBtn.tag=indexPath.section;
                         cell.delegate=self;
@@ -2630,11 +2630,11 @@
                         cell.inputField.delegate=self;
                        
                         if ([_dic4 objectForKey:@"spec_1"]&&![[_dic4 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic4 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/ctn",nil),1000/[[_dic4 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"ctn/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/ctn",nil),NSLocalizedString(@"ctn/MT",nil)];
                         }
                         
                         if ([_dic4 objectForKey:@"spec_1"]) {
@@ -2656,7 +2656,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/FCL",nil);
                         
                         if ([_dic4 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic4 objectForKey:@"spec_3"];
@@ -2729,15 +2729,15 @@
                         static NSString * const cellID = @"inputCell";
                         inputTableViewCell *cell = (inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=NSLocalizedString(@"Stock", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Inventory", nil);
                         cell.nameLable.hidden=NO;
                         cell.inputField.delegate=self;
                         cell.inputField.tag=cell.tag;
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"ctn",nil)];
                         }
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"Caninet",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"FCL",nil)];
                         }
                         
                         if ([_otherDic objectForKey:@"goods_number"]) {
@@ -2757,7 +2757,7 @@
                         name_inputTableViewCell *cell = (name_inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=NSLocalizedString(@"Container Location", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Current Location", nil);
                         cell.name_inputField.delegate=self;
                         cell.name_inputField.tag=cell.tag;
                         cell.name_inputField.userInteractionEnabled=YES;
@@ -2807,26 +2807,26 @@
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/pc",nil);
+                                cell.unitLable.text=NSLocalizedString(@"RMB/ctn",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/pc",nil);
+                                cell.unitLable.text=NSLocalizedString(@"USD/ctn",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/pc",nil);
+                                cell.unitLable.text=NSLocalizedString(@"Euro/ctn",nil);
                             }
                             
                         }
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/MT",nil);
+                                cell.unitLable.text=NSLocalizedString(@"RMB/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/MT",nil);
+                                cell.unitLable.text=NSLocalizedString(@"USD/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/MT",nil);
+                                cell.unitLable.text=NSLocalizedString(@"Euro/MT",nil);
                             }
                         }
                         if ([_otherDic objectForKey:@"currency_money"]) {
@@ -2848,7 +2848,7 @@
                         [cell addGestureRecognizer:tap];
                         
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=NSLocalizedString(@"Prepayment Rules", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Prepayment term", nil);
                         cell.nameLable.hidden=NO;
                         if ([_otherDic objectForKey:@"prepay"]) {
                             cell.contentLable.text=[_otherDic objectForKey:@"prepay_name"];
@@ -2915,7 +2915,7 @@
                     twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.tag=indexPath.section*100+indexPath.row;
                     cell.nameLable.hidden=NO;
-                    cell.nameLable.text=NSLocalizedString(@"On-self?", nil);
+                    cell.nameLable.text=NSLocalizedString(@"Listing?", nil);
                     cell.firstLable.text=NSLocalizedString(@"YES", nil);
                     cell.secondLable.text=NSLocalizedString(@"NO", nil);
                     if ([[_otherDic objectForKey:@"is_on_sale"] isEqualToString:@"1"]) {
@@ -2962,7 +2962,7 @@
                     if (indexPath.row==1) {
                         cell.nameLable.hidden=NO;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=NSLocalizedString(@"Contact number", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Contact No.", nil);
                         if ([_otherDic objectForKey:@"mobile_phone"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"mobile_phone"];
                             
@@ -3098,11 +3098,11 @@
                         cell.inputField.delegate=self;
                         
                         if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/ctn",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"ctn/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/ctn",nil),NSLocalizedString(@"ctn/MT",nil)];
                         }
                         
                         if ([_dic2 objectForKey:@"spec_1"]) {
@@ -3124,7 +3124,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/FCL",nil);
                         
                         if ([_dic2 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic2 objectForKey:@"spec_3"];
@@ -3187,7 +3187,7 @@
                         //不会到这
                         static NSString * const cellID = @"addNew_pinGuiCell";
                         addNew_pinGuiTableViewCell *cell = (addNew_pinGuiTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        [cell.addBtn setTitle:NSLocalizedString(@"Add consolidation product", nil) forState:UIControlStateNormal];
+                        [cell.addBtn setTitle:NSLocalizedString(@"Add LCL product", nil) forState:UIControlStateNormal];
                         [cell.addBtn setBackgroundColor:mainColor];
                         cell.addBtn.tag=indexPath.section;
                         cell.delegate=self;
@@ -3274,11 +3274,11 @@
                         cell.inputField.delegate=self;
                        
                         if ([_dic4 objectForKey:@"spec_1"]&&![[_dic4 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic4 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/ctn",nil),1000/[[_dic4 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"ctn/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/ctn",nil),NSLocalizedString(@"ctn/MT",nil)];
                         }
                         
                         if ([_dic4 objectForKey:@"spec_1"]) {
@@ -3300,7 +3300,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/FCL",nil);
                         
                         if ([_dic4 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic4 objectForKey:@"spec_3"];
@@ -3450,11 +3450,11 @@
                         cell.inputField.delegate=self;
                        
                         if ([_dic6 objectForKey:@"spec_1"]&&![[_dic6 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic6 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/ctn",nil),1000/[[_dic6 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"ctn/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/ctn",nil),NSLocalizedString(@"ctn/MT",nil)];
                         }
                         
                         if ([_dic6 objectForKey:@"spec_1"]) {
@@ -3476,7 +3476,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/FCL",nil);
                         
                         if ([_dic6 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic6 objectForKey:@"spec_3"];
@@ -3554,15 +3554,15 @@
                         static NSString * const cellID = @"inputCell";
                         inputTableViewCell *cell = (inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=NSLocalizedString(@"Stock", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Inventory", nil);
                         cell.nameLable.hidden=NO;
                         cell.inputField.delegate=self;
                         cell.inputField.tag=cell.tag;
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"ctn",nil)];
                         }
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"Caninet",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"FCL",nil)];
                         }
                         
                         if ([_otherDic objectForKey:@"goods_number"]) {
@@ -3582,7 +3582,7 @@
                         name_inputTableViewCell *cell = (name_inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=NSLocalizedString(@"Container Location", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Current Location", nil);
                         cell.name_inputField.delegate=self;
                         cell.name_inputField.tag=cell.tag;
                         cell.name_inputField.userInteractionEnabled=YES;
@@ -3632,26 +3632,26 @@
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/pc",nil);
+                                cell.unitLable.text=NSLocalizedString(@"RMB/ctn",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/pc",nil);
+                                cell.unitLable.text=NSLocalizedString(@"USD/ctn",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/pc",nil);
+                                cell.unitLable.text=NSLocalizedString(@"Euro/ctn",nil);
                             }
                             
                         }
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/MT",nil);
+                                cell.unitLable.text=NSLocalizedString(@"RMB/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/MT",nil);
+                                cell.unitLable.text=NSLocalizedString(@"USD/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/MT",nil);
+                                cell.unitLable.text=NSLocalizedString(@"Euro/MT",nil);
                             }
                         }
                         
@@ -3674,7 +3674,7 @@
                         [cell addGestureRecognizer:tap];
                         
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=NSLocalizedString(@"Prepayment Rules", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Prepayment term", nil);
                         cell.nameLable.hidden=NO;
                         if ([_otherDic objectForKey:@"prepay"]) {
                             cell.contentLable.text=[_otherDic objectForKey:@"prepay_name"];
@@ -3740,7 +3740,7 @@
                     twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.tag=indexPath.section*100+indexPath.row;
                     cell.nameLable.hidden=NO;
-                    cell.nameLable.text=NSLocalizedString(@"On-self?", nil);
+                    cell.nameLable.text=NSLocalizedString(@"Listing?", nil);
                     cell.firstLable.text=NSLocalizedString(@"YES", nil);
                     cell.secondLable.text=NSLocalizedString(@"NO", nil);
                     if ([[_otherDic objectForKey:@"is_on_sale"] isEqualToString:@"1"]) {
@@ -3787,7 +3787,7 @@
                     if (indexPath.row==1) {
                         cell.nameLable.hidden=NO;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=NSLocalizedString(@"Contact number", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Contact No.", nil);
                         if ([_otherDic objectForKey:@"mobile_phone"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"mobile_phone"];
                             
@@ -3880,7 +3880,7 @@
                         cell.name_inputField.tag=cell.tag;
                         cell.name_inputField.userInteractionEnabled=YES;
 
-                        cell.nameLable.text=NSLocalizedString(@"Reference number", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Order No.", nil);
                         if ([_otherDic objectForKey:@"goods_sn"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"goods_sn"];
                         }
@@ -3895,7 +3895,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=NSLocalizedString(@"Estimated time of arrival", nil);
+                        cell.nameLable.text=NSLocalizedString(@"ETA", nil);
                        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                        [cell addGestureRecognizer:tap];
                        
@@ -3914,7 +3914,7 @@
                        static NSString * const cellID = @"selectCell";
                        selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                        cell.nameLable.hidden=NO;
-                       cell.nameLable.text=NSLocalizedString(@"Date of shipment", nil);
+                       cell.nameLable.text=NSLocalizedString(@"ETD", nil);
                        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                        [cell addGestureRecognizer:tap];
                        
@@ -3932,7 +3932,7 @@
                        static NSString * const cellID = @"selectCell";
                        selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                        cell.nameLable.hidden=NO;
-                       cell.nameLable.text=NSLocalizedString(@"port of Arrical", nil);
+                       cell.nameLable.text=NSLocalizedString(@"port of Arrival", nil);
                        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                        [cell addGestureRecognizer:tap];
                        
@@ -4024,8 +4024,8 @@
                     cell.nameLable.hidden=NO;
                     cell.delegate=self;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.nameLable.text=NSLocalizedString(@"Packing specification", nil);
-                    cell.firstLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
+                    cell.nameLable.text=NSLocalizedString(@"Packing spec", nil);
+                    cell.firstLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"ctn",nil)];
                     cell.secondLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"MT",nil)];
                     if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                         cell.firstImage.image=[UIImage imageNamed:@"yes_select"];
@@ -4047,11 +4047,11 @@
                     cell.inputField.delegate=self;
                     cell.inputField.tag=cell.tag;
                     if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                        cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
+                        cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/ctn",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"ctn/MT",nil)];
                     }
                     else
                     {
-                        cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
+                        cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/ctn",nil),NSLocalizedString(@"ctn/MT",nil)];
                     }
 
                     if ([_dic2 objectForKey:@"spec_1"]) {
@@ -4117,15 +4117,15 @@
                 static NSString * const cellID = @"inputCell";
                 inputTableViewCell *cell = (inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                 cell.tag=indexPath.section*100+indexPath.row;
-                cell.nameLable.text=NSLocalizedString(@"Stock", nil);
+                cell.nameLable.text=NSLocalizedString(@"Inventory", nil);
                 cell.nameLable.hidden=NO;
                 cell.inputField.delegate=self;
                 cell.inputField.tag=cell.tag;
                 if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
-                    cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
+                    cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"ctn",nil)];
                 }
                 if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
-                    cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"pc",nil)];
+                    cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"ctn",nil)];
                 }
                 
                 if ([_otherDic objectForKey:@"goods_number"]) {
@@ -4176,26 +4176,26 @@
                     if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                         if ([[_otherDic objectForKey:@"currency"]
                              isEqualToString:@"1"]) {
-                            cell.unitLable.text=NSLocalizedString(@"yuan/pc",nil);
+                            cell.unitLable.text=NSLocalizedString(@"RMB/ctn",nil);
                         }
                         if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                            cell.unitLable.text=NSLocalizedString(@"dollar/pc",nil);
+                            cell.unitLable.text=NSLocalizedString(@"USD/ctn",nil);
                         }
                         if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                            cell.unitLable.text=NSLocalizedString(@"euro/pc",nil);
+                            cell.unitLable.text=NSLocalizedString(@"Euro/ctn",nil);
                         }
                         
                     }
                     if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                         if ([[_otherDic objectForKey:@"currency"]
                              isEqualToString:@"1"]) {
-                            cell.unitLable.text=NSLocalizedString(@"yuan/MT",nil);
+                            cell.unitLable.text=NSLocalizedString(@"RMB/MT",nil);
                         }
                         if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                            cell.unitLable.text=NSLocalizedString(@"dollar/MT",nil);
+                            cell.unitLable.text=NSLocalizedString(@"USD/MT",nil);
                         }
                         if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                            cell.unitLable.text=NSLocalizedString(@"euro/MT",nil);
+                            cell.unitLable.text=NSLocalizedString(@"Euro/MT",nil);
                         }
                     }
                     
@@ -4218,7 +4218,7 @@
                     [cell addGestureRecognizer:tap];
                     
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.nameLable.text=NSLocalizedString(@"Prepayment Rules", nil);
+                    cell.nameLable.text=NSLocalizedString(@"Prepayment term", nil);
                     cell.nameLable.hidden=NO;
                     if ([_otherDic objectForKey:@"prepay"]) {
                         cell.contentLable.text=[_otherDic objectForKey:@"prepay_name"];
@@ -4285,7 +4285,7 @@
                 twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                 cell.tag=indexPath.section*100+indexPath.row;
                 cell.nameLable.hidden=NO;
-                cell.nameLable.text=NSLocalizedString(@"On-self?", nil);
+                cell.nameLable.text=NSLocalizedString(@"Listing?", nil);
                 cell.firstLable.text=NSLocalizedString(@"YES", nil);
                 cell.secondLable.text=NSLocalizedString(@"NO", nil);
                 if ([[_otherDic objectForKey:@"is_on_sale"] isEqualToString:@"1"]) {
@@ -4332,7 +4332,7 @@
                 if (indexPath.row==1) {
                     cell.nameLable.hidden=NO;
                     cell.tag=indexPath.section*100+indexPath.row;
-                    cell.nameLable.text=NSLocalizedString(@"Contact number", nil);
+                    cell.nameLable.text=NSLocalizedString(@"Contact No.", nil);
                     if ([_otherDic objectForKey:@"mobile_phone"]) {
                         cell.name_inputField.text=[_otherDic objectForKey:@"mobile_phone"];
                         
@@ -4419,7 +4419,7 @@
                         cell.name_inputField.tag=cell.tag;
                         cell.name_inputField.userInteractionEnabled=YES;
                         
-                        cell.nameLable.text=NSLocalizedString(@"Reference number", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Order No.", nil);
                         if ([_otherDic objectForKey:@"goods_sn"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"goods_sn"];
                         }
@@ -4434,7 +4434,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=NSLocalizedString(@"Estimated time of arrival", nil);
+                        cell.nameLable.text=NSLocalizedString(@"ETA", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -4453,7 +4453,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=NSLocalizedString(@"Date of shipment", nil);
+                        cell.nameLable.text=NSLocalizedString(@"ETD", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -4471,7 +4471,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=NSLocalizedString(@"port of Arrical", nil);
+                        cell.nameLable.text=NSLocalizedString(@"port of Arrival", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -4566,11 +4566,11 @@
                         cell.inputField.delegate=self;
                         
                         if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/ctn",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"ctn/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/ctn",nil),NSLocalizedString(@"ctn/MT",nil)];
                         }
                         
                         if ([_dic2 objectForKey:@"spec_1"]) {
@@ -4592,7 +4592,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/FCL",nil);
                         
                         if ([_dic2 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic2 objectForKey:@"spec_3"];
@@ -4654,7 +4654,7 @@
                     else  {
                         static NSString * const cellID = @"addNew_pinGuiCell";
                         addNew_pinGuiTableViewCell *cell = (addNew_pinGuiTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
-                        [cell.addBtn setTitle:NSLocalizedString(@"Add consolidation product", nil) forState:UIControlStateNormal];
+                        [cell.addBtn setTitle:NSLocalizedString(@"Add LCL product", nil) forState:UIControlStateNormal];
                         [cell.addBtn setBackgroundColor:mainColor];
                         cell.addBtn.tag=indexPath.section;
                         cell.delegate=self;
@@ -4668,12 +4668,12 @@
                         static NSString * const cellID = @"inputCell";
                         inputTableViewCell *cell = (inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=NSLocalizedString(@"Stock", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Inventory", nil);
                         cell.nameLable.hidden=NO;
                         cell.inputField.delegate=self;
                         cell.inputField.tag=cell.tag;
                         
-                        cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"Caninet",nil)];
+                        cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"FCL",nil)];
                         
                         
                         if ([_otherDic objectForKey:@"goods_number"]) {
@@ -4722,26 +4722,26 @@
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/pc",nil);
+                                cell.unitLable.text=NSLocalizedString(@"RMB/ctn",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/pc",nil);
+                                cell.unitLable.text=NSLocalizedString(@"USD/ctn",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/pc",nil);
+                                cell.unitLable.text=NSLocalizedString(@"Euro/ctn",nil);
                             }
                             
                         }
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/MT",nil);
+                                cell.unitLable.text=NSLocalizedString(@"RMB/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/MT",nil);
+                                cell.unitLable.text=NSLocalizedString(@"USD/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/MT",nil);
+                                cell.unitLable.text=NSLocalizedString(@"Euro/MT",nil);
                             }
                         }
                         if ([_otherDic objectForKey:@"currency_money"]) {
@@ -4763,7 +4763,7 @@
                         [cell addGestureRecognizer:tap];
                         
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=NSLocalizedString(@"Prepayment Rules", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Prepayment term", nil);
                         cell.nameLable.hidden=NO;
                         if ([_otherDic objectForKey:@"prepay"]) {
                             cell.contentLable.text=[_otherDic objectForKey:@"prepay_name"];
@@ -4830,7 +4830,7 @@
                     twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.tag=indexPath.section*100+indexPath.row;
                     cell.nameLable.hidden=NO;
-                    cell.nameLable.text=NSLocalizedString(@"On-self?", nil);
+                    cell.nameLable.text=NSLocalizedString(@"Listing?", nil);
                     cell.firstLable.text=NSLocalizedString(@"YES", nil);
                     cell.secondLable.text=NSLocalizedString(@"NO", nil);
                     if ([[_otherDic objectForKey:@"is_on_sale"] isEqualToString:@"1"]) {
@@ -4877,7 +4877,7 @@
                     if (indexPath.row==1) {
                         cell.nameLable.hidden=NO;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=NSLocalizedString(@"Contact number", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Contact No.", nil);
                         if ([_otherDic objectForKey:@"mobile_phone"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"mobile_phone"];
                             
@@ -4961,7 +4961,7 @@
                         cell.name_inputField.tag=cell.tag;
                         cell.name_inputField.userInteractionEnabled=YES;
                         
-                        cell.nameLable.text=NSLocalizedString(@"Reference number", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Order No.", nil);
                         if ([_otherDic objectForKey:@"goods_sn"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"goods_sn"];
                         }
@@ -4976,7 +4976,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=NSLocalizedString(@"Estimated time of arrival", nil);
+                        cell.nameLable.text=NSLocalizedString(@"ETA", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -4995,7 +4995,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=NSLocalizedString(@"Date of shipment", nil);
+                        cell.nameLable.text=NSLocalizedString(@"ETD", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -5013,7 +5013,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=NSLocalizedString(@"port of Arrical", nil);
+                        cell.nameLable.text=NSLocalizedString(@"port of Arrival", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -5107,11 +5107,11 @@
                         cell.inputField.delegate=self;
                         
                         if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/ctn",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"ctn/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/ctn",nil),NSLocalizedString(@"ctn/MT",nil)];
                         }
                         
                         if ([_dic2 objectForKey:@"spec_1"]) {
@@ -5133,7 +5133,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/FCL",nil);
                         
                         if ([_dic2 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic2 objectForKey:@"spec_3"];
@@ -5271,11 +5271,11 @@
                         cell.inputField.delegate=self;
                         
                         if ([_dic4 objectForKey:@"spec_1"]&&![[_dic4 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic4 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/ctn",nil),1000/[[_dic4 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"ctn/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/ctn",nil),NSLocalizedString(@"ctn/MT",nil)];
                         }
                         
                         if ([_dic4 objectForKey:@"spec_1"]) {
@@ -5297,7 +5297,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/FCL",nil);
                         
                         if ([_dic4 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic4 objectForKey:@"spec_3"];
@@ -5371,12 +5371,12 @@
                         static NSString * const cellID = @"inputCell";
                         inputTableViewCell *cell = (inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=NSLocalizedString(@"Stock", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Inventory", nil);
                         cell.nameLable.hidden=NO;
                         cell.inputField.delegate=self;
                         cell.inputField.tag=cell.tag;
                         
-                        cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"Caninet",nil)];
+                        cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"FCL",nil)];
                         
                         
                         if ([_otherDic objectForKey:@"goods_number"]) {
@@ -5427,26 +5427,26 @@
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/pc",nil);
+                                cell.unitLable.text=NSLocalizedString(@"RMB/ctn",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/pc",nil);
+                                cell.unitLable.text=NSLocalizedString(@"USD/ctn",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/pc",nil);
+                                cell.unitLable.text=NSLocalizedString(@"Euro/ctn",nil);
                             }
                             
                         }
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/MT",nil);
+                                cell.unitLable.text=NSLocalizedString(@"RMB/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/MT",nil);
+                                cell.unitLable.text=NSLocalizedString(@"USD/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/MT",nil);
+                                cell.unitLable.text=NSLocalizedString(@"Euro/MT",nil);
                             }
                         }
                         if ([_otherDic objectForKey:@"currency_money"]) {
@@ -5468,7 +5468,7 @@
                         [cell addGestureRecognizer:tap];
                         
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=NSLocalizedString(@"Prepayment Rules", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Prepayment term", nil);
                         cell.nameLable.hidden=NO;
                         if ([_otherDic objectForKey:@"prepay"]) {
                             cell.contentLable.text=[_otherDic objectForKey:@"prepay_name"];
@@ -5535,7 +5535,7 @@
                     twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.tag=indexPath.section*100+indexPath.row;
                     cell.nameLable.hidden=NO;
-                    cell.nameLable.text=NSLocalizedString(@"On-self?", nil);
+                    cell.nameLable.text=NSLocalizedString(@"Listing?", nil);
                     cell.firstLable.text=NSLocalizedString(@"YES", nil);
                     cell.secondLable.text=NSLocalizedString(@"NO", nil);
                     if ([[_otherDic objectForKey:@"is_on_sale"] isEqualToString:@"1"]) {
@@ -5582,7 +5582,7 @@
                     if (indexPath.row==1) {
                         cell.nameLable.hidden=NO;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=NSLocalizedString(@"Contact number", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Contact No.", nil);
                         if ([_otherDic objectForKey:@"mobile_phone"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"mobile_phone"];
                             
@@ -5668,7 +5668,7 @@
                         cell.name_inputField.tag=cell.tag;
                         cell.name_inputField.userInteractionEnabled=YES;
                         
-                        cell.nameLable.text=NSLocalizedString(@"Reference number", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Order No.", nil);
                         if ([_otherDic objectForKey:@"goods_sn"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"goods_sn"];
                         }
@@ -5683,7 +5683,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=NSLocalizedString(@"Estimated time of arrival", nil);
+                        cell.nameLable.text=NSLocalizedString(@"ETA", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -5702,7 +5702,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=NSLocalizedString(@"Date of shipment", nil);
+                        cell.nameLable.text=NSLocalizedString(@"ETD", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -5720,7 +5720,7 @@
                         static NSString * const cellID = @"selectCell";
                         selectTableViewCell *cell = (selectTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.nameLable.hidden=NO;
-                        cell.nameLable.text=NSLocalizedString(@"port of Arrical", nil);
+                        cell.nameLable.text=NSLocalizedString(@"port of Arrival", nil);
                         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTapMethod:)];
                         [cell addGestureRecognizer:tap];
                         
@@ -5814,11 +5814,11 @@
                         cell.inputField.delegate=self;
                         
                         if ([_dic2 objectForKey:@"spec_1"]&&![[_dic2 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/ctn",nil),1000/[[_dic2 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"ctn/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/ctn",nil),NSLocalizedString(@"ctn/MT",nil)];
                         }
                         
                         if ([_dic2 objectForKey:@"spec_1"]) {
@@ -5840,7 +5840,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/FCL",nil);
                         
                         if ([_dic2 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic2 objectForKey:@"spec_3"];
@@ -5978,11 +5978,11 @@
                         cell.inputField.delegate=self;
                         
                         if ([_dic4 objectForKey:@"spec_1"]&&![[_dic4 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic4 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/ctn",nil),1000/[[_dic4 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"ctn/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/ctn",nil),NSLocalizedString(@"ctn/MT",nil)];
                         }
                         
                         if ([_dic4 objectForKey:@"spec_1"]) {
@@ -6004,7 +6004,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/FCL",nil);
                         
                         if ([_dic4 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic4 objectForKey:@"spec_3"];
@@ -6152,11 +6152,11 @@
                         cell.inputField.delegate=self;
                         
                         if ([_dic6 objectForKey:@"spec_1"]&&![[_dic6 objectForKey:@"spec_1"] isEqualToString:@""])  {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/pc",nil),1000/[[_dic6 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  %ld%@",NSLocalizedString(@"KG/ctn",nil),1000/[[_dic6 objectForKey:@"spec_1"] integerValue],NSLocalizedString(@"ctn/MT",nil)];
                         }
                         else
                         {
-                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/pc",nil),NSLocalizedString(@"pc/MT",nil)];
+                            cell.unitLable.text=[NSString stringWithFormat:@"%@  0%@",NSLocalizedString(@"KG/ctn",nil),NSLocalizedString(@"ctn/MT",nil)];
                         }
                         
                         if ([_dic6 objectForKey:@"spec_1"]) {
@@ -6178,7 +6178,7 @@
                         cell.inputField.tag=cell.tag;
                         cell.inputField.delegate=self;
                         
-                        cell.unitLable.text=NSLocalizedString(@"MT/Ctn",nil);
+                        cell.unitLable.text=NSLocalizedString(@"MT/FCL",nil);
                         
                         if ([_dic6 objectForKey:@"spec_3"]) {
                             cell.inputField.text=[_dic6 objectForKey:@"spec_3"];
@@ -6254,12 +6254,12 @@
                         static NSString * const cellID = @"inputCell";
                         inputTableViewCell *cell = (inputTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=NSLocalizedString(@"Stock", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Inventory", nil);
                         cell.nameLable.hidden=NO;
                         cell.inputField.delegate=self;
                         cell.inputField.tag=cell.tag;
                     
-                        cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"Caninet",nil)];
+                        cell.unitLable.text=[NSString stringWithFormat:@"%@",NSLocalizedString(@"FCL",nil)];
                     
                         
                         if ([_otherDic objectForKey:@"goods_number"]) {
@@ -6310,26 +6310,26 @@
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"1"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/pc",nil);
+                                cell.unitLable.text=NSLocalizedString(@"RMB/ctn",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/pc",nil);
+                                cell.unitLable.text=NSLocalizedString(@"USD/ctn",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/pc",nil);
+                                cell.unitLable.text=NSLocalizedString(@"Euro/ctn",nil);
                             }
                             
                         }
                         if ([[_dic2 objectForKey:@"shop_price_unit"] isEqualToString:@"0"]) {
                             if ([[_otherDic objectForKey:@"currency"]
                                  isEqualToString:@"1"]) {
-                                cell.unitLable.text=NSLocalizedString(@"yuan/MT",nil);
+                                cell.unitLable.text=NSLocalizedString(@"RMB/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"2"]) {
-                                cell.unitLable.text=NSLocalizedString(@"dollar/MT",nil);
+                                cell.unitLable.text=NSLocalizedString(@"USD/MT",nil);
                             }
                             if ([[_otherDic objectForKey:@"currency"] isEqualToString:@"3"]) {
-                                cell.unitLable.text=NSLocalizedString(@"euro/MT",nil);
+                                cell.unitLable.text=NSLocalizedString(@"Euro/MT",nil);
                             }
                         }
                         if ([_otherDic objectForKey:@"currency_money"]) {
@@ -6351,7 +6351,7 @@
                         [cell addGestureRecognizer:tap];
                         
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=NSLocalizedString(@"Prepayment Rules", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Prepayment term", nil);
                         cell.nameLable.hidden=NO;
                         if ([_otherDic objectForKey:@"prepay"]) {
                             cell.contentLable.text=[_otherDic objectForKey:@"prepay_name"];
@@ -6418,7 +6418,7 @@
                     twoSelectBtnTableViewCell *cell = (twoSelectBtnTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellID];
                     cell.tag=indexPath.section*100+indexPath.row;
                     cell.nameLable.hidden=NO;
-                    cell.nameLable.text=NSLocalizedString(@"On-self?", nil);
+                    cell.nameLable.text=NSLocalizedString(@"Listing?", nil);
                     cell.firstLable.text=NSLocalizedString(@"YES", nil);
                     cell.secondLable.text=NSLocalizedString(@"NO", nil);
                     if ([[_otherDic objectForKey:@"is_on_sale"] isEqualToString:@"1"]) {
@@ -6465,7 +6465,7 @@
                     if (indexPath.row==1) {
                         cell.nameLable.hidden=NO;
                         cell.tag=indexPath.section*100+indexPath.row;
-                        cell.nameLable.text=NSLocalizedString(@"Contact number", nil);
+                        cell.nameLable.text=NSLocalizedString(@"Contact No.", nil);
                         if ([_otherDic objectForKey:@"mobile_phone"]) {
                             cell.name_inputField.text=[_otherDic objectForKey:@"mobile_phone"];
                             
@@ -7720,7 +7720,8 @@
                     TYDP_selectViewController *TYDP_selectVC=[TYDP_selectViewController new];
                     TYDP_selectVC.view.tag=tap.view.tag;
                     TYDP_selectVC.delegate=self;
-                    
+                    TYDP_selectVC.fid=_dic1[@"region_id"];
+
                     TYDP_selectVC.firstFrontSelectedRowNumber=tap.view.tag;
                     TYDP_selectVC.goodsCharacterArr=_goodsCharacterArr;
                     TYDP_selectVC.rightSecondAgencyArray=_brandListMD.brand_list;
@@ -7745,7 +7746,7 @@
                     TYDP_selectViewController *TYDP_selectVC=[TYDP_selectViewController new];
                     TYDP_selectVC.view.tag=tap.view.tag;
                     TYDP_selectVC.delegate=self;
-                    
+                    TYDP_selectVC.fid=_dic1[@"cat_id"];
                     TYDP_selectVC.firstFrontSelectedRowNumber=tap.view.tag;
                     TYDP_selectVC.goodsCharacterArr=_goodsCharacterArr;
                     TYDP_selectVC.rightSecondAgencyArray=_goodsNameListMD.goods_name_list;
@@ -7839,6 +7840,7 @@
                         TYDP_selectViewController *TYDP_selectVC=[TYDP_selectViewController new];
                         TYDP_selectVC.view.tag=tap.view.tag;
                         TYDP_selectVC.delegate=self;
+                        TYDP_selectVC.fid=_dic1[@"region_id"];
                          TYDP_selectVC.goods_num=_pingGui_goodsArr.count;
                         TYDP_selectVC.firstFrontSelectedRowNumber=tap.view.tag;
                         TYDP_selectVC.goodsCharacterArr=_goodsCharacterArr;
@@ -7864,6 +7866,7 @@
                         TYDP_selectViewController *TYDP_selectVC=[TYDP_selectViewController new];
                         TYDP_selectVC.view.tag=tap.view.tag;
                         TYDP_selectVC.delegate=self;
+                        TYDP_selectVC.fid=_dic1[@"cat_id"];
                          TYDP_selectVC.goods_num=_pingGui_goodsArr.count;
                         TYDP_selectVC.firstFrontSelectedRowNumber=tap.view.tag;
                         TYDP_selectVC.goodsCharacterArr=_goodsCharacterArr;
@@ -7958,6 +7961,7 @@
                         TYDP_selectViewController *TYDP_selectVC=[TYDP_selectViewController new];
                         TYDP_selectVC.view.tag=tap.view.tag;
                         TYDP_selectVC.delegate=self;
+                        TYDP_selectVC.fid=_dic1[@"region_id"];
                          TYDP_selectVC.goods_num=_pingGui_goodsArr.count;
                         TYDP_selectVC.firstFrontSelectedRowNumber=tap.view.tag;
                         TYDP_selectVC.goodsCharacterArr=_goodsCharacterArr;
@@ -7983,6 +7987,7 @@
                         TYDP_selectViewController *TYDP_selectVC=[TYDP_selectViewController new];
                         TYDP_selectVC.view.tag=tap.view.tag;
                         TYDP_selectVC.delegate=self;
+                        TYDP_selectVC.fid=_dic1[@"cat_id"];
                          TYDP_selectVC.goods_num=_pingGui_goodsArr.count;
                         TYDP_selectVC.firstFrontSelectedRowNumber=tap.view.tag;
                         TYDP_selectVC.goodsCharacterArr=_goodsCharacterArr;
@@ -8019,6 +8024,7 @@
                         TYDP_selectViewController *TYDP_selectVC=[TYDP_selectViewController new];
                         TYDP_selectVC.view.tag=tap.view.tag;
                         TYDP_selectVC.delegate=self;
+                        TYDP_selectVC.fid=_dic3[@"region_id"];
                         TYDP_selectVC.goods_num=_pingGui_goodsArr.count;
                         TYDP_selectVC.firstFrontSelectedRowNumber=tap.view.tag;
                         TYDP_selectVC.goodsCharacterArr=_goodsCharacterArr;
@@ -8044,6 +8050,7 @@
                         TYDP_selectViewController *TYDP_selectVC=[TYDP_selectViewController new];
                         TYDP_selectVC.view.tag=tap.view.tag;
                         TYDP_selectVC.delegate=self;
+                        TYDP_selectVC.fid=_dic3[@"cat_id"];
                         TYDP_selectVC.goods_num=_pingGui_goodsArr.count;
                         TYDP_selectVC.firstFrontSelectedRowNumber=tap.view.tag;
                         TYDP_selectVC.goodsCharacterArr=_goodsCharacterArr;
@@ -8137,6 +8144,7 @@
                         TYDP_selectViewController *TYDP_selectVC=[TYDP_selectViewController new];
                         TYDP_selectVC.view.tag=tap.view.tag;
                         TYDP_selectVC.delegate=self;
+                        TYDP_selectVC.fid=_dic1[@"region_id"];
                         TYDP_selectVC.goods_num=_pingGui_goodsArr.count;
                         TYDP_selectVC.firstFrontSelectedRowNumber=tap.view.tag;
                         TYDP_selectVC.goodsCharacterArr=_goodsCharacterArr;
@@ -8162,6 +8170,7 @@
                         TYDP_selectViewController *TYDP_selectVC=[TYDP_selectViewController new];
                         TYDP_selectVC.view.tag=tap.view.tag;
                         TYDP_selectVC.delegate=self;
+                        TYDP_selectVC.fid=_dic1[@"cat_id"];
                         TYDP_selectVC.goods_num=_pingGui_goodsArr.count;
                         TYDP_selectVC.firstFrontSelectedRowNumber=tap.view.tag;
                         TYDP_selectVC.goodsCharacterArr=_goodsCharacterArr;
@@ -8198,6 +8207,7 @@
                         TYDP_selectViewController *TYDP_selectVC=[TYDP_selectViewController new];
                         TYDP_selectVC.view.tag=tap.view.tag;
                         TYDP_selectVC.delegate=self;
+                        TYDP_selectVC.fid=_dic3[@"region_id"];
                         TYDP_selectVC.goods_num=_pingGui_goodsArr.count;
                         TYDP_selectVC.firstFrontSelectedRowNumber=tap.view.tag;
                         TYDP_selectVC.goodsCharacterArr=_goodsCharacterArr;
@@ -8223,6 +8233,7 @@
                         TYDP_selectViewController *TYDP_selectVC=[TYDP_selectViewController new];
                         TYDP_selectVC.view.tag=tap.view.tag;
                         TYDP_selectVC.delegate=self;
+                        TYDP_selectVC.fid=_dic3[@"cat_id"];
                         TYDP_selectVC.goods_num=_pingGui_goodsArr.count;
                         TYDP_selectVC.firstFrontSelectedRowNumber=tap.view.tag;
                         TYDP_selectVC.goodsCharacterArr=_goodsCharacterArr;
@@ -8259,6 +8270,7 @@
                         TYDP_selectViewController *TYDP_selectVC=[TYDP_selectViewController new];
                         TYDP_selectVC.view.tag=tap.view.tag;
                         TYDP_selectVC.delegate=self;
+                        TYDP_selectVC.fid=_dic5[@"region_id"];
                         TYDP_selectVC.goods_num=_pingGui_goodsArr.count;
                         TYDP_selectVC.firstFrontSelectedRowNumber=tap.view.tag;
                         TYDP_selectVC.goodsCharacterArr=_goodsCharacterArr;
@@ -8284,6 +8296,7 @@
                         TYDP_selectViewController *TYDP_selectVC=[TYDP_selectViewController new];
                         TYDP_selectVC.view.tag=tap.view.tag;
                         TYDP_selectVC.delegate=self;
+                        TYDP_selectVC.fid=_dic5[@"cat_id"];
                         TYDP_selectVC.goods_num=_pingGui_goodsArr.count;
                         TYDP_selectVC.firstFrontSelectedRowNumber=tap.view.tag;
                         TYDP_selectVC.goodsCharacterArr=_goodsCharacterArr;
@@ -10214,10 +10227,10 @@
         return;
     }
     if ([_otherDic[@"mobile_phone"] isEqualToString:@""]) {
-         [self.view Message:NSLocalizedString(@"Phone number", nil) HiddenAfterDelay:1.0];
+         [self.view Message:NSLocalizedString(@"Phone No.", nil) HiddenAfterDelay:1.0];
         return;
     }
-      [_MBHUD setLabelText:NSLocalizedString(@"Wait a minute", nil)];
+      [_MBHUD setLabelText:NSLocalizedString(@"Wait a moment", nil)];
     if ([self.if_addOrEditOrCopy isEqualToString:@"1"]||[self.if_addOrEditOrCopy isEqualToString:@"3"])//新增和复制
     {
     if ([[_goodsCharacterArr objectAtIndex:1] isEqualToString:@"4"])//零售

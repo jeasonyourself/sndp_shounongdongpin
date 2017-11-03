@@ -57,7 +57,7 @@
     //    [self.view addSubview:logoImg];
     
     //四行输入框
-    NSArray *placeholderArr = @[NSLocalizedString(@"Your phone Country Code(default:0086)", nil),NSLocalizedString(@"Your phone NO.", nil),NSLocalizedString(@"Verification code", nil),NSLocalizedString(@"password", nil)];
+    NSArray *placeholderArr = @[NSLocalizedString(@"Your phone Country Code(default:0086)", nil),NSLocalizedString(@"Your phone No.", nil),NSLocalizedString(@"Verification code", nil),NSLocalizedString(@"password", nil)];
     //    NSArray *leftviewArr = @[@"login_phone",@"login_message",@"login_password",@"login_verification"];
     for (int i = 0; i<4; i++) {
         UITextField *tf = [[UITextField alloc]initWithFrame:CGRectMake(15, 64+(55*i)*Height, ScreenWidth-30, 55*Height)];
@@ -110,7 +110,7 @@
     UIButton *registBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     registBtn.frame = CGRectMake(40, 10, ScreenWidth-80, 40*Height);
     registBtn.backgroundColor = mainColor;
-    [registBtn setTitle:NSLocalizedString(@"binding", nil) forState:UIControlStateNormal];
+    [registBtn setTitle:NSLocalizedString(@"bind", nil) forState:UIControlStateNormal];
     registBtn.titleLabel.font = [UIFont systemFontOfSize:18];
     registBtn.layer.cornerRadius = 22.5*Height;
     registBtn.layer.masksToBounds = YES;
@@ -141,7 +141,7 @@
     if (_secondTime == 0) {
         _timer.fireDate = [NSDate distantFuture];
         [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        [btn setTitle:NSLocalizedString(@"Click retransmission", nil)forState:UIControlStateNormal];
+        [btn setTitle:NSLocalizedString(@"Resend", nil)forState:UIControlStateNormal];
         [btn setTitleColor:mainColor forState:UIControlStateNormal];
         btn.userInteractionEnabled = YES;
     }else{

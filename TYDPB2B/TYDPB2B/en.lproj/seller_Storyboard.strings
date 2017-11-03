@@ -27,7 +27,7 @@
 "IKu-CQ-YPe.normalTitle" = "Apply for enter";
 
 /* Class = "UILabel"; text = "元/件"; ObjectID = "JJs-BX-U9z"; */
-"JJs-BX-U9z.text" = "yuan/pc";
+"JJs-BX-U9z.text" = "RMB/ctn";
 
 /* Class = "UILabel"; text = "是"; ObjectID = "M7t-z1-YnP"; */
 "M7t-z1-YnP.text" = "YES";
@@ -66,7 +66,7 @@
 "m3u-qD-qml.text" = "Spot";
 
 /* Class = "UIButton"; normalTitle = "添加拼柜产品"; ObjectID = "mAu-iS-TZK"; */
-"mAu-iS-TZK.normalTitle" = "Add consolidation product";
+"mAu-iS-TZK.normalTitle" = "Add LCL product";
 
 /* Class = "UILabel"; text = "还价报盘"; ObjectID = "nHz-gd-ggy"; */
 "nHz-gd-ggy.text" = "Negotiable";
@@ -96,7 +96,7 @@
 "xBR-Kx-vd0.placeholder" = "Please enter";
 
 /* Class = "UIButton"; normalTitle = "添加拼柜产品"; ObjectID = "xUJ-d5-8Ff"; */
-"xUJ-d5-8Ff.normalTitle" = "Add consolidation product";
+"xUJ-d5-8Ff.normalTitle" = "Add LCL product";
 
 /* Class = "UILabel"; text = "水产"; ObjectID = "ygg-2J-ZgN"; */
 "ygg-2J-ZgN.text" = "Seafoods";

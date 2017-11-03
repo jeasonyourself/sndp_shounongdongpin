@@ -107,7 +107,7 @@ typedef enum {
 
 - (NSArray *)rightFirstListArray {
     if (!_rightFirstListArray) {
-        _rightFirstListArray = [NSArray arrayWithObjects:NSLocalizedString(@"Origin", nil),NSLocalizedString(@"Plant No.", nil),NSLocalizedString(@"Product", nil),NSLocalizedString(@"Port", nil),NSLocalizedString(@"Offer type", nil),[NSString stringWithFormat:@"%@/%@/%@",NSLocalizedString(@"SpotToBe", nil),NSLocalizedString(@"Future", nil),NSLocalizedString(@"Spot", nil)],NSLocalizedString(@"Location", nil),NSLocalizedString(@"Estimated time of arrival", nil),[NSString stringWithFormat:@"%@/%@",NSLocalizedString(@"FCL", nil),NSLocalizedString(@"Retail", nil)], nil];
+        _rightFirstListArray = [NSArray arrayWithObjects:NSLocalizedString(@"Origin", nil),NSLocalizedString(@"Plant No.", nil),NSLocalizedString(@"Product", nil),NSLocalizedString(@"Port", nil),NSLocalizedString(@"Offer type", nil),[NSString stringWithFormat:@"%@/%@/%@",NSLocalizedString(@"SpotToBe", nil),NSLocalizedString(@"Future", nil),NSLocalizedString(@"Spot", nil)],NSLocalizedString(@"Location", nil),NSLocalizedString(@"ETA", nil),[NSString stringWithFormat:@"%@/%@",NSLocalizedString(@"FCL", nil),NSLocalizedString(@"Retail", nil)], nil];
 //        _rightFirstListArray = [NSArray arrayWithObjects:@"产地",@"厂号",@"产品",@"港口",@"报盘类型",@"准/期／现货",@"所在地",@"预计到港时间",@"整柜/零售", nil];
     }
     return _rightFirstListArray;
@@ -721,7 +721,7 @@ typedef enum {
         _searchBar.returnKeyType=UIReturnKeySearch;
         _searchBar.delegate = self;
         [_searchBar setSearchBarStyle:UISearchBarStyleDefault];
-        _searchBar.placeholder = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Factory number / Product name / Origin", nil)];
+        _searchBar.placeholder = [NSString stringWithFormat:@"%@",NSLocalizedString(@"Plant No. / Product / Origin", nil)];
         [_searchBar setBackgroundColor:[UIColor whiteColor]];
         _searchBar.showsCancelButton = NO;
         [_searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -751,7 +751,7 @@ typedef enum {
                     
                     //设置默认文字颜色
                     UIColor *color = [UIColor grayColor];
-                    [textField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Factory number / Product name / Origin",nil)]
+                    [textField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Plant No. / Product / Origin",nil)]
                                                                                         attributes:@{NSForegroundColorAttributeName:color}]];
                     //                //修改默认的放大镜图片
                     //                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 13, 13)];

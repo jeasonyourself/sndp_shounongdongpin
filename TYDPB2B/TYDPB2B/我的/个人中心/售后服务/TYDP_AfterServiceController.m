@@ -119,10 +119,15 @@
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [scroll addSubview:btn];
         btn.tag = 100+i;
-        btn.frame = CGRectMake(i*ScreenWidth/4+10, 0, ScreenWidth/4-20, 40);
+        btn.frame = CGRectMake(i*ScreenWidth/4, 0, ScreenWidth/4, 40);
         [btn setTitle:titleArr[i] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-
+        btn.titleLabel.font = [UIFont systemFontOfSize:13];
+        btn.titleLabel.lineBreakMode=NSLineBreakByTruncatingHead;
+        btn.titleLabel.numberOfLines=0;
+        //if (i==3) {
+        //    btn.titleLabel.font = [UIFont systemFontOfSize:11];
+        //}
         [btn addTarget:self action:@selector(selectContentBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         if (i == 0) {
             _contentBtn = btn;

@@ -15,7 +15,7 @@
 "cYW-I7-7QS.text" = "猪脚";
 
 /* Class = "UILabel"; text = "待支付"; ObjectID = "pg4-9h-g19"; */
-"pg4-9h-g19.text" = "Obligation";
+"pg4-9h-g19.text" = "Pay pending";
 
 /* Class = "UILabel"; text = "*1柜"; ObjectID = "qAA-v7-QIw"; */
 "qAA-v7-QIw.text" = "*1Caninet";

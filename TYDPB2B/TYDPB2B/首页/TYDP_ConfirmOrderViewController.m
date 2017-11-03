@@ -68,7 +68,7 @@
     [_mutableOrderDic setObject:_orderDic[@"goodsId"] forKey:@"goods_id"];
     [_mutableOrderDic setObject:_orderDic[@"goodsNumber"] forKey:@"buy_number"];
     NSLog(@"_noteTextView:%@",_noteTextView.text);
-    if ([_noteTextView.text isEqualToString:NSLocalizedString(@"Please input memo information", nil)]||[_noteTextView.text isEqualToString:@""]) {
+    if ([_noteTextView.text isEqualToString:NSLocalizedString(@"Please input remark info", nil)]||[_noteTextView.text isEqualToString:@""]) {
         [_mutableOrderDic setObject:@"" forKey:@"postscript"];
     } else {
         [_mutableOrderDic setObject:_noteTextView.text forKey:@"postscript"];
@@ -134,11 +134,11 @@
     [topView addSubview:rightBottomLabel];
     //    [rightBottomLabel setBackgroundColor:[UIColor greenColor]];
     if ([[NSString stringWithFormat:@"%@",_orderDic[@"sell_type"]] isEqualToString:@"4"]) {
-        rightBottomLabel.text=[NSString stringWithFormat:@"%@/%@  %@%@",[NSString stringWithFormat:@"%@",_orderDic[@"formated_shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"spec_2"]],NSLocalizedString(@"pc/MT",nil)];
+        rightBottomLabel.text=[NSString stringWithFormat:@"%@/%@  %@%@",[NSString stringWithFormat:@"%@",_orderDic[@"formated_shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"spec_2"]],NSLocalizedString(@"ctn/MT",nil)];
         
     }
     else  {
-        rightBottomLabel.text=[NSString stringWithFormat:@"¥%@/%@  %@%@",[NSString stringWithFormat:@"%@",_orderDic[@"shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"goods_weight"]],NSLocalizedString(@"MT/Ctn",nil)];
+        rightBottomLabel.text=[NSString stringWithFormat:@"¥%@/%@  %@%@",[NSString stringWithFormat:@"%@",_orderDic[@"shop_price"]],[NSString stringWithFormat:@"%@",_orderDic[@"shop_price_unit"]],[NSString stringWithFormat:@"%@",_orderDic[@"goods_weight"]],NSLocalizedString(@"MT/FCL",nil)];
     }
    
     [rightBottomLabel setTextColor:RGBACOLOR(252, 91, 49, 1)];
@@ -355,7 +355,7 @@
         _noteTextView.layer.borderColor = [RGBACOLOR(213, 213, 213, 1) CGColor];
         _noteTextView.layer.borderWidth = 1;
         _noteTextView.delegate = self;
-        _noteTextView.text = [NSString stringWithFormat:NSLocalizedString(@"Please input memo information", nil)];
+        _noteTextView.text = [NSString stringWithFormat:NSLocalizedString(@"Please input remark info", nil)];
         _noteTextView.textColor = [UIColor lightGrayColor];
         _noteTextView.font = ThemeFont(CommonFontSize);
         [middleBottomView addSubview:_noteTextView];
@@ -568,7 +568,7 @@
     
     UILabel *phoneLable = [UILabel new];
     [bottomView addSubview:phoneLable];
-    [phoneLable setText:NSLocalizedString(@"Phone number", nil)];
+    [phoneLable setText:NSLocalizedString(@"Phone No.", nil)];
     [phoneLable setTextColor:RGBACOLOR(85, 85, 85, 1)];
     [phoneLable setFont:ThemeFont(OrderFontSize)];
     [phoneLable mas_makeConstraints:^(MASConstraintMaker *make) {

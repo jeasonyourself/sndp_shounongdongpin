@@ -88,20 +88,20 @@ typedef enum {
 }
 -(NSArray *)sendArray {
     if (!_sendArray) {
-        _sendArray = [NSArray arrayWithObjects:NSLocalizedString(@"consogner", nil),NSLocalizedString(@"ID number", nil),NSLocalizedString(@"Phone NO.", nil), nil];
+        _sendArray = [NSArray arrayWithObjects:NSLocalizedString(@"consigner", nil),NSLocalizedString(@"ID number", nil),NSLocalizedString(@"Phone NO.", nil), nil];
     }
     return _sendArray;
 }
 -(NSArray *)bottomOrderDetailArray {
     if (!_bottomOrderDetailArray) {
-        _bottomOrderDetailArray = [NSArray arrayWithObjects:NSLocalizedString(@"Product summation", nil),NSLocalizedString(@"Amount payable", nil),NSLocalizedString(@"Amount Paid", nil),  nil];
+        _bottomOrderDetailArray = [NSArray arrayWithObjects:NSLocalizedString(@"Product sum", nil),NSLocalizedString(@"Balance", nil),NSLocalizedString(@"Amount Paid", nil),  nil];
     }
     return _bottomOrderDetailArray;
 }
 
 -(NSArray *)bankArray {
     if (!_bankArray) {
-        _bankArray = [NSMutableArray arrayWithObjects:NSLocalizedString(@"Payment Receiver", nil),NSLocalizedString(@"Bank Card No.", nil),NSLocalizedString(@"Bank account", nil),  nil];
+        _bankArray = [NSMutableArray arrayWithObjects:NSLocalizedString(@"Payee", nil),NSLocalizedString(@"Bank Card No.", nil),NSLocalizedString(@"Opening Bank", nil),  nil];
     }
     return _bankArray;
 }
@@ -116,11 +116,11 @@ typedef enum {
         
     }
     else if ([_checkOrderModel[@"stock_status"] isEqualToString:@"1"]) {
-        [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Confirm shipment",nil)]];
+        [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",NSLocalizedString(@"In stock",nil)]];
         
     }
     else if ([_checkOrderModel[@"stock_status"] isEqualToString:@"2"]) {
-        [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Confirm no goods",nil)]];
+        [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Out of stock",nil)]];
         
     }
     else
@@ -607,7 +607,7 @@ typedef enum {
     }];
     UILabel *topLabel = [UILabel new];
     [_sendView addSubview:topLabel];
-    [topLabel setText:NSLocalizedString(@"Information of consogner", nil)];
+    [topLabel setText:NSLocalizedString(@"Information of consigner", nil)];
     [topLabel setTextColor:[UIColor lightGrayColor]];
     [topLabel setFont:ThemeFont(16)];
     [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -770,7 +770,7 @@ typedef enum {
     }];
     UILabel *topLabel = [UILabel new];
     [_bankView addSubview:topLabel];
-    [topLabel setText:NSLocalizedString(@"Bank account", nil)];
+    [topLabel setText:NSLocalizedString(@"Opening Bank", nil)];
     [topLabel setTextColor:[UIColor lightGrayColor]];
     [topLabel setFont:ThemeFont(16)];
     [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -844,7 +844,7 @@ typedef enum {
     {
         
         [_confirmOrderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_confirmOrderButton setTitle:NSLocalizedString(@"Upload payment voucher", nil) forState:UIControlStateNormal];
+        [_confirmOrderButton setTitle:NSLocalizedString(@"Upload payment receipt", nil) forState:UIControlStateNormal];
         [_confirmOrderButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.view);
             make.left.equalTo(self.view);
@@ -977,7 +977,7 @@ typedef enum {
                                                              delegate:self
                                                     cancelButtonTitle:NSLocalizedString(@"Cancel",nil)
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:NSLocalizedString(@"Alipay", nil),NSLocalizedString(@"Offline self-service payment", nil),NSLocalizedString(@"Bank card transfer", nil), nil];
+                                                    otherButtonTitles:NSLocalizedString(@"Alipay", nil),NSLocalizedString(@"Offline transaction", nil),NSLocalizedString(@"Bank card transfer", nil), nil];
     [choiceSheet showInView:self.view];
 
     }
@@ -986,7 +986,7 @@ typedef enum {
     {
         TYDP_AddCommentController *addVC = [[TYDP_AddCommentController alloc]init];
         addVC.pushType = 1;
-        addVC.titleStr = [NSString stringWithFormat:@"%@：%@",NSLocalizedString(@"Order number", nil),[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_sn"]]];
+        addVC.titleStr = [NSString stringWithFormat:@"%@：%@",NSLocalizedString(@"Order No.", nil),[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_sn"]]];
         [self.navigationController pushViewController:addVC animated:YES];
     }
 }
@@ -1038,7 +1038,7 @@ typedef enum {
                         }];
 
                     }else {
-                        [self.view Message:NSLocalizedString(@"Default", nil) HiddenAfterDelay:1.0];
+                        [self.view Message:NSLocalizedString(@"Operation fail", nil) HiddenAfterDelay:1.0];
                     }
                     
                 }
@@ -1068,7 +1068,7 @@ typedef enum {
                         CommitEvidenceVC.orderSourceString = self.orderSourceString;
                         [self.navigationController pushViewController:CommitEvidenceVC animated:YES];
                     }else {
-                        [self.view Message:NSLocalizedString(@"Default", nil) HiddenAfterDelay:1.0];
+                        [self.view Message:NSLocalizedString(@"Operation fail", nil) HiddenAfterDelay:1.0];
                     }
                     
                 }
@@ -1097,7 +1097,7 @@ typedef enum {
                         CommitEvidenceVC.orderSourceString = self.orderSourceString;
                         [self.navigationController pushViewController:CommitEvidenceVC animated:YES];
                     }else {
-                        [self.view Message:NSLocalizedString(@"Default", nil) HiddenAfterDelay:1.0];
+                        [self.view Message:NSLocalizedString(@"Operation fail", nil) HiddenAfterDelay:1.0];
                     }
                     
                 }
@@ -1144,12 +1144,12 @@ typedef enum {
             break;
         case 1:
         {
-            msg=NSLocalizedString(@"Switch to Offline self-service payment", nil);
+            msg=NSLocalizedString(@"Switch to Offline transaction", nil);
         }
             break;
         case 2:
         {
-            msg=NSLocalizedString(@"Switch to Bank card transfer", nil);
+            msg=NSLocalizedString(@"Switch to Bank transfer", nil);
         }
             
             break;
@@ -1158,7 +1158,7 @@ typedef enum {
             break;
     }
 
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Confirmation information", nil)
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Confirm information", nil)
                           
                                                     message:msg
                                                    delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",nil) otherButtonTitles:NSLocalizedString(@"Confirm",nil),nil];
@@ -1170,7 +1170,7 @@ typedef enum {
 - (void)bottomControlButtonClicked:(UIButton *)button {
     switch (button.tag) {
         case confirmOrderButtonMessage:{
-            if ([_confirmOrderButton.titleLabel.text isEqualToString:NSLocalizedString(@"Upload payment voucher", nil)]) {
+            if ([_confirmOrderButton.titleLabel.text isEqualToString:NSLocalizedString(@"Upload payment receipt", nil)]) {
                 _photoPickerManager = [TYDPPhotoPickerManager shared];
                 [_photoPickerManager showActionSheetInView:nil fromController:self completion:^(UIImage *image) {
                     NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];
@@ -1195,7 +1195,7 @@ typedef enum {
             } else if ([_confirmOrderButton.titleLabel.text isEqualToString:NSLocalizedString(@"Claims", nil)]) {
                 TYDP_AddCommentController *addVC = [[TYDP_AddCommentController alloc]init];
                 addVC.pushType = 1;
-                addVC.titleStr = [NSString stringWithFormat:@"%@：%@",[NSString stringWithFormat:@"%@",NSLocalizedString(@"Order number", nil),_checkOrderModel[@"order_sn"]]];
+                addVC.titleStr = [NSString stringWithFormat:@"%@：%@",[NSString stringWithFormat:@"%@",NSLocalizedString(@"Order No.", nil),_checkOrderModel[@"order_sn"]]];
                 [self.navigationController pushViewController:addVC animated:YES];
             }
             else {
@@ -1209,7 +1209,7 @@ typedef enum {
             NSLog(@"理赔");
             TYDP_AddCommentController *addVC = [[TYDP_AddCommentController alloc]init];
             addVC.pushType = 1;
-            addVC.titleStr = [NSString stringWithFormat:@"%@：%@",NSLocalizedString(@"Order number", nil),[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_sn"]]];
+            addVC.titleStr = [NSString stringWithFormat:@"%@：%@",NSLocalizedString(@"Order No.", nil),[NSString stringWithFormat:@"%@",_checkOrderModel[@"order_sn"]]];
             [self.navigationController pushViewController:addVC animated:YES];
             break;
         }

@@ -55,20 +55,24 @@
     [self.view addSubview:_scroll];
     _scroll.delaysContentTouches = NO;
     _scroll.backgroundColor = [UIColor whiteColor];
-    NSArray *titleArr = @[NSLocalizedString(@"All", nil),NSLocalizedString(@"Obligation", nil),NSLocalizedString(@"Paid", nil),NSLocalizedString(@"Prepaid", nil),NSLocalizedString(@"Finished", nil)];
+    NSArray *titleArr = @[NSLocalizedString(@"All", nil),NSLocalizedString(@"Pay pending", nil),NSLocalizedString(@"Paid", nil),NSLocalizedString(@"Prepaid", nil),NSLocalizedString(@"Finished", nil)];
     _scroll.contentSize = CGSizeMake(ScreenWidth, 0);
     for (int i = 0; i<5; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_scroll addSubview:btn];
         btn.tag = 100+i;
-        btn.frame = CGRectMake(i*ScreenWidth/5+10, 0, ScreenWidth/5-20, 40);
+        btn.frame = CGRectMake(i*ScreenWidth/5, 0, ScreenWidth/5, 40);
         [btn setTitle:titleArr[i] forState:UIControlStateNormal];
-        if (i != 0) {
-            btn.titleLabel.font = [UIFont systemFontOfSize:13];
-            if (i==1) {
-                btn.titleLabel.font = [UIFont systemFontOfSize:11];
-            }
-        }
+       // if (i != 0) {
+        //    btn.titleLabel.font = [UIFont systemFontOfSize:13];
+         ////   if (i==1) {
+           //     btn.titleLabel.font = [UIFont systemFontOfSize:12];
+          //  }
+       // }
+         btn.titleLabel.font = [UIFont systemFontOfSize:13];
+        btn.titleLabel.lineBreakMode=NSLineBreakByTruncatingHead;
+        btn.titleLabel.numberOfLines=0;
+
         [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(selectContentBtn:) forControlEvents:UIControlEventTouchUpInside];
         if (i == self.listType) {
@@ -109,7 +113,7 @@
             MBProgressHUD *tmpHud = [[MBProgressHUD alloc] init];
             [tmpHud setAnimationType:MBProgressHUDAnimationFade];
             [tmpHud setMode:MBProgressHUDModeText];
-            [tmpHud setLabelText:@"没有更多了"];
+            [tmpHud setLabelText:NSLocalizedString(@"No more",nil)];
             [self.view addSubview:tmpHud];
             [tmpHud show:YES];
             [tmpHud hide:YES afterDelay:1.5f];

@@ -89,14 +89,14 @@ typedef enum {
 }
 -(NSArray *)sendArray {
     if (!_sendArray) {
-        _sendArray = [NSArray arrayWithObjects:NSLocalizedString(@"consogner", nil),NSLocalizedString(@"ID number", nil),NSLocalizedString(@"Phone NO.", nil), nil];
+        _sendArray = [NSArray arrayWithObjects:NSLocalizedString(@"consigner", nil),NSLocalizedString(@"ID number", nil),NSLocalizedString(@"Phone NO.", nil), nil];
     }
     return _sendArray;
 }
 
 -(NSArray *)bottomOrderDetailArray {
     if (!_bottomOrderDetailArray) {
-        _bottomOrderDetailArray = [NSArray arrayWithObjects:NSLocalizedString(@"Product summation", nil),NSLocalizedString(@"Amount payable", nil),NSLocalizedString(@"Amount Paid", nil),  nil];
+        _bottomOrderDetailArray = [NSArray arrayWithObjects:NSLocalizedString(@"Product sum", nil),NSLocalizedString(@"Balance", nil),NSLocalizedString(@"Amount Paid", nil),  nil];
     }
     return _bottomOrderDetailArray;
 }
@@ -112,11 +112,11 @@ typedef enum {
         
     }
     else if ([_checkOrderModel[@"stock_status"] isEqualToString:@"1"]) {
-        [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Confirm shipment",nil)]];
+        [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",NSLocalizedString(@"In stock",nil)]];
         
     }
     else if ([_checkOrderModel[@"stock_status"] isEqualToString:@"2"]) {
-        [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Confirm no goods",nil)]];
+        [_orderDetailValueArray addObject:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Out of stock",nil)]];
         
     }
     else
@@ -616,7 +616,7 @@ typedef enum {
     }];
     UILabel *topLabel = [UILabel new];
     [_sendView addSubview:topLabel];
-    [topLabel setText:NSLocalizedString(@"Information of consogner", nil)];
+    [topLabel setText:NSLocalizedString(@"Information of consigner", nil)];
     [topLabel setTextColor:[UIColor lightGrayColor]];
     [topLabel setFont:ThemeFont(16)];
     [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -745,7 +745,7 @@ typedef enum {
             _specField = [UITextField new];
             [self.view addSubview:_specField];
             _specField.backgroundColor=[UIColor whiteColor];
-            _specField.placeholder=NSLocalizedString(@"Please input memo information", nil);
+            _specField.placeholder=NSLocalizedString(@"Please input remark info", nil);
             [_specField setFont:ThemeFont(15)];
             [_specField mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.bottom.equalTo(self.view).with.offset(-TabbarHeight);
@@ -771,8 +771,8 @@ typedef enum {
         [_refuseOrderButton setBackgroundColor:[UIColor grayColor]];
         [_refuseOrderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         
-                [_confirmOrderButton setTitle:NSLocalizedString(@"Confirm shipment", nil) forState:UIControlStateNormal];
-                [_refuseOrderButton setTitle:NSLocalizedString(@"Confirm no goods", nil) forState:UIControlStateNormal];
+                [_confirmOrderButton setTitle:NSLocalizedString(@"In stock", nil) forState:UIControlStateNormal];
+                [_refuseOrderButton setTitle:NSLocalizedString(@"Out of stock", nil) forState:UIControlStateNormal];
         
             
             [_confirmOrderButton.titleLabel setFont:ThemeFont(15)];
@@ -809,7 +809,7 @@ typedef enum {
             [_confirmOrderButton setBackgroundColor:mainColor];
             [_confirmOrderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             
-            [_confirmOrderButton setTitle:NSLocalizedString(@"Add consogner information", nil) forState:UIControlStateNormal];
+            [_confirmOrderButton setTitle:NSLocalizedString(@"Add consigner information", nil) forState:UIControlStateNormal];
             
             [_confirmOrderButton.titleLabel setFont:ThemeFont(15)];
             [_confirmOrderButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -875,7 +875,7 @@ typedef enum {
 - (void)bottomControlButtonClicked:(UIButton *)button {
     switch (button.tag) {
         case 1:{
-            if ([_confirmOrderButton.titleLabel.text isEqualToString:NSLocalizedString(@"Confirm shipment", nil)]) {
+            if ([_confirmOrderButton.titleLabel.text isEqualToString:NSLocalizedString(@"In stock", nil)]) {
                 [self refuseButtonClicked:button];
             }
            

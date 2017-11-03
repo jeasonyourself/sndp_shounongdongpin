@@ -72,7 +72,7 @@ typedef enum {
     addBtn.backgroundColor=[UIColor whiteColor];
     [addBtn setTitleColor:mainColor forState:UIControlStateNormal];
     addBtn.titleLabel.font=[UIFont systemFontOfSize:12];
-    [addBtn setTitle:@"添加" forState:UIControlStateNormal];
+    [addBtn setTitle:NSLocalizedString(@"Add", nil) forState:UIControlStateNormal];
     [addBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(_navigationBarView).with.offset(-Gap);
         make.centerY.equalTo(_navigationBarView).with.offset(Gap);
@@ -525,7 +525,7 @@ typedef enum {
 -(void)addBtnClick:(UIButton *)Btn
 {
     if ([_searchBar.text isEqualToString:@""]||_searchBar.text == nil) {
-        [self.view Message:@"亲，请先填入信息后添加" HiddenAfterDelay:1.0];
+        [self.view Message:NSLocalizedString(@"Please enter first", nil) HiddenAfterDelay:1.0];
         return;
     }
     debugLog(@"_goodsCharacterArr:%@",_goodsCharacterArr[0]);
@@ -984,7 +984,8 @@ typedef enum {
     _searchBar = [[UISearchBar alloc] init];
     [topView addSubview:_searchBar];
     [_searchBar setBackgroundColor:[UIColor whiteColor]];
-    _searchBar.placeholder = [NSString stringWithFormat:@"产品／厂号／国家"];
+    _searchBar.placeholder = [NSString stringWithFormat:NSLocalizedString(@"Search or Add", nil)];
+    
     _searchBar.delegate = self;
     _searchBar.showsCancelButton = NO;
     [_searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1030,7 +1031,7 @@ typedef enum {
     NSMutableDictionary *filterDic = [NSMutableDictionary dictionary];
     [filterDic setObject:_searchBar.text forKey:@"keywords"];
     if ([_searchBar.text isEqualToString:@""]||_searchBar.text == nil) {
-        [_MBHUD setLabelText:@"亲，没有输入搜索关键字哦。"];
+        [_MBHUD setLabelText:NSLocalizedString(@"No keyword", nil)];
         [self.view addSubview:_MBHUD];
         [_MBHUD show:YES];
         [_MBHUD hide:YES afterDelay:1.0f];
@@ -1048,12 +1049,17 @@ typedef enum {
     
     
     NSString *Sign = [NSString stringWithFormat:@"%@%@%@",@"seller_offer",@"add_brand",ConfigNetAppKey];
+    debugLog(@"brand_snnn:%@",_searchBar.text);
+
+    debugLog(@"sidsid:%@",_fid);
+
     NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"action":@"add_brand",@"sign":[TYDPManager md5:Sign],@"model":@"seller_offer",@"sid":_fid,@"brand_sn":_searchBar.text}];
+    debugLog(@"brand_snnn:%@",_searchBar.text);
     debugLog(@"sitedataparparamsams:%@",params);
     [TYDPManager tydp_basePostReqWithUrlStr:@"" params:params success:^(id data) {
         debugLog(@"addBrandListparams:%@",data);
         if (![data[@"error"] intValue]) {
-            [self.view Message:@"添加成功" HiddenAfterDelay:1.0];
+            [self.view Message:NSLocalizedString(@"Success", nil) HiddenAfterDelay:1.0];
             [self searchBrandListDataWithNewDic];
         }
         else {
@@ -1070,7 +1076,6 @@ typedef enum {
     }];
 }
 - (void)getBrandListDataWithNewDic{
-    
     
     NSString *Sign = [NSString stringWithFormat:@"%@%@%@",@"seller_offer",@"get_brand_list",ConfigNetAppKey];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"action":@"get_brand_list",@"sign":[TYDPManager md5:Sign],@"model":@"seller_offer",@"sid":_fid}];
@@ -1132,7 +1137,7 @@ typedef enum {
     [TYDPManager tydp_basePostReqWithUrlStr:@"" params:params success:^(id data) {
         debugLog(@"addgoodsNameparams:%@",data);
         if (![data[@"error"] intValue]) {
-            [self.view Message:@"添加成功" HiddenAfterDelay:1.0];
+            [self.view Message:NSLocalizedString(@"Success", nil) HiddenAfterDelay:1.0];
             [self searchgoodsNameListWithNewDic];
             
         } else {

@@ -15,10 +15,10 @@
 "Cbl-GF-dW2.text" = "My bargain:";
 
 /* Class = "UILabel"; text = "元/吨"; ObjectID = "D8x-6a-EXq"; */
-"D8x-6a-EXq.text" = "yuan/MT";
+"D8x-6a-EXq.text" = "RMB/MT";
 
 /* Class = "UILabel"; text = "元/吨"; ObjectID = "FWN-sP-yDP"; */
-"FWN-sP-yDP.text" = "yuan/MT";
+"FWN-sP-yDP.text" = "RMB/MT";
 
 /* Class = "UIButton"; normalTitle = "再次还价"; ObjectID = "HCY-c5-328"; */
 "HCY-c5-328.normalTitle" = "Bargain again";
