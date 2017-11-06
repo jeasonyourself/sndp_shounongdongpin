@@ -941,12 +941,23 @@ typedef enum {
         if ([tmpGoodsModel.goods_number intValue] == 0||JudgeStoreNumber == NO) {
             bottomCellView.userInteractionEnabled = NO;
             UIImageView *backGroundImageView = [UIImageView new];
-            backGroundImageView.image = [UIImage imageNamed:@"home_icon_sell"];
-            backGroundImageView.backgroundColor = [UIColor blackColor];
-            backGroundImageView.alpha = 0.3;
+//            backGroundImageView.image = [UIImage imageNamed:@"home_icon_sell"];
+            backGroundImageView.backgroundColor = [UIColor whiteColor];
+            backGroundImageView.alpha = 0.7;
             [bottomCellView addSubview:backGroundImageView];
             [backGroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-make.edges.equalTo(bottomCellView).with.insets(UIEdgeInsetsMake(0, 0, Gap, 0));            }];
+make.edges.equalTo(bottomCellView).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));            }];
+            
+            UIImageView *cycImg = [UIImageView new];
+            cycImg.image = [UIImage imageNamed:NSLocalizedString(@"icon_sellout_en", nil)];
+            [backGroundImageView addSubview:cycImg];
+            [cycImg mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.right.equalTo(backGroundImageView.mas_right).with.offset(-60);
+                make.bottom.equalTo(backGroundImageView.mas_bottom).with.offset(-10);
+                make.width.mas_equalTo(1.175*(bottomCellHeight-20));
+                make.height.mas_equalTo(bottomCellHeight-20);
+            }];
+            
         }
         if (i == _goodsListModelArray.count-1) {
             [_containerView mas_makeConstraints:^(MASConstraintMaker *make) {

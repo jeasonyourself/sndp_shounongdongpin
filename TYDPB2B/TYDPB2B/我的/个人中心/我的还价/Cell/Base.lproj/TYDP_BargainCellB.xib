@@ -398,7 +398,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5tB-tb-yRZ">
                         <rect key="frame" x="225" y="22" width="70" height="70.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="70" id="mXm-1N-1JG"/>
+                            <constraint firstAttribute="width" constant="83" id="mXm-1N-1JG"/>
                             <constraint firstAttribute="height" constant="70" id="zOL-3c-Tma"/>
                         </constraints>
                         <variation key="default">

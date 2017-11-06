@@ -127,7 +127,7 @@
     _subImgS = @[@[@"",NSLocalizedString(@"pic_lcl_en",nil)],@[NSLocalizedString(@"pic_futures_en",nil),NSLocalizedString(@"pic_cash_en",nil)],@[NSLocalizedString(@"pic_retail_en",nil),NSLocalizedString(@"pic_fcl_en",nil)]];//@[@[拼，空],@[期，现],@[零，整]]
     
     //还价成功，等待回复，还价失败
-    _typeImgS = @[@"pic_wait",@"pic_failure",@"pic_succed"];
+    _typeImgS = @[NSLocalizedString(@"Awaiting_Reply_en", nil),NSLocalizedString(@"Price_updated_en", nil),NSLocalizedString(@"Price_updated_en", nil)];
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableView.backgroundColor = RGBACOLOR(237, 243, 254, 1);
@@ -196,35 +196,35 @@
 }
 
 //iphone6P屏幕的cell
-- (void)configCell:(TYDP_BargainCell *)cell WithIndexPath:(NSIndexPath *)indexPath{
-    TYDP_BargainModel *model = [TYDP_BargainModel new];
-    model = _dataSource[indexPath.row];
-    cell.titleLab.text = model.goods_name;
-    
-    cell.priceAgo.text = [NSString stringWithFormat:@"¥%@",model.last_price];
-    cell.priceNow.text =[NSString stringWithFormat:@"¥%@",model.last_price];
-
-    cell.priceMine.text =[NSString stringWithFormat:@"¥%@",model.price] ;
-
-    cell.numLab.text = model.brand_sn;
-    [cell.buyBtn addTarget:self action:@selector(buyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.mainImg sd_setImageWithURL:[NSURL URLWithString:model.goods_thumb] placeholderImage:[UIImage imageNamed:@"pic_loading"]];
-//    [cell.stateImg sd_setImageWithURL:[NSURL URLWithString:model]];
-    cell.subImg1.image = [UIImage imageNamed:NSLocalizedString(@"pic_bargaining_en",nil)];//还
-    cell.subImg2.image = [UIImage imageNamed:_subImgS[1][[model.goods_type intValue]-6]];//现，期
-    cell.subImg3.image = [UIImage imageNamed:_subImgS[2][[model.sell_type intValue]-4]];//零，整
-    cell.subImg4.image = [UIImage imageNamed:_subImgS[0][[model.is_pin intValue]]];
-    cell.typeImg.image = [UIImage imageNamed:_typeImgS[[model.status intValue]]];
-    cell.timeLable.text=[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Bid time", nil),model.created_at];
-    cell.spec_textLable.text=[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Bid detail", nil),model.message];
-
-    if ([model.status isEqualToString:@"0"]) {
-        cell.bargainBtn.backgroundColor = [UIColor grayColor];
-        cell.bargainBtn.userInteractionEnabled = NO;
-    } else {
-        [cell.bargainBtn addTarget:self action:@selector(buyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    }
-}
+//- (void)configCell:(TYDP_BargainCell *)cell WithIndexPath:(NSIndexPath *)indexPath{
+//    TYDP_BargainModel *model = [TYDP_BargainModel new];
+//    model = _dataSource[indexPath.row];
+//    cell.titleLab.text = model.goods_name;
+//    
+//    cell.priceAgo.text = [NSString stringWithFormat:@"¥%@",model.last_price];
+//    cell.priceNow.text =[NSString stringWithFormat:@"¥%@",model.last_price];
+//
+//    cell.priceMine.text =[NSString stringWithFormat:@"¥%@",model.price] ;
+//
+//    cell.numLab.text = model.brand_sn;
+//    [cell.buyBtn addTarget:self action:@selector(buyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    [cell.mainImg sd_setImageWithURL:[NSURL URLWithString:model.goods_thumb] placeholderImage:[UIImage imageNamed:@"pic_loading"]];
+////    [cell.stateImg sd_setImageWithURL:[NSURL URLWithString:model]];
+//    cell.subImg1.image = [UIImage imageNamed:NSLocalizedString(@"pic_bargaining_en",nil)];//还
+//    cell.subImg2.image = [UIImage imageNamed:_subImgS[1][[model.goods_type intValue]-6]];//现，期
+//    cell.subImg3.image = [UIImage imageNamed:_subImgS[2][[model.sell_type intValue]-4]];//零，整
+//    cell.subImg4.image = [UIImage imageNamed:_subImgS[0][[model.is_pin intValue]]];
+//    cell.typeImg.image = [UIImage imageNamed:_typeImgS[[model.status intValue]]];
+//    cell.timeLable.text=[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Bid time", nil),model.created_at];
+//    cell.spec_textLable.text=[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Bid detail", nil),model.message];
+//
+//    if ([model.status isEqualToString:@"0"]) {
+//        cell.bargainBtn.backgroundColor = [UIColor grayColor];
+//        cell.bargainBtn.userInteractionEnabled = NO;
+//    } else {
+//        [cell.bargainBtn addTarget:self action:@selector(buyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    }
+//}
 
 //iphone4，5，6屏幕的cell
 - (void)configCellB:(UITableViewCell *)cell WithIndexPath:(NSIndexPath *)indexPath{

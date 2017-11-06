@@ -114,7 +114,7 @@
         NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];
         if (![[userdefaul objectForKey:@"user_rank"] isEqualToString:@"2"]) {
             UIWindow *window = [UIApplication sharedApplication].keyWindow;
-            [window Message:@"发布报盘仅供商家用户使用，请先入驻！" HiddenAfterDelay:1.5];
+            [window Message:NSLocalizedString(@"Please apply for seller account first", nil) HiddenAfterDelay:1.5];
             return;
         }
         
