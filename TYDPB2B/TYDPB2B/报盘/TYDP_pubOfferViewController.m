@@ -34,7 +34,7 @@
 #import "TYDPHttpManager.h"
 
 
-#define ServerIP @"http://test.taiyanggo.com/app/api.php"
+#define ServerIP @"http://www.taiyanggo.com/app/api.php"
 
 #define ORIGINAL_MAX_WIDTH 360.0f
 

@@ -6,3 +6,4 @@
   Copyright © 2017年 泰洋冻品. All rights reserved.
 */
 CFBundleDisplayName = "首农冻品";
+UILaunchStoryboardName = "LaunchScreen";

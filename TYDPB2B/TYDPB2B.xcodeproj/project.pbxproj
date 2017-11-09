@@ -31,6 +31,7 @@
 		8414D45C1FA470330039D081 /* TYDP_ServePublicController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8414D45E1FA470330039D081 /* TYDP_ServePublicController.xib */; };
 		8414D4631FA496870039D081 /* TYDP_CareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8414D4651FA496870039D081 /* TYDP_CareCell.xib */; };
 		8414D4731FA4EACE0039D081 /* NSBundle+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 8414D4721FA4EACE0039D081 /* NSBundle+Language.m */; };
+		8416D05E1FB2B2A90021D60B /* LaunchScreen_en.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8416D05D1FB2B2A90021D60B /* LaunchScreen_en.storyboard */; };
 		8417E2221F68DB460056E7F1 /* TYDP_wantBuyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8417E2211F68DB460056E7F1 /* TYDP_wantBuyDetailViewController.m */; };
 		8417E2251F6928840056E7F1 /* commentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8417E2241F6928840056E7F1 /* commentListModel.m */; };
 		84194BEB1F90B3AF008876B2 /* seller_orderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84194BEA1F90B3AF008876B2 /* seller_orderDetailViewController.m */; };
@@ -313,6 +314,7 @@
 		8414D46A1FA4D0710039D081 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/addSenderAddressViewController.strings; sourceTree = "<group>"; };
 		8414D4711FA4EACE0039D081 /* NSBundle+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Language.h"; sourceTree = "<group>"; };
 		8414D4721FA4EACE0039D081 /* NSBundle+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Language.m"; sourceTree = "<group>"; };
+		8416D05D1FB2B2A90021D60B /* LaunchScreen_en.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen_en.storyboard; sourceTree = "<group>"; };
 		8417E2201F68DB460056E7F1 /* TYDP_wantBuyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDP_wantBuyDetailViewController.h; sourceTree = "<group>"; };
 		8417E2211F68DB460056E7F1 /* TYDP_wantBuyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDP_wantBuyDetailViewController.m; sourceTree = "<group>"; };
 		8417E2231F6928840056E7F1 /* commentListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentListModel.h; sourceTree = "<group>"; };
@@ -373,7 +375,6 @@
 		841C573C1F568F9B00406AFD /* GWLPhotoLibrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWLPhotoLibrayController.m; sourceTree = "<group>"; };
 		841C573D1F568F9B00406AFD /* GWLPhotoSelector.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GWLPhotoSelector.bundle; sourceTree = "<group>"; };
 		841C573E1F568F9B00406AFD /* GWLPhotoSelectorHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWLPhotoSelectorHeader.h; sourceTree = "<group>"; };
-		841C9FC11FA1D257009A701E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		841C9FC51FA1D347009A701E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		841C9FC71FA1D368009A701E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		841C9FCB1FA1D444009A701E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -901,6 +902,7 @@
 				A82163B61D35F42700EFCFD0 /* AppDelegate.m */,
 				A82163C11D35F42700EFCFD0 /* Assets.xcassets */,
 				A82163C31D35F42700EFCFD0 /* LaunchScreen.storyboard */,
+				8416D05D1FB2B2A90021D60B /* LaunchScreen_en.storyboard */,
 				A82163C61D35F42700EFCFD0 /* Info.plist */,
 				A82163F21D38788D00EFCFD0 /* 自定义基类 */,
 				A82163B21D35F42700EFCFD0 /* Supporting Files */,
@@ -1890,6 +1892,7 @@
 				8414D3F31FA44C700039D081 /* addSenderAddressViewController.xib in Resources */,
 				841C57351F568F5C00406AFD /* XuanZeTuPianCollectionViewCell.xib in Resources */,
 				841C57421F568F9B00406AFD /* GWLPhotoSelector.bundle in Resources */,
+				8416D05E1FB2B2A90021D60B /* LaunchScreen_en.storyboard in Resources */,
 				E27FA9511D7FF76F00898B9A /* TYDP_MineCellB.xib in Resources */,
 				8414D40F1FA4521C0039D081 /* TYDP_ChangeMobileController.xib in Resources */,
 				E27FA9911D7FF76F00898B9A /* TYDP_NewsCell.xib in Resources */,
@@ -2478,7 +2481,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				A82163C41D35F42700EFCFD0 /* Base */,
-				841C9FC11FA1D257009A701E /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -2580,7 +2582,6 @@
 			baseConfigurationReference = 54038475FFC2A49446BE405E /* Pods-TYDPB2B.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_ENTITLEMENTS = TYDPB2B/TYDPB2B.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Xiaowei Wang (6AEU84JYEH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2649,7 +2650,6 @@
 			baseConfigurationReference = C1D0C1149D812C97E08312CC /* Pods-TYDPB2B.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_ENTITLEMENTS = TYDPB2B/TYDPB2B.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Xiaowei Wang (6AEU84JYEH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

@@ -787,7 +787,7 @@ typedef enum {
             make.width.mas_equalTo(demandCellImageWidth);
             make.height.mas_equalTo(demandCellImageWidth);
         }];
-        [headImageView sd_setImageWithURL:[NSURL URLWithString:[purchaseListMD.user_face isEqualToString:@""]?@"http://test.taiyanggo.com/images/no_picture.gif":purchaseListMD.user_face] placeholderImage:nil];
+        [headImageView sd_setImageWithURL:[NSURL URLWithString:[purchaseListMD.user_face isEqualToString:@""]?@"http://www.taiyanggo.com/images/no_picture.gif":purchaseListMD.user_face] placeholderImage:nil];
         
         
         UILabel *nameLabel = [UILabel new];

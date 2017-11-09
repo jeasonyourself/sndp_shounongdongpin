@@ -660,7 +660,7 @@ typedef enum {
         make.width.mas_equalTo(demandCellImageWidth);
         make.height.mas_equalTo(demandCellImageWidth);
     }];
-    [headImageView sd_setImageWithURL:[NSURL URLWithString:[_purchaseListMD.user_face isEqualToString:@""]?@"http://test.taiyanggo.com/images/no_picture.gif":_purchaseListMD.user_face] placeholderImage:nil];
+    [headImageView sd_setImageWithURL:[NSURL URLWithString:[_purchaseListMD.user_face isEqualToString:@""]?@"http://www.taiyanggo.com/images/no_picture.gif":_purchaseListMD.user_face] placeholderImage:nil];
     
     
     UILabel *nameLabel = [UILabel new];
@@ -841,7 +841,7 @@ typedef enum {
             make.width.mas_equalTo(demandCellImageWidth);
             make.height.mas_equalTo(demandCellImageWidth);
         }];
-        [headImageView sd_setImageWithURL:[NSURL URLWithString:[commentListMD.user_face isEqualToString:@""]?@"http://test.taiyanggo.com/images/no_picture.gif":commentListMD.user_face] placeholderImage:nil];
+        [headImageView sd_setImageWithURL:[NSURL URLWithString:[commentListMD.user_face isEqualToString:@""]?@"http://www.taiyanggo.com/images/no_picture.gif":commentListMD.user_face] placeholderImage:nil];
         
         
         UILabel *nameLabel = [UILabel new];
