@@ -735,7 +735,7 @@ typedef enum {
         }
     }
     
-    if (_checkOrderModel[@"bank"][@"account"]&&![[NSString stringWithFormat:@"%@",_checkOrderModel[@"bank"][@"account"]] isEqualToString:@""]&&[[NSString stringWithFormat:@"%@",_checkOrderModel[@"stock_status"]] isEqualToString:@"1"]&&[[NSString stringWithFormat:@"%@",_checkOrderModel[@"pay_id"]] isEqualToString:@"1"]) {
+    if (_checkOrderModel[@"bank"][@"account"]&&![[NSString stringWithFormat:@"%@",_checkOrderModel[@"bank"][@"account"]] isEqualToString:@""]&&[[NSString stringWithFormat:@"%@",_checkOrderModel[@"stock_status"]] isEqualToString:@"1"]&&[[NSString stringWithFormat:@"%@",_checkOrderModel[@"pay_id"]] isEqualToString:@"2"]) {
         [self BBankViewWithFrontView:_bottomView];
     }
     else

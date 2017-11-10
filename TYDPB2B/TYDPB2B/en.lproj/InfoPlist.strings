@@ -8,3 +8,5 @@
 // Localizable App Name是App在英语环境环境下显示的名称
 CFBundleDisplayName = "SUNLON";
 UILaunchStoryboardName = "LaunchScreen_en";
+NSCameraUsageDescription = "Access the camera with your permission";
+NSPhotoLibraryUsageDescription="Access the photo Library with your permission";

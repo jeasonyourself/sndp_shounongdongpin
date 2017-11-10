@@ -7,3 +7,5 @@
 */
 CFBundleDisplayName = "首农冻品";
 UILaunchStoryboardName = "LaunchScreen";
+NSCameraUsageDescription = "是否允许此App使用你的相机？";
+NSPhotoLibraryUsageDescription="是否允许此App使用你的相册？";
