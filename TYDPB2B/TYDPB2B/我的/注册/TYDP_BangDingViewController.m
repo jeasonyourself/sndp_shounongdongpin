@@ -65,7 +65,7 @@
         [self.view addSubview:tf];
         tf.background = [UIImage imageNamed:@"login_input"];
         tf.placeholder = placeholderArr[i];
-        
+        tf.font=[UIFont systemFontOfSize:14.0];
         if (i<2) {
             if (i==1) {
                 tf.delegate=self;

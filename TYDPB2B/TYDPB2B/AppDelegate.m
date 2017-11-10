@@ -43,9 +43,13 @@
         [NSBundle setLanguage:[[NSUserDefaults standardUserDefaults] objectForKey:@"myLanguage"]];
     }
     
-     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxbcce9bddfe71700f" appSecret:@"d613b222d75ea05042498cad770dd5f1" redirectURL:nil];
     
+//    com.yishangshuma.sndpNineOne
+//    cn.corshop.tydp
     [[UMSocialManager defaultManager] setUmSocialAppkey:@"wxbcce9bddfe71700f"];
+     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxbcce9bddfe71700f" appSecret:@"d613b222d75ea05042498cad770dd5f1" redirectURL:nil];
+    [[UMSocialManager defaultManager] openLog:YES];
+
     /**
      *  友盟统计
      */
@@ -54,7 +58,7 @@
     [MobClick startWithConfigure:UMConfigInstance];//配置以上参数
     [MobClick setCrashReportEnabled:YES];
     [NSThread sleepForTimeInterval:0.618];//设置启动页面时间
-    
+
     
     //初始化SDK，必写
     [MWApi registerApp:@"Q0AZ6ILYN40Y098WQVGU8X351SNJC2SJ"];
@@ -195,45 +199,58 @@
 //iOS9+
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(nonnull NSDictionary *)options
 {
-    if ([url.host isEqualToString:@"safepay"]) {
-        //跳转支付宝钱包进行支付，处理支付结果
-        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            NSLog(@"backkkresult = %@",resultDic);
-            
-            
-            if ([[NSString stringWithFormat:@"%@",resultDic[@"resultStatus"]] isEqualToString:@"9000"])//支付成功
-            {
+
+    if (![[UMSocialManager defaultManager] handleOpenURL:url]) {
+        
+        if ([url.host isEqualToString:@"safepay"]) {
+            //跳转支付宝钱包进行支付，处理支付结果
+            [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+                NSLog(@"backkkresult = %@",resultDic);
                 
-                NSMutableDictionary *params = [[NSMutableDictionary alloc]initWithDictionary:@{@"model":@"order",@"action":@"savePayStatus",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"ordersavePayStatus%@",ConfigNetAppKey]],@"user_id":[PSDefaults objectForKey:@"user_id"],@"trade_response":resultDic[@"result"]}];
-                 debugLog(@"paramsparamssdsdsd:%@",params);
-                [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
-                    debugLog(@"refreashOrderData:%@",data);
+                
+                if ([[NSString stringWithFormat:@"%@",resultDic[@"resultStatus"]] isEqualToString:@"9000"])//支付成功
+                {
                     
-                    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-                    [window Message:[NSString stringWithFormat:@"%@",data[@"message"]] HiddenAfterDelay:1.0];
-                    [[NSNotificationCenter defaultCenter] postNotificationName:AlipayNotificationName object:nil];
-                    
+                    NSMutableDictionary *params = [[NSMutableDictionary alloc]initWithDictionary:@{@"model":@"order",@"action":@"savePayStatus",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"ordersavePayStatus%@",ConfigNetAppKey]],@"user_id":[PSDefaults objectForKey:@"user_id"],@"trade_response":resultDic[@"result"]}];
+                    debugLog(@"paramsparamssdsdsd:%@",params);
+                    [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
+                        debugLog(@"refreashOrderData:%@",data);
+                        
+                        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+                        [window Message:[NSString stringWithFormat:@"%@",data[@"message"]] HiddenAfterDelay:1.0];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:AlipayNotificationName object:nil];
+                        
+                        
+                    }
+                                                    failure:^(TYDPError *error) {
+                                                        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+                                                        [window Message:[NSString stringWithFormat:@"%@",error] HiddenAfterDelay:1.0];
+                                                        
+                                                    }];
                     
                 }
-                                                failure:^(TYDPError *error) {
-                                                    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-                                                    [window Message:[NSString stringWithFormat:@"%@",error] HiddenAfterDelay:1.0];
-                                                    
-                                                }];
+                else
+                {
+                    
+                    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+                    [window Message:[NSString stringWithFormat:@"%@",resultDic[@"memo"]] HiddenAfterDelay:1.0];
+                }
+                
+            }];
+            return YES;
+        }
+        else
+        {
+            //必写
+            [MWApi routeMLink:url];
+        }
 
-            }
-            else
-            {
-
-                UIWindow *window = [UIApplication sharedApplication].keyWindow;
-                [window Message:[NSString stringWithFormat:@"%@",resultDic[@"memo"]] HiddenAfterDelay:1.0];
-            }
-            
-        }];
+        
+        BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+        return result;
     }
-    //必写
-    [MWApi routeMLink:url];
-    return YES;
+    
+       return YES;
 }
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler
 {

@@ -150,8 +150,10 @@
 
 - (IBAction)wechatLoginClick {
     debugLog(@"微信登录");
-    [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_WechatTimeLine currentViewController:self completion:^(id result, NSError *error) {
-        
+    [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_WechatSession currentViewController:self completion:^(id result, NSError *error) {
+        if (error) {
+            debugLog(@"kfhsdjfhsj");
+        }
         UMSocialUserInfoResponse *resp = result;
         
         // 第三方登录数据(为空表示平台未提供)
