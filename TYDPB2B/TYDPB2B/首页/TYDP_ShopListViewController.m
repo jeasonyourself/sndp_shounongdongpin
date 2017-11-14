@@ -634,6 +634,8 @@ typedef enum {
         [_baseScrollView addSubview:topSmallLabel];
         [topSmallLabel setBackgroundColor:[UIColor whiteColor]];
         [topSmallLabel setText:self.topLabelArray[i]];
+        topSmallLabel.numberOfLines=0;
+        topSmallLabel.lineBreakMode=NSLineBreakByTruncatingHead;
         [topSmallLabel setTextAlignment:NSTextAlignmentCenter];
         [topSmallLabel setFont:ThemeFont(CommonFontSize)];
         topSmallLabel.userInteractionEnabled = YES;
@@ -1146,6 +1148,9 @@ make.edges.equalTo(bottomCellView).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));   
     //        make.height.mas_equalTo(1.5);
     //    }];
     [_topIndicatorButton setTitle:self.topLabelArray[superView.tag-1] forState:UIControlStateNormal];
+    _topIndicatorButton.titleLabel.numberOfLines=0;
+    _topIndicatorButton.titleLabel.lineBreakMode=NSLineBreakByTruncatingHead;
+    _topIndicatorButton.titleLabel.textAlignment=NSTextAlignmentCenter;
     _tmpDic = [NSMutableDictionary dictionary];
     _typeFlag = superView.tag;
     switch (superView.tag) {

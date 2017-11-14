@@ -555,6 +555,8 @@ typedef enum {
             [topSmallLabel setText:self.topLabelArray[i]];
             [topSmallLabel setTextAlignment:NSTextAlignmentCenter];
             [topSmallLabel setFont:ThemeFont(CommonFontSize)];
+            topSmallLabel.numberOfLines=0;
+            topSmallLabel.lineBreakMode=NSLineBreakByTruncatingHead;
             topSmallLabel.userInteractionEnabled = YES;
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(topLabelTapMethod:)];
             [topSmallLabel addGestureRecognizer:tap];
@@ -653,8 +655,8 @@ typedef enum {
         tmpView.tag = i + 1;
         [demandCellView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(_topIndicatorButton.mas_bottom).with.offset(totledemandCellHeight);
-            make.left.equalTo(_baseScrollView).with.offset(15.0);
-            make.width.mas_equalTo(ScreenWidth-30);
+            make.left.equalTo(_baseScrollView).with.offset(0);
+            make.width.mas_equalTo(ScreenWidth);
             make.height.mas_equalTo(demandCellHeight);
         }];
         
@@ -776,7 +778,7 @@ typedef enum {
         telephoneLabel.layer.borderWidth =0;//设置边框的宽度，当然可以不要
         telephoneLabel.layer.borderColor =nil;//设置边框的颜色
         telephoneLabel.layer.masksToBounds = YES;//设为NO去试试
-        [telephoneLabel setFont:ThemeFont(12)];
+        [telephoneLabel setFont:ThemeFont(14)];
         [telephoneLabel setTextAlignment:NSTextAlignmentCenter];
         [telephoneLabel setBackgroundColor:RGBACOLOR(204, 204, 204, 1)];
         [telephoneLabel setTextColor:[UIColor whiteColor]];
@@ -786,9 +788,9 @@ typedef enum {
         
         [telephoneLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(demandCellView.mas_left).with.offset(15);
-            make.top.equalTo(needDemandLabel.mas_bottom).with.offset(10);
+            make.top.equalTo(needDemandLabel.mas_bottom).with.offset(5);
             make.width.mas_equalTo(ScreenWidth/2-40);
-            make.height.mas_equalTo(CommonHeight);
+            make.height.mas_equalTo(30);
         }];
         telephoneLabel.tag=i;
         UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(telephoneTapMethod:)];
@@ -798,7 +800,7 @@ typedef enum {
         
         UILabel *detailLable = [UILabel new];
         [detailLable setText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Detail", nil)]];
-        [detailLable setFont:ThemeFont(12)];
+        [detailLable setFont:ThemeFont(14)];
         detailLable.layer.cornerRadius = 5;//设置那个圆角的有多圆
         detailLable.layer.borderWidth =0;//设置边框的宽度，当然可以不要
         detailLable.layer.borderColor =nil;//设置边框的颜色
@@ -809,9 +811,9 @@ typedef enum {
         [demandCellView addSubview:detailLable];
         [detailLable mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(demandCellView.mas_right).with.offset(-15);
-            make.top.equalTo(needDemandLabel.mas_bottom).with.offset(10);
+            make.top.equalTo(needDemandLabel.mas_bottom).with.offset(5);
             make.width.mas_equalTo(ScreenWidth/2-40);
-            make.height.mas_equalTo(CommonHeight);
+            make.height.mas_equalTo(30);
         }];
 
         
@@ -896,8 +898,16 @@ typedef enum {
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if ([userDefaults objectForKey:@"user_id"]) {//已登陆
+        
+        
         UIView *tmpView = [tap view];
         purchaseListModel *tmpGoodsModel = _goodsListModelArray[tmpView.tag];
+        
+        if(!tmpGoodsModel.user_phone||[tmpGoodsModel.user_phone isEqualToString:@""])
+        {
+            [self.view Message:NSLocalizedString(@"He/she didn't reserve the phone number", nil) HiddenAfterDelay:1.5];
+            return;
+        }
         UIWebView*callWebview =[[UIWebView alloc] init];
         NSURL *telURL =[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",tmpGoodsModel.user_phone]];// 貌似tel:// 或者 tel: 都行
         [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
@@ -997,6 +1007,9 @@ typedef enum {
     //        make.height.mas_equalTo(1.5);
     //    }];
     [_topIndicatorButton setTitle:self.topLabelArray[superView.tag-1] forState:UIControlStateNormal];
+    _topIndicatorButton.titleLabel.numberOfLines=0;
+    _topIndicatorButton.titleLabel.lineBreakMode=NSLineBreakByTruncatingHead;
+    _topIndicatorButton.titleLabel.textAlignment=NSTextAlignmentCenter;
     _tmpDic = [NSMutableDictionary dictionary];
     _typeFlag = superView.tag;
     if ([[_topLabelArray objectAtIndex:_typeFlag-1] isEqualToString:NSLocalizedString(@"Pork", nil)]) {

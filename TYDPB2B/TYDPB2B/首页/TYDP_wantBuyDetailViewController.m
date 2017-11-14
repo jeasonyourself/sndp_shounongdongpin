@@ -655,7 +655,7 @@ typedef enum {
     UIImageView *headImageView = [UIImageView new];
     [a_demandCellView addSubview:headImageView];
     [headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(a_demandCellView).with.offset(20);
+        make.left.equalTo(a_demandCellView).with.offset(15);
         make.top.equalTo(a_demandCellView).with.offset(10);
         make.width.mas_equalTo(demandCellImageWidth);
         make.height.mas_equalTo(demandCellImageWidth);
@@ -1036,6 +1036,9 @@ typedef enum {
     //        make.height.mas_equalTo(1.5);
     //    }];
     [_topIndicatorButton setTitle:self.topLabelArray[superView.tag-1] forState:UIControlStateNormal];
+    _topIndicatorButton.titleLabel.numberOfLines=0;
+    _topIndicatorButton.titleLabel.lineBreakMode=NSLineBreakByTruncatingHead;
+    _topIndicatorButton.titleLabel.textAlignment=NSTextAlignmentCenter;
     _tmpDic = [NSMutableDictionary dictionary];
     _typeFlag = superView.tag;
     [_tmpDic setObject:[_topLabelArray objectAtIndex:_typeFlag-1] forKey:@"type"];
@@ -1107,6 +1110,11 @@ typedef enum {
         }
         if (item.tag==1)
         {
+            if(!_purchaseListMD.user_phone||[_purchaseListMD.user_phone isEqualToString:@""])
+            {
+                [self.view Message:NSLocalizedString(@"He/she didn't reserve the phone number", nil) HiddenAfterDelay:1.5];
+                return;
+            }
 //            purchaseListModel *tmpGoodsModel = _goodsListModelArray[item.tag];
             UIWebView*callWebview =[[UIWebView alloc] init];
             NSURL *telURL =[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",_purchaseListMD.user_phone]];// 貌似tel:// 或者 tel: 都行

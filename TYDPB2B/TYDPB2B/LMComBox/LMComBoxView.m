@@ -43,7 +43,7 @@
     [btn addTarget:self action:@selector(tapAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:btn];
     
-    titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(2, 0, self.frame.size.width-imgW - 5 - 2, self.frame.size.height)];
+    titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(2, 0, self.frame.size.width-4, self.frame.size.height)];
     titleLabel.font = [UIFont systemFontOfSize:14];
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -175,8 +175,9 @@
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(2, 0, self.frame.size.width-4, self.frame.size.height)];
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = NSTextAlignmentLeft;
-        label.font = [UIFont systemFontOfSize:11];
+        label.font = [UIFont systemFontOfSize:14];
         label.textColor = kTextColor;
+        label.textAlignment=NSTextAlignmentCenter;
         label.tag = 1000;
         [cell addSubview:label];
         

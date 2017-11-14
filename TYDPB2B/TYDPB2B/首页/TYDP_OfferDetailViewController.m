@@ -130,10 +130,12 @@ typedef enum {
 - (void)viewDidLoad {
     [super viewDidLoad];
     _picListArray=[[NSMutableArray alloc] init];
-    [self.view setBackgroundColor:RGBACOLOR(236, 243, 254, 1)];
+    [self.view setBackgroundColor:RGBACOLOR(240, 240, 240, 1)];
     [self setUpNavigationBar];
     // Do any additional setup after loading the view.
 }
+
+
 - (void)getOfferDetailData {
     _MBHUD = [[MBProgressHUD alloc] init];
     [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
@@ -157,9 +159,12 @@ typedef enum {
             [_picListArray removeAllObjects];
             [_picListArray addObject:_offerDetailModel.goods_thumb];
             for (PicListModel *PicListMD in _offerDetailModel.picture_list) {
-                [_picListArray addObject:PicListMD.thumb_url];
+                NSString *url = [PicListMD.thumb_url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+                [_picListArray addObject:url];
 
             }
+            debugLog(@"_picListArray_picListArray:%@",_picListArray);
             NSLog(@"_offerDetailModel:%@",_offerDetailModel);
             [self createWholeUI];
         }
@@ -1875,7 +1880,7 @@ typedef enum {
     
     //创建网页内容对象
     UIImage* thumbURL =  [UIImage imageNamed:@"shareIcon"];
-    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"首农冻品" descr:@"国内领先的一站式冻品交易平台" thumImage:thumbURL];
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:[NSString stringWithFormat:@"%@ %@ %@/%@",_offerDetailModel.brand_sn,_offerDetailModel.goods_name,_offerDetailModel.formated_shop_price,_offerDetailModel.shop_price_unit] descr:[NSString stringWithFormat:@"%@ %@/%@ %@ %@",_offerDetailModel.goods_name,_offerDetailModel.formated_shop_price,_offerDetailModel.shop_price_unit,_offerDetailModel.goods_txt,[[NSString stringWithFormat:@"%@",_offerDetailModel.goods_type] isEqualToString:@"7"]?_offerDetailModel.goods_local:_offerDetailModel.port_name] thumImage:thumbURL];
     //设置网页地址
     shareObject.webpageUrl = [NSString stringWithFormat:@"http://www.taiyanggo.com/mobile/share.php?act=goods&id=%@",self.goods_id];
     

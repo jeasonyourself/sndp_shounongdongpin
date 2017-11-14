@@ -538,6 +538,8 @@
         lab.text = [NSString stringWithFormat:@"%@",titleArr[i]];
         lab.font = [UIFont systemFontOfSize:15];
         lab.textAlignment = NSTextAlignmentCenter;
+        lab.numberOfLines=0;
+        lab.lineBreakMode=NSLineBreakByTruncatingHead;
     }
 }
 

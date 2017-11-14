@@ -235,37 +235,44 @@ typedef enum {
                 make.bottom.equalTo(leftSmallView);
             }];
         }
-        UIImageView *circleImageView = [UIImageView new];
+        UIButton *circleImageView = [UIButton new];
         [leftSmallView addSubview:circleImageView];
         CGFloat circleImageWidth = smallViewWidth/OfferLeftViewSmallCircelMultiple;
-        [circleImageView setImage:[UIImage imageNamed:self.leftViewPicArray[i]]];
+        [circleImageView setImage:[UIImage imageNamed:self.leftViewPicArray[i]] forState:UIControlStateNormal];
         [circleImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(leftSmallView);
-            make.centerY.equalTo(leftSmallView);
-            make.width.mas_equalTo(circleImageWidth);
-            make.height.mas_equalTo(circleImageWidth);
+            make.edges.equalTo(leftSmallView);
+//            make.centerX.equalTo(leftSmallView);
+//            make.centerY.equalTo(leftSmallView);
+//            make.width.mas_equalTo(circleImageWidth);
+//            make.height.mas_equalTo(circleImageWidth);
         }];
                 UILabel *introduceLabel = [UILabel new];
 //                [introduceLabel setBackgroundColor:[UIColor greenColor]];
-                [leftSmallView addSubview:introduceLabel];
+                [circleImageView addSubview:introduceLabel];
                 [introduceLabel setText:self.leftTitleArray[i]];
                 [introduceLabel setTextColor:[UIColor grayColor]];
                 [introduceLabel setFont:ThemeFont(13.0)];
                 [introduceLabel setTextAlignment:NSTextAlignmentCenter];
                 [introduceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.centerX.equalTo(leftSmallView);
-                    make.top.equalTo(circleImageView.mas_bottom);
-                    make.width.mas_equalTo(leftSmallView);
+                    
+                    make.centerX.equalTo(circleImageView);
+                    make.top.mas_equalTo(10+ScreenHeight/10);
+                    make.width.mas_equalTo(circleImageView);
                     make.height.mas_equalTo(CommonHeight);
+//                    make.centerX.equalTo(leftSmallView);
+//                    make.top.equalTo(circleImageView.mas_bottom);
+//                    make.width.mas_equalTo(leftSmallView);
+//                    make.height.mas_equalTo(CommonHeight);
                 }];
         //添加点击手势
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapMethod:)];
-        [leftSmallView addGestureRecognizer:tap];
-        UIView *tmpView = [tap view];
-        tmpView.tag = i + 1;
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapMethod:)];
+//        [leftSmallView addGestureRecognizer:tap];
+//        UIView *tmpView = [tap view];
+        circleImageView.tag = i + 1;
+        [circleImageView addTarget:self action:@selector(setLeftIndicatorButtonVisible:) forControlEvents:UIControlEventTouchUpInside];
         if (i == 0) {
             leftTag=1;
-            [self setLeftIndicatorButtonVisible:leftSmallView];
+            [self setLeftIndicatorButtonVisible:circleImageView];
         }
     }
     _TotalExpandCellSaveFlagDic = [NSMutableDictionary dictionary];
@@ -280,9 +287,10 @@ typedef enum {
 - (void)tapMethod:(UITapGestureRecognizer *)tap {
     UIView *tmpView = [tap view];
     leftTag=tmpView.tag;
-    [self setLeftIndicatorButtonVisible:tmpView];
+//    [self setLeftIndicatorButtonVisible:tmpView];
 }
-- (void)setLeftIndicatorButtonVisible:(UIView *)superView {
+- (void)setLeftIndicatorButtonVisible:(UIButton *)superView {
+    leftTag=superView.tag;
     _MBHUD = [[MBProgressHUD alloc] init];
     [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Wait a moment",nil)]];
     [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
@@ -312,7 +320,7 @@ typedef enum {
     debugLog(@"superViewframe:%ld",superView.tag);
     [_leftIndicatorLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(superView);
-        make.top.mas_equalTo(superView.frame.size.width/OfferLeftViewSmallCircelMultiple/2+superView.center.y);
+        make.top.mas_equalTo(10+ScreenHeight/10);
         make.width.mas_equalTo(superView);
         make.height.mas_equalTo(CommonHeight);
     }];

@@ -55,8 +55,8 @@ static char HUDKEY_BE;
 
 /**自定义提示框位置*/
 - (void)Message:(NSString *)message YOffset:(float)yoffset HiddenAfterDelay:(NSTimeInterval)delay{
-	
 	MBProgressHUD * hud_0314 = self.hud;
+    hud_0314.labelText=@"";
 
 	hud_0314.yOffset = yoffset;
 	hud_0314.mode = MBProgressHUDModeText;

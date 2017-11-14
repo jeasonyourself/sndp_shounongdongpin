@@ -131,6 +131,9 @@ typedef enum {
     [superView addSubview:_topIndicatorButton];
     [superView addSubview:_bottomDecorateLabel];
        [_topIndicatorButton setTitle:self.topLabelArray[superView.tag-1] forState:UIControlStateNormal];
+        _topIndicatorButton.titleLabel.numberOfLines=0;
+        _topIndicatorButton.titleLabel.lineBreakMode=NSLineBreakByTruncatingHead;
+        _topIndicatorButton.titleLabel.textAlignment=NSTextAlignmentCenter;
     _tmpDic = [NSMutableDictionary dictionary];
     switch (superView.tag) {
         
@@ -222,7 +225,7 @@ typedef enum {
     
     //创建网页内容对象
     UIImage* thumbURL =  [UIImage imageNamed:@"shareIcon"];
-    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"首农冻品" descr:@"国内领先的一站式冻品交易平台" thumImage:thumbURL];
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:_shopDic[@"shop_name"] descr:@"首农冻品店铺分享" thumImage:thumbURL];
     //设置网页地址
     shareObject.webpageUrl = [NSString stringWithFormat:@"http://www.taiyanggo.com/mobile/share.php?act=shop&id=%@",self.shopId];
     
@@ -904,8 +907,15 @@ typedef enum {
 }
 - (void)dianPuTelephoneBtnClick:(UIButton *)sender
 {
+    
+    if(!_shopDic[@"service_hotline"]||[_shopDic[@"service_hotline"] isEqualToString:@""])
+    {
+        [self.view Message:NSLocalizedString(@"He/she didn't reserve the phone number", nil) HiddenAfterDelay:1.5];
+        return;
+    }
+    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",_shopDic[@"service_hotline"]];
     UIWebView*callWebview =[[UIWebView alloc] init];
-    NSURL *telURL =[NSURL URLWithString:[NSString stringWithFormat:@"tel:15038271936"]];// 貌似tel:// 或者 tel: 都行
+    NSURL *telURL =[NSURL URLWithString:[NSString stringWithFormat:@"%@",str]];// 貌似tel:// 或者 tel: 都行
     [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
     
     //记得添加到view上

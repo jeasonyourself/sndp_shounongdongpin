@@ -19,13 +19,13 @@
 
 - (void)creatUI{
     //顶部线
-    UIView *topLine = [[UIView alloc]initWithFrame:CGRectMake(5, 0, ScreenWidth-10, 1)];
+    UIView *topLine = [[UIView alloc]initWithFrame:CGRectMake(10, 0, ScreenWidth-20, 1)];
     [self.btnView addSubview:topLine];
     topLine.backgroundColor = RGBACOLOR(230, 230, 230, 1);
     
     //底部线
-    UIView *bottomLine = [[UIView alloc]initWithFrame:CGRectMake(0, self.btnView.frame.size.height-1, ScreenWidth, 1)];
-    [self.btnView addSubview:bottomLine];
+    UIView *bottomLine = [[UIView alloc]initWithFrame:CGRectMake(10, self.frame.size.height-1, ScreenWidth-20, 1)];
+    [self addSubview:bottomLine];
     bottomLine.backgroundColor = RGBACOLOR(213, 213, 213, 1);
 }
 
