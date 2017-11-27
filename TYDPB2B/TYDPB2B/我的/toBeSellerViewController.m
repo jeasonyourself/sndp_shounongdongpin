@@ -84,6 +84,9 @@ MBProgressHUD *_MBHUD;
         return self.view.frame.size.width*222/375;
     }
     else if (indexPath.row<8) {
+        if (indexPath.row==6) {
+            return 70;
+        }
         return 50;
     }
     else if (indexPath.row==8) {
@@ -233,8 +236,8 @@ MBProgressHUD *_MBHUD;
         [_myTableView reloadData];
         //            NSLog(@"addressName:%@---privinceId:%@---cityId:%@",addressName,privinceId,cityId);
     }];
-    selectAddressVC.provinceId = @"";
-    selectAddressVC.cityId = @"";
+    selectAddressVC.provinceId = @"2";
+    selectAddressVC.cityId = @"52";
     [self.view addSubview:selectAddressVC.view];
     [CurrentWindow addSubview:selectAddressVC.view];
 }
@@ -274,8 +277,12 @@ MBProgressHUD *_MBHUD;
         
         }
     }
-    
-    if (_pubDic[@"real_name"]&&_pubDic[@"address"]&&_pubDic[@"shop_name"]&&_pubDic[@"email"]&&isSelect) {
+//    UITextField *tf1 = (UITextField*)[self.view viewWithTag:1];
+//    UITextField *tf2 = (UITextField*)[self.view viewWithTag:2];
+//    UITextField *tf3 = (UITextField*)[self.view viewWithTag:3];
+//    UITextField *tf4 = (UITextField*)[self.view viewWithTag:4];
+
+    if (_pubDic[@"real_name"]&&_pubDic[@"address"]&&_pubDic[@"shop_name"]&&isSelect&&_pubDic[@"province"]&&_pubDic[@"city"]&&![_pubDic[@"real_name"] isEqualToString:@""]&&![_pubDic[@"address"] isEqualToString:@""]&&![_pubDic[@"shop_name"] isEqualToString:@""]&&![_pubDic[@"province"] isEqualToString:@""]&&![_pubDic[@"city"] isEqualToString:@""]) {
         
     }
     else

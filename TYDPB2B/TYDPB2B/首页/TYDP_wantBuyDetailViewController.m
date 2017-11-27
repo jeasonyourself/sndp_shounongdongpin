@@ -657,10 +657,10 @@ typedef enum {
     [headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(a_demandCellView).with.offset(15);
         make.top.equalTo(a_demandCellView).with.offset(10);
-        make.width.mas_equalTo(demandCellImageWidth);
-        make.height.mas_equalTo(demandCellImageWidth);
+        make.width.mas_equalTo(demandCellImageWidth+10);
+        make.height.mas_equalTo(demandCellImageWidth+10);
     }];
-    [headImageView sd_setImageWithURL:[NSURL URLWithString:[_purchaseListMD.user_face isEqualToString:@""]?@"http://www.taiyanggo.com/images/no_picture.gif":_purchaseListMD.user_face] placeholderImage:nil];
+    [headImageView sd_setImageWithURL:[NSURL URLWithString:[_purchaseListMD.user_face isEqualToString:@""]?@"http://test.taiyanggo.com/images/no_picture.gif":_purchaseListMD.user_face] placeholderImage:nil];
     
     
     UILabel *nameLabel = [UILabel new];
@@ -676,10 +676,24 @@ typedef enum {
     [a_demandCellView addSubview:nameLabel];
     [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(headImageView.mas_right).with.offset(10);
-        make.top.equalTo(headImageView.mas_top).with.offset((demandCellImageWidth-CommonHeight)/2);
+        make.top.equalTo(headImageView.mas_top).with.offset(3);
         make.width.mas_equalTo(ScreenWidth/2);
-        make.height.mas_equalTo(CommonHeight);
+        make.height.mas_equalTo(CommonHeight-10);
     }];
+    
+    UILabel *timeLabel = [UILabel new];
+    [timeLabel setText:[NSString stringWithFormat:@"%@",_purchaseListMD.created_at]];
+    [timeLabel setFont:ThemeFont(11)];
+    [timeLabel setTextAlignment:NSTextAlignmentLeft];
+    [timeLabel setTextColor:[UIColor grayColor]];
+    [a_demandCellView addSubview:timeLabel];
+    [timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(headImageView.mas_right).with.offset(10);
+        make.top.equalTo(nameLabel.mas_bottom).with.offset(7);
+        make.width.mas_equalTo(ScreenWidth/2);
+        make.height.mas_equalTo(CommonHeight-10);
+    }];
+
     
     
     UILabel *addressLabel = [UILabel new];
@@ -745,7 +759,7 @@ typedef enum {
     [a_demandCellView addSubview:needDemandLabel];
     [needDemandLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(a_demandCellView.mas_left).with.offset(15);
-        make.top.equalTo(detailDemandLabel.mas_bottom).with.offset(10);
+        make.top.equalTo(detailDemandLabel.mas_bottom).with.offset(3);
         make.width.mas_equalTo(ScreenWidth-30);
         make.height.mas_equalTo([self heightForCellWithText:_purchaseListMD.memo andFont:[NSNumber numberWithFloat:14.0] andWidth:[NSNumber numberWithFloat:ScreenWidth-30]]);
     }];
@@ -841,7 +855,7 @@ typedef enum {
             make.width.mas_equalTo(demandCellImageWidth);
             make.height.mas_equalTo(demandCellImageWidth);
         }];
-        [headImageView sd_setImageWithURL:[NSURL URLWithString:[commentListMD.user_face isEqualToString:@""]?@"http://www.taiyanggo.com/images/no_picture.gif":commentListMD.user_face] placeholderImage:nil];
+        [headImageView sd_setImageWithURL:[NSURL URLWithString:[commentListMD.user_face isEqualToString:@""]?@"http://test.taiyanggo.com/images/no_picture.gif":commentListMD.user_face] placeholderImage:nil];
         
         
         UILabel *nameLabel = [UILabel new];

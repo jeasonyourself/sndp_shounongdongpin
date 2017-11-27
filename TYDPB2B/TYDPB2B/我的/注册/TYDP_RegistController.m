@@ -58,7 +58,7 @@
     //四行输入框
     NSArray *placeholderArr = @[NSLocalizedString(@"Your phone Country Code(default:0086)", nil),NSLocalizedString(@"Your phone No.", nil),NSLocalizedString(@"Verification code", nil),NSLocalizedString(@"password", nil),NSLocalizedString(@"Enter password again", nil)];
 //    NSArray *leftviewArr = @[@"login_phone",@"login_message",@"login_password",@"login_verification"];
-    for (int i = 0; i<5; i++) {
+    for (int i = 0; i<4; i++) {
         UITextField *tf = [[UITextField alloc]initWithFrame:CGRectMake(15, 64+(55*i)*Height, ScreenWidth-30, 55*Height)];
         tf.tag = 100+i;
         [self.view addSubview:tf];
@@ -167,15 +167,15 @@
     UITextField *tf1 = (UITextField *)[self.view viewWithTag:101];
     UITextField *tf2 = (UITextField *)[self.view viewWithTag:102];
     UITextField *tf3 = (UITextField *)[self.view viewWithTag:103];
-    UITextField *tf4 = (UITextField *)[self.view viewWithTag:104];
-    if (![tf3.text isEqualToString:tf4.text]) {
-        [_MBHUD setLabelText:NSLocalizedString(@"Two inputs dismatch!", nil)];
-        [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
-        [_MBHUD setMode:MBProgressHUDModeText];
-        [_MBHUD show:YES];
-        [_MBHUD hide:YES afterDelay:1.5f];
-        return;
-    }
+//    UITextField *tf4 = (UITextField *)[self.view viewWithTag:104];
+//    if (![tf3.text isEqualToString:tf4.text]) {
+//        [_MBHUD setLabelText:NSLocalizedString(@"Two inputs dismatch!", nil)];
+//        [_MBHUD setAnimationType:MBProgressHUDAnimationFade];
+//        [_MBHUD setMode:MBProgressHUDModeText];
+//        [_MBHUD show:YES];
+//        [_MBHUD hide:YES afterDelay:1.5f];
+//        return;
+//    }
     NSString *sign = [NSString stringWithFormat:@"userregister%@",ConfigNetAppKey];
     NSDictionary *params = @{@"model":@"user",@"action":@"register",@"mobile_phone":tf1.text,@"password":tf3.text,@"code":tf2.text,@"sign":[TYDPManager md5:sign]};
     [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {

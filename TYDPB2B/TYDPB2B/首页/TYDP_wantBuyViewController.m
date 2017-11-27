@@ -673,7 +673,7 @@ typedef enum {
             make.width.mas_equalTo(demandCellImageWidth);
             make.height.mas_equalTo(demandCellImageWidth);
         }];
-        [headImageView sd_setImageWithURL:[NSURL URLWithString:[purchaseListMD.user_face isEqualToString:@""]?@"http://www.taiyanggo.com/images/no_picture.gif":purchaseListMD.user_face] placeholderImage:nil];
+        [headImageView sd_setImageWithURL:[NSURL URLWithString:[purchaseListMD.user_face isEqualToString:@""]?@"http://test.taiyanggo.com/images/no_picture.gif":purchaseListMD.user_face] placeholderImage:nil];
         
         
         UILabel *nameLabel = [UILabel new];
@@ -691,10 +691,25 @@ typedef enum {
         [demandCellView addSubview:nameLabel];
         [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(headImageView.mas_right).with.offset(10);
-            make.top.equalTo(headImageView.mas_top).with.offset((demandCellImageWidth-CommonHeight)/2);
+            make.top.equalTo(headImageView.mas_top).with.offset(6);
             make.width.mas_equalTo(ScreenWidth/2);
-            make.height.mas_equalTo(CommonHeight);
+            make.height.mas_equalTo(CommonHeight-10);
         }];
+        
+        
+        UILabel *timeLabel = [UILabel new];
+        [timeLabel setText:[NSString stringWithFormat:@"%@",purchaseListMD.created_at]];
+        [timeLabel setFont:ThemeFont(11)];
+        [timeLabel setTextAlignment:NSTextAlignmentLeft];
+        [timeLabel setTextColor:[UIColor grayColor]];
+        [demandCellView addSubview:timeLabel];
+        [timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(headImageView.mas_right).with.offset(10);
+            make.top.equalTo(nameLabel.mas_bottom).with.offset(6);
+            make.width.mas_equalTo(ScreenWidth/2);
+            make.height.mas_equalTo(CommonHeight-10);
+        }];
+
         
         
         UILabel *addressLabel = [UILabel new];

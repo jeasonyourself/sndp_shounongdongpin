@@ -33,7 +33,7 @@
 
 - (void)creatUI{
     
-    _imgArr = @[@"serve_icon_agency",@"offer_icon_storage",@"serve_icon_financing",@"serve_icon_buy",@"serve_icon_price"];
+    _imgArr = @[@"icon_serve_cash",@"icon_serve_entrepot",@"icon_serve_money",@"icon_serve_ask",@"icon_serve_news"];
     _titleArr = @[NSLocalizedString(@"Inland Logistics", nil),NSLocalizedString(@"Warehouse Service", nil),NSLocalizedString(@"Mortgage loaning", nil),NSLocalizedString(@"Enquiry service", nil),NSLocalizedString(@"Industry information", nil)];
     _subTitleArr = @[@"",@"",@"",@"",@""];
     
@@ -154,6 +154,17 @@
     }
     _tableVC.rowHeight = 70;
     cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",_imgArr[indexPath.row]]];
+    
+    CGSize size = CGSizeMake(40, 40);
+    UIImage *image = [UIImage imageNamed:_imgArr[indexPath.row]];
+    cell.imageView.image = image;
+    //调整image的大小
+    UIGraphicsBeginImageContextWithOptions(size, NO,0.0);
+    CGRect imageRect=CGRectMake(0.0, 0.0, size.width, size.height);
+    [image drawInRect:imageRect];
+    cell.imageView.image=UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
     cell.textLabel.text = [NSString stringWithFormat:@"%@",_titleArr[indexPath.row]];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",_subTitleArr[indexPath.row]];
     cell.detailTextLabel.textColor = RGBACOLOR(153, 153, 153, 1);

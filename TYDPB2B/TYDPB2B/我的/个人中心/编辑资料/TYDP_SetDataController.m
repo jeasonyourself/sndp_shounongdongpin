@@ -86,34 +86,34 @@
     UITapGestureRecognizer *headTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(changeHeadImg:)];
     [rightImg addGestureRecognizer:headTap];
     
-    NSArray *imgArr = @[@"edit_icon_username",@"edit_icon_name",@"edit_icon_gender",@"edit_icon_phone",@"edit_icon_email",@"edit_icon_location",@"edit_icon_name",@"edit_icon_name"];
+    NSArray *imgArr = @[@"edit_icon_username",@"edit_icon_name",@"edit_icon_gender",@"edit_icon_phone",@"edit_icon_location",@"edit_icon_name",@"edit_icon_name"];
     
-    NSArray *titleArr = @[NSLocalizedString(@"Username", nil),NSLocalizedString(@"Legal name", nil),NSLocalizedString(@"Gender", nil),NSLocalizedString(@"Phone No.", nil),NSLocalizedString(@"Email", nil),NSLocalizedString(@"Location", nil),NSLocalizedString(@"Stall name", nil),NSLocalizedString(@"Stall detail",nil)];
+    NSArray *titleArr = @[NSLocalizedString(@"Username", nil),NSLocalizedString(@"Legal name", nil),NSLocalizedString(@"Gender", nil),NSLocalizedString(@"Phone No.", nil),NSLocalizedString(@"Address", nil),NSLocalizedString(@"Stall name", nil),NSLocalizedString(@"Stall detail",nil)];
     
     if (!_modelArr) {
         _modelArr = [NSArray copy];
     }
     
     if (!self.model) {
-        _modelArr = @[@"",@"",@"",@"",@"",@"",@"",@"",@""];
+        _modelArr = @[@"",@"",@"",@"",@"",@"",@"",@""];
     }else{
         if ([[PSDefaults objectForKey:@"userType"] isEqualToString:@"1"]) {
-            _modelArr = @[self.model.user_name,self.model.alias,[[NSString stringWithFormat:@"%@",self.model.sex] isEqualToString:@"1"]?NSLocalizedString(@"Male", nil):NSLocalizedString(@"Female", nil),self.model.mobile_phone,self.model.email,self.model.address,self.model.shop_name,self.model.shop_info?self.model.shop_info:@""];
+            _modelArr = @[self.model.user_name,self.model.alias,[[NSString stringWithFormat:@"%@",self.model.sex] isEqualToString:@"1"]?NSLocalizedString(@"Male", nil):NSLocalizedString(@"Female", nil),self.model.mobile_phone,self.model.address,self.model.shop_name,self.model.shop_info?self.model.shop_info:@""];
             debugLog(@"_modelArr:%@",_modelArr);
         }
         else
         {
-        _modelArr = @[self.model.user_name,self.model.alias,[[NSString stringWithFormat:@"%@",self.model.sex] isEqualToString:@"1"]?NSLocalizedString(@"Male", nil):NSLocalizedString(@"Female", nil),self.model.mobile_phone,self.model.email,self.model.address];
+        _modelArr = @[self.model.user_name,self.model.alias,[[NSString stringWithFormat:@"%@",self.model.sex] isEqualToString:@"1"]?NSLocalizedString(@"Male", nil):NSLocalizedString(@"Female", nil),self.model.mobile_phone,self.model.address];
         }
     }
     debugLog(@"user_rankkkk:%@",[PSDefaults objectForKey:@"user_rank"]);
     int count;
     if ([[PSDefaults objectForKey:@"userType"] isEqualToString:@"1"]) {
-        count=8;
+        count=7;
     }
     else
     {
-        count=6;
+        count=5;
     }
     for (int i = 0; i<count; i++) {
         UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, (100+45*i)*Height+NavHeight+i, ScreenWidth, 45*Height)];
@@ -124,8 +124,8 @@
         [view addSubview:leftImg];
         leftImg.image = [UIImage imageNamed:imgArr[i]];
         
-        if (i == 2||i == 5) {
-            UILabel *labLeft = [[UILabel alloc]initWithFrame:CGRectMake(40*Width+15*Height, 5*Height, 61*Width, 35*Height)];
+        if (i == 2||i == 4) {
+            UILabel *labLeft = [[UILabel alloc]initWithFrame:CGRectMake(40*Width+15*Height, 5*Height, 91*Width, 35*Height)];
             [view addSubview:labLeft];
             labLeft.text = titleArr[i];
             
@@ -143,7 +143,7 @@
             else{
                 self.cityId = [NSString stringWithFormat:@"%@",self.model.city];
                 self.provinceId = [NSString stringWithFormat:@"%@",self.model.province];
-                if (!self.provinceId||!self.cityId) {
+                if (!self.provinceId||!self.cityId||[self.provinceId integerValue]==0||[self.cityId integerValue]==0) {
                     labRight.text = NSLocalizedString(@"Choose", nil);
                 }else{
                     labRight.text = [self findAddressWithProvince:[NSString stringWithFormat:@"%@",self.provinceId] City:[NSString stringWithFormat:@"%@",self.cityId]];
@@ -294,14 +294,18 @@
         TYDP_SelectAddressController *selectAddressVC = [TYDP_SelectAddressController new];
         [self addChildViewController:selectAddressVC];
         [selectAddressVC retTextBlock:^(NSString *addressName, NSString *privinceId, NSString *cityId) {
-            UILabel *lab = (UILabel *)[self.view viewWithTag:105];
+            UILabel *lab = (UILabel *)[self.view viewWithTag:104];
             lab.text = addressName;
             self.provinceId = privinceId;
             self.cityId = cityId;
             //            NSLog(@"addressName:%@---privinceId:%@---cityId:%@",addressName,privinceId,cityId);
         }];
-        selectAddressVC.provinceId = self.model.province;
-        selectAddressVC.cityId = self.model.city;
+        if (!self.model.province||[self.model.province integerValue]==0) {
+            selectAddressVC.provinceId =@"2";
+        }
+        if (!self.model.city||[self.model.city integerValue]==0) {
+            selectAddressVC.cityId =@"52";
+        }
         [self.view addSubview:selectAddressVC.view];
         [CurrentWindow addSubview:selectAddressVC.view];
     }
@@ -355,9 +359,9 @@
     UITextField *tf1 = (UITextField*)[self.view viewWithTag:101];
     //    UITextField *tf3 = (UITextField*)[self.view viewWithTag:103];
     UITextField *tf3 = (UITextField*)[self.view viewWithTag:103];
-    UITextField *tf4 = (UITextField*)[self.view viewWithTag:104];
-    UITextField *tf7 = (UITextField*)[self.view viewWithTag:106];
-    UITextField *tf8 = (UITextField*)[self.view viewWithTag:107];
+//    UITextField *tf4 = (UITextField*)[self.view viewWithTag:104];
+    UITextField *tf7 = (UITextField*)[self.view viewWithTag:105];
+    UITextField *tf8 = (UITextField*)[self.view viewWithTag:106];
 
     NSString *user_name;
     UIView *view0 = [self.view viewWithTag:100];
@@ -367,7 +371,7 @@
     }else{
         user_name = @"";
     }
-    if (!self.cityId ||!self.provinceId) {
+    if (!self.cityId ||!self.provinceId||[self.provinceId integerValue]==0||[self.cityId integerValue]==0) {
         [_MBHUD setLabelText:NSLocalizedString(@"Please choose your city", nil)];
         [_MBHUD hide:YES afterDelay:1];
         NSLog(@"请选择您所在城市");
@@ -376,17 +380,24 @@
         NSUserDefaults *userdefaul = [NSUserDefaults standardUserDefaults];
         NSDictionary *params;
          if (![[PSDefaults objectForKey:@"userType"] isEqualToString:@"1"]) {
-             params = @{@"model":@"user",@"action":@"edit_info",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"useredit_info%@",ConfigNetAppKey]],@"user_id":[userdefaul objectForKey:@"user_id"],@"token":[userdefaul objectForKey:@"token"],@"alias":tf1.text,@"sex":self.model.sex,@"mobile_phone":tf3.text,@"email":tf4.text,@"city":self.cityId,@"province":self.provinceId,@"user_name":user_name};
+             params = @{@"model":@"user",@"action":@"edit_info",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"useredit_info%@",ConfigNetAppKey]],@"user_id":[userdefaul objectForKey:@"user_id"],@"token":[userdefaul objectForKey:@"token"],@"alias":tf1.text,@"sex":self.model.sex,@"mobile_phone":tf3.text,@"city":self.cityId,@"province":self.provinceId,@"user_name":user_name};
+             
+             if ([params[@"alias"] isEqualToString:@""]||[params[@"sex"] isEqualToString:@""]||[params[@"mobile_phone"] isEqualToString:@""]) {
+                 [self.view Message:NSLocalizedString(@"Please complete required information", nil) HiddenAfterDelay:1.5];
+                 return;
+             }
          }
         else
         {
-            params = @{@"model":@"user",@"action":@"edit_info",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"useredit_info%@",ConfigNetAppKey]],@"user_id":[userdefaul objectForKey:@"user_id"],@"token":[userdefaul objectForKey:@"token"],@"alias":tf1.text,@"sex":self.model.sex,@"mobile_phone":tf3.text,@"email":tf4.text,@"city":self.cityId,@"province":self.provinceId,@"user_name":user_name,@"shop_name":tf7.text,@"shop_info":tf8.text};
+            params = @{@"model":@"user",@"action":@"edit_info",@"sign":[TYDPManager md5:[NSString stringWithFormat:@"useredit_info%@",ConfigNetAppKey]],@"user_id":[userdefaul objectForKey:@"user_id"],@"token":[userdefaul objectForKey:@"token"],@"alias":tf1.text,@"sex":self.model.sex,@"mobile_phone":tf3.text,@"city":self.cityId,@"province":self.provinceId,@"user_name":user_name,@"shop_name":tf7.text,@"shop_info":tf8.text};
+            
+            if ([params[@"alias"] isEqualToString:@""]||[params[@"sex"] isEqualToString:@""]||[params[@"mobile_phone"] isEqualToString:@""]||[params[@"shop_name"] isEqualToString:@""]||[params[@"shop_info"] isEqualToString:@""]) {
+                [self.view Message:NSLocalizedString(@"Please complete required information", nil) HiddenAfterDelay:1.5];
+                return;
+            }
         }
         
-        if ([params[@"alias"] isEqualToString:@""]) {
-            [self.view Message:NSLocalizedString(@"Please fill in the legal name", nil) HiddenAfterDelay:1.5];
-            return;
-        }
+        
         
         [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
 //            NSLog(@"%@",data);

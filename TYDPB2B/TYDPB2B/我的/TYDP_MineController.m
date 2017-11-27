@@ -337,7 +337,7 @@
     }
     if (indexPath.row ==3) {
         NSLog(@"专属客服");
-        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"15038271936"];
+        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",[NSString stringWithFormat:@"%@",_model.customer_service]];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
     }
         if (indexPath.row ==4) {
@@ -385,7 +385,7 @@
         if (indexPath.row ==4) {
             NSLog(@"专属客服");
             NSLog(@"专属客服");
-            NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"15038271936"];
+            NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",_model.customer_service];
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
         }
         if (indexPath.row ==5) {
@@ -589,7 +589,12 @@
 
 //设置按钮
 - (void)setBtnClick{
-    NSLog(@"设置");
+//    UIStoryboard *story = [UIStoryboard storyboardWithName:@"seller_Storyboard" bundle:nil];
+//    toBeSellerViewController * toBeSellerVC = [story instantiateViewControllerWithIdentifier:@"toBeSellerVC"];
+//    toBeSellerVC.TYDP_UserInfoMD=_model;
+//    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:toBeSellerVC];
+//    [self.navigationController presentViewController:nav animated:YES completion:nil];
+//    NSLog(@"设置");
     TYDP_SetController *setVC = [[TYDP_SetController alloc]init];
     [self.navigationController pushViewController:setVC animated:YES];
 }

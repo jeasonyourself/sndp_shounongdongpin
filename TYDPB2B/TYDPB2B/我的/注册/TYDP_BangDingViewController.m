@@ -93,7 +93,7 @@
         }else if (i == 2){//输入密码
             tf.secureTextEntry = YES;
         }else if (i == 3){//验证码图片
-            
+            tf.secureTextEntry = YES;
         }
     }
     
@@ -178,7 +178,7 @@
 //        return;
 //    }
     NSString *sign = [NSString stringWithFormat:@"loginbinding%@",ConfigNetAppKey];
-    NSDictionary *params = @{@"model":@"login",@"action":@"binding",@"mobile_phone":tf1.text,@"password":tf3.text,@"mobile_code":tf2.text,@"openid":_userDic[@"openid"],@"unionid":_userDic[@"unionid"],@"user_name":_userDic[@"headimgurl"],@"user_face":_userDic[@"nickname"],@"sign":[TYDPManager md5:sign]};
+    NSDictionary *params = @{@"model":@"login",@"action":@"binding",@"mobile_phone":tf1.text,@"password":tf3.text,@"mobile_code":tf2.text,@"openid":_userDic[@"openid"],@"unionid":_userDic[@"unionid"],@"user_name":_userDic[@"nickname"],@"user_face":_userDic[@"nickname"],@"sign":[TYDPManager md5:sign]};
     [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
         debugLog(@"bangdingUser:%@",data);
         debugLog(@"%@",data[@"message"]);

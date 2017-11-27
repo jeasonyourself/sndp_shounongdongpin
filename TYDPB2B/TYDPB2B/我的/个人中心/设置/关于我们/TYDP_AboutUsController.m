@@ -35,7 +35,14 @@
     
     UILabel *textLab = [[UILabel alloc]initWithFrame:CGRectMake(50, ScreenHeight-100, ScreenWidth-100, 100)];
     [self.view addSubview:textLab];
-    textLab.text = @"—— Version 1.0.1 ——";
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    // app名称
+//    NSString *app_Name = [infoDictionary objectForKey:@"CFBundleDisplayName"];
+    // app版本
+    NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    // app build版本
+//    NSString *app_build = [infoDictionary objectForKey:@"CFBundleVersion"];
+    textLab.text = [NSString stringWithFormat:@"—— Version %@ ——",app_Version];
     textLab.textColor = RGBACOLOR(98, 148, 228, 1);
     textLab.textAlignment = NSTextAlignmentCenter;
 }

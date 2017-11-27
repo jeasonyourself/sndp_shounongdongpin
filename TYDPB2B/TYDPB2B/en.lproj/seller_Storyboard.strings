@@ -57,7 +57,7 @@
 "ccX-Qx-f20.text" = "Product Character";
 
 /* Class = "UILabel"; text = "欧元"; ObjectID = "lek-xP-JGU"; */
-"lek-xP-JGU.text" = "EUR";
+"lek-xP-JGU.text" = "EURO";
 
 /* Class = "UIButton"; normalTitle = "提交报盘"; ObjectID = "lwG-0v-QCr"; */
 "lwG-0v-QCr.normalTitle" = "Submit";

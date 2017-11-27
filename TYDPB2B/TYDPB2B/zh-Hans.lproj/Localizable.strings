@@ -59,7 +59,7 @@
 "Enter Comment"="求购留言";
 "Offer information"="报盘信息";
 "Offer details"="报盘详情";
-"Offer note"="报盘说明";
+"Spec"="报盘说明";
 "Spec and param"="规格参数";
 "Serial No."="编号";
 "Country"="国家";
@@ -266,8 +266,8 @@
 "Max"="最大值";
 "to"="至";
 "Enter the receiving address"="输入收货地址";
-"Name of enquirer"="求购人姓名";
-"Enquirer's phone NO."="求购人电话";
+"Name of poster"="发布人姓名";
+"Poster's phone NO."="发布人电话";
 "The price range is reversed"="价格范围顺序反了哦。";
 "Missing parameters"="缺少参数";
 "Product category"="产品分类";

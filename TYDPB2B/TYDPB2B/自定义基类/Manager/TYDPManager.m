@@ -9,7 +9,7 @@
 #import "TYDPManager.h"
 #import "TYDPHttpManager.h"
 #import <CommonCrypto/CommonDigest.h>
-#define ServerIP @"http://www.taiyanggo.com/app/api.php"
+#define ServerIP @"http://test.taiyanggo.com/app/api.php"
 @implementation TYDPManager
 
 /**

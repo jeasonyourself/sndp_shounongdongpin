@@ -463,7 +463,7 @@ typedef enum {
     UILabel *bottomAmountLabel = [UILabel new];
     [bottomAmountLabel setFont:ThemeFont(14)];
     [bottomAmountLabel setTextColor:RGBACOLOR(153, 153, 153, 1)];
-    bottomAmountLabel.text=NSLocalizedString(@"Offer note", nil);
+    bottomAmountLabel.text=NSLocalizedString(@"Spec", nil);
     bottomAmountLabel.textAlignment=NSTextAlignmentRight;
     bottomAmountLabel.userInteractionEnabled=YES;
     UITapGestureRecognizer *bottomAmountLabelViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bottomAmountLabelViewTap:)];
@@ -1122,7 +1122,7 @@ typedef enum {
         UILabel *leftSmallLabel = [UILabel new];
         [smallView addSubview:leftSmallLabel];
         NSString * nameStr = [NSString stringWithFormat:@""];
-        nameStr=NSLocalizedString(@"Offer note", nil);
+        nameStr=NSLocalizedString(@"Spec", nil);
         leftSmallLabel.text=nameStr;
         [leftSmallLabel setFont:ThemeFont(CommonFontSize+1)];
         [leftSmallLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1877,12 +1877,13 @@ typedef enum {
 {
     //创建分享消息对象
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
-    
+    debugLog(@"_offerDetailModel.goods_thumb:%@",_offerDetailModel.goods_thumb);
     //创建网页内容对象
-    UIImage* thumbURL =  [UIImage imageNamed:@"shareIcon"];
-    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:[NSString stringWithFormat:@"%@ %@ %@/%@",_offerDetailModel.brand_sn,_offerDetailModel.goods_name,_offerDetailModel.formated_shop_price,_offerDetailModel.shop_price_unit] descr:[NSString stringWithFormat:@"%@ %@/%@ %@ %@",_offerDetailModel.goods_name,_offerDetailModel.formated_shop_price,_offerDetailModel.shop_price_unit,_offerDetailModel.goods_txt,[[NSString stringWithFormat:@"%@",_offerDetailModel.goods_type] isEqualToString:@"7"]?_offerDetailModel.goods_local:_offerDetailModel.port_name] thumImage:thumbURL];
+    UIImageView* thumbURL =[UIImageView new];
+    [thumbURL sd_setImageWithURL: [NSURL URLWithString:[NSString stringWithFormat:@"%@",_offerDetailModel.goods_thumb]]];
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:[NSString stringWithFormat:@"%@ %@ %@/%@",_offerDetailModel.brand_sn,_offerDetailModel.goods_name,_offerDetailModel.formated_shop_price,_offerDetailModel.shop_price_unit] descr:[NSString stringWithFormat:@"%@ %@/%@ %@ %@",_offerDetailModel.goods_name,_offerDetailModel.formated_shop_price,_offerDetailModel.shop_price_unit,_offerDetailModel.goods_txt,[[NSString stringWithFormat:@"%@",_offerDetailModel.goods_type] isEqualToString:@"7"]?_offerDetailModel.goods_local:_offerDetailModel.port_name] thumImage:thumbURL.image];
     //设置网页地址
-    shareObject.webpageUrl = [NSString stringWithFormat:@"http://www.taiyanggo.com/mobile/share.php?act=goods&id=%@",self.goods_id];
+    shareObject.webpageUrl = [NSString stringWithFormat:@"http://test.taiyanggo.com/mobile/share.php?act=goods&id=%@",self.goods_id];
     
     //分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;
@@ -2349,7 +2350,7 @@ typedef enum {
                 [self.view addSubview:_orderShowView];
                 if (_orderButton.frame.size.width == ScreenWidth) {
                     NSLog(@"TT");
-                    [_orderButton setTitle:@"订购" forState:UIControlStateNormal];
+                    [_orderButton setTitle:NSLocalizedString(@"ORDER",nil) forState:UIControlStateNormal];
                     NSMutableDictionary *tmpDic = [NSMutableDictionary dictionary];
                     [tmpDic setObject:_offerDetailModel.goods_thumb forKey:@"goodsImage"];
                     [tmpDic setObject:_offerDetailModel.goods_name forKey:@"goodsName"];
@@ -2685,7 +2686,7 @@ typedef enum {
         }
         case SmallOrderButtonCancelMessage:{
             [self setBottomButtonUserInteraction:YES];
-            [_orderButton setTitle:@"订购" forState:UIControlStateNormal];
+            [_orderButton setTitle:NSLocalizedString(@"ORDER",nil) forState:UIControlStateNormal];
             [_blackView removeFromSuperview];
             [_orderShowView removeFromSuperview];
             [_orderButton mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -2750,7 +2751,7 @@ typedef enum {
             break;
         }
         case OrderButtonMessage:{
-            [_orderButton setTitle:@"订购" forState:UIControlStateNormal];
+            [_orderButton setTitle:NSLocalizedString(@"ORDER",nil) forState:UIControlStateNormal];
             [_orderShowView removeFromSuperview];
             [_orderButton mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(_offerButton.mas_right);

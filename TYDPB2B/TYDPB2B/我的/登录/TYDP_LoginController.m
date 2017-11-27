@@ -95,7 +95,7 @@
     
     //登录按钮
     UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    loginBtn.frame = CGRectMake(40, _forgetPasswordBtn.mj_h+_forgetPasswordBtn.mj_y+20, ScreenWidth-80, 40*Height);
+    loginBtn.frame = CGRectMake(40, _forgetPasswordBtn.mj_h+_forgetPasswordBtn.mj_y+10, ScreenWidth-80, 40);
     loginBtn.backgroundColor = mainColor;
     [loginBtn setTitle:NSLocalizedString(@"Login", nil) forState:UIControlStateNormal];
     [loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -176,7 +176,9 @@
         NSString *sign = [NSString stringWithFormat:@"%@%@%@",@"login",@"wxLogin",ConfigNetAppKey];
          NSUserDefaults *userdefauls = [NSUserDefaults standardUserDefaults];
         NSDictionary *params = @{@"model":@"login",@"action":@"wxLogin",@"openid":userDic[@"openid"],@"unionid":userDic[@"unionid"],@"sign":[TYDPManager md5:sign]};
+        [self creatHUD];
         [TYDPManager tydp_basePostReqWithUrlStr:PHPURL params:params success:^(id data) {
+            
             debugLog(@"wxLogindata:%@",data);
             if ([data[@"error"]isEqualToString:@"0"]) {
                 [_MBHUD hide:YES];
@@ -192,6 +194,8 @@
             }
             else if ([data[@"error"]isEqualToString:@"301"])
             {
+                [_MBHUD hide:YES];
+                
                 TYDP_BangDingViewController *bangDingVC = [TYDP_BangDingViewController new];
                 bangDingVC.userDic=userDic;
                 [self.navigationController pushViewController:bangDingVC animated:YES];

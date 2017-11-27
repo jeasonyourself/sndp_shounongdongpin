@@ -49,6 +49,8 @@
 @property(nonatomic , copy)NSString* visit_count;
 @property(nonatomic , copy)NSString* shop_info;
 @property(nonatomic , copy)NSString* service_hotline;
+@property(nonatomic , copy)NSString* customer_service;
+
 //@property(nonatomic , copy)NSString* token;
 @property(nonatomic , assign)int huck_num;
 @property(nonatomic , copy)NSString* kefu_mobile;

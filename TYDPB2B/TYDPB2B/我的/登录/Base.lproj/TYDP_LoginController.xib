@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入手机号" textAlignment="natural" minimumFontSize="17" background="login_input" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ZQM-sV-GNy">
-                    <rect key="frame" x="40" y="210" width="295" height="40"/>
+                    <rect key="frame" x="40" y="195" width="295" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="p0u-h2-YOZ"/>
                     </constraints>
@@ -31,7 +31,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入密码" textAlignment="natural" minimumFontSize="17" background="login_input" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Kix-nk-yrk">
-                    <rect key="frame" x="40" y="250" width="295" height="40"/>
+                    <rect key="frame" x="40" y="235" width="295" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="dHS-w2-ga3"/>
                     </constraints>
@@ -42,7 +42,7 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PG6-Iy-Qu0">
-                    <rect key="frame" x="40" y="298" width="150" height="30"/>
+                    <rect key="frame" x="40" y="283" width="150" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="AMN-fd-yEB"/>
                         <constraint firstAttribute="width" constant="150" id="WJF-jz-iBj"/>
@@ -68,7 +68,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_ch" translatesAutoresizingMaskIntoConstraints="NO" id="bRs-kn-B7q">
-                    <rect key="frame" x="140" y="100" width="95" height="95"/>
+                    <rect key="frame" x="140" y="85" width="95" height="95"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="95" id="dAm-7V-DgJ"/>
                         <constraint firstAttribute="width" constant="95" id="xS9-MB-TR1"/>
@@ -87,7 +87,7 @@
                     </variation>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="其他登录方式" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5H-zC-Q1t">
-                    <rect key="frame" x="50" y="423" width="275" height="15"/>
+                    <rect key="frame" x="50" y="388" width="275" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="Kkl-Kf-dp9"/>
                     </constraints>
@@ -96,7 +96,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sx7-fW-HFf" userLabel="lab_wechat">
-                    <rect key="frame" x="16" y="499" width="343" height="20"/>
+                    <rect key="frame" x="16" y="436" width="343" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Vr1-Kj-BVa"/>
                     </constraints>
@@ -105,10 +105,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oy0-8m-KnT" userLabel="btn_wechat">
-                    <rect key="frame" x="165" y="458" width="45" height="36"/>
+                    <rect key="frame" x="170" y="408" width="35" height="28"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="36" id="1Df-Ep-uos"/>
-                        <constraint firstAttribute="width" constant="45" id="wkM-mK-akh"/>
+                        <constraint firstAttribute="height" constant="28" id="1Df-Ep-uos"/>
+                        <constraint firstAttribute="width" constant="35" id="wkM-mK-akh"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <state key="normal" backgroundImage="login_icon_wechat"/>
@@ -126,18 +126,18 @@
                 <constraint firstAttribute="trailing" secondItem="u5H-zC-Q1t" secondAttribute="trailing" constant="50" id="PB9-al-bAb"/>
                 <constraint firstAttribute="trailing" secondItem="ZQM-sV-GNy" secondAttribute="trailing" constant="40" id="SBw-Iz-KYH"/>
                 <constraint firstItem="ZQM-sV-GNy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="XNc-mt-NLx"/>
-                <constraint firstItem="bRs-kn-B7q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="c7c-iH-cK0"/>
-                <constraint firstItem="Sx7-fW-HFf" firstAttribute="top" secondItem="oy0-8m-KnT" secondAttribute="bottom" constant="5" id="cif-02-qI3"/>
+                <constraint firstItem="bRs-kn-B7q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="85" id="c7c-iH-cK0"/>
+                <constraint firstItem="Sx7-fW-HFf" firstAttribute="top" secondItem="oy0-8m-KnT" secondAttribute="bottom" id="cif-02-qI3"/>
                 <constraint firstItem="Sx7-fW-HFf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="d5G-E4-tJD"/>
                 <constraint firstItem="ZQM-sV-GNy" firstAttribute="top" secondItem="bRs-kn-B7q" secondAttribute="bottom" constant="15" id="fR9-6M-uTu"/>
                 <constraint firstItem="bRs-kn-B7q" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fSO-uc-euC"/>
                 <constraint firstItem="u5H-zC-Q1t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="j9e-2a-ZrG"/>
-                <constraint firstItem="u5H-zC-Q1t" firstAttribute="top" secondItem="PG6-Iy-Qu0" secondAttribute="bottom" constant="95" id="nM9-6q-sXP"/>
+                <constraint firstItem="u5H-zC-Q1t" firstAttribute="top" secondItem="PG6-Iy-Qu0" secondAttribute="bottom" constant="75" id="nM9-6q-sXP"/>
                 <constraint firstItem="Sx7-fW-HFf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="puS-Vc-0qe"/>
                 <constraint firstItem="Kix-nk-yrk" firstAttribute="top" secondItem="ZQM-sV-GNy" secondAttribute="bottom" id="r26-ip-hwq"/>
                 <constraint firstItem="PG6-Iy-Qu0" firstAttribute="top" secondItem="ZQM-sV-GNy" secondAttribute="bottom" constant="48" id="xRK-Pl-GTU"/>
                 <constraint firstItem="PG6-Iy-Qu0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="xmk-c4-tnw"/>
-                <constraint firstItem="oy0-8m-KnT" firstAttribute="top" secondItem="u5H-zC-Q1t" secondAttribute="bottom" constant="20" id="zET-9B-Y8B"/>
+                <constraint firstItem="oy0-8m-KnT" firstAttribute="top" secondItem="u5H-zC-Q1t" secondAttribute="bottom" constant="5" id="zET-9B-Y8B"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <variation key="default">
@@ -162,6 +162,6 @@
     <resources>
         <image name="login_icon_wechat" width="25" height="20"/>
         <image name="login_input" width="375" height="45"/>
-        <image name="logo_ch" width="89" height="89"/>
+        <image name="logo_ch" width="118" height="118"/>
     </resources>
 </document>

@@ -49,7 +49,7 @@
         _titleLable=[[UILabel alloc] initWithFrame:CGRectMake(0, _backgroundImageView.frame.size.height+_backgroundImageView.frame.origin.y, self.bounds.size.width, 20)];
         _titleLable.text=title;
         _titleLable.textAlignment=NSTextAlignmentCenter;
-        _titleLable.font=[UIFont systemFontOfSize:16.0];
+        _titleLable.font=[UIFont boldSystemFontOfSize:16.0];
         _titleLable.textColor=[UIColor darkGrayColor];
         [self addSubview:_titleLable];
         

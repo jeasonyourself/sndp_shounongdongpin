@@ -209,10 +209,10 @@
             UIView *grayLineTop = [[UIView alloc]initWithFrame:CGRectMake(0, -1, ScreenWidth, 0.5)];
             [cellView addSubview:grayLineTop];
             grayLineTop.backgroundColor = RGBACOLOR(203, 203, 203, 1);
-            lab.text = NSLocalizedString(@"Name of enquirer", nil);
+            lab.text = NSLocalizedString(@"Name of poster", nil);
             tf.text = _user_name;
         }else{
-            lab.text = NSLocalizedString(@"Enquirer's phone NO.", nil);
+            lab.text = NSLocalizedString(@"Poster's phone NO.", nil);
             tf.text = _user_phone;
         }
     }
