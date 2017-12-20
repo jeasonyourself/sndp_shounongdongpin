@@ -103,6 +103,7 @@
             [_model setValuesForKeysWithDictionary:data[@"content"]];
             [_MBHUD hide:YES];
             [self configUIwithData];
+            [_tabView reloadData];
         }else{
             [_MBHUD setLabelText:data[@"message"]];
             [_MBHUD hide:YES afterDelay:1.5f];
@@ -343,7 +344,7 @@
             cell = [[TYDP_sellerCenterTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TYDP_MineCellA"];
         }
         cell.tag=indexPath.row;
-        [self configCellA:cell];
+        [self configCellA:cell and:indexPath.row];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         return cell;
     }else{
@@ -371,7 +372,7 @@
     
 }
 
-- (void)configCellA:(TYDP_sellerCenterTableViewCell *)cell{
+- (void)configCellA:(TYDP_sellerCenterTableViewCell *)cell and:(NSInteger)row{
     //四个button
     NSArray *imgArr = @[@"icon_seller_exchange",@"icon_seller_seller",@"icon_seller_order",@"icon_seller_buy",@"icon_seller_box",@"icon_seller_money",@"icon_seller_feedback",@"icon_seller_share",@"icon_seller_focus"];
     NSArray *titleArr = @[NSLocalizedString(@"Bid list", nil),NSLocalizedString(@"Offers", nil),NSLocalizedString(@"Orders", nil),NSLocalizedString(@"Enquiry list", nil),NSLocalizedString(@"Consigners", nil),NSLocalizedString(@"Account fund", nil),NSLocalizedString(@"Feedback", nil),NSLocalizedString(@"Share Stall", nil),NSLocalizedString(@"My Following", nil)];
@@ -397,6 +398,32 @@
         lab.text = [NSString stringWithFormat:@"%@",titleArr[i+cell.tag*3]];
         lab.font = [UIFont systemFontOfSize:15];
         lab.textAlignment = NSTextAlignmentCenter;
+        
+        if (row==0&&i==0) {
+            UILabel *numlab = [[UILabel alloc]initWithFrame:CGRectMake(img.frame.origin.x+img.frame.size.width+10,img.frame.origin.y-10, 20, 20)];
+            numlab.backgroundColor=mainColor;
+            numlab.textColor=[UIColor whiteColor];
+            [bgView addSubview:numlab];
+            debugLog(@"_model_model123:%d",_model.huck_num);
+            if (_model.huck_num>0) {
+                numlab.text = [NSString stringWithFormat:@"%d",_model.huck_num];
+                numlab.hidden=NO;
+            }
+            else
+            {
+                numlab.hidden=YES;
+
+            }
+            numlab.font = [UIFont systemFontOfSize:15];
+            numlab.textAlignment = NSTextAlignmentCenter;
+            numlab.layer.cornerRadius = 10;//设置那个圆角的有多圆
+            numlab.layer.borderWidth =0;//设置边框的宽度，当然可以不要
+            numlab.layer.borderColor = nil;//设置边框的颜色
+            numlab.layer.masksToBounds = YES;//设为NO去试试
+
+        }
+       
+        
     }
 }
 

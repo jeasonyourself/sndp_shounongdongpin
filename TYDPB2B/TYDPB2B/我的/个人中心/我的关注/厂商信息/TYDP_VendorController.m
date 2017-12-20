@@ -227,9 +227,9 @@ typedef enum {
     UIImageView* thumbURL =[UIImageView new];
 
      [thumbURL sd_setImageWithURL:[NSURL URLWithString:_shopDic[@"user_face"]] placeholderImage:[UIImage imageNamed:@"person_head_default"]];
-    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:_shopDic[@"shop_name"] descr:@"首农冻品店铺分享" thumImage:thumbURL];
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:_shopDic[@"shop_name"] descr:@"首农冻品店铺分享" thumImage:thumbURL.image];
     //设置网页地址
-    shareObject.webpageUrl = [NSString stringWithFormat:@"http://test.taiyanggo.com/mobile/share.php?act=shop&id=%@",self.shopId];
+    shareObject.webpageUrl = [NSString stringWithFormat:@"http://www.taiyanggo.com/mobile/share.php?act=shop&id=%@",self.shopId];
     
     //分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;

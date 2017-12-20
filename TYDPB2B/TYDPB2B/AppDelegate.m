@@ -53,10 +53,12 @@
     /**
      *  友盟统计
      */
-    UMConfigInstance.appKey = @"57aa879467e58e4370003259";
+    UMConfigInstance.appKey = @"59ec5ab9f43e483a7a000bb4";
     UMConfigInstance.channelId = @"App Store";
+
     [MobClick startWithConfigure:UMConfigInstance];//配置以上参数
     [MobClick setCrashReportEnabled:YES];
+
     [NSThread sleepForTimeInterval:0.618];//设置启动页面时间
 
     

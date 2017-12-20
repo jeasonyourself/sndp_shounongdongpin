@@ -1883,7 +1883,7 @@ typedef enum {
     [thumbURL sd_setImageWithURL: [NSURL URLWithString:[NSString stringWithFormat:@"%@",_offerDetailModel.goods_thumb]]];
     UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:[NSString stringWithFormat:@"%@ %@ %@/%@",_offerDetailModel.brand_sn,_offerDetailModel.goods_name,_offerDetailModel.formated_shop_price,_offerDetailModel.shop_price_unit] descr:[NSString stringWithFormat:@"%@ %@/%@ %@ %@",_offerDetailModel.goods_name,_offerDetailModel.formated_shop_price,_offerDetailModel.shop_price_unit,_offerDetailModel.goods_txt,[[NSString stringWithFormat:@"%@",_offerDetailModel.goods_type] isEqualToString:@"7"]?_offerDetailModel.goods_local:_offerDetailModel.port_name] thumImage:thumbURL.image];
     //设置网页地址
-    shareObject.webpageUrl = [NSString stringWithFormat:@"http://test.taiyanggo.com/mobile/share.php?act=goods&id=%@",self.goods_id];
+    shareObject.webpageUrl = [NSString stringWithFormat:@"http://www.taiyanggo.com/mobile/share.php?act=goods&id=%@",self.goods_id];
     
     //分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;

@@ -20,10 +20,10 @@ PODS:
   - MagicWindowSDK-noWXSDK (3.90.1701166)
   - Masonry (0.6.4)
   - MBProgressHUD (0.9.2)
-  - MJRefresh (3.1.14.1)
-  - PGDatePicker (1.1.4):
-    - PGDatePicker/PGPickerView (= 1.1.4)
-  - PGDatePicker/PGPickerView (1.1.4)
+  - MJRefresh (3.1.15.1)
+  - PGDatePicker (1.5.12):
+    - PGPickerView
+  - PGPickerView (1.2.1)
   - pop (1.0.10)
   - SDWebImage (4.1.2):
     - SDWebImage/Core (= 4.1.2)
@@ -31,15 +31,15 @@ PODS:
   - TTTAttributedLabel (2.0.0)
   - UITableView+FDTemplateLayoutCell (1.6)
   - UMengAnalytics (4.2.4)
-  - UMengUShare/Core (6.4.6):
+  - UMengUShare/Core (6.4.7):
     - UMengUShare/Network
-  - UMengUShare/Network (6.4.6)
-  - UMengUShare/Social/ReducedWeChat (6.4.6):
+  - UMengUShare/Network (6.4.7)
+  - UMengUShare/Social/ReducedWeChat (6.4.7):
     - UMengUShare/Core
-  - UMengUShare/Social/WeChat (6.4.6):
+  - UMengUShare/Social/WeChat (6.4.7):
     - UMengUShare/Core
     - UMengUShare/Social/ReducedWeChat
-  - UMengUShare/UI (6.4.6):
+  - UMengUShare/UI (6.4.7):
     - UMengUShare/Core
   - UMessage_NOIDFA (1.5.3)
 
@@ -74,14 +74,15 @@ SPEC CHECKSUMS:
   MagicWindowSDK-noWXSDK: 46ccd76456f808e1343338ee0895e08719aed7f8
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  MJRefresh: 238e6a37e2dba12160ee3b79f6d2a2b26abcab42
-  PGDatePicker: 4094c8b2e9c7a7cdb8451ff6510353447529961e
+  MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
+  PGDatePicker: 4db162e6bd07df60e1d1c5fe3aaeb8f761b9322c
+  PGPickerView: cb49c6b3e2a39148bef9f666fa58bb349e0c3b85
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
   UMengAnalytics: ef8d45f94c0e5771dc364cf6a5731d9d3b101da2
-  UMengUShare: fdbbf86353976727af26a66e9a84314ecb59c816
+  UMengUShare: 5055d0e01c844379e173bdca0840fc9fa9297d88
   UMessage_NOIDFA: 062d8440b387650535f9dc254449c86030246f3d
 
 PODFILE CHECKSUM: 7dd02485eb11008db2da1398bec3ce24ea3bfeb1

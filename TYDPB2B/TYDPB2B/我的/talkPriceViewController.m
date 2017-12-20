@@ -32,7 +32,7 @@
     
     
     bgView=[UIView new];
-    bgView.frame=CGRectMake(0, 0, ScreenWidth, self.view.mj_h);
+    bgView.frame=CGRectMake(0, 0, ScreenWidth, ScreenHeight);
     bgView.backgroundColor=[UIColor blackColor];
     bgView.userInteractionEnabled=YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeTapMethod:)];
@@ -176,11 +176,11 @@ return 90.0/375.0*ScreenWidth;
     TFView.tag=sview.tag;
     priceTf.tag=sview.tag;
     self.tableView.scrollEnabled=NO;
-    [self.view addSubview:bgView];
-    [self.view addSubview:TFView];
+    [self.view.window addSubview:bgView];
+    [self.view.window addSubview:TFView];
     [TFView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(bgView).with.offset(40);
-        make.centerY.equalTo(bgView).with.offset(-100);
+        make.centerY.equalTo(bgView).with.offset(-120);
         make.right.equalTo(bgView).with.offset(-40);
         make.height.mas_equalTo(120);
     }];

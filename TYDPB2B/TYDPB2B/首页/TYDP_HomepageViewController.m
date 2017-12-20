@@ -179,6 +179,11 @@ typedef enum {
         _teJiaArray = [NSArray arrayWithArray:totalHomePageInfo.tejia_goods];
         _qiuGouModelArray = [NSArray arrayWithArray:totalHomePageInfo.purchase_list];
         _middlePicModel = totalHomePageInfo.app_index_pic;
+        
+        [_timer invalidate];   // 将定时器从运行循环中移除，
+        _timer = nil;    // 销毁定时器 ---》 这样可以避免控制器不死
+
+        [_baseScrollView removeFromSuperview];
         [self configurationUI];
     } failure:^(TYDPError *error) {
         [_MBHUD setLabelText:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Check Internet connection",nil)]];
@@ -226,6 +231,13 @@ typedef enum {
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
     self.automaticallyAdjustsScrollViewInsets = NO;
     _baseScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, NavHeight-1, ScreenWidth,ScreenHeight-NavHeight-TabbarHeight)];
+    
+    _baseScrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self getHomepageData];
+            }];
+    MJRefreshNormalHeader * header=_baseScrollView.mj_header;
+    header.lastUpdatedTimeLabel.hidden=YES;
+
     [self.view addSubview:_baseScrollView];
 //    _baseScrollView.backgroundColor=RGBACOLOR(252, 252, 252, 1.0);
 
@@ -787,7 +799,7 @@ typedef enum {
             make.width.mas_equalTo(demandCellImageWidth+10);
             make.height.mas_equalTo(demandCellImageWidth+10);
         }];
-        [headImageView sd_setImageWithURL:[NSURL URLWithString:[purchaseListMD.user_face isEqualToString:@""]?@"http://test.taiyanggo.com/images/no_picture.gif":purchaseListMD.user_face] placeholderImage:nil];
+        [headImageView sd_setImageWithURL:[NSURL URLWithString:[purchaseListMD.user_face isEqualToString:@""]?@"http://www.taiyanggo.com/images/no_picture.gif":purchaseListMD.user_face] placeholderImage:nil];
         
         
         UILabel *nameLabel = [UILabel new];
@@ -1509,6 +1521,8 @@ typedef enum {
 -(void)offerButtonClicked:(UIButton *)Btn
 {
     // 切换语言前
+//    NSString *language = [NSLocale preferredLanguages].firstObject;
+
     NSArray *langArr1 = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
     NSString *language1 = langArr1.firstObject;
     debugLog(@"模拟器语言切换之前：%@",language1);
@@ -1843,8 +1857,8 @@ typedef enum {
     return 60;
 }
 - (void)addTimer{
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(autoScroll:) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(autoScroll:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
 }
 - (void)autoScroll:(NSTimer *)timer {
     [_bannerScrollView setContentOffset:CGPointMake(_bannerScrollView.contentOffset.x+ScreenWidth,0) animated:YES];

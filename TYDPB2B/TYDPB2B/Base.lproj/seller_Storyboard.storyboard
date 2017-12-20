@@ -1041,20 +1041,20 @@
                                                             <rect key="frame" x="185" y="8" width="50" height="30"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yes_select" translatesAutoresizingMaskIntoConstraints="NO" id="ABE-HX-Bq9">
-                                                                    <rect key="frame" x="10.5" y="8" width="16" height="16"/>
+                                                                    <rect key="frame" x="20.5" y="8" width="16" height="16"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="16" id="fMQ-nn-65a"/>
                                                                         <constraint firstAttribute="width" secondItem="ABE-HX-Bq9" secondAttribute="height" multiplier="1:1" id="tkI-qd-qeW"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="猪" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="niw-Kl-NQ0">
-                                                                    <rect key="frame" x="26.5" y="0.0" width="13.5" height="30"/>
+                                                                    <rect key="frame" x="36.5" y="0.0" width="13.5" height="30"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRP-KT-l8q">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
                                                                     <connections>
                                                                         <action selector="fstBtnClick:" destination="ctw-gd-xlV" eventType="touchUpInside" id="Aq8-IX-5wX"/>
                                                                     </connections>
@@ -1076,23 +1076,23 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FGs-GH-ouL">
-                                                            <rect key="frame" x="263" y="8" width="50" height="30"/>
+                                                            <rect key="frame" x="243" y="8" width="50" height="30"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yes_select" translatesAutoresizingMaskIntoConstraints="NO" id="J2n-PN-xRp">
-                                                                    <rect key="frame" x="10.5" y="8" width="16" height="16"/>
+                                                                    <rect key="frame" x="20.5" y="8" width="16" height="16"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="16" id="0rO-za-XIc"/>
                                                                         <constraint firstAttribute="width" secondItem="J2n-PN-xRp" secondAttribute="height" multiplier="1:1" id="HQl-fZ-iKW"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="牛" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxg-z7-LYs">
-                                                                    <rect key="frame" x="26.5" y="0.0" width="13.5" height="30"/>
+                                                                    <rect key="frame" x="36.5" y="0.0" width="13.5" height="30"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRd-No-bVg">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
                                                                     <connections>
                                                                         <action selector="fstBtnClick:" destination="ctw-gd-xlV" eventType="touchUpInside" id="bVY-NX-w6o"/>
                                                                     </connections>
@@ -1114,23 +1114,23 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0uo-Tq-leM">
-                                                            <rect key="frame" x="309" y="8" width="50" height="30"/>
+                                                            <rect key="frame" x="299" y="8" width="50" height="30"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yes_select" translatesAutoresizingMaskIntoConstraints="NO" id="S0s-vg-fDK">
-                                                                    <rect key="frame" x="10.5" y="8" width="16" height="16"/>
+                                                                    <rect key="frame" x="20.5" y="8" width="16" height="16"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="S0s-vg-fDK" secondAttribute="height" multiplier="1:1" id="l0H-EN-UYc"/>
                                                                         <constraint firstAttribute="width" constant="16" id="zpL-xn-ZHt"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="羊" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDI-Qs-oPb">
-                                                                    <rect key="frame" x="26.5" y="0.0" width="13.5" height="30"/>
+                                                                    <rect key="frame" x="36.5" y="0.0" width="13.5" height="30"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ul7-ob-s5s">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
                                                                     <connections>
                                                                         <action selector="fstBtnClick:" destination="ctw-gd-xlV" eventType="touchUpInside" id="17H-FS-1Si"/>
                                                                     </connections>

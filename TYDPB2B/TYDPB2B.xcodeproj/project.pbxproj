@@ -1815,7 +1815,7 @@
 				TargetAttributes = {
 					A82163AE1D35F42700EFCFD0 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = BRG8DKYLY2;
+						DevelopmentTeam = FLDQQTQ4C9;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -1970,6 +1970,7 @@
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/MagicWindowSDK-noWXSDK/MagicWindowSDK/MagicWindowSDK/MagicWindow.bundle",
+				"${PODS_ROOT}/PGDatePicker/PGDatePicker/PGDatePicker.bundle",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDK/UMSocialSDKPromptResources.bundle",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialUI/UMSocialSDKResources.bundle",
 			);
@@ -2585,7 +2586,7 @@
 				CODE_SIGN_ENTITLEMENTS = TYDPB2B/TYDPB2B.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Xiaowei Wang (6AEU84JYEH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = BRG8DKYLY2;
+				DEVELOPMENT_TEAM = FLDQQTQ4C9;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)//TYDPB2B/TYDP_PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
@@ -2638,7 +2639,7 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/pop\"",
 					"$(PROJECT_DIR)/UMessage_Sdk_1.5.0a",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yishangshuma.sndpNineOne;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.corshop.tydp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2653,7 +2654,7 @@
 				CODE_SIGN_ENTITLEMENTS = TYDPB2B/TYDPB2B.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Xiaowei Wang (6AEU84JYEH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = BRG8DKYLY2;
+				DEVELOPMENT_TEAM = FLDQQTQ4C9;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)//TYDPB2B/TYDP_PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
@@ -2706,7 +2707,7 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/pop\"",
 					"$(PROJECT_DIR)/UMessage_Sdk_1.5.0a",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yishangshuma.sndpNineOne;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.corshop.tydp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

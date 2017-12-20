@@ -54,7 +54,7 @@
     UIWebView *webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, NavHeight, ScreenWidth, ScreenHeight-NavHeight)];
     [self.view addSubview:webView];
     webView.delegate = self;
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://test.taiyanggo.com/mobile/%@&from=app",self.requestURL]]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.taiyanggo.com/mobile/%@&from=app",self.requestURL]]];
     [webView loadRequest:request];
 }
 
